@@ -1,0 +1,165 @@
+<!--pages/settings/settings.wxml-->
+<view class="settings-container">
+  <!-- 用户信息卡片 -->
+  <view class="user-card">
+    <view class="user-avatar">
+      <text>{{userAvatarText}}</text>
+    </view>
+    <view class="user-info">
+      <text class="user-name">{{settings.nickname || 'Captain Park'}}</text>
+      <text class="user-role">一级轮机长</text>
+    </view>
+  </view>
+
+  <!-- 功能开关 -->
+  <view class="settings-group">
+    <view class="group-title">功能设置</view>
+    
+    <view class="setting-item">
+      <view class="setting-label">
+        <text class="setting-icon">🔍</text>
+        <text class="setting-name">知识图谱分析</text>
+      </view>
+      <switch 
+        class="setting-switch" 
+        checked="{{settings.graphOn}}" 
+        bindchange="onSwitchChange" 
+        data-key="graphOn"
+        color="#14b8a6"
+      />
+    </view>
+    <view class="setting-desc">启用后，AI将结合船舶历史维护记录、设备关联图谱进行多维度故障推理</view>
+
+    <view class="setting-item">
+      <view class="setting-label">
+        <text class="setting-icon">📡</text>
+        <text class="setting-name">离线模式</text>
+      </view>
+      <switch 
+        class="setting-switch" 
+        checked="{{settings.offlineOn}}" 
+        bindchange="onSwitchChange" 
+        data-key="offlineOn"
+        color="#14b8a6"
+      />
+    </view>
+    <view class="setting-desc">启用后，将调用本地部署的大模型和知识库，不依赖外部网络连接</view>
+
+    <view class="setting-item">
+      <view class="setting-label">
+        <text class="setting-icon">🔔</text>
+        <text class="setting-name">消息通知</text>
+      </view>
+      <switch 
+        class="setting-switch" 
+        checked="{{settings.notify}}" 
+        bindchange="onSwitchChange" 
+        data-key="notify"
+        color="#14b8a6"
+      />
+    </view>
+
+    <view class="setting-item">
+      <view class="setting-label">
+        <text class="setting-icon">💾</text>
+        <text class="setting-name">自动保存</text>
+      </view>
+      <switch 
+        class="setting-switch" 
+        checked="{{settings.autoSave}}" 
+        bindchange="onSwitchChange" 
+        data-key="autoSave"
+        color="#14b8a6"
+      />
+    </view>
+  </view>
+
+  <!-- 个人信息 -->
+  <view class="settings-group">
+    <view class="group-title">个人信息</view>
+    
+    <view class="setting-item input-item">
+      <text class="setting-name">昵称</text>
+      <input 
+        class="setting-input" 
+        value="{{settings.nickname}}" 
+        bindblur="onInputBlur" 
+        data-key="nickname"
+        placeholder="请输入昵称"
+        placeholder-class="input-placeholder"
+      />
+    </view>
+
+    <view class="setting-item input-item">
+      <text class="setting-name">IMO 编号</text>
+      <input 
+        class="setting-input" 
+        value="{{settings.imo}}" 
+        bindblur="onInputBlur" 
+        data-key="imo"
+        placeholder="请输入IMO编号"
+        placeholder-class="input-placeholder"
+      />
+    </view>
+
+    <view class="setting-item input-item">
+      <text class="setting-name">邮箱</text>
+      <input 
+        class="setting-input" 
+        value="{{settings.email}}" 
+        bindblur="onInputBlur" 
+        data-key="email"
+        placeholder="请输入邮箱"
+        placeholder-class="input-placeholder"
+      />
+    </view>
+
+    <view class="setting-item input-item">
+      <text class="setting-name">紧急联系</text>
+      <input 
+        class="setting-input" 
+        value="{{settings.emergency}}" 
+        bindblur="onInputBlur" 
+        data-key="emergency"
+        placeholder="请输入紧急联系电话"
+        placeholder-class="input-placeholder"
+      />
+    </view>
+  </view>
+
+  <!-- 系统信息 -->
+  <view class="settings-group">
+    <view class="group-title">系统信息</view>
+    <view class="info-item">
+      <text class="info-label">项目名称</text>
+      <text class="info-value">智能船舶问答系统</text>
+    </view>
+    <view class="info-item">
+      <text class="info-label">版本号</text>
+      <text class="info-value">2.4.1</text>
+    </view>
+    <view class="info-item">
+      <text class="info-label">API 地址</text>
+      <text class="info-value api-url">{{apiBaseURL}}</text>
+    </view>
+  </view>
+
+  <!-- 退出登录 -->
+  <view class="logout-section">
+    <view class="logout-btn" bindtap="showLogoutModal">
+      <text>退出登录</text>
+    </view>
+  </view>
+
+  <!-- 退出确认弹窗 -->
+  <view class="modal-mask" wx:if="{{showLogoutModal}}" bindtap="hideLogoutModal">
+    <view class="modal-content" catchtap="preventBubble">
+      <text class="modal-title">确认退出登录？</text>
+      <text class="modal-desc">退出后将清除本地登录状态</text>
+      <view class="modal-actions">
+        <view class="modal-btn cancel" bindtap="hideLogoutModal">取消</view>
+        <view class="modal-btn confirm" bindtap="confirmLogout">确认退出</view>
+      </view>
+    </view>
+  </view>
+</view>

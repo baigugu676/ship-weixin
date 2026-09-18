@@ -1,0 +1,3104 @@
+[
+  {
+    "step": "exact_dedup",
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控台",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控台",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶_主推进系统_气控换向齿轮箱",
+    "merged_from": "船舶_主推进系统_气控换向齿轮箱",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_辅车钟单元",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_辅车钟单元",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶_主推进系统_气控换向齿轮箱",
+    "merged_from": "船舶_主推进系统_气控换向齿轮箱",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "驾驶室_应急车钟",
+    "merged_from": "驾驶室_应急车钟",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶_主推进系统_陕柴 PC2-6 型船用主机",
+    "merged_from": "船舶_主推进系统_陕柴 PC2-6 型船用主机",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_膜片执行器",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_膜片执行器",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_安全系统_停车电磁阀",
+    "merged_from": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_安全系统_停车电磁阀",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "驾驶台航行值班报警系统",
+    "merged_from": "驾驶台航行值班报警系统",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "驾驶台航行值班报警系统_主控单元",
+    "merged_from": "驾驶台航行值班报警系统_主控单元",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "驾驶台航行值班报警系统_输出接线单元",
+    "merged_from": "驾驶台航行值班报警系统_输出接线单元",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "驾驶台航行值班报警系统",
+    "merged_from": "驾驶台航行值班报警系统",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "驾驶台航行值班报警系统_左右翼复位单元",
+    "merged_from": "驾驶台航行值班报警系统_左右翼复位单元",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "驾驶台航行值班报警系统",
+    "merged_from": "驾驶台航行值班报警系统",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶监测报警系统",
+    "merged_from": "船舶监测报警系统",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶监测报警系统_主机",
+    "merged_from": "船舶监测报警系统_主机",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶监测报警系统_备用主机",
+    "merged_from": "船舶监测报警系统_备用主机",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶监测报警系统_显示单元",
+    "merged_from": "船舶监测报警系统_显示单元",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶监测报警系统_打印设备",
+    "merged_from": "船舶监测报警系统_打印设备",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶监测报警系统_主机_电子存储器",
+    "merged_from": "船舶监测报警系统_主机_电子存储器",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶监测报警系统_主机_看门狗模块",
+    "merged_from": "船舶监测报警系统_主机_看门狗模块",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶监测报警系统_主机_报警检测参数",
+    "merged_from": "船舶监测报警系统_主机_报警检测参数",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶监测报警系统_主机_存储器容量",
+    "merged_from": "船舶监测报警系统_主机_存储器容量",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶监测报警系统_主机_主机故障",
+    "merged_from": "船舶监测报警系统_主机_主机故障",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶监测报警系统_主机_操作权限安全限制",
+    "merged_from": "船舶监测报警系统_主机_操作权限安全限制",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶监测报警系统",
+    "merged_from": "船舶监测报警系统",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶监测报警系统",
+    "merged_from": "船舶监测报警系统",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "机舱总线制监测报警系统",
+    "merged_from": "机舱总线制监测报警系统",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "机舱总线制监测报警系统",
+    "merged_from": "机舱总线制监测报警系统",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "机舱总线制监测报警系统_报警显示单元",
+    "merged_from": "机舱总线制监测报警系统_报警显示单元",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "机舱总线制监测报警系统_报警数据采集模块",
+    "merged_from": "机舱总线制监测报警系统_报警数据采集模块",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "机舱总线制监测报警系统_数据总线",
+    "merged_from": "机舱总线制监测报警系统_数据总线",
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶电气控制设备",
+    "merged_from": "船舶电气控制设备",
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控台",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元",
+    "label": "Equipment",
+    "threshold": 0.96,
+    "similarity": 0.9755,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控台",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_电源",
+    "label": "Equipment",
+    "threshold": 0.96,
+    "similarity": 0.9645,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱",
+    "label": "Equipment",
+    "threshold": 0.96,
+    "similarity": 0.9623,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱",
+    "label": "Equipment",
+    "threshold": 0.96,
+    "similarity": 0.9656,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气动逻辑阀箱",
+    "label": "Equipment",
+    "threshold": 0.96,
+    "similarity": 0.9751,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶监测报警系统_主机",
+    "entity_b": "船舶监测报警系统_备用主机",
+    "label": "Equipment",
+    "threshold": 0.96,
+    "similarity": 0.9751,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶监测报警系统_显示单元",
+    "entity_b": "船舶监测报警系统_操作单元",
+    "label": "Equipment",
+    "threshold": 0.96,
+    "similarity": 0.9633,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶监测报警系统_数据采集模块",
+    "entity_b": "船舶监测报警系统_数据采集通讯模块",
+    "label": "Equipment",
+    "threshold": 0.96,
+    "similarity": 0.9675,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "机舱总线制监测报警系统_报警控制单元",
+    "entity_b": "机舱总线制监测报警系统_报警显示单元",
+    "label": "Equipment",
+    "threshold": 0.96,
+    "similarity": 0.9823,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶_主推进系统_气控换向齿轮箱_机旁换向阀",
+    "entity_b": "船舶_主推进系统_气控换向齿轮箱_齿轮箱换向控制阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9814,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9609,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元_操作面板",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9641,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_精密压力阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9606,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_状态指示灯",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_遥控指示灯",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9671,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_状态指示灯",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控台_电源指示灯",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9734,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_状态指示灯",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_联络指示灯",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9654,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_空气过滤器",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_过滤器",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9634,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_比例阀",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_阀件",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9633,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_失气压力控制器",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_机旁控制单元",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9633,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶_主推进系统_陕柴 PC2-6 型船用主机_主柴油机调速器",
+    "entity_b": "船舶_主推进系统_陕柴 PC2-6 型船用主机_主柴油机调速器_气压转速设定机构",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9637,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶_主推进系统_陕柴 PC2-6 型船用主机_主柴油机调速器",
+    "entity_b": "船舶_主推进系统_陕柴 PC2-6 型船用主机_主柴油机调速器_PG（WOODWORD）型调速器",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9749,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶_主推进系统_陕柴 PC2-6 型船用主机_主柴油机调速器",
+    "entity_b": "船舶_主推进系统_陕柴 PC2-6 型船用主机_主柴油机调速器_气动执行器",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9776,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶_主推进系统_气控换向齿轮箱_齿轮箱换向控制阀",
+    "entity_b": "船舶_主推进系统_气控换向齿轮箱_液压离合器控制导阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9603,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_安全越控按钮",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9748,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_试灯按钮",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9756,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_显示控制板",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9735,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_试验按钮",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9847,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_消音按钮",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9763,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_遥控指示灯",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9891,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元_操作面板",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9772,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_失气指示灯",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.97,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_联络按钮",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9874,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控调速机构",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控调速机构_膜片气缸",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9604,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控调速机构",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控调速机构_机械连杆",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9733,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_开关阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9627,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_减压阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9618,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_滤气阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9745,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_油雾器",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9771,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元_PLC 微机",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元_操作面板",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9678,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_应急停车按钮",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_安全越控按钮",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9621,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_转速测量显示单元_主机测速探头",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_转速测量显示单元_尾轴测速探头",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9865,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_转速测量显示单元_主机测速探头",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_转速测量显示单元_主机测速探头盒",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9869,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_转速测量显示单元_主机测速探头",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_转速测量显示单元_尾轴测速探头盒",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9744,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_机旁控制单元",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9743,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_报警指示灯板",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9715,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_显示控制板",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_复位按钮",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9635,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_机旁控制单元",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_遥控机旁转换开关",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9653,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_电/气转换器",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_控制位置转换气阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.984,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_电/气转换器",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_机旁控制阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9711,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_电/气转换器",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_两位置转换气阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9742,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_电/气转换器",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_过滤器",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9701,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_电/气转换器",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_阀件",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9783,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_正倒车控制电磁阀",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_正倒车控制阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9687,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_控制位置转换气阀",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_控制方式选择阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9674,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_三位置气动操纵阀",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_两位置转换气阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9712,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_失气自保阀",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_阀件",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9618,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_正倒车控制阀",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_控制方式选择阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9625,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_正倒车控制阀",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_正倒车操纵阀",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9873,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_控制方式选择阀",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_控制方式选择开关",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9622,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_控制方式选择开关",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_遥控机旁转换开关",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9711,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控台_电源转换开关",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控台_遥控机旁转换开关",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9847,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控台_电源转换开关",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_遥控机旁转换开关",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9663,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "机舱总线制监测报警系统_报警控制单元_报警指示灯",
+    "entity_b": "机舱总线制监测报警系统_报警显示单元_通讯灯",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9713,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "机舱总线制监测报警系统_报警控制单元_报警指示灯",
+    "entity_b": "机舱总线制监测报警系统_报警显示单元_LED 指示灯",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9785,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "机舱总线制监测报警系统_报警控制单元_数据采集模块",
+    "entity_b": "机舱总线制监测报警系统_报警控制单元_通讯模块",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9736,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "机舱总线制监测报警系统_报警控制单元_数据采集模块",
+    "entity_b": "机舱总线制监测报警系统_报警数据采集模块_采集单元",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.991,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "机舱总线制监测报警系统_报警控制单元_数据采集模块",
+    "entity_b": "机舱总线制监测报警系统_报警数据采集模块_主控单元",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.994,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "机舱总线制监测报警系统_报警数据采集模块_拨码开关组",
+    "entity_b": "机舱总线制监测报警系统_报警数据采集模块_地址设置开关",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9628,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_正常工作温度",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_极限温度",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9641,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_极限温度",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_高温低湿环境条件",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9526,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_工作湿度",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_高温高湿环境条件",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9515,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_工作湿度",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_高温低湿环境条件",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9564,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_振动环境条件_一般处所",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_振动环境条件_往复机械处所",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9811,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_防护等级",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_现场控制参数",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9645,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_防护等级",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_主电源规格",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9506,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_防护等级",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_备用电源规格",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9539,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_防护等级",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_防护等级",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9796,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_转速设定值保持时间",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_超速设定值",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9511,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_现场控制参数",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_操纵档位设置",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9524,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_现场控制参数",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源工作压力",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9513,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_现场控制参数",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源输入压力",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9505,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_现场控制参数",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_单机功耗",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9507,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_现场控制参数",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_结构形式",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9544,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_现场控制参数",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_操作模式",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9562,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_现场控制参数",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_操纵方式显示",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9549,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_现场控制参数",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_工作状态显示",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9526,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_现场控制参数",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_状态指示功能",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9526,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调速范围",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调速起始输出压力 0.05MPa",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9529,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_操纵档位设置",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_指令档位配置",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9794,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_操纵档位设置",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_遥控位置",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9559,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_操纵档位设置",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_空车位置",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9619,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源工作压力",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_输出转速给定气压",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9508,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源工作压力",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_输出气压 0.6MPa",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9523,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源输入压力",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_电源_输入电压 AC220V",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9599,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源输入压力",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_电源_输出电压 DC24V",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.959,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源输入压力",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_双气源净化装置_输入气压 1MPa",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9588,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源输入压力",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调速起始输出压力 0.05MPa",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9573,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_主电源规格",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_电源_自动转换功能",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9577,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_换向时间",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_换向时间 6-8 秒",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9868,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_输出转速给定气压",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_操纵手柄旋转角度",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9511,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_输出转速给定气压",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_转速指令设定值",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9619,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_膜片执行器_输出位移量",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀箱_膜片执行器_输出力矩",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9761,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_失气压力控制器_动作值",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_状态指示功能",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9618,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控操纵器_转速指令设定值",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_超速设定值",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.952,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_操纵方式显示",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_尾轴转向指示",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.981,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_操纵方式显示",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_故障应急状态指示",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.974,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_状态指示功能",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_机旁位置",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9505,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_最大合排时间 2 秒",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_换向时间 6-8 秒",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.952,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_临界转速上限",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_临界转速下限",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9928,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_空车位置",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁显示箱_机旁位置",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9716,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_齿轮箱脱排指令",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_齿轮箱接排指令",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9688,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_齿轮箱脱排指令",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_齿轮箱换向指令",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9518,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "驾驶台航行值班报警系统_通信协议报警名称",
+    "entity_b": "驾驶台航行值班报警系统_通信协议报警状态指示位",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9574,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶监测报警系统_主机_电源输入电压",
+    "entity_b": "船舶监测报警系统_主机_电源电压波动",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9581,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶监测报警系统_过程变送器_电流信号标准",
+    "entity_b": "船舶监测报警系统_过程变送器_电压信号标准",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.97,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶监测报警系统_数据采集模块_电源输入电压",
+    "entity_b": "船舶监测报警系统_数据采集通讯模块_电源输入电压",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9814,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶监测报警系统_数据采集模块_电源输入电压",
+    "entity_b": "船舶监测报警系统_数据输出模块_电源输入电压",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9786,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶监测报警系统_数据采集模块_通讯标准",
+    "entity_b": "船舶监测报警系统_数据采集模块_产品系列",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9504,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶监测报警系统_数据采集模块_通讯标准",
+    "entity_b": "船舶监测报警系统_数据采集通讯模块_通讯转换标准",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.971,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶监测报警系统_数据采集通讯模块_电源输入电压",
+    "entity_b": "船舶监测报警系统_VDR 数据通讯模块_电源输入电压",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9604,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "机舱总线制监测报警系统_24 路系统标准配置",
+    "entity_b": "机舱总线制监测报警系统_16 路系统标准配置",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9577,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "机舱总线制监测报警系统_通讯电缆选型规格",
+    "entity_b": "机舱总线制监测报警系统_电源电缆选型规格",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9687,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_符合船级社规范安全要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_部件集中布置便于维修要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9261,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_符合船级社规范安全要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源处理装置便于操作要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9321,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_符合船级社规范安全要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_防震安装要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9447,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_符合船级社规范安全要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_安装后防护要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9528,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_符合船级社规范安全要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_备用电源自动投入要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9338,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_符合船级社规范安全要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机舱控制箱_安装位置要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9238,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_符合船级社规范安全要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁优先控制原则",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9341,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_符合船级社规范安全要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_紧急状况直接操纵要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9339,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_符合船级社规范安全要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_安装后一般检查要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.938,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_部件集中布置便于维修要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控台驾驶室布置要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9217,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_部件集中布置便于维修要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控显示控制板_关键按钮布置位置要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9239,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_部件集中布置便于维修要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_操纵部位转换应答确认要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.934,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_部件集中布置便于维修要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_禁止擅自修改 PLC 程序",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9215,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源处理装置便于操作要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_电源独立互不干扰要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9324,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源处理装置便于操作要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_电源_极性保护",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9254,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_电源独立互不干扰要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_完车前关闭遥控电源要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9221,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_备用电源自动投入要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控控制单元_PLC 微机_防异物进入要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9219,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_操纵部位转换应答确认要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁控制_完车前复位要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9203,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_紧急状况直接操纵要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_应急车钟操纵试验要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9324,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_机旁控制_应急车钟试验要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_应急车钟操纵试验要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.977,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_安装后一般检查要求",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_管路接头密封性检查要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9253,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_管路吹净维护",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_清理气路杂质和水份",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9293,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_管路吹净维护",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_联系厂家维修 PLC",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9264,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_更换阀件",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_联系厂家维修 PLC",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9367,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气压密封性试验",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_动作值整定",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9336,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气压密封性试验",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_试灯功能检查",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9248,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气压密封性试验",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_遥控操纵功能检查",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9246,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气压密封性试验",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_失气报警试验",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9327,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气压密封性试验",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_检查气源控制空气压力",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9426,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_管路吹净检查",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_动作值整定",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9354,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_管路吹净检查",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_可动件手动检查",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9356,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_管路吹净检查",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_调光功能检查",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9512,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_管路吹净检查",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_消音功能检查",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9363,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_管路吹净检查",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_机旁操纵功能检查",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9441,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_管路吹净检查",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_换向程序调整",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9278,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_管路吹净检查",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_调速机构调整",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9251,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_管路吹净检查",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_检查遥控面板显示",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.926,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_动作值整定",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_紧急停车功能检查",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9266,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_动作值整定",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_检查阀件动作灵活性",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9279,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_可动件手动检查",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_调试_辅车钟联络检查",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9302,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀件损坏",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_装置表面损坏",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9602,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀件损坏",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_错向故障",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9356,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_阀件损坏",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_报警显示",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9309,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气体泄漏",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_工作气源失气",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9437,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气体泄漏",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_紧急状况",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9383,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气体泄漏",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_错向故障",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9336,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_装置表面损坏",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控系统失效",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9375,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_紧急状况",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_主机自动降速",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9341,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_紧急状况",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_主机立即停车",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9349,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_紧急状况",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_超速停车",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9303,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_遥控面板显示异常",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_报警显示",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9318,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "驾驶台航行值班报警系统_视觉报警",
+    "entity_b": "驾驶台航行值班报警系统_声音报警",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9388,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "驾驶台航行值班报警系统_声音报警",
+    "entity_b": "驾驶台航行值班报警系统_紧急呼叫",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9327,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "机舱总线制监测报警系统_参数越限报警",
+    "entity_b": "机舱总线制监测报警系统_声光报警",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9303,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "机舱总线制监测报警系统_指示灯闪频",
+    "entity_b": "机舱总线制监测报警系统_通讯灯不闪烁",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9356,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_电源中断",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_重要参数故障",
+    "label": "FaultCause",
+    "threshold": 0.93,
+    "similarity": 0.9533,
+    "kg_name": "电气"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_电源中断",
+    "entity_b": "CDQY2A-PC2-6 型 船用主柴油机电气遥控系统_气源失压",
+    "label": "FaultCause",
+    "threshold": 0.93,
+    "similarity": 0.9603,
+    "kg_name": "电气"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "发动机安全管理系统",
+    "merged_from": "发动机安全管理系统",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "发动机安全管理系统_发动机",
+    "merged_from": "发动机安全管理系统_发动机",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "发动机安全管理系统_电池",
+    "merged_from": "发动机安全管理系统_电池",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "发动机安全管理系统",
+    "merged_from": "发动机安全管理系统",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "发动机安全管理系统_发动机",
+    "merged_from": "发动机安全管理系统_发动机",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "发动机安全管理系统_润滑系统",
+    "merged_from": "发动机安全管理系统_润滑系统",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "发动机安全管理系统",
+    "merged_from": "发动机安全管理系统",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "发动机安全管理系统_燃油系统",
+    "merged_from": "发动机安全管理系统_燃油系统",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "发动机安全管理系统_发动机",
+    "merged_from": "发动机安全管理系统_发动机",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "发动机安全管理系统_燃油系统_燃油过滤器",
+    "merged_from": "发动机安全管理系统_燃油系统_燃油过滤器",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "发动机安全管理系统_燃油系统_手泵",
+    "merged_from": "发动机安全管理系统_燃油系统_手泵",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "发动机安全管理系统_发动机_涡轮增压器",
+    "merged_from": "发动机安全管理系统_发动机_涡轮增压器",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "发动机安全管理系统_人身伤害风险",
+    "merged_from": "发动机安全管理系统_人身伤害风险",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "发动机安全管理系统_火灾爆炸风险",
+    "merged_from": "发动机安全管理系统_火灾爆炸风险",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "发动机安全管理系统_发动机",
+    "merged_from": "发动机安全管理系统_发动机",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "发动机安全管理系统_冷却系统",
+    "merged_from": "发动机安全管理系统_冷却系统",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "发动机安全管理系统_发动机_传动皮带",
+    "merged_from": "发动机安全管理系统_发动机_传动皮带",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "发动机安全管理系统_冷却系统_叶轮泵",
+    "merged_from": "发动机安全管理系统_冷却系统_叶轮泵",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "发动机安全管理系统_冷却系统_加满冷却剂",
+    "merged_from": "发动机安全管理系统_冷却系统_加满冷却剂",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "发动机安全管理系统_冷却系统_膨胀箱",
+    "merged_from": "发动机安全管理系统_冷却系统_膨胀箱",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System",
+    "merged_from": "Marine Engine System",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_Fuel System",
+    "merged_from": "Marine Engine System_Fuel System",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_Cooling System",
+    "merged_from": "Marine Engine System_Cooling System",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_Lubrication System",
+    "merged_from": "Marine Engine System_Lubrication System",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_Engine Control Module",
+    "merged_from": "Marine Engine System_Engine Control Module",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System",
+    "merged_from": "Marine Engine System",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_Trip Computer",
+    "merged_from": "Marine Engine System_Trip Computer",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_Warning Management Program",
+    "merged_from": "Marine Engine System_Warning Management Program",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "FaultPhenomenon_Speedometer Error",
+    "merged_from": "FaultPhenomenon_Speedometer Error",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "FaultCause_Speed Factor Mismatch",
+    "merged_from": "FaultCause_Speed Factor Mismatch",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System",
+    "merged_from": "Marine Engine System",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_Electrical System",
+    "merged_from": "Marine Engine System_Electrical System",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_External Steering",
+    "merged_from": "Marine Engine System_External Steering",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_Glass Cockpit Display",
+    "merged_from": "Marine Engine System_Glass Cockpit Display",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_Warning Management Program",
+    "merged_from": "Marine Engine System_Warning Management Program",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "FaultPhenomenon_Engine Overspeed",
+    "merged_from": "FaultPhenomenon_Engine Overspeed",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "FaultPhenomenon_Mechanical Damage",
+    "merged_from": "FaultPhenomenon_Mechanical Damage",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_Joystick",
+    "merged_from": "Marine Engine System_Joystick",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_Autopilot",
+    "merged_from": "Marine Engine System_Autopilot",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_Glass Cockpit Display",
+    "merged_from": "Marine Engine System_Glass Cockpit Display",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_External Steering",
+    "merged_from": "Marine Engine System_External Steering",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "FaultPhenomenon_Mechanical Damage",
+    "merged_from": "FaultPhenomenon_Mechanical Damage",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System",
+    "merged_from": "Marine Engine System",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System",
+    "merged_from": "Marine Engine System",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "FaultPhenomenon_Mechanical Damage",
+    "merged_from": "FaultPhenomenon_Mechanical Damage",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "FaultPhenomenon_Shortened Engine Life",
+    "merged_from": "FaultPhenomenon_Shortened Engine Life",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_Engine Control Module",
+    "merged_from": "Marine Engine System_Engine Control Module",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_Information Display",
+    "merged_from": "Marine Engine System_Information Display",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "DiagnosticMethod_Check Fault Code",
+    "merged_from": "DiagnosticMethod_Check Fault Code",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_Alternator",
+    "merged_from": "Marine Engine System_Alternator",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_Echo Sounder",
+    "merged_from": "Marine Engine System_Echo Sounder",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_Lubrication System",
+    "merged_from": "Marine Engine System_Lubrication System",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_Joystick",
+    "merged_from": "Marine Engine System_Joystick",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_Docking Mode",
+    "merged_from": "Marine Engine System_Docking Mode",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_Stern Drive",
+    "merged_from": "Marine Engine System_Stern Drive",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_Cooling System",
+    "merged_from": "Marine Engine System_Cooling System",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_Glass Cockpit Display",
+    "merged_from": "Marine Engine System_Glass Cockpit Display",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Marine Engine System_Parameter_Neutral Warning Sound",
+    "merged_from": "Marine Engine System_Parameter_Neutral Warning Sound",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Volvo Penta Engine",
+    "merged_from": "Volvo Penta Engine",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Volvo Penta Engine_Transmission System_Propeller Shaft",
+    "merged_from": "Volvo Penta Engine_Transmission System_Propeller Shaft",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Volvo Penta Engine_Transmission System_Transmission Malfunction",
+    "merged_from": "Volvo Penta Engine_Transmission System_Transmission Malfunction",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Volvo Penta Engine_Steering System_Electric Steering Unit",
+    "merged_from": "Volvo Penta Engine_Steering System_Electric Steering Unit",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Volvo Penta Engine_Steering System_Dipstick",
+    "merged_from": "Volvo Penta Engine_Steering System_Dipstick",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Volvo Penta Engine",
+    "merged_from": "Volvo Penta Engine",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Volvo Penta Engine_Mechanical System",
+    "merged_from": "Volvo Penta Engine_Mechanical System",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Volvo Penta Engine_Cooling System",
+    "merged_from": "Volvo Penta Engine_Cooling System",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Volvo Penta Engine_Electrical System_Alternator",
+    "merged_from": "Volvo Penta Engine_Electrical System_Alternator",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Volvo Penta Engine_Electrical System_Battery",
+    "merged_from": "Volvo Penta Engine_Electrical System_Battery",
+    "kg_name": "发动机"
+  },
+  {
+    "step": "label_unify",
+    "name": "Marine Engine System_Battery",
+    "labels_merged": [
+      "Component",
+      "Equipment"
+    ],
+    "kg_name": "发动机"
+  },
+  {
+    "step": "label_unify",
+    "name": "Marine Engine System_Fuel System",
+    "labels_merged": [
+      "Component",
+      "System"
+    ],
+    "kg_name": "发动机"
+  },
+  {
+    "step": "label_unify",
+    "name": "Marine Engine System_Cooling System",
+    "labels_merged": [
+      "Component",
+      "System"
+    ],
+    "kg_name": "发动机"
+  },
+  {
+    "step": "label_unify",
+    "name": "Marine Engine System_Lubrication System",
+    "labels_merged": [
+      "Component",
+      "System"
+    ],
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Volvo Penta Engine_Fault_Fuel Leak",
+    "entity_b": "Volvo Penta Engine_Fault_Coolant Leak",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9458,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Volvo Penta Engine_Fault_Fuel Leak",
+    "entity_b": "Volvo Penta Engine_Fault_Oil Leak",
+    "label": "FaultPhenomenon",
+    "threshold": 0.93,
+    "similarity": 0.9744,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Marine Engine System_FaultCause_Air In Fuel System",
+    "entity_b": "Marine Engine System_FaultCause_Water In Fuel",
+    "label": "FaultCause",
+    "threshold": 0.93,
+    "similarity": 0.9332,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "发动机安全管理系统_燃油系统_清洁度要求",
+    "entity_b": "发动机安全管理系统_发动机_清洁度要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9534,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "发动机安全管理系统_冷却系统_冷却剂规格要求",
+    "entity_b": "发动机安全管理系统_冷却系统_冷却剂混合要求",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9318,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Volvo Penta Engine_Safety_Hot Coolant Burn Risk",
+    "entity_b": "Volvo Penta Engine_Safety_Hot Oil Burn Risk",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9505,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Volvo Penta Engine_Cooling System_Anode Cleaning Restriction",
+    "entity_b": "Volvo Penta Engine_Transmission System_Anode Cleaning Restriction",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9575,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Volvo Penta Engine_Transmission System_Exhaust Plate Cleaning Restriction",
+    "entity_b": "Volvo Penta Engine_Transmission System_Exhaust Plate Painting Restriction",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9296,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Volvo Penta Engine_Transmission System_Dipstick Material Warning",
+    "entity_b": "Volvo Penta Engine_Transmission System_Dipstick Plastic Warning",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9487,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Marine Engine System_Parameter_Oil Viscosity",
+    "entity_b": "Marine Engine System_Parameter_Fuel Viscosity",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9568,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Volvo Penta Engine_Lubrication System_Oil Level Check",
+    "entity_b": "Volvo Penta Engine_Transmission System_Oil Level Check",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9633,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Volvo Penta Engine_Lubrication System_Oil Level Check",
+    "entity_b": "Volvo Penta Engine_Steering System_Steering Oil Level Check",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9225,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "发动机安全管理系统_燃油系统_过滤器排气",
+    "entity_b": "发动机安全管理系统_燃油系统_过滤器更换",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9461,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "发动机安全管理系统_燃油系统_过滤器排气",
+    "entity_b": "发动机安全管理系统_燃油系统_系统排气",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9411,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "发动机安全管理系统_冷却系统_加满冷却剂",
+    "entity_b": "发动机安全管理系统_冷却系统_清空冷却剂",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9221,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "发动机安全管理系统_冷却系统_清空冷却剂",
+    "entity_b": "发动机安全管理系统_冷却系统_冲洗冷却系统",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.929,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "发动机安全管理系统_冷却系统_更换叶轮",
+    "entity_b": "发动机安全管理系统_冷却系统_拆卸叶轮储存",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9201,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Volvo Penta Engine_Repair_Engine Overhaul",
+    "entity_b": "Volvo Penta Engine_Transmission System_Overhaul",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9371,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Volvo Penta Engine_Lubrication System_Oil And Filter Replacement",
+    "entity_b": "Volvo Penta Engine_Transmission System_Oil Filter Replacement",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.942,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Volvo Penta Engine_Cooling System_Anode Replacement",
+    "entity_b": "Volvo Penta Engine_Transmission System_Anode Replacement",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9389,
+    "kg_name": "发动机"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump System",
+    "merged_from": "SMP Series Hydraulic Pump System",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Main Unit",
+    "merged_from": "SMP Series Hydraulic Pump_Main Unit",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Control Valve",
+    "merged_from": "SMP Series Hydraulic Pump_Control Valve",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Pneumatic Motor",
+    "merged_from": "SMP Series Hydraulic Pump_Pneumatic Motor",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Oil Tank",
+    "merged_from": "SMP Series Hydraulic Pump_Oil Tank",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Hydraulic Oil Spec",
+    "merged_from": "SMP Series Hydraulic Pump_Hydraulic Oil Spec",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Equipment Damage",
+    "merged_from": "SMP Series Hydraulic Pump_Equipment Damage",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump System",
+    "merged_from": "SMP Series Hydraulic Pump System",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Main Unit",
+    "merged_from": "SMP Series Hydraulic Pump_Main Unit",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Pneumatic Motor",
+    "merged_from": "SMP Series Hydraulic Pump_Pneumatic Motor",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Oil Tank",
+    "merged_from": "SMP Series Hydraulic Pump_Oil Tank",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Pressure Regulating Valve",
+    "merged_from": "SMP Series Hydraulic Pump_Pressure Regulating Valve",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Max Working Pressure",
+    "merged_from": "SMP Series Hydraulic Pump_Max Working Pressure",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Ambient Temperature",
+    "merged_from": "SMP Series Hydraulic Pump_Ambient Temperature",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Hydraulic Oil Spec",
+    "merged_from": "SMP Series Hydraulic Pump_Hydraulic Oil Spec",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Air Source",
+    "merged_from": "SMP Series Hydraulic Pump_Air Source",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Main Unit",
+    "merged_from": "SMP Series Hydraulic Pump_Main Unit",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_High Pressure Hose",
+    "merged_from": "SMP Series Hydraulic Pump_High Pressure Hose",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Pneumatic Motor",
+    "merged_from": "SMP Series Hydraulic Pump_Pneumatic Motor",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Oil Tank",
+    "merged_from": "SMP Series Hydraulic Pump_Oil Tank",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Equipment Damage",
+    "merged_from": "SMP Series Hydraulic Pump_Equipment Damage",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Personal Injury",
+    "merged_from": "SMP Series Hydraulic Pump_Personal Injury",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Warning Plate",
+    "merged_from": "SMP Series Hydraulic Pump_Warning Plate",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Personal Injury",
+    "merged_from": "SMP Series Hydraulic Pump_Personal Injury",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Oil Tank",
+    "merged_from": "SMP Series Hydraulic Pump_Oil Tank",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Filter plate",
+    "merged_from": "SMP Series Hydraulic Pump_Filter plate",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Pneumatic Motor",
+    "merged_from": "SMP Series Hydraulic Pump_Pneumatic Motor",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Main Unit",
+    "merged_from": "SMP Series Hydraulic Pump_Main Unit",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Pressure Regulating Valve",
+    "merged_from": "SMP Series Hydraulic Pump_Pressure Regulating Valve",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Check valve",
+    "merged_from": "SMP Series Hydraulic Pump_Check valve",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "SMP Series Hydraulic Pump_Instrument",
+    "merged_from": "SMP Series Hydraulic Pump_Instrument",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "非垂直安装额外支持要求",
+    "merged_from": "非垂直安装额外支持要求",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "使用管道支架或伸缩节",
+    "merged_from": "使用管道支架或伸缩节",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "法兰紧固件对角交叉均匀拧紧",
+    "merged_from": "法兰紧固件对角交叉均匀拧紧",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "法兰错位连接",
+    "merged_from": "法兰错位连接",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "阀门受力过度变形",
+    "merged_from": "阀门受力过度变形",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统_ZP300 型阀门_气动执行机构",
+    "merged_from": "船舶管路系统_ZP300 型阀门_气动执行机构",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统_ZP300 型阀门",
+    "merged_from": "船舶管路系统_ZP300 型阀门",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统",
+    "merged_from": "船舶管路系统",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统",
+    "merged_from": "船舶管路系统",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统_ZP300 型阀门",
+    "merged_from": "船舶管路系统_ZP300 型阀门",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统_ZP300 型阀门",
+    "merged_from": "船舶管路系统_ZP300 型阀门",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统_ZP300 型阀门",
+    "merged_from": "船舶管路系统_ZP300 型阀门",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统_ZP300 型阀门_手轮",
+    "merged_from": "船舶管路系统_ZP300 型阀门_手轮",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统_ZP300 型阀门",
+    "merged_from": "船舶管路系统_ZP300 型阀门",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统",
+    "merged_from": "船舶管路系统",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统_ZP300 型阀门",
+    "merged_from": "船舶管路系统_ZP300 型阀门",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统_ZP300 型阀门_气动执行机构",
+    "merged_from": "船舶管路系统_ZP300 型阀门_气动执行机构",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "船舶管路系统_ZP300 型阀门_活塞杆",
+    "merged_from": "船舶管路系统_ZP300 型阀门_活塞杆",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "阀门管路系统_三偏心阀",
+    "merged_from": "阀门管路系统_三偏心阀",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "阀门管路系统_三偏心阀_阀瓣",
+    "merged_from": "阀门管路系统_三偏心阀_阀瓣",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "阀门管路系统_三偏心阀_执行机构",
+    "merged_from": "阀门管路系统_三偏心阀_执行机构",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "阀门管路系统_三偏心阀_安装方向指示",
+    "merged_from": "阀门管路系统_三偏心阀_安装方向指示",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Rosemount 3051S 无线压力变送器",
+    "merged_from": "Rosemount 3051S 无线压力变送器",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "375 现场手操器",
+    "merged_from": "375 现场手操器",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "AMS 软件",
+    "merged_from": "AMS 软件",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "Rosemount 3051S 无线压力变送器",
+    "merged_from": "Rosemount 3051S 无线压力变送器",
+    "kg_name": "液压"
+  },
+  {
+    "step": "exact_dedup",
+    "merged_into": "智能无线网关",
+    "merged_from": "智能无线网关",
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "SMP Series Hydraulic Pump_Hydraulic Control Module",
+    "entity_b": "SMP Series Hydraulic Pump_Pneumatic Control Module",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9611,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶管路系统_ZP300 型阀门_气动执行机构",
+    "entity_b": "船舶管路系统_ZP300 型阀门_气动执行机构_气缸",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.9806,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶管路系统_ZP300 型阀门_气动执行机构",
+    "entity_b": "船舶管路系统_ZP300 型阀门_气动执行机构_控制附件",
+    "label": "Component",
+    "threshold": 0.96,
+    "similarity": 0.971,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶管路系统_ZP300 型阀门_填料压盖调整",
+    "entity_b": "船舶管路系统_ZP300 型阀门_填料压盖安装",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9631,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶管路系统_ZP300 型阀门_填料压盖调整",
+    "entity_b": "船舶管路系统_ZP300 型阀门_更换填料",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9237,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶管路系统_ZP300 型阀门_填料层交替安放",
+    "entity_b": "船舶管路系统_ZP300 型阀门_更换填料",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9224,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶管路系统_ZP300 型阀门_安装方式 A",
+    "entity_b": "船舶管路系统_ZP300 型阀门_安装方式 C",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.953,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶管路系统_ZP300 型阀门_气动执行机构_长期储存润滑维护",
+    "entity_b": "船舶管路系统_ZP300 型阀门_气动执行机构_气孔封堵维护",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9264,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "阀门管路系统_三偏心阀_管路冲洗",
+    "entity_b": "阀门管路系统_三偏心阀_轴承定期冲洗",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9215,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "阀门管路系统_三偏心阀_轴承连续冲洗",
+    "entity_b": "阀门管路系统_三偏心阀_轴承定期冲洗",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9568,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Rosemount 3051S 无线压力变送器_组态网络参数",
+    "entity_b": "Rosemount 3051S 无线压力变送器_组态设备显示",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9293,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Rosemount 3051S 无线压力变送器_组态网络参数",
+    "entity_b": "Rosemount 3051S 无线压力变送器_组态换算变量",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9251,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Rosemount 3051S 无线压力变送器_无线设备加电",
+    "entity_b": "Rosemount 3051S 无线压力变送器_安装电源模块",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9327,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Rosemount 3051S 无线压力变送器_法兰转接器安装",
+    "entity_b": "Rosemount 3051S 无线压力变送器_安装法兰适配器",
+    "label": "RepairMethod",
+    "threshold": 0.92,
+    "similarity": 0.9747,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "SMP Series Hydraulic Pump_Pressure Adjustment Safety",
+    "entity_b": "SMP Series Hydraulic Pump_Pressure Adjustment Connection Safety",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.951,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "SMP Series Hydraulic Pump_High Pressure Pipe Safety",
+    "entity_b": "SMP Series Hydraulic Pump_High Pressure Fluid Safety",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9406,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "SMP Series Hydraulic Pump_Hose Bending Safety",
+    "entity_b": "SMP Series Hydraulic Pump_Hose Winding Safety",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9213,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Rosemount 3051S 无线压力变送器_危险物质处理安全",
+    "entity_b": "Rosemount 3051S 无线压力变送器_防爆接线安全",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9219,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Rosemount 3051S 无线压力变送器_外壳盖金属接触安全",
+    "entity_b": "Rosemount 3051S 无线压力变送器_外壳金属接触确认",
+    "label": "SafetyNote",
+    "threshold": 0.92,
+    "similarity": 0.9302,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶管路系统_ZP300 型阀门_阀体材料",
+    "entity_b": "船舶管路系统_ZP300 型阀门_闸板材料",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9527,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶管路系统_ZP300 型阀门_阀体材料",
+    "entity_b": "船舶管路系统_ZP300 型阀门_阀座材料",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.983,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶管路系统_ZP300 型阀门_阀座材料",
+    "entity_b": "船舶管路系统_ZP300 型阀门_填料材料",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9525,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "船舶管路系统_ZP300 型阀门_ASME B16.5 标准",
+    "entity_b": "船舶管路系统_ZP300 型阀门_ASME B16.47 标准",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9509,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Rosemount 3051S 无线压力变送器_压力",
+    "entity_b": "Rosemount 3051S 无线压力变送器_供电电压",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9508,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Rosemount 3051S 无线压力变送器_传感器温度",
+    "entity_b": "Rosemount 3051S 无线压力变送器_传感器温度单位",
+    "label": "Parameter",
+    "threshold": 0.95,
+    "similarity": 0.9546,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "SMP Series Hydraulic Pump_Material Defect",
+    "entity_b": "SMP Series Hydraulic Pump_Manufacturing Defect",
+    "label": "FaultCause",
+    "threshold": 0.93,
+    "similarity": 0.9454,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "Rosemount 3051S 无线压力变送器_导压管残留气体",
+    "entity_b": "Rosemount 3051S 无线压力变送器_导压管残留液体",
+    "label": "FaultCause",
+    "threshold": 0.93,
+    "similarity": 0.967,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "阀门管路系统_三偏心阀_阀门检查",
+    "entity_b": "阀门管路系统_三偏心阀_行程验证",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9289,
+    "kg_name": "液压"
+  },
+  {
+    "step": "semantic_merge",
+    "entity_a": "阀门管路系统_三偏心阀_阀门检查",
+    "entity_b": "阀门管路系统_三偏心阀_水压测试",
+    "label": "DiagnosticMethod",
+    "threshold": 0.92,
+    "similarity": 0.9272,
+    "kg_name": "液压"
+  }
+]

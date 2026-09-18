@@ -1,0 +1,200 @@
+<!--pages/chat/chat.wxml-->
+<view class="chat-container">
+  <!-- 自定义导航栏 -->
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+    <view class="nav-content">
+      <view class="nav-title-wrap">
+        <view class="status-dot"></view>
+        <text class="nav-title">{{currentChat ? currentChat.title : '智能船舶问答'}}</text>
+      </view>
+      <view class="nav-actions">
+        <view class="nav-btn" bindtap="showNewChatConfirm" wx:if="{{currentChat}}">
+          <text class="nav-btn-icon">+</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 欢迎界面 -->
+  <view class="welcome-section" wx:if="{{!currentChatId}}">
+    <view class="welcome-logo">
+      <view class="logo-glow"></view>
+      <view class="logo-box">⚓</view>
+    </view>
+    <text class="welcome-title">欢迎使用智能船舶问答系统</text>
+    <text class="welcome-desc">基于知识图谱的深度故障诊断引擎已就绪
+请告诉我您想了解的船舶设备问题</text>
+    
+    <view class="quick-cards">
+      <view class="quick-card" wx:for="{{quickCards}}" wx:key="title" bindtap="onQuickCardTap" data-title="{{item.title}}">
+        <text class="quick-card-icon">{{item.icon}}</text>
+        <text class="quick-card-title">{{item.title}}</text>
+        <text class="quick-card-desc">{{item.desc}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 聊天消息区 -->
+  <scroll-view 
+    wx:if="{{currentChatId}}"
+    class="message-list" 
+    scroll-y 
+    scroll-into-view="{{scrollToMessage}}"
+    scroll-with-animation
+    enhanced
+    show-scrollbar
+  >
+    <view class="message-wrap" wx:for="{{currentChat.messages}}" wx:key="id" id="msg-{{item.id || index}}">
+      <!-- 用户消息 -->
+      <view class="message-row user" wx:if="{{item.role === 'user'}}">
+        <view class="message-bubble-user">
+          <text class="message-text">{{item.content}}</text>
+        </view>
+        <view class="avatar avatar-user">
+          <text>{{userAvatarText}}</text>
+        </view>
+      </view>
+
+      <!-- AI 消息 -->
+      <view class="message-row ai" wx:if="{{item.role === 'ai'}}">
+        <view class="avatar avatar-ai">
+          <text>⚓</text>
+        </view>
+        <view class="message-content-ai">
+          <!-- 状态标签 -->
+          <view class="message-tags">
+            <view class="tag tag-offline" wx:if="{{item.isOffline}}">
+              <text>💾 离线回答</text>
+            </view>
+            <view class="tag tag-online" wx:if="{{!item.isOffline}}">
+              <text>📶 在线回答</text>
+            </view>
+            <view class="tag tag-kg" wx:if="{{item.isGraphEnabled || item.kgTriplets.length > 0}}">
+              <text>🔍 知识图谱</text>
+            </view>
+          </view>
+
+          <!-- 追踪步骤 -->
+          <view class="trace-panel" wx:if="{{item.traceSteps.length > 0}}">
+            <view class="trace-header" bindtap="toggleTrace" data-msgid="{{item.id}}">
+              <text class="trace-title">📊 后端响应过程</text>
+              <text class="trace-arrow {{item.traceOpen ? 'open' : ''}}">▼</text>
+            </view>
+            <view class="trace-body" wx:if="{{item.traceOpen}}">
+              <text class="trace-step" wx:for="{{item.traceSteps}}" wx:for-item="step" wx:key="index">{{index + 1}}. {{step.text}}</text>
+            </view>
+          </view>
+
+          <!-- 消息内容 -->
+          <view class="message-bubble-ai">
+            <text class="message-text" wx:if="{{!item.isOffline}}">{{item.content}}</text>
+            <rich-text class="message-rich-text" wx:if="{{item.isOffline}}" nodes="{{item.renderedContent}}"></rich-text>
+            <view class="typing-cursor" wx:if="{{item.isStreaming && !item.isPaused}}">
+              <view class="cursor"></view>
+            </view>
+          </view>
+
+          <!-- 流式控制 -->
+          <view class="stream-controls" wx:if="{{item.isStreaming && item.isPaused}}">
+            <view class="stream-btn" bindtap="resumeStreaming" data-msgid="{{item.id}}">
+              <text>▶ 继续回答</text>
+            </view>
+            <text class="stream-pause-hint">⏸️ 用户已暂停</text>
+          </view>
+
+          <!-- 参考文献 -->
+          <view class="citations-panel" wx:if="{{item.citations.length > 0}}">
+            <view class="citations-header" bindtap="toggleCitations" data-msgid="{{item.id}}">
+              <text class="citations-title">📚 参考来源 ({{item.citations.length}})</text>
+              <text class="citations-arrow {{item.citationsOpen ? 'open' : ''}}">▼</text>
+            </view>
+            <view class="citations-body" wx:if="{{item.citationsOpen}}">
+              <view class="citation-item" wx:for="{{item.citations}}" wx:for-item="cit" wx:key="index">
+                <view class="citation-header">
+                  <text class="citation-index">资料{{index + 1}}</text>
+                  <text class="citation-score" wx:if="{{cit.score}}">相关度 {{cit.score}}%</text>
+                </view>
+                <text class="citation-source">来源：{{cit.source}}</text>
+                <text class="citation-text" wx:if="{{cit.text}}">{{cit.text}}</text>
+              </view>
+            </view>
+          </view>
+
+          <!-- 知识图谱三元组 -->
+          <view class="kg-panel" wx:if="{{item.kgTriplets.length > 0}}">
+            <view class="kg-header" bindtap="toggleKg" data-msgid="{{item.id}}">
+              <text class="kg-title">🕸️ 知识图谱 ({{item.kgTriplets.length}})</text>
+              <text class="kg-arrow {{item.kgOpen ? 'open' : ''}}">▼</text>
+            </view>
+            <view class="kg-body" wx:if="{{item.kgOpen}}">
+              <text class="kg-triplet" wx:for="{{item.kgTriplets}}" wx:for-item="t" wx:key="index">{{index + 1}}. {{t.head}} --{{t.rel || t.relation || '关联'}}--> {{t.tail}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 底部占位 -->
+    <view class="message-bottom" id="msg-bottom"></view>
+  </scroll-view>
+
+  <!-- 底部输入区 -->
+  <view class="input-section">
+    <!-- 上传状态 -->
+    <view class="upload-status" wx:if="{{uploadStatus}}">
+      <text class="upload-status-text {{uploadStatus.type}}">{{uploadStatus.text}}</text>
+    </view>
+
+    <!-- 最近上传 -->
+    <view class="recent-uploads" wx:if="{{recentUploads.length > 0}}">
+      <text class="recent-uploads-title">最近上传</text>
+      <view class="upload-item" wx:for="{{recentUploads}}" wx:key="id">
+        <text class="upload-item-name">{{item.name}}</text>
+        <view class="upload-item-badge {{item.status}}">
+          <text>{{item.status === 'success' ? '成功' : item.status === 'error' ? '失败' : '处理中'}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 输入框 -->
+    <view class="input-bar">
+      <view class="attach-btn" bindtap="chooseFile" wx:if="{{!isUploading}}">
+        <text class="attach-icon">📎</text>
+      </view>
+      <view class="attach-btn" wx:if="{{isUploading}}">
+        <view class="upload-spinner"></view>
+      </view>
+      
+      <input 
+        class="chat-input"
+        type="text"
+        placeholder="{{isAnswering ? '正在回答中，请稍候...' : '输入您的问题...'}}"
+        placeholder-class="input-placeholder"
+        value="{{inputValue}}"
+        bindinput="onInputChange"
+        confirm-type="send"
+        bindconfirm="handleSend"
+        disabled="{{isAnswering && !activeStreamingPaused}}"
+      />
+      
+      <view 
+        class="send-btn {{isAnswering && !activeStreamingPaused ? 'pause' : ''}}"
+        bindtap="onSendBtnTap"
+      >
+        <text class="send-icon">{{isAnswering && !activeStreamingPaused ? '⏸' : '▶'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 新建会话确认弹窗 -->
+  <view class="modal-mask" wx:if="{{showNewChatModal}}" bindtap="hideNewChatModal">
+    <view class="modal-content" catchtap="preventBubble">
+      <text class="modal-title">确认新建会话？</text>
+      <text class="modal-desc">当前会话内容将自动保存</text>
+      <view class="modal-actions">
+        <view class="modal-btn cancel" bindtap="hideNewChatModal">取消</view>
+        <view class="modal-btn confirm" bindtap="confirmNewChat">确认</view>
+      </view>
+    </view>
+  </view>
+</view>
