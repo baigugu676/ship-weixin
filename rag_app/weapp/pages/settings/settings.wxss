@@ -1,0 +1,254 @@
+/* pages/settings/settings.wxss */
+.settings-container {
+  min-height: 100vh;
+  background: #041527;
+  padding: 16px;
+  padding-bottom: 40px;
+  box-sizing: border-box;
+}
+
+/* 用户卡片 */
+.user-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.user-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.user-name {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.user-role {
+  display: block;
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* 设置分组 */
+.settings-group {
+  margin-bottom: 20px;
+}
+
+.group-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  padding-left: 4px;
+}
+
+/* 设置项 */
+.setting-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 1px;
+}
+
+.setting-item:first-child {
+  border-radius: 12px 12px 0 0;
+}
+
+.setting-item:last-child {
+  border-radius: 0 0 12px 12px;
+  margin-bottom: 0;
+}
+
+.setting-item:only-child {
+  border-radius: 12px;
+}
+
+.setting-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.setting-icon {
+  font-size: 18px;
+}
+
+.setting-name {
+  font-size: 14px;
+  color: #e2e8f0;
+}
+
+.setting-desc {
+  font-size: 11px;
+  color: #64748b;
+  padding: 8px 16px 12px;
+  line-height: 1.5;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 0 0 12px 12px;
+  margin-bottom: 8px;
+}
+
+.setting-switch {
+  transform: scale(0.85);
+}
+
+/* 输入项 */
+.input-item {
+  padding: 12px 16px;
+}
+
+.setting-input {
+  flex: 1;
+  text-align: right;
+  color: #94a3b8;
+  font-size: 14px;
+  margin-left: 16px;
+}
+
+.input-placeholder {
+  color: #475569;
+}
+
+/* 信息项 */
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 1px;
+}
+
+.info-item:first-child {
+  border-radius: 12px 12px 0 0;
+}
+
+.info-item:last-child {
+  border-radius: 0 0 12px 12px;
+  margin-bottom: 0;
+}
+
+.info-label {
+  font-size: 14px;
+  color: #e2e8f0;
+}
+
+.info-value {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.api-url {
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 退出登录 */
+.logout-section {
+  margin-top: 24px;
+}
+
+.logout-btn {
+  padding: 14px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 12px;
+  text-align: center;
+  font-size: 15px;
+  color: #f87171;
+  font-weight: 500;
+}
+
+.logout-btn:active {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+/* 弹窗 */
+.modal-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #0a2540;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  width: 280px;
+  text-align: center;
+}
+
+.modal-title {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.modal-desc {
+  display: block;
+  font-size: 13px;
+  color: #94a3b8;
+  margin-bottom: 20px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.modal-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.modal-btn.cancel {
+  background: rgba(255, 255, 255, 0.05);
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-btn.confirm {
+  background: linear-gradient(135deg, #0d9488, #0a2540);
+  color: #fff;
+}

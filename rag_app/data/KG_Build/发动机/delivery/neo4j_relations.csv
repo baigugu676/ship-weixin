@@ -1,0 +1,832 @@
+rel_id,head,head_label,relation,tail,tail_label,description,doc_id,chunk_id
+REL_000001,FaultPhenomenon_Burns,FaultPhenomenon,CAUSED_BY,FaultCause_Hot Fluid Or Surface,FaultCause,人员灼伤故障由接触热流体或表面导致,D8操作手册,D8操作手册::chunk_1;D8操作手册::chunk_2;D8操作手册::chunk_3;D8操作手册::chunk_4
+REL_000002,FaultPhenomenon_Carbon Monoxide Poisoning,FaultPhenomenon,CAUSED_BY,FaultCause_Exhaust Wake Inhalation,FaultCause,一氧化碳中毒现象由船尾湍流吸入废气导致,D8操作手册,D8操作手册::chunk_7
+REL_000003,FaultPhenomenon_Component Failure,FaultPhenomenon,CAUSED_BY,FaultCause_Component Contamination,FaultCause,组件故障现象由组件污染引起,D8操作手册,D8操作手册::chunk_7
+REL_000004,FaultPhenomenon_Corrosion Danger,FaultPhenomenon,CAUSED_BY,FaultCause_High Corrosion Environment,FaultCause,腐蚀危险由高腐蚀环境导致,D8操作手册,D8操作手册::chunk_18
+REL_000005,FaultPhenomenon_DPS Activation Failure,FaultPhenomenon,CAUSED_BY,FaultCause_DPS Antenna Fault,FaultCause,激活失败由天线故障导致,D8操作手册,D8操作手册::chunk_18
+REL_000006,FaultPhenomenon_DPS Activation Failure,FaultPhenomenon,CAUSED_BY,FaultCause_GPS Signal Weakness,FaultCause,激活失败由 GPS 信号弱导致,D8操作手册,D8操作手册::chunk_18
+REL_000007,FaultPhenomenon_DPS Activation Failure,FaultPhenomenon,CAUSED_BY,FaultCause_Joystick Not Neutral,FaultCause,激活失败由操纵杆未回空档导致,D8操作手册,D8操作手册::chunk_18
+REL_000008,FaultPhenomenon_DPS Activation Failure,FaultPhenomenon,CAUSED_BY,FaultCause_Sliding Function Unavailable,FaultCause,激活失败由滑动功能不可用导致,D8操作手册,D8操作手册::chunk_18
+REL_000009,FaultPhenomenon_DPS Activation Failure,FaultPhenomenon,CAUSED_BY,FaultCause_Vessel Speed Too High,FaultCause,激活失败由船速过高导致,D8操作手册,D8操作手册::chunk_18
+REL_000010,FaultPhenomenon_DPS Activation Failure,FaultPhenomenon,DIAGNOSED_BY,DiagnosticMethod_Check GPS Antenna,DiagnosticMethod,激活失败故障可通过检查 GPS 天线诊断,D8操作手册,D8操作手册::chunk_18
+REL_000011,FaultPhenomenon_Electronic Device Damage,FaultPhenomenon,CAUSED_BY,FaultCause_Disconnecting Switch While Running,FaultCause,电子装置损坏故障由运行时断开开关导致,D8操作手册,D8操作手册::chunk_1;D8操作手册::chunk_2;D8操作手册::chunk_3;D8操作手册::chunk_4
+REL_000012,FaultPhenomenon_Electronic Device Damage,FaultPhenomenon,CAUSED_BY,FaultCause_Wrong Battery Polarity,FaultCause,电子设备损坏现象可由电池极性接反导致,D8操作手册,D8操作手册::chunk_5;D8操作手册::chunk_6
+REL_000013,FaultPhenomenon_Emission Certificate Void,FaultPhenomenon,CAUSED_BY,FaultCause_Unauthorized Modification,FaultCause,擅自改装导致排放证书无效,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000014,FaultPhenomenon_Engine Overspeed,FaultPhenomenon,CAUSED_BY,FaultCause_Wrong Fuel Quality,FaultCause,发动机超速故障由错误的燃料质量导致,D8操作手册,D8操作手册::chunk_1;D8操作手册::chunk_2;D8操作手册::chunk_3;D8操作手册::chunk_4
+REL_000015,FaultPhenomenon_Engine Start Failure,FaultPhenomenon,CAUSED_BY,FaultCause_Cold Weather,FaultCause,发动机启动失败可由寒冷天气导致,D8操作手册,D8操作手册::chunk_20
+REL_000016,FaultPhenomenon_Fire Or Explosion,FaultPhenomenon,CAUSED_BY,FaultCause_Spark Or Open Flame,FaultCause,火灾或爆炸事故由火花或明火引发,D8操作手册,D8操作手册::chunk_0
+REL_000017,FaultPhenomenon_Fuel Or Oil Leak,FaultPhenomenon,DIAGNOSED_BY,DiagnosticMethod_Visual Inspection Before Start,DiagnosticMethod,泄漏故障可通过启动前目视检查进行诊断,D8操作手册,D8操作手册::chunk_0
+REL_000018,FaultPhenomenon_Fuel Pipe Cracking,FaultPhenomenon,CAUSED_BY,FaultCause_Bending Fuel Pipes,FaultCause,管路开裂故障由违规弯曲高压油管引起,D8操作手册,D8操作手册::chunk_5;D8操作手册::chunk_6
+REL_000019,FaultPhenomenon_High Fuel Consumption,FaultPhenomenon,CAUSED_BY,FaultCause_Wrong Oil Coolant Quality,FaultCause,错误油品质量导致油耗增加,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000020,FaultPhenomenon_Mechanical Damage,FaultPhenomenon,CAUSED_BY,FaultCause_Cold Idling,FaultCause,冷态发动机空转会导致发动机部件机械损坏,D8操作手册,D8操作手册::chunk_21
+REL_000021,FaultPhenomenon_Mechanical Damage,FaultPhenomenon,CAUSED_BY,FaultCause_Foreign Objects In Inlet,FaultCause,机械损坏故障由入口管异物导致,D8操作手册,D8操作手册::chunk_1;D8操作手册::chunk_2;D8操作手册::chunk_3;D8操作手册::chunk_4
+REL_000022,FaultPhenomenon_Mechanical Damage,FaultPhenomenon,CAUSED_BY,FaultCause_High Pressure Water Cleaning,FaultCause,机械损伤现象可由高压水清洗发动机引起,D8操作手册,D8操作手册::chunk_5;D8操作手册::chunk_6
+REL_000023,FaultPhenomenon_Mechanical Damage,FaultPhenomenon,CAUSED_BY,FaultCause_Overload Stress,FaultCause,过度负载应力导致机械损坏,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000024,FaultPhenomenon_Propeller Cavitation,FaultPhenomenon,CAUSED_BY,FaultCause_Excessive Trim Angle,FaultCause,螺旋桨气蚀由过度纵倾角导致,D8操作手册,D8操作手册::chunk_14
+REL_000025,FaultPhenomenon_Propeller Loosening,FaultPhenomenon,CAUSED_BY,FaultCause_Excessive Trim Angle,FaultCause,螺旋桨松动由过度纵倾角导致,D8操作手册,D8操作手册::chunk_14
+REL_000026,FaultPhenomenon_Screen Damage,FaultPhenomenon,CAUSED_BY,FaultCause_Sunlight Exposure,FaultCause,屏幕损坏故障由长期阳光暴露导致,D8操作手册,D8操作手册::chunk_12
+REL_000027,FaultPhenomenon_Sepsis Infection,FaultPhenomenon,CAUSED_BY,FaultCause_Fuel Penetration Into Tissue,FaultCause,败血病感染现象由高压燃油渗入组织直接导致,D8操作手册,D8操作手册::chunk_5;D8操作手册::chunk_6
+REL_000028,FaultPhenomenon_Shortened Engine Life,FaultPhenomenon,CAUSED_BY,FaultCause_Cold Idling,FaultCause,冷态发动机空转会缩短发动机的使用寿命,D8操作手册,D8操作手册::chunk_21
+REL_000029,FaultPhenomenon_Shortened Engine Life,FaultPhenomenon,CAUSED_BY,FaultCause_Wrong Oil Coolant Quality,FaultCause,错误油品质量缩短发动机寿命,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000030,FaultPhenomenon_Skin Damage,FaultPhenomenon,CAUSED_BY,FaultCause_Chemical Contact,FaultCause,皮肤损伤由直接接触有害化学品导致,D8操作手册,D8操作手册::chunk_0
+REL_000031,FaultPhenomenon_Speedometer Error,FaultPhenomenon,CAUSED_BY,FaultCause_Speed Factor Mismatch,FaultCause,速度计错误故障由速度系数不匹配导致,D8操作手册,D8操作手册::chunk_12
+REL_000032,FaultPhenomenon_Speedometer Error,FaultPhenomenon,REPAIRED_BY,RepairMethod_Adjust Speed Factor,RepairMethod,速度计错误故障通过调整速度系数修复,D8操作手册,D8操作手册::chunk_12
+REL_000033,FaultPhenomenon_Speedometer Error,FaultPhenomenon,REPAIRED_BY,RepairMethod_Calibrate System,RepairMethod,转速表错误现象可通过校准系统方法进行修复,D8操作手册,D8操作手册::chunk_13
+REL_000034,FaultPhenomenon_Starter Motor Overheat,FaultPhenomenon,CAUSED_BY,FaultCause_Prolonged Cranking,FaultCause,起动马达过热由长时间接合导致,D8操作手册,D8操作手册::chunk_20
+REL_000035,FaultPhenomenon_System Performance Fault,FaultPhenomenon,CAUSED_BY,FaultCause_Third Party System Fault,FaultCause,第三方系统使用导致性能故障,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000036,FaultPhenomenon_Transmission Stress,FaultPhenomenon,CAUSED_BY,FaultCause_High Speed Shifting,FaultCause,高转速下换档会导致传动装置承受不必要应力,D8操作手册,D8操作手册::chunk_21
+REL_000037,FaultPhenomenon_Unintended Vessel Movement,FaultPhenomenon,CAUSED_BY,FaultCause_Electromagnetic Interference,FaultCause,电磁干扰导致船只意外移动,D8操作手册,D8操作手册::chunk_17
+REL_000038,FaultPhenomenon_Unintended Vessel Movement,FaultPhenomenon,CAUSED_BY,FaultCause_Environmental Conditions,FaultCause,环境条件恶劣导致船只意外移动,D8操作手册,D8操作手册::chunk_17
+REL_000039,FaultPhenomenon_Warranty Void,FaultPhenomenon,CAUSED_BY,FaultCause_Unauthorized Modification,FaultCause,未经授权改装导致保修失效,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000040,FaultPhenomenon_Warranty Void,FaultPhenomenon,CAUSED_BY,FaultCause_Wrong Oil Coolant Quality,FaultCause,油品或冷却剂不当导致保修索赔被拒,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000041,FaultPhenomenon_Water Ingestion,FaultPhenomenon,CAUSED_BY,FaultCause_Engine Stop During Maneuver,FaultCause,操纵期间发动机停止会导致水通过排气管进入,D8操作手册,D8操作手册::chunk_21
+REL_000042,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_4 Inch Screen,Equipment,发动机系统包含 4 英寸屏幕设备,D8操作手册,D8操作手册::chunk_12
+REL_000043,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_7 Inch Screen,Equipment,船舶发动机系统包含 7 英寸屏幕作为显示和控制设备,D8操作手册,D8操作手册::chunk_13
+REL_000044,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Active Corrosion Protection,Component,船舶发动机系统包含主动防腐蚀保护组件,D8操作手册,D8操作手册::chunk_13
+REL_000045,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Alternator,Component,机舱发动机系统包含交流发电机作为其关键组成部分,D8操作手册,D8操作手册::chunk_1;D8操作手册::chunk_2;D8操作手册::chunk_3;D8操作手册::chunk_4
+REL_000046,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Autopilot,Equipment,船舶发动机系统包含自动操舵仪设备用于自动航线保持,D8操作手册,D8操作手册::chunk_15
+REL_000047,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Auxiliary Stop Device,Component,系统包含用于紧急停机的辅助停止装置组件,D8操作手册,D8操作手册::chunk_22
+REL_000048,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Battery,Component,发动机系统包含电池组件作为启动电源,D8操作手册,D8操作手册::chunk_0
+REL_000049,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Battery Management System,Equipment,主系统包含电池管理设备,D8操作手册,D8操作手册::chunk_18
+REL_000050,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Control Device,Equipment,发动机系统包含控制装置用于操作发动机,D8操作手册,D8操作手册::chunk_14
+REL_000051,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Cooling System,Component,机舱发动机系统包含冷却系统作为其关键组成部分,D8操作手册,D8操作手册::chunk_1;D8操作手册::chunk_2;D8操作手册::chunk_3;D8操作手册::chunk_4
+REL_000052,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Dynamic Positioning System,Equipment,船舶发动机系统包含动态定位系统设备,D8操作手册,D8操作手册::chunk_17
+REL_000053,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_EVC System,Equipment,发动机系统包含电子船舶控制设备,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000054,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Echo Sounder,Component,船舶发动机系统包含回声探测器组件用于深度测量,D8操作手册,D8操作手册::chunk_13
+REL_000055,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Electrical System,Component,发动机系统包含电气控制组件,D8操作手册,D8操作手册::chunk_0
+REL_000056,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Engine,Equipment,发动机系统包含发动机主体设备,D8操作手册,D8操作手册::chunk_24
+REL_000057,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Engine Control Module,Component,机舱发动机系统包含核心控制模块作为其关键组成部分,D8操作手册,D8操作手册::chunk_1;D8操作手册::chunk_2;D8操作手册::chunk_3;D8操作手册::chunk_4
+REL_000058,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Exhaust System,Component,发动机系统包含排气及涡轮增压组件,D8操作手册,D8操作手册::chunk_0
+REL_000059,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_External Steering,Equipment,发动机系统包含外部舵设备,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000060,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Fuel System,Component,发动机系统包含燃油供给组件,D8操作手册,D8操作手册::chunk_0
+REL_000061,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Fuel Tank,Equipment,船舶发动机系统包含燃油箱作为其燃料存储设备,D8操作手册,D8操作手册::chunk_29
+REL_000062,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Glass Cockpit Display,Equipment,船舶发动机系统包含玻璃驾驶舱显示器作为可选显示设备,D8操作手册,D8操作手册::chunk_13
+REL_000063,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Information Display,Equipment,发动机系统包含信息显示器设备,D8操作手册,D8操作手册::chunk_12
+REL_000064,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Instrumentation System,Equipment,发动机系统包含选装的仪表系统设备,D8操作手册,D8操作手册::chunk_12
+REL_000065,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Joystick,Equipment,船舶发动机系统包含操纵杆设备用于停靠和转向操纵,D8操作手册,D8操作手册::chunk_15
+REL_000066,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Local Helm Station,Equipment,系统包含本地舵站作为其关键操纵设备,D8操作手册,D8操作手册::chunk_21
+REL_000067,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Low Speed Module,Component,船舶发动机系统包含低速功能模块用于怠速行驶控制,D8操作手册,D8操作手册::chunk_15
+REL_000068,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Lubrication System,Component,机舱发动机系统包含润滑系统作为其关键组成部分,D8操作手册,D8操作手册::chunk_1;D8操作手册::chunk_2;D8操作手册::chunk_3;D8操作手册::chunk_4
+REL_000069,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Main Helm Station,Equipment,系统包含主舵站作为其关键操纵设备,D8操作手册,D8操作手册::chunk_21
+REL_000070,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Power Trim System,Equipment,发动机系统包含动力升降系统用于控制驱动装置,D8操作手册,D8操作手册::chunk_14
+REL_000071,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Remote Helm Station,Equipment,系统包含远程舵站作为其关键操纵设备,D8操作手册,D8操作手册::chunk_21
+REL_000072,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Safety Lanyard,Component,船用发动机系统配备安全短索组件,D8操作手册,D8操作手册::chunk_7
+REL_000073,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Stern Drive,Equipment,船舶发动机系统包含船尾驱动装置作为核心推进设备,D8操作手册,D8操作手册::chunk_19
+REL_000074,Marine Engine System,System,HAS_COMPONENT,Marine Engine System_Turbocharger,Component,机舱发动机系统包含涡轮增压器作为其关键组成部分,D8操作手册,D8操作手册::chunk_1;D8操作手册::chunk_2;D8操作手册::chunk_3;D8操作手册::chunk_4
+REL_000075,Marine Engine System,System,HAS_SAFETY_NOTE,SafetyNote_Check Water For Swimmers,SafetyNote,船用发动机系统操作涉及检查水中游泳者安全须知,D8操作手册,D8操作手册::chunk_7
+REL_000076,Marine Engine System,System,HAS_SAFETY_NOTE,SafetyNote_Chemical Health Protection,SafetyNote,发动机系统维护需遵守化学品健康防护规则,D8操作手册,D8操作手册::chunk_0
+REL_000077,Marine Engine System,System,HAS_SAFETY_NOTE,SafetyNote_Engine Lockout Procedure,SafetyNote,发动机系统维修前需执行锁止程序,D8操作手册,D8操作手册::chunk_0
+REL_000078,Marine Engine System,System,HAS_SAFETY_NOTE,SafetyNote_Engine Room Ventilation Time,SafetyNote,船舶发动机系统关联起动前机舱通风时间的安全要求,D8操作手册,D8操作手册::chunk_19
+REL_000079,Marine Engine System,System,HAS_SAFETY_NOTE,SafetyNote_Environmental Waste Disposal,SafetyNote,发动机系统需遵守环保废物处理安全 note,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000080,Marine Engine System,System,HAS_SAFETY_NOTE,SafetyNote_Fire And Explosion Prevention,SafetyNote,发动机系统整体需遵守防火防爆安全规则,D8操作手册,D8操作手册::chunk_0
+REL_000081,Marine Engine System,System,HAS_SAFETY_NOTE,SafetyNote_No Engine Modification,SafetyNote,发动机系统需遵守禁止改装安全 note,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000082,Marine Engine System,System,HAS_SAFETY_NOTE,SafetyNote_No High Pressure Washing On Engine,SafetyNote,整个发动机系统清洁时禁止使用高压清洗设备,D8操作手册,D8操作手册::chunk_5;D8操作手册::chunk_6
+REL_000083,Marine Engine System,System,HAS_SAFETY_NOTE,SafetyNote_No Overload,SafetyNote,发动机系统需遵守禁止过载安全 note,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000084,Marine Engine System,System,HAS_SAFETY_NOTE,SafetyNote_No Start Aid Spray,SafetyNote,船舶发动机系统关联禁止使用起动喷射器的安全禁忌,D8操作手册,D8操作手册::chunk_19
+REL_000085,Marine Engine System,System,HAS_SAFETY_NOTE,SafetyNote_Personal Protective Equipment Usage,SafetyNote,发动机系统操作需佩戴个人防护装备,D8操作手册,D8操作手册::chunk_0
+REL_000086,Marine Engine System,System,HAS_SAFETY_NOTE,SafetyNote_Read Operation Manual,SafetyNote,船用发动机系统维护要求阅读操作手册安全须知,D8操作手册,D8操作手册::chunk_7
+REL_000087,Marine Engine System,System,HAS_SAFETY_NOTE,SafetyNote_Rotating Parts And Hot Surface Warning,SafetyNote,发动机系统需警示旋转部件和高温表面风险,D8操作手册,D8操作手册::chunk_0
+REL_000088,Marine Engine System,System,HAS_SAFETY_NOTE,SafetyNote_Stop Engine Before Clutch Adjustment,SafetyNote,船用发动机系统涉及离合器调整前停机安全须知,D8操作手册,D8操作手册::chunk_7
+REL_000089,Marine Engine System,System,HAS_SAFETY_NOTE,SafetyNote_Ventilation Requirement,SafetyNote,发动机系统运行需满足通风环境要求,D8操作手册,D8操作手册::chunk_0
+REL_000090,Marine Engine System,System,REPAIRED_BY,RepairMethod_Lockout And Tagout,RepairMethod,发动机系统维修前需执行电源锁止隔离方法,D8操作手册,D8操作手册::chunk_0
+REL_000091,Marine Engine System,System,REPAIRED_BY,RepairMethod_Proper Waste Disposal,RepairMethod,发动机系统维护涉及废油及有害废物的正确处理,D8操作手册,D8操作手册::chunk_0
+REL_000092,Marine Engine System,System,REPAIRED_BY,RepairMethod_Stop Engine Via Auxiliary Device,RepairMethod,发动机系统故障时可通过辅助停机方法进行修复处理,D8操作手册,D8操作手册::chunk_22
+REL_000093,Marine Engine System,System,REQUIRES,DiagnosticMethod_Fuel Consumption Check,DiagnosticMethod,船用发动机系统航行前需要燃油消耗检查方法,D8操作手册,D8操作手册::chunk_7
+REL_000094,Marine Engine System,System,REQUIRES,RepairMethod_Warm Up Engine,RepairMethod,系统在使用满功率前必须执行发动机暖机程序,D8操作手册,D8操作手册::chunk_21
+REL_000095,Marine Engine System_4 Inch Screen,Equipment,CONTROLS,Marine Engine System,System,4 英寸屏幕可查看和控制系统中所有已安装功能,D8操作手册,D8操作手册::chunk_12
+REL_000096,Marine Engine System_7 Inch Screen,Equipment,CONTROLS,Marine Engine System,System,7 英寸屏幕可查看和控制沃尔沃遍达控制系统中所有已安装的功能,D8操作手册,D8操作手册::chunk_13
+REL_000097,Marine Engine System_7 Inch Screen,Equipment,HAS_PARAMETER,Marine Engine System_Parameter_Neutral Warning Sound,Parameter,显示屏可设置空档警告声参数,D8操作手册,D8操作手册::chunk_28
+REL_000098,Marine Engine System_7 Inch Screen,Equipment,HAS_PARAMETER,Parameter_Boat Speed,Parameter,7 英寸屏幕可显示船速参数,D8操作手册,D8操作手册::chunk_13
+REL_000099,Marine Engine System_7 Inch Screen,Equipment,HAS_PARAMETER,Parameter_Exhaust Temperature,Parameter,7 英寸屏幕可显示排气温度参数,D8操作手册,D8操作手册::chunk_13
+REL_000100,Marine Engine System_7 Inch Screen,Equipment,HAS_SAFETY_NOTE,SafetyNote_Dark Station Mode Warning,SafetyNote,7 英寸屏幕有关暗站模式的安全警告，启用后不会显示错误消息,D8操作手册,D8操作手册::chunk_13
+REL_000101,Marine Engine System_7 Inch Screen,Equipment,HAS_SAFETY_NOTE,SafetyNote_Use Screen Cover When Not In Use,SafetyNote,7 英寸屏幕需在船未使用时使用保护盖防止阳光损坏,D8操作手册,D8操作手册::chunk_13
+REL_000102,Marine Engine System_7 Inch Screen,Equipment,REPAIRED_BY,RepairMethod_Replace Instrument,RepairMethod,7 英寸屏幕上的仪表可通过更换仪表方法进行维修,D8操作手册,D8操作手册::chunk_13
+REL_000103,Marine Engine System_Active Corrosion Protection,Component,CONTROLS,Marine Engine System_Stern Drive,Equipment,主动防腐保护系统控制船尾驱动装置的防腐保护状态,D8操作手册,D8操作手册::chunk_19
+REL_000104,Marine Engine System_Active Corrosion Protection,Component,HAS_FAULT,FaultPhenomenon_Corrosion Danger,FaultPhenomenon,主动防腐蚀保护系统可能出现腐蚀危险故障,D8操作手册,D8操作手册::chunk_18
+REL_000105,Marine Engine System_Active Corrosion Protection,Component,HAS_SAFETY_NOTE,SafetyNote_ACP Chlorine Gas,SafetyNote,主动防腐蚀保护系统工作时有氯气释放安全注意,D8操作手册,D8操作手册::chunk_18
+REL_000106,Marine Engine System_Active Corrosion Protection,Component,MONITORS,Marine Engine System_Drive Device,Component,主动防腐蚀保护系统监测驱动装置状态,D8操作手册,D8操作手册::chunk_18
+REL_000107,Marine Engine System_Alternator,Component,HAS_FAULT,Marine Engine System_FaultPhenomenon_Alternator Damage,FaultPhenomenon,交流发电机可能出现损坏故障,D8操作手册,D8操作手册::chunk_28
+REL_000108,Marine Engine System_Autopilot,Equipment,CONTROLS,Marine Engine System_External Steering,Equipment,自动操舵仪控制外部转向系统以调整船的转向,D8操作手册,D8操作手册::chunk_15
+REL_000109,Marine Engine System_Autopilot,Equipment,HAS_COMPONENT,Marine Engine System_Compass Unit,Component,自动操舵仪内部包含罗盘单元组件提供航向传感,D8操作手册,D8操作手册::chunk_15
+REL_000110,Marine Engine System_Autopilot,Equipment,HAS_COMPONENT,Marine Engine System_Glass Cockpit Display,Equipment,自动操舵仪系统依赖玻璃驾驶舱显示器进行信息显示,D8操作手册,D8操作手册::chunk_15
+REL_000111,Marine Engine System_Autopilot,Equipment,HAS_SAFETY_NOTE,SafetyNote_Helm Supervision Requirement,SafetyNote,自动操舵仪使用需遵守舵手监督要求的安全注意事项,D8操作手册,D8操作手册::chunk_15
+REL_000112,Marine Engine System_Autopilot,Equipment,MONITORS,Parameter_Heading,Parameter,自动操舵仪监测并显示当前航向参数,D8操作手册,D8操作手册::chunk_16
+REL_000113,Marine Engine System_Battery,Equipment,HAS_FAULT,Marine Engine System_FaultPhenomenon_Battery Discharge,FaultPhenomenon,电池可能出现电量耗尽故障,D8操作手册,D8操作手册::chunk_28
+REL_000114,Marine Engine System_Battery,Equipment,HAS_PARAMETER,Marine Engine System_Parameter_Electrolyte Density,Parameter,电池设备具有电解液密度状态参数,D8操作手册,D8操作手册::chunk_31
+REL_000115,Marine Engine System_Battery,Component,HAS_SAFETY_NOTE,SafetyNote_Correct Battery Polarity Connection,SafetyNote,电池安装时必须确认极性连接正确,D8操作手册,D8操作手册::chunk_5;D8操作手册::chunk_6
+REL_000116,Marine Engine System_Battery,Component,HAS_SAFETY_NOTE,SafetyNote_Fire And Explosion Prevention,SafetyNote,电池组件因氢气风险需特别注意防火防爆,D8操作手册,D8操作手册::chunk_0
+REL_000117,Marine Engine System_Battery,Component,HAS_SAFETY_NOTE,SafetyNote_No Open Flame Near Battery,SafetyNote,电池舱附近作业需遵守无明火安全禁忌,D8操作手册,D8操作手册::chunk_5;D8操作手册::chunk_6
+REL_000118,Marine Engine System_Battery,Component,HAS_SAFETY_NOTE,SafetyNote_Wear Goggles For Fuel And Battery Work,SafetyNote,电池搬运及充电作业时需遵循佩戴护目镜的安全规定,D8操作手册,D8操作手册::chunk_5;D8操作手册::chunk_6
+REL_000119,Marine Engine System_Battery,Equipment,REPAIRED_BY,Marine Engine System_RepairMethod_Clean Battery Terminals,RepairMethod,电池故障可通过清洁终端修复,D8操作手册,D8操作手册::chunk_28
+REL_000120,Marine Engine System_Battery,Equipment,REQUIRES,Marine Engine System_RepairMethod_Charge Battery,RepairMethod,电池维护需要定期充电,D8操作手册,D8操作手册::chunk_28
+REL_000121,Marine Engine System_Battery Management System,Equipment,HAS_COMPONENT,Marine Engine System_Battery Management Display,Component,电池管理系统包含显示模块,D8操作手册,D8操作手册::chunk_18
+REL_000122,Marine Engine System_Battery Management System,Equipment,HAS_COMPONENT,Marine Engine System_Battery Management Unit,Component,电池管理系统包含控制单元,D8操作手册,D8操作手册::chunk_18
+REL_000123,Marine Engine System_Battery Management System,Equipment,HAS_PARAMETER,Parameter_Battery Current,Parameter,电池管理系统监测电流参数,D8操作手册,D8操作手册::chunk_18
+REL_000124,Marine Engine System_Battery Management Unit,Component,HAS_SAFETY_NOTE,SafetyNote_BCM Remote Disable,SafetyNote,电池管理单元作业需遵守远程禁用安全 note,D8操作手册,D8操作手册::chunk_18
+REL_000125,Marine Engine System_Battery Sensor,Component,HAS_PARAMETER,Parameter_Battery Health,Parameter,电池传感器提供健康状态参数,D8操作手册,D8操作手册::chunk_14
+REL_000126,Marine Engine System_Battery Sensor,Component,HAS_PARAMETER,Parameter_Battery SOC,Parameter,电池传感器提供充电状态参数,D8操作手册,D8操作手册::chunk_14
+REL_000127,Marine Engine System_Battery Sensor,Component,REPAIRED_BY,RepairMethod_Reset Battery Sensor,RepairMethod,电池传感器更换后需执行重置维修,D8操作手册,D8操作手册::chunk_18
+REL_000128,Marine Engine System_Component_Engine Type Plate,Component,HAS_PARAMETER,Marine Engine System_Parameter_Engine Serial Number,Parameter,发动机铭牌组件记录有序列号参数,D8操作手册,D8操作手册::chunk_31
+REL_000129,Marine Engine System_Control Device,Equipment,CONTROLS,Marine Engine System,System,控制装置控制发动机的转速和换档,D8操作手册,D8操作手册::chunk_14
+REL_000130,Marine Engine System_Control Device,Equipment,CONTROLS,Marine Engine System_Drive Device,Component,控制装置通过控制杆将驱动装置置于空档,D8操作手册,D8操作手册::chunk_20
+REL_000131,Marine Engine System_Control Device,Equipment,HAS_COMPONENT,Marine Engine System_Cruise Control,Component,控制装置包含巡航控制功能模块,D8操作手册,D8操作手册::chunk_14
+REL_000132,Marine Engine System_Control Device,Equipment,HAS_PARAMETER,Parameter_Fuel Economy,Parameter,控制装置相关视图显示燃油经济性参数,D8操作手册,D8操作手册::chunk_14
+REL_000133,Marine Engine System_Control Device,Equipment,REPAIRED_BY,RepairMethod_Adjust Friction Brake,RepairMethod,控制设备可通过调整摩擦制动器维修方法解决杆移动阻力问题,D8操作手册,D8操作手册::chunk_15
+REL_000134,Marine Engine System_Control Software,Component,REPAIRED_BY,RepairMethod_Software Update,RepairMethod,控制软件组件通过软件更新方法进行修复,D8操作手册,D8操作手册::chunk_7
+REL_000135,Marine Engine System_Coolant Temperature Gauge,Component,HAS_PARAMETER,Parameter_Coolant Temperature,Parameter,冷却剂温度计监测冷却剂温度参数,D8操作手册,D8操作手册::chunk_12
+REL_000136,Marine Engine System_Cooling System,System,HAS_COMPONENT,Marine Engine System_Sea Water System,System,海水系统属于冷却系统的子部分,D8操作手册,D8操作手册::chunk_28
+REL_000137,Marine Engine System_Cooling System,System,HAS_FAULT,Marine Engine System_FaultPhenomenon_Engine Corrosion,FaultPhenomenon,冷却系统故障可能导致发动机内部腐蚀现象,D8操作手册,D8操作手册::chunk_25
+REL_000138,Marine Engine System_Cooling System,System,HAS_PARAMETER,Marine Engine System_Parameter_Coolant Capacity,Parameter,冷却系统具有特定的淡水容量参数,D8操作手册,D8操作手册::chunk_31
+REL_000139,Marine Engine System_Cooling System,System,HAS_PARAMETER,Parameter_Coolant Concentration,Parameter,冷却系统必须监控并保持正确的冷却剂浓度参数,D8操作手册,D8操作手册::chunk_26;D8操作手册::chunk_27
+REL_000140,Marine Engine System_Cooling System,System,HAS_PARAMETER,Parameter_Coolant Type,Parameter,冷却系统运行必须依赖正确的冷却剂类型参数,D8操作手册,D8操作手册::chunk_25
+REL_000141,Marine Engine System_Cooling System,System,HAS_SAFETY_NOTE,Marine Engine System_SafetyNote_No Open Cap When Hot,SafetyNote,冷却系统维护需遵守高温禁止开盖的安全禁忌,D8操作手册,D8操作手册::chunk_26;D8操作手册::chunk_27
+REL_000142,Marine Engine System_Cooling System,System,HAS_SAFETY_NOTE,Marine Engine System_SafetyNote_No Pure Water Coolant,SafetyNote,冷却系统维护需遵守禁止纯水冷却的安全 note,D8操作手册,D8操作手册::chunk_25
+REL_000143,Marine Engine System_Cooling System,System,HAS_SAFETY_NOTE,Marine Engine System_SafetyNote_Release Pressure Before Opening,SafetyNote,冷却系统维护需遵守开盖前释放压力的安全禁忌,D8操作手册,D8操作手册::chunk_26;D8操作手册::chunk_27
+REL_000144,Marine Engine System_Cooling System,System,HAS_SAFETY_NOTE,Marine Engine System_SafetyNote_Use Distilled Water For Mixing,SafetyNote,冷却系统维护需遵守使用蒸馏水混合的安全禁忌,D8操作手册,D8操作手册::chunk_26;D8操作手册::chunk_27
+REL_000145,Marine Engine System_Cooling System,System,HAS_SAFETY_NOTE,Marine Engine System_SafetyNote_Use OAT Coolant,SafetyNote,冷却系统维护需遵守使用 OAT 冷却剂的安全 note,D8操作手册,D8操作手册::chunk_25
+REL_000146,Marine Engine System_Cooling System,Component,HAS_SAFETY_NOTE,SafetyNote_Close Sea Cock Before Cooling Work,SafetyNote,冷却系统维护需遵循关闭海水龙头的安全规范,D8操作手册,D8操作手册::chunk_1;D8操作手册::chunk_2;D8操作手册::chunk_3;D8操作手册::chunk_4
+REL_000147,Marine Engine System_Cooling System,Component,HAS_SAFETY_NOTE,SafetyNote_Cool Down Before Cooling System Work,SafetyNote,冷却系统维护需遵循冷却后操作的安全规范,D8操作手册,D8操作手册::chunk_1;D8操作手册::chunk_2;D8操作手册::chunk_3;D8操作手册::chunk_4
+REL_000148,Marine Engine System_Cooling System,Component,HAS_SAFETY_NOTE,SafetyNote_Correct Coolant Mixture,SafetyNote,冷却系统需遵守正确混合安全 note,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000149,Marine Engine System_Cooling System,System,REQUIRES,Marine Engine System_RepairMethod_Check Coolant Level,RepairMethod,冷却系统维护前必须执行的液位检查与填充要求,D8操作手册,D8操作手册::chunk_30
+REL_000150,Marine Engine System_Cooling System,System,REQUIRES,Marine Engine System_RepairMethod_Mix Coolant With Distilled Water,RepairMethod,冷却系统维护必须依赖正确的冷却剂混合处理方法,D8操作手册,D8操作手册::chunk_26;D8操作手册::chunk_27
+REL_000151,Marine Engine System_Cooling System,System,REQUIRES,Marine Engine System_RepairMethod_Release Pressure Before Cap Removal,RepairMethod,冷却系统维护必须依赖开盖前释放压力的处理方法,D8操作手册,D8操作手册::chunk_26;D8操作手册::chunk_27
+REL_000152,Marine Engine System_Cruise Control,Component,CONTROLS,Marine Engine System,System,巡航控制模块锁定和微调发动机转速,D8操作手册,D8操作手册::chunk_14
+REL_000153,Marine Engine System_Cruise Control,Component,HAS_SAFETY_NOTE,SafetyNote_Cruise Control Speed Stability,SafetyNote,巡航控制功能需遵守速度稳定性要求的安全注意事项,D8操作手册,D8操作手册::chunk_15
+REL_000154,Marine Engine System_Cruise Control,Component,REQUIRES,Parameter_Boat Speed,Parameter,巡航控制功能依赖船速参数进行速度基于的模式设置,D8操作手册,D8操作手册::chunk_15
+REL_000155,Marine Engine System_Cruise Control,Component,REQUIRES,Parameter_Engine Speed,Parameter,巡航控制功能依赖发动机转速参数进行 RPM 基于的模式设置,D8操作手册,D8操作手册::chunk_15
+REL_000156,Marine Engine System_Docking Mode,Component,DIAGNOSED_BY,DiagnosticMethod_Check Joystick Center Position,DiagnosticMethod,停靠模式故障可通过检查操纵杆中心位置诊断方法排查,D8操作手册,D8操作手册::chunk_15
+REL_000157,Marine Engine System_Docking Mode,Component,HAS_SAFETY_NOTE,Marine Engine System_SafetyNote_Ignition Off Calibration Confirm,SafetyNote,入坞模式校准后确认生效所需的点火开关安全操作,D8操作手册,D8操作手册::chunk_30
+REL_000158,Marine Engine System_Drive Belt,Component,HAS_COMPONENT,Marine Engine System_Drive Belt Guard,Component,传动皮带组件包含防护盖作为安全部件,D8操作手册,D8操作手册::chunk_25
+REL_000159,Marine Engine System_Drive Belt,Component,HAS_FAULT,Marine Engine System_FaultPhenomenon_Drive Belt Wear,FaultPhenomenon,传动皮带组件可能发生磨损故障,D8操作手册,D8操作手册::chunk_24
+REL_000160,Marine Engine System_Drive Device,Component,HAS_COMPONENT,Marine Engine System_Propeller Shaft Brake,Component,驱动装置包含推进轴制动器以控制轴停止时的转动,D8操作手册,D8操作手册::chunk_19
+REL_000161,Marine Engine System_Dynamic Positioning System,Equipment,CONNECTS_TO,Marine Engine System_Compass Unit,Component,动态定位系统连接罗盘单元获取航向数据,D8操作手册,D8操作手册::chunk_17
+REL_000162,Marine Engine System_Dynamic Positioning System,Equipment,HAS_FAULT,FaultPhenomenon_DPS Activation Failure,FaultPhenomenon,动态定位系统可能出现激活失败故障,D8操作手册,D8操作手册::chunk_18
+REL_000163,Marine Engine System_Dynamic Positioning System,Equipment,HAS_PARAMETER,Parameter_GPS Signal Strength,Parameter,动态定位系统性能受 GPS 信号强度参数影响,D8操作手册,D8操作手册::chunk_17
+REL_000164,Marine Engine System_Dynamic Positioning System,Equipment,HAS_SAFETY_NOTE,SafetyNote_DPS Distance Requirement,SafetyNote,动态定位系统操作需遵守安全距离要求,D8操作手册,D8操作手册::chunk_17
+REL_000165,Marine Engine System_Dynamic Positioning System,Equipment,HAS_SAFETY_NOTE,SafetyNote_DPS Electromagnetic Interference,SafetyNote,动态定位系统需防止电磁干扰影响,D8操作手册,D8操作手册::chunk_17
+REL_000166,Marine Engine System_Dynamic Positioning System,Equipment,HAS_SAFETY_NOTE,SafetyNote_DPS Personnel Safety,SafetyNote,动态定位系统操作需遵守水中人员安全禁忌,D8操作手册,D8操作手册::chunk_17
+REL_000167,Marine Engine System_Dynamic Positioning System,Equipment,REQUIRES,Marine Engine System_Engine Control Module,Component,动态定位系统依赖所有发动机控制模块运转,D8操作手册,D8操作手册::chunk_18
+REL_000168,Marine Engine System_Dynamic Positioning System,Equipment,REQUIRES,Marine Engine System_GPS Receiver,Component,动态定位系统运行依赖 GPS 接收模块信号,D8操作手册,D8操作手册::chunk_17
+REL_000169,Marine Engine System_Dynamic Positioning System,Equipment,REQUIRES,Marine Engine System_Glass Cockpit Display,Equipment,动态定位重新定位功能依赖玻璃驾驶舱显示屏,D8操作手册,D8操作手册::chunk_18
+REL_000170,Marine Engine System_Dynamic Positioning System,Equipment,REQUIRES,Parameter_Boat Speed,Parameter,动态定位系统激活依赖船速参数低于 3 节,D8操作手册,D8操作手册::chunk_18
+REL_000171,Marine Engine System_EVC System,Equipment,CONNECTS_TO,Marine Engine System_Information Display,Equipment,EVC 系统与信息显示器之间存在通讯连接,D8操作手册,D8操作手册::chunk_12
+REL_000172,Marine Engine System_EVC System,Equipment,CONTROLS,Marine Engine System,System,EVC 系统控制发动机齿轮及操舵,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000173,Marine Engine System_EVC System,Equipment,HAS_COMPONENT,Marine Engine System_Easy Connect,Component,EVC 系统包含 Easy Connect 模块以支持蓝牙数据连接,D8操作手册,D8操作手册::chunk_19
+REL_000174,Marine Engine System_EVC System,Equipment,HAS_COMPONENT,Marine Engine System_Swimming Platform Interface,Component,EVC 系统包含游泳跳台接口模块以实现安全互锁,D8操作手册,D8操作手册::chunk_19
+REL_000175,Marine Engine System_EVC System,Equipment,HAS_PARAMETER,Parameter_Ignition Auto Off Time,Parameter,EVC 系统包含可配置的点火自动关闭时间参数,D8操作手册,D8操作手册::chunk_22
+REL_000176,Marine Engine System_EVC System,Equipment,HAS_SAFETY_NOTE,SafetyNote_Lock EVC System After Stop,SafetyNote,EVC 系统操作后需遵循锁定系统的安全注意事项,D8操作手册,D8操作手册::chunk_22
+REL_000177,Marine Engine System_EVC System,Equipment,HAS_SAFETY_NOTE,SafetyNote_No EVC Modification,SafetyNote,EVC 系统需遵守禁止改装安全 note,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000178,Marine Engine System_Echo Sounder,Component,HAS_FAULT,Marine Engine System_FaultPhenomenon_Depth Signal Loss,FaultPhenomenon,回声探测器可能出现信号丢失的故障现象,D8操作手册,D8操作手册::chunk_29
+REL_000179,Marine Engine System_Echo Sounder,Component,HAS_PARAMETER,Marine Engine System_Parameter_Depth Alarm Level,Parameter,回声探测器具有可设定的深度警报级别参数,D8操作手册,D8操作手册::chunk_29
+REL_000180,Marine Engine System_Echo Sounder,Component,HAS_PARAMETER,Marine Engine System_Parameter_Depth Compensation,Parameter,回声探测器具有用于校正安装位置的深度补偿参数,D8操作手册,D8操作手册::chunk_29
+REL_000181,Marine Engine System_Electrical System,Component,HAS_COMPONENT,Marine Engine System_Alternator,Component,电气系统包含交流发电机组件,D8操作手册,D8操作手册::chunk_28
+REL_000182,Marine Engine System_Electrical System,Component,HAS_COMPONENT,Marine Engine System_Battery,Equipment,电气系统包含电池设备,D8操作手册,D8操作手册::chunk_28
+REL_000183,Marine Engine System_Electrical System,Component,HAS_COMPONENT,Marine Engine System_Battery Sensor,Component,电气系统包含电池传感器用于数据采集,D8操作手册,D8操作手册::chunk_14
+REL_000184,Marine Engine System_Electrical System,Component,HAS_COMPONENT,Marine Engine System_SDM Cabinet,Equipment,电气系统包含 SDM 配电柜,D8操作手册,D8操作手册::chunk_28
+REL_000185,Marine Engine System_Electrical System,Component,HAS_SAFETY_NOTE,SafetyNote_Stop Engine Before Electrical Work,SafetyNote,电气系统维护需遵循停机断电的安全规范,D8操作手册,D8操作手册::chunk_1;D8操作手册::chunk_2;D8操作手册::chunk_3;D8操作手册::chunk_4
+REL_000186,Marine Engine System_Electronic Key Panel,Equipment,CONNECTS_TO,Marine Engine System_EVC System,Equipment,电子钥匙面板连接至 EVC 系统以解锁权限,D8操作手册,D8操作手册::chunk_20
+REL_000187,Marine Engine System_Electronic Key Panel,Equipment,CONTROLS,Marine Engine System,System,电子钥匙面板用于控制发动机系统的启停,D8操作手册,D8操作手册::chunk_22
+REL_000188,Marine Engine System_Electronic Key Panel,Equipment,CONTROLS,Marine Engine System_EVC System,Equipment,电子钥匙面板用于控制 EVC 系统的锁定与点火,D8操作手册,D8操作手册::chunk_22
+REL_000189,Marine Engine System_Electronic Key Panel,Equipment,DIAGNOSED_BY,Marine Engine System_DiagnosticMethod_Check Key ID,DiagnosticMethod,电子钥匙面板授权状态可通过检查钥匙 ID 方法诊断,D8操作手册,D8操作手册::chunk_29
+REL_000190,Marine Engine System_Electronic Key Panel,Equipment,HAS_PARAMETER,Marine Engine System_Parameter_Key ID,Parameter,电子钥匙面板存储和管理钥匙 ID 参数,D8操作手册,D8操作手册::chunk_29
+REL_000191,Marine Engine System_Electronic Key Panel,Equipment,HAS_PARAMETER,Parameter_Ignition Auto Off Time,Parameter,电子钥匙面板控制点火开关自动关闭的时间参数,D8操作手册,D8操作手册::chunk_29
+REL_000192,Marine Engine System_Electronic Key Panel,Equipment,REPAIRED_BY,Marine Engine System_RepairMethod_Manage Keys,RepairMethod,电子钥匙面板的授权问题通过钥匙管理方法修复,D8操作手册,D8操作手册::chunk_29
+REL_000193,Marine Engine System_Engine,Equipment,HAS_COMPONENT,Marine Engine System_Component_Engine Type Plate,Component,发动机设备包含用于标识信息的铭牌组件,D8操作手册,D8操作手册::chunk_31
+REL_000194,Marine Engine System_Engine,Equipment,HAS_COMPONENT,Marine Engine System_Drive Belt,Component,发动机设备包含传动皮带组件,D8操作手册,D8操作手册::chunk_24
+REL_000195,Marine Engine System_Engine,Equipment,HAS_FAULT,Marine Engine System_FaultPhenomenon_Electrical Cable Damage,FaultPhenomenon,发动机区域可能发生电气电缆损坏故障,D8操作手册,D8操作手册::chunk_24
+REL_000196,Marine Engine System_Engine,Equipment,HAS_FAULT,Marine Engine System_FaultPhenomenon_Fluid Leak,FaultPhenomenon,发动机可能发生流体泄漏故障,D8操作手册,D8操作手册::chunk_24
+REL_000197,Marine Engine System_Engine,Equipment,HAS_SAFETY_NOTE,Marine Engine System_SafetyNote_No High Pressure Wash,SafetyNote,发动机清洁需遵守高压清洗安全注意,D8操作手册,D8操作手册::chunk_24
+REL_000198,Marine Engine System_Engine,Equipment,HAS_SAFETY_NOTE,Marine Engine System_SafetyNote_Stop Engine Before Maintenance,SafetyNote,发动机维护需遵守停机安全注意,D8操作手册,D8操作手册::chunk_24
+REL_000199,Marine Engine System_Engine Control Module,Component,DIAGNOSED_BY,DiagnosticMethod_Read Engine Data,DiagnosticMethod,控制模块故障可通过读取数据诊断,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000200,Marine Engine System_Engine Control Module,Component,HAS_COMPONENT,Marine Engine System_Control Software,Component,发动机控制模块包含可更新的控制软件,D8操作手册,D8操作手册::chunk_7
+REL_000201,Marine Engine System_Engine Control Module,Component,HAS_SAFETY_NOTE,SafetyNote_Disconnect Control Units Before Welding,SafetyNote,控制模块在焊接作业前需断开连接以防损坏,D8操作手册,D8操作手册::chunk_1;D8操作手册::chunk_2;D8操作手册::chunk_3;D8操作手册::chunk_4
+REL_000202,Marine Engine System_Engine Control Module,Component,MONITORS,Parameter_Idle Speed,Parameter,发动机控制模块监控怠速转速以确保换档安全,D8操作手册,D8操作手册::chunk_21
+REL_000203,Marine Engine System_Engine Control Module,Component,MONITORS,Parameter_Shift RPM Limit,Parameter,发动机控制模块监控转速限制以延迟不安全换档,D8操作手册,D8操作手册::chunk_21
+REL_000204,Marine Engine System_Engine Heater,Component,PREVENTS,FaultPhenomenon_Cold Start Smoke,FaultPhenomenon,发动机加热器防止低温环境下冷启动产生的烟雾故障,D8操作手册,D8操作手册::chunk_19
+REL_000205,Marine Engine System_Exhaust System,Component,HAS_SAFETY_NOTE,SafetyNote_Rotating Parts And Hot Surface Warning,SafetyNote,排气系统因高温表面需特别注意烫伤风险,D8操作手册,D8操作手册::chunk_0
+REL_000206,Marine Engine System_External Steering,Equipment,CONNECTS_TO,Marine Engine System_EVC System,Equipment,外部舵通过接口连接至 EVC 系统,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000207,Marine Engine System_External Steering,Equipment,HAS_COMPONENT,Marine Engine System_Interceptor Trim System,Equipment,外部转向系统包含扼流式压浪板系统以调整航行姿态,D8操作手册,D8操作手册::chunk_19
+REL_000208,Marine Engine System_FaultPhenomenon_Alternator Damage,FaultPhenomenon,CAUSED_BY,Marine Engine System_FaultCause_Disconnect While Running,FaultCause,发电机损坏由运行时断开电路引起,D8操作手册,D8操作手册::chunk_28
+REL_000209,Marine Engine System_FaultPhenomenon_Battery Discharge,FaultPhenomenon,CAUSED_BY,Marine Engine System_FaultCause_Terminal Oxidation,FaultCause,电池放电由终端氧化物导致接触不良引起,D8操作手册,D8操作手册::chunk_28
+REL_000210,Marine Engine System_FaultPhenomenon_Depth Signal Loss,FaultPhenomenon,CAUSED_BY,Marine Engine System_FaultCause_Depth Sensor Failure,FaultCause,信号丢失故障通常由传感器不工作引起,D8操作手册,D8操作手册::chunk_29
+REL_000211,Marine Engine System_FaultPhenomenon_Drive Belt Wear,FaultPhenomenon,DIAGNOSED_BY,Marine Engine System_DiagnosticMethod_Visual Inspection,DiagnosticMethod,皮带磨损故障通过目视检查诊断,D8操作手册,D8操作手册::chunk_24
+REL_000212,Marine Engine System_FaultPhenomenon_Drive Belt Wear,FaultPhenomenon,REPAIRED_BY,Marine Engine System_RepairMethod_Replace Drive Belt,RepairMethod,皮带磨损故障通过更换皮带修复,D8操作手册,D8操作手册::chunk_24
+REL_000213,Marine Engine System_FaultPhenomenon_Engine Corrosion,FaultPhenomenon,CAUSED_BY,Marine Engine System_FaultCause_Air In Fuel System,FaultCause,发动机腐蚀现象可由燃油含水原因导致,D8操作手册,D8操作手册::chunk_25
+REL_000214,Marine Engine System_FaultPhenomenon_Engine Overheat,FaultPhenomenon,CAUSED_BY,Marine Engine System_FaultCause_Filter Blockage,FaultCause,发动机过热由过滤器堵塞引起,D8操作手册,D8操作手册::chunk_28
+REL_000215,Marine Engine System_FaultPhenomenon_Engine Unexpected Stop,FaultPhenomenon,CAUSED_BY,Marine Engine System_FaultPhenomenon_Fuel Filter Blockage,FaultPhenomenon,过滤器堵塞是导致发动机意外停止的直接原因,D8操作手册,D8操作手册::chunk_31
+REL_000216,Marine Engine System_FaultPhenomenon_Fluid Leak,FaultPhenomenon,DIAGNOSED_BY,Marine Engine System_DiagnosticMethod_Visual Inspection,DiagnosticMethod,流体泄漏故障通过目视检查诊断,D8操作手册,D8操作手册::chunk_24
+REL_000217,Marine Engine System_FaultPhenomenon_Fuel Filter Blockage,FaultPhenomenon,CAUSED_BY,Marine Engine System_FaultCause_High FAME Content,FaultCause,高 FAME 含量导致真菌滋生进而堵塞过滤器,D8操作手册,D8操作手册::chunk_31
+REL_000218,Marine Engine System_Fuel Filter,Component,HAS_PARAMETER,Parameter_Fuel Pressure Drop,Parameter,燃油过滤器性能通过压降参数进行判断,D8操作手册,D8操作手册::chunk_25
+REL_000219,Marine Engine System_Fuel Level Gauge,Component,HAS_PARAMETER,Parameter_Fuel Level,Parameter,燃油液位计监测燃油液位参数,D8操作手册,D8操作手册::chunk_12
+REL_000220,Marine Engine System_Fuel Level Sensor,Component,REQUIRES,Marine Engine System_RepairMethod_Calibrate Fuel Tank,RepairMethod,燃油油位传感器准确性依赖燃油箱校准程序,D8操作手册,D8操作手册::chunk_29
+REL_000221,Marine Engine System_Fuel System,System,HAS_COMPONENT,Marine Engine System_Component_Fuel Heater,Component,燃油系统在特定条件下需要配备燃料加热器,D8操作手册,D8操作手册::chunk_31
+REL_000222,Marine Engine System_Fuel System,System,HAS_COMPONENT,Marine Engine System_Fuel Filter,Component,燃料系统包含燃油过滤器作为核心过滤部件,D8操作手册,D8操作手册::chunk_25
+REL_000223,Marine Engine System_Fuel System,System,HAS_COMPONENT,Marine Engine System_Fuel Pressure Gauge,Component,燃料系统包含压力表用于监测过滤器状态,D8操作手册,D8操作手册::chunk_25
+REL_000224,Marine Engine System_Fuel System,Component,HAS_COMPONENT,Marine Engine System_Injection Pump,Component,燃油系统包含喷射泵核心模块,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000225,Marine Engine System_Fuel System,Component,HAS_COMPONENT,Marine Engine System_Injector,Component,燃油系统包含喷油器核心部件,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000226,Marine Engine System_Fuel System,System,HAS_COMPONENT,Marine Engine System_Water Separator,Component,燃料系统包含聚水器用于分离水分,D8操作手册,D8操作手册::chunk_25
+REL_000227,Marine Engine System_Fuel System,System,HAS_FAULT,Marine Engine System_FaultPhenomenon_Engine Unexpected Stop,FaultPhenomenon,燃油问题可能导致发动机意外停止,D8操作手册,D8操作手册::chunk_31
+REL_000228,Marine Engine System_Fuel System,System,HAS_FAULT,Marine Engine System_FaultPhenomenon_Fuel Filter Blockage,FaultPhenomenon,燃油系统可能发生过滤器堵塞故障,D8操作手册,D8操作手册::chunk_31
+REL_000229,Marine Engine System_Fuel System,System,HAS_PARAMETER,Marine Engine System_Parameter_FAME Content,Parameter,燃油系统对生物柴油混合比例有参数限制,D8操作手册,D8操作手册::chunk_31
+REL_000230,Marine Engine System_Fuel System,System,HAS_PARAMETER,Marine Engine System_Parameter_Fuel Density,Parameter,燃油系统对燃油密度有明确参数要求,D8操作手册,D8操作手册::chunk_31
+REL_000231,Marine Engine System_Fuel System,System,HAS_PARAMETER,Marine Engine System_Parameter_Fuel Sulfur Content,Parameter,燃油系统对含硫量有排放合规参数要求,D8操作手册,D8操作手册::chunk_31
+REL_000232,Marine Engine System_Fuel System,System,HAS_PARAMETER,Marine Engine System_Parameter_Fuel Viscosity,Parameter,燃油系统对燃油粘度有明确参数要求,D8操作手册,D8操作手册::chunk_31
+REL_000233,Marine Engine System_Fuel System,System,HAS_SAFETY_NOTE,Marine Engine System_SafetyNote_Engine Cooled Before Fuel Work,SafetyNote,燃料系统维护需遵守发动机冷却后的防火安全 note,D8操作手册,D8操作手册::chunk_25
+REL_000234,Marine Engine System_Fuel System,System,HAS_SAFETY_NOTE,Marine Engine System_SafetyNote_Fuel Rag Fire Hazard,SafetyNote,燃料系统维护需遵守浸油抹布防火安全 note,D8操作手册,D8操作手册::chunk_25
+REL_000235,Marine Engine System_Fuel System,System,HAS_SAFETY_NOTE,Marine Engine System_SafetyNote_Fuel Spill Clean,SafetyNote,燃油系统维护需注意防止生物柴油腐蚀油漆,D8操作手册,D8操作手册::chunk_31
+REL_000236,Marine Engine System_Fuel System,System,HAS_SAFETY_NOTE,Marine Engine System_SafetyNote_Long Idle Fuel Type,SafetyNote,燃油系统对长期停机发动机的燃料类型有安全禁忌,D8操作手册,D8操作手册::chunk_31
+REL_000237,Marine Engine System_Fuel System,Component,HAS_SAFETY_NOTE,SafetyNote_Do Not Bend High Pressure Fuel Pipes,SafetyNote,燃油系统高压管路维护时禁止弯曲操作,D8操作手册,D8操作手册::chunk_5;D8操作手册::chunk_6
+REL_000238,Marine Engine System_Fuel System,Component,HAS_SAFETY_NOTE,SafetyNote_Fire And Explosion Prevention,SafetyNote,燃油系统因易燃性需特别注意防火防爆,D8操作手册,D8操作手册::chunk_0
+REL_000239,Marine Engine System_Fuel System,Component,HAS_SAFETY_NOTE,SafetyNote_No Smoking During Fueling,SafetyNote,燃油系统加注需遵循禁止吸烟的安全规范,D8操作手册,D8操作手册::chunk_1;D8操作手册::chunk_2;D8操作手册::chunk_3;D8操作手册::chunk_4
+REL_000240,Marine Engine System_Fuel System,Component,HAS_SAFETY_NOTE,SafetyNote_Qualified Workshop Repair,SafetyNote,燃油系统维修需遵守合格车间安全 note,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000241,Marine Engine System_Fuel System,Component,HAS_SAFETY_NOTE,SafetyNote_Use Recommended Fuel,SafetyNote,燃油系统运行需遵循使用推荐燃油的安全规范,D8操作手册,D8操作手册::chunk_1;D8操作手册::chunk_2;D8操作手册::chunk_3;D8操作手册::chunk_4
+REL_000242,Marine Engine System_Fuel System,Component,HAS_SAFETY_NOTE,SafetyNote_Wear Goggles For Fuel And Battery Work,SafetyNote,燃油系统测试作业时需遵循佩戴护目镜的安全规定,D8操作手册,D8操作手册::chunk_5;D8操作手册::chunk_6
+REL_000243,Marine Engine System_Fuel System,System,REQUIRES,Marine Engine System_RepairMethod_Bleed Fuel System,RepairMethod,燃料系统在特定维护后必须执行排气维修方法,D8操作手册,D8操作手册::chunk_25
+REL_000244,Marine Engine System_Fuel System,System,REQUIRES,Marine Engine System_RepairMethod_Flush Fuel Tank,RepairMethod,燃油系统在长期闲置后需要冲洗维护,D8操作手册,D8操作手册::chunk_31
+REL_000245,Marine Engine System_Fuel System,System,REQUIRES,Marine Engine System_RepairMethod_Replace Fuel Hoses Seals,RepairMethod,燃油系统转换燃料类型时需要更换密封组件,D8操作手册,D8操作手册::chunk_31
+REL_000246,Marine Engine System_Fuel Tank,Equipment,HAS_COMPONENT,Marine Engine System_Fuel Level Sensor,Component,燃油箱内部安装有燃油油位传感器以监测液位,D8操作手册,D8操作手册::chunk_29
+REL_000247,Marine Engine System_Fuel Tank,Equipment,HAS_PARAMETER,Marine Engine System_Parameter_Fuel Tank Volume,Parameter,燃油箱具有定义总容量的体积参数,D8操作手册,D8操作手册::chunk_29
+REL_000248,Marine Engine System_Glass Cockpit Display,Equipment,HAS_COMPONENT,Marine Engine System_Warning Management Program,Component,玻璃驾驶舱显示器包含警告管理程序界面,D8操作手册,D8操作手册::chunk_14
+REL_000249,Marine Engine System_Glass Cockpit Display,Equipment,HAS_PARAMETER,Marine Engine System_Parameter_Neutral Warning Sound,Parameter,玻璃驾驶舱显示设备可设置空档警告声音参数,D8操作手册,D8操作手册::chunk_30
+REL_000250,Marine Engine System_Glass Cockpit Display,Equipment,MONITORS,Marine Engine System_Interceptor Trim System,Equipment,玻璃驾驶舱显示屏监测扼流式压浪板系统的桨叶位置状态,D8操作手册,D8操作手册::chunk_19
+REL_000251,Marine Engine System_Helm Station,Equipment,CONTROLS,Marine Engine System_EVC System,Equipment,舵台控制站对 EVC 系统进行控制与状态激活,D8操作手册,D8操作手册::chunk_20
+REL_000252,Marine Engine System_Information Display,Equipment,DIAGNOSED_BY,DiagnosticMethod_Check Fault Code,DiagnosticMethod,信息显示设备上的故障可通过读取故障代码诊断,D8操作手册,D8操作手册::chunk_21
+REL_000253,Marine Engine System_Information Display,Equipment,DIAGNOSED_BY,Marine Engine System_DiagnosticMethod_View EVC Info,DiagnosticMethod,信息显示系统状态可通过查看 EVC 信息方法诊断,D8操作手册,D8操作手册::chunk_29
+REL_000254,Marine Engine System_Information Display,Equipment,HAS_COMPONENT,Marine Engine System_Trip Computer,Component,信息显示器包含行程计算机逻辑模块,D8操作手册,D8操作手册::chunk_12
+REL_000255,Marine Engine System_Information Display,Equipment,HAS_COMPONENT,Marine Engine System_Warning Management Program,Component,信息显示器包含警告管理程序模块,D8操作手册,D8操作手册::chunk_12
+REL_000256,Marine Engine System_Information Display,Equipment,HAS_PARAMETER,Marine Engine System_Parameter_Display Contrast,Parameter,信息显示屏具有可调节的对比度参数,D8操作手册,D8操作手册::chunk_29
+REL_000257,Marine Engine System_Information Display,Equipment,HAS_PARAMETER,Marine Engine System_Parameter_Neutral Warning Sound,Parameter,信息显示屏设置中包含空档警告声音参数,D8操作手册,D8操作手册::chunk_29
+REL_000258,Marine Engine System_Information Display,Equipment,MONITORS,Parameter_Coolant Temperature,Parameter,信息显示屏监控发动机冷却液温度参数,D8操作手册,D8操作手册::chunk_17
+REL_000259,Marine Engine System_Information Display,Equipment,MONITORS,Parameter_Fuel Level,Parameter,信息显示屏监控燃油液位参数,D8操作手册,D8操作手册::chunk_17
+REL_000260,Marine Engine System_Information Display,Equipment,REPAIRED_BY,RepairMethod_Use Screen Cover,RepairMethod,信息显示器维护通过使用保护盖进行,D8操作手册,D8操作手册::chunk_12
+REL_000261,Marine Engine System_Injection Pump,Component,REPAIRED_BY,RepairMethod_Qualified Workshop Repair,RepairMethod,喷射泵必须由合格车间维修,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000262,Marine Engine System_Injector,Component,REPAIRED_BY,RepairMethod_Qualified Workshop Repair,RepairMethod,喷油器必须由合格车间维修,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000263,Marine Engine System_Instrumentation System,Equipment,HAS_COMPONENT,Marine Engine System_Alarm Monitor,Component,仪表系统包含警报监测器组件,D8操作手册,D8操作手册::chunk_12
+REL_000264,Marine Engine System_Instrumentation System,Equipment,HAS_COMPONENT,Marine Engine System_Coolant Temperature Gauge,Component,仪表系统包含冷却剂温度计组件,D8操作手册,D8操作手册::chunk_12
+REL_000265,Marine Engine System_Instrumentation System,Equipment,HAS_COMPONENT,Marine Engine System_Fresh Water Level Sensor,Component,仪表系统包含淡水水位传感器组件,D8操作手册,D8操作手册::chunk_12
+REL_000266,Marine Engine System_Instrumentation System,Equipment,HAS_COMPONENT,Marine Engine System_Fuel Level Gauge,Component,仪表系统包含燃油液位计组件,D8操作手册,D8操作手册::chunk_12
+REL_000267,Marine Engine System_Instrumentation System,Equipment,HAS_COMPONENT,Marine Engine System_Oil Pressure Gauge,Component,仪表系统包含油压表组件,D8操作手册,D8操作手册::chunk_12
+REL_000268,Marine Engine System_Instrumentation System,Equipment,HAS_COMPONENT,Marine Engine System_Rudder Position Indicator,Component,仪表系统包含舵位指示器组件,D8操作手册,D8操作手册::chunk_12
+REL_000269,Marine Engine System_Instrumentation System,Equipment,HAS_COMPONENT,Marine Engine System_Tachometer,Component,仪表系统包含转速表组件,D8操作手册,D8操作手册::chunk_12
+REL_000270,Marine Engine System_Instrumentation System,Equipment,HAS_COMPONENT,Marine Engine System_Voltmeter,Component,仪表系统包含电压表组件,D8操作手册,D8操作手册::chunk_12
+REL_000271,Marine Engine System_Interceptor Trim System,Equipment,CONTROLS,Parameter_Trim Angle,Parameter,扼流式压浪板系统控制船只的纵倾角参数,D8操作手册,D8操作手册::chunk_19
+REL_000272,Marine Engine System_Joystick,Equipment,CONTROLS,Marine Engine System,System,操纵杆设备控制整个船舶发动机系统进行停靠和转向,D8操作手册,D8操作手册::chunk_15
+REL_000273,Marine Engine System_Joystick,Equipment,CONTROLS,Marine Engine System_Dynamic Positioning System,Equipment,操纵杆可在必要时接管动态定位系统控制权,D8操作手册,D8操作手册::chunk_17
+REL_000274,Marine Engine System_Joystick,Equipment,HAS_COMPONENT,Marine Engine System_Docking Mode,Component,操纵杆设备包含停靠模式组件用于狭窄区域操纵,D8操作手册,D8操作手册::chunk_15
+REL_000275,Marine Engine System_Joystick,Equipment,HAS_COMPONENT,Marine Engine System_Joystick Driving Module,Component,操纵杆设备包含驾驶控制逻辑模块,D8操作手册,D8操作手册::chunk_16
+REL_000276,Marine Engine System_Joystick,Equipment,HAS_COMPONENT,Marine Engine System_Joystick Steering Module,Component,操纵杆设备包含转向控制逻辑模块,D8操作手册,D8操作手册::chunk_16
+REL_000277,Marine Engine System_Joystick,Equipment,HAS_SAFETY_NOTE,Marine Engine System_SafetyNote_Joystick Calibration Weather,SafetyNote,操纵杆校准作业必须遵守的气象与环境安全禁忌,D8操作手册,D8操作手册::chunk_30
+REL_000278,Marine Engine System_Joystick,Equipment,HAS_SAFETY_NOTE,SafetyNote_Docking Mode Conditions,SafetyNote,操纵杆使用需遵守停靠模式激活条件的安全注意事项,D8操作手册,D8操作手册::chunk_15
+REL_000279,Marine Engine System_Joystick,Equipment,HAS_SAFETY_NOTE,SafetyNote_Emergency Stop Joystick,SafetyNote,操纵杆操作包含紧急停止的安全程序,D8操作手册,D8操作手册::chunk_16
+REL_000280,Marine Engine System_Joystick,Equipment,HAS_SAFETY_NOTE,SafetyNote_Joystick Momentum Warning,SafetyNote,操纵杆使用需注意惯性移动的安全警告,D8操作手册,D8操作手册::chunk_16
+REL_000281,Marine Engine System_Joystick,Equipment,REPAIRED_BY,Marine Engine System_RepairMethod_Calibrate Joystick Docking,RepairMethod,操纵杆入坞功能异常时采用的校准修复方法,D8操作手册,D8操作手册::chunk_30
+REL_000282,Marine Engine System_Joystick Driving Module,Component,CONTROLS,Marine Engine System,System,驾驶模块控制系统的节气门和换档功能,D8操作手册,D8操作手册::chunk_16
+REL_000283,Marine Engine System_Joystick Driving Module,Component,HAS_PARAMETER,Parameter_Throttle,Parameter,驾驶模块控制并显示节气门参数,D8操作手册,D8操作手册::chunk_16
+REL_000284,Marine Engine System_Joystick Driving Module,Component,HAS_SAFETY_NOTE,SafetyNote_Joystick Driving Prerequisites,SafetyNote,驾驶模块启用前需满足硬件配置的安全要求,D8操作手册,D8操作手册::chunk_16
+REL_000285,Marine Engine System_Joystick Driving Module,Component,REQUIRES,Marine Engine System_Autopilot,Equipment,驾驶功能正常工作必须依赖自动操舵仪安装,D8操作手册,D8操作手册::chunk_16
+REL_000286,Marine Engine System_Joystick Driving Module,Component,REQUIRES,Marine Engine System_Glass Cockpit Display,Equipment,驾驶功能正常工作必须依赖玻璃驾驶舱显示屏,D8操作手册,D8操作手册::chunk_16
+REL_000287,Marine Engine System_Joystick Steering Module,Component,CONTROLS,Marine Engine System_Autopilot,Equipment,转向模块在激活时控制自动操舵仪的状态,D8操作手册,D8操作手册::chunk_16
+REL_000288,Marine Engine System_Joystick Steering Module,Component,CONTROLS,Marine Engine System_External Steering,Equipment,转向模块通过操纵杆指令控制外部转向机构,D8操作手册,D8操作手册::chunk_16
+REL_000289,Marine Engine System_Joystick Steering Module,Component,HAS_PARAMETER,Parameter_Rudder Angle,Parameter,转向模块调整并显示舵角参数,D8操作手册,D8操作手册::chunk_16
+REL_000290,Marine Engine System_Local Helm Station,Equipment,CONTROLS,Marine Engine System_Main Helm Station,Equipment,本地舵站具有高于主舵站的控制优先级,D8操作手册,D8操作手册::chunk_21
+REL_000291,Marine Engine System_Low Speed Module,Component,CONTROLS,Marine Engine System_Drive Device,Component,低速功能模块控制驱动装置以影响螺旋桨转速,D8操作手册,D8操作手册::chunk_15
+REL_000292,Marine Engine System_Low Speed Module,Component,HAS_PARAMETER,Parameter_Propeller Speed,Parameter,低速模块监控并影响螺旋桨转速参数,D8操作手册,D8操作手册::chunk_17
+REL_000293,Marine Engine System_Low Speed Module,Component,HAS_SAFETY_NOTE,SafetyNote_Low Speed Engagement Condition,SafetyNote,低速模块接合需遵守空档位置安全要求,D8操作手册,D8操作手册::chunk_17
+REL_000294,Marine Engine System_Lubrication System,System,HAS_COMPONENT,Marine Engine System_Oil Level Sensor,Component,润滑系统包含机油位传感器用于监测液位,D8操作手册,D8操作手册::chunk_25
+REL_000295,Marine Engine System_Lubrication System,System,HAS_PARAMETER,Marine Engine System_Parameter_Fuel Viscosity,Parameter,润滑系统根据环境温度要求特定的机油粘度参数,D8操作手册,D8操作手册::chunk_30
+REL_000296,Marine Engine System_Lubrication System,System,HAS_PARAMETER,Marine Engine System_Parameter_Oil Capacity,Parameter,润滑系统包含机油容量这一关键运行参数,D8操作手册,D8操作手册::chunk_30
+REL_000297,Marine Engine System_Lubrication System,System,HAS_PARAMETER,Marine Engine System_Parameter_Oil Pressure,Parameter,润滑系统需监测正常运行及怠速下的机油压力,D8操作手册,D8操作手册::chunk_30
+REL_000298,Marine Engine System_Lubrication System,System,HAS_PARAMETER,Parameter_Oil Level,Parameter,润滑系统运行必须监控机油液位参数,D8操作手册,D8操作手册::chunk_25
+REL_000299,Marine Engine System_Lubrication System,System,HAS_SAFETY_NOTE,Marine Engine System_SafetyNote_Engine Horizontal For Oil Check,SafetyNote,润滑系统维护需遵守发动机水平放置的安全 note,D8操作手册,D8操作手册::chunk_25
+REL_000300,Marine Engine System_Lubrication System,System,HAS_SAFETY_NOTE,Marine Engine System_SafetyNote_No Overfill Oil,SafetyNote,润滑系统加注需遵守不超过最大油位的安全 note,D8操作手册,D8操作手册::chunk_25
+REL_000301,Marine Engine System_Main Helm Station,Equipment,CONTROLS,Marine Engine System_Remote Helm Station,Equipment,主舵站具有高于远程舵站的控制优先级,D8操作手册,D8操作手册::chunk_21
+REL_000302,Marine Engine System_Oil Pressure Gauge,Component,HAS_PARAMETER,Parameter_Oil Pressure,Parameter,油压表监测机油压力参数,D8操作手册,D8操作手册::chunk_12
+REL_000303,Marine Engine System_Power Take-Off,Component,CONTROLS,Marine Engine System,System,功率输出端模块控制发动机与推进装置的连接状态,D8操作手册,D8操作手册::chunk_19
+REL_000304,Marine Engine System_Power Take-Off,Component,HAS_SAFETY_NOTE,SafetyNote_PTO Neutral Requirement,SafetyNote,功率输出端模块关联空档要求的安全注意事项,D8操作手册,D8操作手册::chunk_19
+REL_000305,Marine Engine System_Power Trim Assist,Component,CONTROLS,Marine Engine System_Drive Device,Component,动力升降辅助装置自动调整驱动装置纵倾角,D8操作手册,D8操作手册::chunk_14
+REL_000306,Marine Engine System_Power Trim System,Equipment,BELONGS_TO,Marine Engine System_External Steering,Equipment,动力升降系统属于外部转向系统的一部分,D8操作手册,D8操作手册::chunk_14
+REL_000307,Marine Engine System_Power Trim System,Equipment,CONTROLS,Marine Engine System_Drive Device,Component,动力升降系统控制驱动装置的升降角度,D8操作手册,D8操作手册::chunk_14
+REL_000308,Marine Engine System_Power Trim System,Equipment,HAS_COMPONENT,Marine Engine System_Power Trim Assist,Component,动力升降系统包含动力升降辅助装置模块,D8操作手册,D8操作手册::chunk_14
+REL_000309,Marine Engine System_Power Trim System,Equipment,HAS_PARAMETER,Parameter_Trim Angle,Parameter,动力升降系统显示和调节纵倾角参数,D8操作手册,D8操作手册::chunk_14
+REL_000310,Marine Engine System_Propeller Shaft Brake,Component,HAS_PARAMETER,Parameter_Propeller Shaft Oil Temperature,Parameter,推进轴制动器监测推进轴油温参数以确保润滑冷却,D8操作手册,D8操作手册::chunk_19
+REL_000311,Marine Engine System_Propeller Shaft Brake,Component,HAS_SAFETY_NOTE,SafetyNote_Propeller Shaft Oil Temp Limit,SafetyNote,推进轴制动器关联油温限制的安全注意事项,D8操作手册,D8操作手册::chunk_19
+REL_000312,Marine Engine System_Propeller Shaft Brake,Component,PREVENTS,FaultPhenomenon_Propeller Shaft Rotation Damage,FaultPhenomenon,推进轴制动器防止发动机停止时轴被动转动导致的损坏,D8操作手册,D8操作手册::chunk_19
+REL_000313,Marine Engine System_RepairMethod_Calibrate Fuel Tank,RepairMethod,HAS_SAFETY_NOTE,Marine Engine System_SafetyNote_Authorized Service for Fuel Calibration,SafetyNote,燃油校准维修需注意必须由授权服务站设置体积参数,D8操作手册,D8操作手册::chunk_29
+REL_000314,Marine Engine System_RepairMethod_Calibrate Fuel Tank,RepairMethod,HAS_SAFETY_NOTE,Marine Engine System_SafetyNote_Fuel Level Limit for Calibration,SafetyNote,燃油校准维修需注意多点校准时油位不得超过 20%,D8操作手册,D8操作手册::chunk_29
+REL_000315,Marine Engine System_RepairMethod_Manage Keys,RepairMethod,HAS_SAFETY_NOTE,Marine Engine System_SafetyNote_Minimum One Key Required,SafetyNote,钥匙管理维修需注意系统中必须至少保留一个钥匙,D8操作手册,D8操作手册::chunk_29
+REL_000316,Marine Engine System_RepairMethod_Replace Drive Belt,RepairMethod,REQUIRES,Marine Engine System_Drive Belt Guard,Component,更换传动皮带维修方法涉及防护盖的拆装,D8操作手册,D8操作手册::chunk_25
+REL_000317,Marine Engine System_Reverse Gear,Equipment,HAS_PARAMETER,Marine Engine System_Parameter_Gear Oil Level,Parameter,倒档设备具有油位参数,D8操作手册,D8操作手册::chunk_28
+REL_000318,Marine Engine System_Reverse Gear,Equipment,HAS_PARAMETER,Marine Engine System_Parameter_Gear Oil Pressure,Parameter,倒档设备具有运行油压参数要求,D8操作手册,D8操作手册::chunk_31
+REL_000319,Marine Engine System_Reverse Gear,Equipment,REQUIRES,Marine Engine System_RepairMethod_Check Gear Oil Level,RepairMethod,倒档维护需要检查油位,D8操作手册,D8操作手册::chunk_28
+REL_000320,Marine Engine System_Safety Lanyard,Component,CONTROLS,Marine Engine System,System,安全短索组件在失控时控制发动机停止,D8操作手册,D8操作手册::chunk_7
+REL_000321,Marine Engine System_SafetyNote_Battery Ventilation,SafetyNote,PREVENTS,Marine Engine System_FaultPhenomenon_Battery Discharge,FaultPhenomenon,通风防止电池气体积聚导致故障,D8操作手册,D8操作手册::chunk_28
+REL_000322,Marine Engine System_SafetyNote_Close Sea Cock Before Operation,SafetyNote,PREVENTS,Marine Engine System_FaultPhenomenon_Engine Overheat,FaultPhenomenon,关闭通海旋塞防止进水危险和系统损坏,D8操作手册,D8操作手册::chunk_28
+REL_000323,Marine Engine System_SafetyNote_Engine Horizontal For Oil Check,SafetyNote,PREVENTS,Marine Engine System_FaultPhenomenon_Incorrect Oil Level Reading,FaultPhenomenon,水平检查安全措施可防止油位读数错误故障,D8操作手册,D8操作手册::chunk_25
+REL_000324,Marine Engine System_SafetyNote_Fix Leak Before Start,SafetyNote,PREVENTS,Marine Engine System_FaultPhenomenon_Fluid Leak,FaultPhenomenon,起动前修复泄漏防止故障扩大,D8操作手册,D8操作手册::chunk_24
+REL_000325,Marine Engine System_SafetyNote_Long Idle Fuel Type,SafetyNote,PREVENTS,Marine Engine System_FaultPhenomenon_Engine Unexpected Stop,FaultPhenomenon,遵守长期停机燃料禁忌可防止发动机意外停止,D8操作手册,D8操作手册::chunk_31
+REL_000326,Marine Engine System_SafetyNote_No Disconnect While Running,SafetyNote,PREVENTS,Marine Engine System_FaultPhenomenon_Alternator Damage,FaultPhenomenon,禁止运行时断开防止发电机损坏,D8操作手册,D8操作手册::chunk_28
+REL_000327,Marine Engine System_SafetyNote_No High Pressure Wash,SafetyNote,PREVENTS,Marine Engine System_FaultPhenomenon_Electrical Cable Damage,FaultPhenomenon,禁止高压清洗防止电气电缆损坏,D8操作手册,D8操作手册::chunk_24
+REL_000328,Marine Engine System_SafetyNote_No Open Cap When Hot,SafetyNote,PREVENTS,FaultPhenomenon_Mechanical Damage,FaultPhenomenon,高温禁止开盖措施防止了蒸汽喷出导致的机械或人身伤害,D8操作手册,D8操作手册::chunk_26;D8操作手册::chunk_27
+REL_000329,Marine Engine System_SafetyNote_Stop Engine Before Maintenance,SafetyNote,PREVENTS,Marine Engine System_FaultPhenomenon_Drive Belt Wear,FaultPhenomenon,维护前停机防止皮带维修时的机械损伤,D8操作手册,D8操作手册::chunk_24
+REL_000330,Marine Engine System_SafetyNote_Use Distilled Water For Mixing,SafetyNote,PREVENTS,Marine Engine System_FaultPhenomenon_Engine Corrosion,FaultPhenomenon,使用蒸馏水混合措施防止了水质不佳导致的发动机腐蚀,D8操作手册,D8操作手册::chunk_26;D8操作手册::chunk_27
+REL_000331,Marine Engine System_Sea Water Filter,Equipment,PREVENTS,Marine Engine System_FaultPhenomenon_Engine Overheat,FaultPhenomenon,海水过滤器防止因冷却不足导致的发动机过热,D8操作手册,D8操作手册::chunk_28
+REL_000332,Marine Engine System_Sea Water Filter,Equipment,REQUIRES,Marine Engine System_RepairMethod_Clean Sea Water Filter,RepairMethod,海水过滤器维护需要清洁操作,D8操作手册,D8操作手册::chunk_28
+REL_000333,Marine Engine System_Sea Water Pump,Equipment,HAS_COMPONENT,Marine Engine System_Impeller,Component,海水泵内部包含核心叶轮组件,D8操作手册,D8操作手册::chunk_28
+REL_000334,Marine Engine System_Sea Water Pump,Equipment,REQUIRES,Marine Engine System_RepairMethod_Replace Impeller,RepairMethod,海水泵维护需要更换叶轮,D8操作手册,D8操作手册::chunk_28
+REL_000335,Marine Engine System_Sea Water System,System,HAS_COMPONENT,Marine Engine System_Sea Water Filter,Equipment,海水系统包含海水过滤设备,D8操作手册,D8操作手册::chunk_28
+REL_000336,Marine Engine System_Sea Water System,System,HAS_COMPONENT,Marine Engine System_Sea Water Pump,Equipment,海水系统包含海水泵设备,D8操作手册,D8操作手册::chunk_28
+REL_000337,Marine Engine System_Start Stop Panel,Equipment,CONTROLS,Marine Engine System,System,起动停止面板用于控制发动机系统的启停,D8操作手册,D8操作手册::chunk_22
+REL_000338,Marine Engine System_Start Stop Panel,Equipment,CONTROLS,Marine Engine System_Starter Motor,Component,起动停止面板控制起动马达的运转,D8操作手册,D8操作手册::chunk_20
+REL_000339,Marine Engine System_Starter Motor,Component,HAS_FAULT,FaultPhenomenon_Engine Start Failure,FaultPhenomenon,起动马达故障可能导致发动机无法启动,D8操作手册,D8操作手册::chunk_20
+REL_000340,Marine Engine System_Starter Motor,Component,HAS_FAULT,FaultPhenomenon_Starter Motor Overheat,FaultPhenomenon,起动马达可能发生过热故障,D8操作手册,D8操作手册::chunk_20
+REL_000341,Marine Engine System_Starter Motor,Component,HAS_PARAMETER,Parameter_Cool Down Time,Parameter,起动马达具有过热后冷却时间参数要求,D8操作手册,D8操作手册::chunk_20
+REL_000342,Marine Engine System_Starter Motor,Component,HAS_PARAMETER,Parameter_Cranking Time Limit,Parameter,起动马达具有默认盘车时间限制参数,D8操作手册,D8操作手册::chunk_20
+REL_000343,Marine Engine System_Starter Motor,Component,HAS_PARAMETER,Parameter_Starter Engagement Time,Parameter,起动马达具有最大接合时间参数限制,D8操作手册,D8操作手册::chunk_20
+REL_000344,Marine Engine System_Stern Drive,Equipment,HAS_SAFETY_NOTE,SafetyNote_ACP Freshwater Mode,SafetyNote,船尾驱动装置关联淡水环境下 ACP 模式设置的安全建议,D8操作手册,D8操作手册::chunk_19
+REL_000345,Marine Engine System_Stern Drive,Equipment,REPAIRED_BY,Marine Engine System_RepairMethod_Calibrate Drive Unit Direct,RepairMethod,驱动装置机械安装后未行驶时执行的直接校准修复,D8操作手册,D8操作手册::chunk_30
+REL_000346,Marine Engine System_Swimming Platform Interface,Component,HAS_SAFETY_NOTE,SafetyNote_Swimming Platform Override,SafetyNote,游泳跳台接口关联覆盖操作的安全风险警示,D8操作手册,D8操作手册::chunk_19
+REL_000347,Marine Engine System_Swimming Platform Interface,Component,PREVENTS,FaultPhenomenon_Swimming Platform Collision,FaultPhenomenon,游泳跳台接口防止跳台与驱动装置接触造成的碰撞损坏,D8操作手册,D8操作手册::chunk_19
+REL_000348,Marine Engine System_Tachometer,Component,HAS_PARAMETER,Parameter_Engine Speed,Parameter,转速表监测发动机转速参数,D8操作手册,D8操作手册::chunk_12
+REL_000349,Marine Engine System_Trip Computer,Component,HAS_PARAMETER,Parameter_Fuel Consumption,Parameter,行程计算机监控和显示燃油消耗参数,D8操作手册,D8操作手册::chunk_13
+REL_000350,Marine Engine System_Trip Computer,Component,HAS_PARAMETER,Parameter_Trip Distance,Parameter,行程计算机记录并显示行程距离参数,D8操作手册,D8操作手册::chunk_13
+REL_000351,Marine Engine System_Trip Computer,Component,REPAIRED_BY,RepairMethod_Reset Trip Computer,RepairMethod,行程计算机模块通过重置参数进行维护,D8操作手册,D8操作手册::chunk_12
+REL_000352,Marine Engine System_Turbocharger,Component,HAS_SAFETY_NOTE,SafetyNote_Do Not Start With Valve Cover Removed,SafetyNote,涡轮增压器及相关发动机部件起动前需确保盖板安装,D8操作手册,D8操作手册::chunk_1;D8操作手册::chunk_2;D8操作手册::chunk_3;D8操作手册::chunk_4
+REL_000353,Marine Engine System_Voltmeter,Component,HAS_PARAMETER,Parameter_Battery Voltage,Parameter,电压表监测电池电压参数,D8操作手册,D8操作手册::chunk_12
+REL_000354,Marine Engine System_Warning Management Program,Component,DIAGNOSED_BY,DiagnosticMethod_Check Fault Code,DiagnosticMethod,警告管理程序故障通过检查故障代码诊断,D8操作手册,D8操作手册::chunk_12
+REL_000355,Marine Engine System_Warning Management Program,Component,MONITORS,Marine Engine System,System,警告管理程序监测系统故障并告知舵手,D8操作手册,D8操作手册::chunk_13
+REL_000356,Marine Engine System_Water Separator,Component,REPAIRED_BY,Marine Engine System_RepairMethod_Drain Water Separator,RepairMethod,聚水器组件通过排水方法进行维护修复,D8操作手册,D8操作手册::chunk_25
+REL_000357,RepairMethod_Stop Engine Via Electronic Key Panel,RepairMethod,REQUIRES,Parameter_Neutral Gear Position,Parameter,钥匙面板停机操作前必须确认传动处于空档参数状态,D8操作手册,D8操作手册::chunk_22
+REL_000358,RepairMethod_Stop Engine Via Start Stop Panel,RepairMethod,REQUIRES,Parameter_Neutral Gear Position,Parameter,面板停机操作前必须确认传动处于空档参数状态,D8操作手册,D8操作手册::chunk_22
+REL_000359,RepairMethod_Warm Up Engine,RepairMethod,REQUIRES,Parameter_Idle Speed,Parameter,发动机暖机操作需要在怠速状态下进行,D8操作手册,D8操作手册::chunk_21
+REL_000360,SafetyNote_Beach Mode RPM Limit,SafetyNote,PREVENTS,FaultPhenomenon_Engine Overspeed,FaultPhenomenon,海滩模式转速限制防止发动机超速,D8操作手册,D8操作手册::chunk_14
+REL_000361,SafetyNote_Chemical Health Protection,SafetyNote,PREVENTS,FaultPhenomenon_Skin Damage,FaultPhenomenon,化学品防护措施可防止皮肤损伤问题,D8操作手册,D8操作手册::chunk_0
+REL_000362,SafetyNote_Cold Start Procedure,SafetyNote,PREVENTS,FaultPhenomenon_Engine Start Failure,FaultPhenomenon,寒冷启动操作规范可防止发动机启动失败,D8操作手册,D8操作手册::chunk_20
+REL_000363,SafetyNote_Cool Down Before Cooling System Work,SafetyNote,PREVENTS,FaultPhenomenon_Burns,FaultPhenomenon,冷却后操作的安全措施可防止人员灼伤故障,D8操作手册,D8操作手册::chunk_1;D8操作手册::chunk_2;D8操作手册::chunk_3;D8操作手册::chunk_4
+REL_000364,SafetyNote_Cooling Inlet Immersion,SafetyNote,PREVENTS,FaultPhenomenon_Cooling Inlet Exposure,FaultPhenomenon,冷却入口浸没要求防止冷却入口暴露,D8操作手册,D8操作手册::chunk_14
+REL_000365,SafetyNote_Correct Battery Polarity Connection,SafetyNote,PREVENTS,FaultPhenomenon_Electronic Device Damage,FaultPhenomenon,正确连接电池极性可防止电气设备严重损坏,D8操作手册,D8操作手册::chunk_5;D8操作手册::chunk_6
+REL_000366,SafetyNote_Correct Coolant Mixture,SafetyNote,PREVENTS,FaultPhenomenon_Warranty Void,FaultPhenomenon,正确混合冷却剂防止保修被拒,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000367,SafetyNote_DPS Personnel Safety,SafetyNote,PREVENTS,FaultPhenomenon_Unintended Vessel Movement,FaultPhenomenon,人员安全检查防止意外移动造成伤害,D8操作手册,D8操作手册::chunk_17
+REL_000368,SafetyNote_Dark Station Mode Warning,SafetyNote,PREVENTS,FaultPhenomenon_Missed Alarm,FaultPhenomenon,遵循暗站模式警告可防止因背光关闭导致错过警报的现象,D8操作手册,D8操作手册::chunk_13
+REL_000369,SafetyNote_Disconnect Control Units Before Welding,SafetyNote,PREVENTS,FaultPhenomenon_Electronic Device Damage,FaultPhenomenon,焊接前断开控制单元的安全措施可防止电子装置损坏故障,D8操作手册,D8操作手册::chunk_1;D8操作手册::chunk_2;D8操作手册::chunk_3;D8操作手册::chunk_4
+REL_000370,SafetyNote_Do Not Bend High Pressure Fuel Pipes,SafetyNote,PREVENTS,FaultPhenomenon_Fuel Pipe Cracking,FaultPhenomenon,禁止弯曲管路的安全措施可预防管路开裂故障,D8操作手册,D8操作手册::chunk_5;D8操作手册::chunk_6
+REL_000371,SafetyNote_Emergency Stop Joystick,SafetyNote,PREVENTS,FaultPhenomenon_Mechanical Damage,FaultPhenomenon,紧急停止程序可防止危险情况下的机械损坏,D8操作手册,D8操作手册::chunk_16
+REL_000372,SafetyNote_Engage Neutral Before Stop,SafetyNote,PREVENTS,FaultPhenomenon_Transmission Stress,FaultPhenomenon,停机前挂空档的安全措施可防止传动系统应力故障,D8操作手册,D8操作手册::chunk_22
+REL_000373,SafetyNote_Engine Run During Maneuver,SafetyNote,PREVENTS,FaultPhenomenon_Water Ingestion,FaultPhenomenon,操纵期间保持发动机运转可防止水进入发动机,D8操作手册,D8操作手册::chunk_21
+REL_000374,SafetyNote_Fire And Explosion Prevention,SafetyNote,PREVENTS,FaultPhenomenon_Fire Or Explosion,FaultPhenomenon,防火防爆安全措施可防止火灾爆炸事故发生,D8操作手册,D8操作手册::chunk_0
+REL_000375,SafetyNote_Joystick Momentum Warning,SafetyNote,PREVENTS,FaultPhenomenon_Mechanical Damage,FaultPhenomenon,注意惯性移动可防止因碰撞导致的机械损坏,D8操作手册,D8操作手册::chunk_16
+REL_000376,SafetyNote_Neutral Start Requirement,SafetyNote,PREVENTS,FaultPhenomenon_Engine Overspeed,FaultPhenomenon,空档起动要求防止意外超速,D8操作手册,D8操作手册::chunk_14
+REL_000377,SafetyNote_Neutral Start Requirement,SafetyNote,PREVENTS,FaultPhenomenon_Mechanical Damage,FaultPhenomenon,起动前置于空档的安全要求可防止机械损坏,D8操作手册,D8操作手册::chunk_20
+REL_000378,SafetyNote_No Cold Idling,SafetyNote,PREVENTS,FaultPhenomenon_Mechanical Damage,FaultPhenomenon,禁止冷态空转的安全措施可防止发动机机械损坏,D8操作手册,D8操作手册::chunk_21
+REL_000379,SafetyNote_No EVC Modification,SafetyNote,PREVENTS,FaultPhenomenon_System Performance Fault,FaultPhenomenon,禁止改装 EVC 防止系统性能故障,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000380,SafetyNote_No EVC Modification,SafetyNote,PREVENTS,FaultPhenomenon_Warranty Void,FaultPhenomenon,禁止改装 EVC 防止保修失效,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000381,SafetyNote_No Engine Modification,SafetyNote,PREVENTS,FaultPhenomenon_Emission Certificate Void,FaultPhenomenon,禁止改装发动机防止排放证书无效,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000382,SafetyNote_No Engine Run In Lift Range,SafetyNote,PREVENTS,FaultPhenomenon_Mechanical Damage,FaultPhenomenon,禁止在升程范围运行防止机械损坏,D8操作手册,D8操作手册::chunk_14
+REL_000383,SafetyNote_No High Pressure Washing On Engine,SafetyNote,PREVENTS,FaultPhenomenon_Mechanical Damage,FaultPhenomenon,禁止高压清洗的安全规定可预防发动机机械损伤,D8操作手册,D8操作手册::chunk_5;D8操作手册::chunk_6
+REL_000384,SafetyNote_No Open Flame Near Battery,SafetyNote,PREVENTS,FaultPhenomenon_Fire Or Explosion,FaultPhenomenon,电池附近禁明火措施可防止火灾或爆炸事故,D8操作手册,D8操作手册::chunk_5;D8操作手册::chunk_6
+REL_000385,SafetyNote_No Overload,SafetyNote,PREVENTS,FaultPhenomenon_Mechanical Damage,FaultPhenomenon,禁止过载防止机械损坏,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000386,SafetyNote_No Reverse While Sliding,SafetyNote,PREVENTS,FaultPhenomenon_Transmission Stress,FaultPhenomenon,禁止滑行时挂倒档可防止传动装置受损,D8操作手册,D8操作手册::chunk_21
+REL_000387,SafetyNote_Protect Screen From Sun,SafetyNote,PREVENTS,FaultPhenomenon_Screen Damage,FaultPhenomenon,使用保护盖安全措施防止屏幕损坏故障,D8操作手册,D8操作手册::chunk_12
+REL_000388,SafetyNote_Qualified Workshop Repair,SafetyNote,PREVENTS,FaultPhenomenon_Component Failure,FaultPhenomenon,合格车间维修防止部件故障,D8操作手册,D8操作手册::chunk_10;D8操作手册::chunk_11;D8操作手册::chunk_8;D8操作手册::chunk_9
+REL_000389,SafetyNote_Starter Motor Cool Down,SafetyNote,PREVENTS,FaultPhenomenon_Starter Motor Overheat,FaultPhenomenon,冷却五分钟的安全措施可防止起动马达过热损坏,D8操作手册,D8操作手册::chunk_20
+REL_000390,SafetyNote_Stop Engine Before Electrical Work,SafetyNote,PREVENTS,FaultPhenomenon_Electronic Device Damage,FaultPhenomenon,停机断电的安全措施可防止电子装置损坏故障,D8操作手册,D8操作手册::chunk_1;D8操作手册::chunk_2;D8操作手册::chunk_3;D8操作手册::chunk_4
+REL_000391,SafetyNote_Use Recommended Fuel,SafetyNote,PREVENTS,FaultPhenomenon_Engine Overspeed,FaultPhenomenon,使用推荐燃油的安全措施可防止发动机超速故障,D8操作手册,D8操作手册::chunk_1;D8操作手册::chunk_2;D8操作手册::chunk_3;D8操作手册::chunk_4
+REL_000392,SafetyNote_Use Safety Lanyard,SafetyNote,PREVENTS,FaultPhenomenon_Engine Overspeed,FaultPhenomenon,使用安全短索措施防止发动机超速或失控,D8操作手册,D8操作手册::chunk_7
+REL_000393,SafetyNote_Wear Goggles For Fuel And Battery Work,SafetyNote,PREVENTS,FaultPhenomenon_Sepsis Infection,FaultPhenomenon,佩戴护目镜及规范操作可防止燃油接触引发的感染,D8操作手册,D8操作手册::chunk_5;D8操作手册::chunk_6
+REL_000394,Volvo Penta Engine,Equipment,BELONGS_TO,Volvo Penta Engine System,System,发动机主体设备归属于沃尔沃遍达发动机整体系统,D8维护保养手册,D8维护保养手册::chunk_0;D8维护保养手册::chunk_1;D8维护保养手册::chunk_2;D8维护保养手册::chunk_3
+REL_000395,Volvo Penta Engine,Equipment,HAS_COMPONENT,Volvo Penta Engine_Cooling System_Charge Air Cooler,Component,发动机包含增压空气冷却器组件,D8维护保养手册,D8维护保养手册::chunk_10;D8维护保养手册::chunk_11
+REL_000396,Volvo Penta Engine,Equipment,HAS_COMPONENT,Volvo Penta Engine_Cooling System_Expansion Tank,Component,发动机包含冷却液膨胀箱组件,D8维护保养手册,D8维护保养手册::chunk_10;D8维护保养手册::chunk_11
+REL_000397,Volvo Penta Engine,Equipment,HAS_COMPONENT,Volvo Penta Engine_Fuel System_Common Rail,Component,发动机包含燃油共轨系统组件,D8维护保养手册,D8维护保养手册::chunk_10;D8维护保养手册::chunk_11
+REL_000398,Volvo Penta Engine,Equipment,HAS_COMPONENT,Volvo Penta Engine_Fuel System_Fuel Filter,Component,发动机包含燃油过滤器组件,D8维护保养手册,D8维护保养手册::chunk_10;D8维护保养手册::chunk_11
+REL_000399,Volvo Penta Engine,Equipment,HAS_COMPONENT,Volvo Penta Engine_Fuel System_Fuel Injector,Component,发动机包含喷油器组件,D8维护保养手册,D8维护保养手册::chunk_10;D8维护保养手册::chunk_11
+REL_000400,Volvo Penta Engine,Equipment,HAS_COMPONENT,Volvo Penta Engine_Mechanical System_Air Compressor,Component,发动机包含空气压缩机组件,D8维护保养手册,D8维护保养手册::chunk_10;D8维护保养手册::chunk_11
+REL_000401,Volvo Penta Engine,Equipment,HAS_COMPONENT,Volvo Penta Engine_Mechanical System_Cylinder Head,Component,发动机设备包含缸盖作为其核心燃烧室组件,D8维护保养手册,D8维护保养手册::chunk_6
+REL_000402,Volvo Penta Engine,Equipment,HAS_COMPONENT,Volvo Penta Engine_Mechanical System_Cylinder Liner,Component,发动机设备包含缸套作为气缸内壁组件，部分型号不可更换,D8维护保养手册,D8维护保养手册::chunk_6
+REL_000403,Volvo Penta Engine,Equipment,HAS_COMPONENT,Volvo Penta Engine_Mechanical System_Engine Block,Component,发动机设备包含发动机缸体作为其主体支撑结构,D8维护保养手册,D8维护保养手册::chunk_6
+REL_000404,Volvo Penta Engine,Equipment,HAS_COMPONENT,Volvo Penta Engine_Mechanical System_Oil Pan,Component,发动机包含油底壳组件,D8维护保养手册,D8维护保养手册::chunk_10;D8维护保养手册::chunk_11
+REL_000405,Volvo Penta Engine,Equipment,HAS_COMPONENT,Volvo Penta Engine_Mechanical System_Overhaul Kit,Component,发动机设备维护依赖大修套件作为备件来源,D8维护保养手册,D8维护保养手册::chunk_6
+REL_000406,Volvo Penta Engine,Equipment,HAS_COMPONENT,Volvo Penta Engine_Mechanical System_Piston,Component,发动机设备包含活塞作为其内部核心运动件,D8维护保养手册,D8维护保养手册::chunk_6
+REL_000407,Volvo Penta Engine,Equipment,HAS_COMPONENT,Volvo Penta Engine_Mechanical System_Starter Motor,Component,发动机设备包含起动马达作为其关键起动组件,D8维护保养手册,D8维护保养手册::chunk_6
+REL_000408,Volvo Penta Engine,Equipment,HAS_PARAMETER,Volvo Penta Engine_Cooling System_VCS Coolant Specification,Parameter,发动机冷却系统需使用特定规格的 VCS 冷却剂,D8维护保养手册,D8维护保养手册::chunk_9
+REL_000409,Volvo Penta Engine,Equipment,HAS_PARAMETER,Volvo Penta Engine_Mechanical System_Compressor Oil Specification,Parameter,发动机压缩机需使用特定规格的机油,D8维护保养手册,D8维护保养手册::chunk_9
+REL_000410,Volvo Penta Engine,Equipment,HAS_PARAMETER,Volvo Penta Engine_Mechanical System_Standard Fastener Torque,Parameter,发动机维护需遵循标准紧固扭矩参数,D8维护保养手册,D8维护保养手册::chunk_9
+REL_000411,Volvo Penta Engine,Equipment,HAS_PARAMETER,Volvo Penta Engine_Parameter_Storage Label Information,Parameter,发动机存储维护过程中必须记录标签信息参数,D8维护保养手册,D8维护保养手册::chunk_24
+REL_000412,Volvo Penta Engine,Equipment,HAS_SAFETY_NOTE,Volvo Penta Engine_Cooling System_Coolant Mixing Prohibition,SafetyNote,发动机维护需遵守冷却剂混合禁忌的安全注意,D8维护保养手册,D8维护保养手册::chunk_9
+REL_000413,Volvo Penta Engine,Equipment,HAS_SAFETY_NOTE,Volvo Penta Engine_Lubrication System_Skin Contact Hazard,SafetyNote,发动机操作需注意皮肤接触机油的安全危害,D8维护保养手册,D8维护保养手册::chunk_12
+REL_000414,Volvo Penta Engine,Equipment,HAS_SAFETY_NOTE,Volvo Penta Engine_Safety_Battery Electrolyte Corrosion,SafetyNote,发动机设备维护需遵循电池电解液防腐蚀安全警示,D8维护保养手册,D8维护保养手册::chunk_4;D8维护保养手册::chunk_5
+REL_000415,Volvo Penta Engine,Equipment,HAS_SAFETY_NOTE,Volvo Penta Engine_Safety_Battery Explosion Risk,SafetyNote,发动机设备维护需遵循电池防火防爆安全警示,D8维护保养手册,D8维护保养手册::chunk_4;D8维护保养手册::chunk_5
+REL_000416,Volvo Penta Engine,Equipment,HAS_SAFETY_NOTE,Volvo Penta Engine_Safety_Battery Polarity Connection,SafetyNote,发动机设备维护需遵循电池极性正确连接安全要求,D8维护保养手册,D8维护保养手册::chunk_4;D8维护保养手册::chunk_5
+REL_000417,Volvo Penta Engine,Equipment,HAS_SAFETY_NOTE,Volvo Penta Engine_Safety_Component Cleaning Sensitivity,SafetyNote,发动机设备维护需遵循组件清洁度敏感要求,D8维护保养手册,D8维护保养手册::chunk_4;D8维护保养手册::chunk_5
+REL_000418,Volvo Penta Engine,Equipment,HAS_SAFETY_NOTE,Volvo Penta Engine_Safety_Engine Lifting Operation,SafetyNote,发动机设备维护需遵循吊装作业安全要求,D8维护保养手册,D8维护保养手册::chunk_4;D8维护保养手册::chunk_5
+REL_000419,Volvo Penta Engine,Equipment,HAS_SAFETY_NOTE,Volvo Penta Engine_Safety_Fuel High Pressure Injection Risk,SafetyNote,发动机设备维护需遵循燃油高压泄漏检测安全警示,D8维护保养手册,D8维护保养手册::chunk_4;D8维护保养手册::chunk_5
+REL_000420,Volvo Penta Engine,Equipment,HAS_SAFETY_NOTE,Volvo Penta Engine_Safety_Hot Coolant Burn Risk,SafetyNote,发动机设备维护需遵循热冷却液防灼伤安全警示,D8维护保养手册,D8维护保养手册::chunk_4;D8维护保养手册::chunk_5
+REL_000421,Volvo Penta Engine,Equipment,HAS_SAFETY_NOTE,Volvo Penta Engine_Safety_Max Overhaul Limit,SafetyNote,发动机设备维护需遵守两次大修后报废的安全寿命限制,D8维护保养手册,D8维护保养手册::chunk_6
+REL_000422,Volvo Penta Engine,Equipment,HAS_SAFETY_NOTE,Volvo Penta Engine_Safety_Seal Open Connections Before Storage,SafetyNote,发动机存储作业需遵循密封开放连接的安全规范,D8维护保养手册,D8维护保养手册::chunk_24
+REL_000423,Volvo Penta Engine,Equipment,HAS_SAFETY_NOTE,Volvo Penta Engine_Transmission System_ATF Mixing Compatibility,SafetyNote,发动机维护需遵守 ATF 机油混合兼容性的安全注意,D8维护保养手册,D8维护保养手册::chunk_9
+REL_000424,Volvo Penta Engine,Equipment,HAS_SAFETY_NOTE,冷却系统作业安全,SafetyNote,发动机设备维护需遵守冷却系统作业安全安全事项,D8维护保养手册,D8维护保养手册::chunk_0;D8维护保养手册::chunk_1;D8维护保养手册::chunk_2;D8维护保养手册::chunk_3
+REL_000425,Volvo Penta Engine,Equipment,HAS_SAFETY_NOTE,发动机起动锁定,SafetyNote,发动机设备维护需遵守发动机起动锁定安全事项,D8维护保养手册,D8维护保养手册::chunk_0;D8维护保养手册::chunk_1;D8维护保养手册::chunk_2;D8维护保养手册::chunk_3
+REL_000426,Volvo Penta Engine,Equipment,HAS_SAFETY_NOTE,电气系统作业电源隔离,SafetyNote,发动机设备维护需遵守电气系统作业电源隔离安全事项,D8维护保养手册,D8维护保养手册::chunk_0;D8维护保养手册::chunk_1;D8维护保养手册::chunk_2;D8维护保养手册::chunk_3
+REL_000427,Volvo Penta Engine,Equipment,HAS_SAFETY_NOTE,运行区域通风要求,SafetyNote,发动机设备运行需遵守运行区域通风要求安全事项,D8维护保养手册,D8维护保养手册::chunk_0;D8维护保养手册::chunk_1;D8维护保养手册::chunk_2;D8维护保养手册::chunk_3
+REL_000428,Volvo Penta Engine,Equipment,REPAIRED_BY,Volvo Penta Engine_Repair_Engine Lifting Procedure,RepairMethod,发动机设备通过标准吊装程序方法进行部件拆卸维修,D8维护保养手册,D8维护保养手册::chunk_4;D8维护保养手册::chunk_5
+REL_000429,Volvo Penta Engine,Equipment,REPAIRED_BY,Volvo Penta Engine_Repair_Post Use Leak And Function Check,RepairMethod,发动机设备通过使用后泄漏与功能检查方法维护,D8维护保养手册,D8维护保养手册::chunk_4;D8维护保养手册::chunk_5
+REL_000430,Volvo Penta Engine,Equipment,REPAIRED_BY,Volvo Penta Engine_Transmission System_Overhaul,RepairMethod,发动机设备通过大修方法进行全面恢复性维修,D8维护保养手册,D8维护保养手册::chunk_6
+REL_000431,Volvo Penta Engine,Equipment,REPAIRED_BY,警告标贴维护,RepairMethod,发动机设备通过警告标贴维护方法保持信息清晰,D8维护保养手册,D8维护保养手册::chunk_0;D8维护保养手册::chunk_1;D8维护保养手册::chunk_2;D8维护保养手册::chunk_3
+REL_000432,Volvo Penta Engine System,System,HAS_COMPONENT,Volvo Penta Engine_Diagnostic System_VODIA Tool,Equipment,系统维护依赖 VODIA 诊断工具,D8维护保养手册,D8维护保养手册::chunk_10;D8维护保养手册::chunk_11
+REL_000433,Volvo Penta Engine_Cooling System,System,BELONGS_TO,Volvo Penta Engine,Equipment,冷却系统隶属于沃尔沃遍达发动机设备,D8维护保养手册,D8维护保养手册::chunk_14
+REL_000434,Volvo Penta Engine_Cooling System_Charge Air Cooler,Component,BELONGS_TO,Volvo Penta Engine_Cooling System,System,增压空气冷却器归属于冷却系统层级,D8维护保养手册,D8维护保养手册::chunk_14
+REL_000435,Volvo Penta Engine_Cooling System_Charge Air Cooler,Component,REPAIRED_BY,Volvo Penta Engine_Cooling System_Charge Air Cooler Cleaning,RepairMethod,增压空气冷却器通过拆卸清洁和更换垫片进行维护,D8维护保养手册,D8维护保养手册::chunk_14
+REL_000436,Volvo Penta Engine_Cooling System_Charge Air Cooler Cleaning,RepairMethod,HAS_SAFETY_NOTE,Volvo Penta Engine_Cooling System_Drain Before Operation,SafetyNote,清洁前必须排放系统以防危险,D8维护保养手册,D8维护保养手册::chunk_14
+REL_000437,Volvo Penta Engine_Cooling System_Charge Air Cooler Cleaning,RepairMethod,HAS_SAFETY_NOTE,Volvo Penta Engine_Cooling System_Water Ingress Danger,SafetyNote,清洁冷却器时需注意进水危险,D8维护保养手册,D8维护保养手册::chunk_14
+REL_000438,Volvo Penta Engine_Cooling System_Charge Air Cooler Cleaning,RepairMethod,REQUIRES,Volvo Penta Engine_Cooling System_Charge Air Cooler Tail Cover Torque,Parameter,清洁后安装尾盖需遵循特定扭矩,D8维护保养手册,D8维护保养手册::chunk_14
+REL_000439,Volvo Penta Engine_Cooling System_Coolant Concentration Warning,SafetyNote,HAS_PARAMETER,Volvo Penta Engine_Cooling System_Coolant Concentration,Parameter,冷却系统安全警告涉及冷却剂浓度参数要求,D8维护保养手册,D8维护保养手册::chunk_7;D8维护保养手册::chunk_8
+REL_000440,Volvo Penta Engine_Cooling System_Coolant Mixing Prohibition,SafetyNote,PREVENTS,Volvo Penta Engine_Cooling System_Coolant Mixing Damage,FaultPhenomenon,遵守冷却剂混合禁忌可防止冷却系统损坏,D8维护保养手册,D8维护保养手册::chunk_9
+REL_000441,Volvo Penta Engine_Cooling System_Coolant Pump,Component,BELONGS_TO,Volvo Penta Engine,Equipment,冷却液泵属于沃尔沃遍达发动机设备的冷却系统组件,D8维护保养手册,D8维护保养手册::chunk_4;D8维护保养手册::chunk_5
+REL_000442,Volvo Penta Engine_Cooling System_Cooling Water Inlet,Component,BELONGS_TO,Volvo Penta Engine_Cooling System,System,冷却水入口归属于冷却系统层级,D8维护保养手册,D8维护保养手册::chunk_14
+REL_000443,Volvo Penta Engine_Cooling System_Cooling Water Inlet,Component,DIAGNOSED_BY,Volvo Penta Engine_Cooling System_Cooling Water Inlet Check,DiagnosticMethod,冷却水入口状态通过定期检查旋塞和格栅来诊断,D8维护保养手册,D8维护保养手册::chunk_14
+REL_000444,Volvo Penta Engine_Cooling System_Drain Before Operation,SafetyNote,PREVENTS,Volvo Penta Engine_Fault_Coolant Leak,FaultPhenomenon,操作前排水防止冷却液泄漏风险,D8维护保养手册,D8维护保养手册::chunk_14
+REL_000445,Volvo Penta Engine_Cooling System_Heat Exchanger,Component,BELONGS_TO,Volvo Penta Engine_Cooling System,System,热交换器属于冷却系统,D8维护保养手册,D8维护保养手册::chunk_25;D8维护保养手册::chunk_26;D8维护保养手册::chunk_27;D8维护保养手册::chunk_28
+REL_000446,Volvo Penta Engine_Cooling System_Sacrificial Anode,Component,BELONGS_TO,Volvo Penta Engine_Cooling System_Charge Air Cooler,Component,牺牲阳极安装在增压空气冷却器上,D8维护保养手册,D8维护保养手册::chunk_14
+REL_000447,Volvo Penta Engine_Cooling System_Sacrificial Anode,Component,REPAIRED_BY,Volvo Penta Engine_Transmission System_Anode Replacement,RepairMethod,牺牲阳极通过更换新件进行维护,D8维护保养手册,D8维护保养手册::chunk_14
+REL_000448,Volvo Penta Engine_Cooling System_Sea Water Pump,Component,BELONGS_TO,Volvo Penta Engine,Equipment,海水泵属于沃尔沃遍达发动机设备的冷却系统组件,D8维护保养手册,D8维护保养手册::chunk_4;D8维护保养手册::chunk_5
+REL_000449,Volvo Penta Engine_Diagnostic System_VODIA Tool,Equipment,DIAGNOSED_BY,Volvo Penta Engine_Diagnostic_VODIA Software Check,DiagnosticMethod,使用 VODIA 软件检查进行诊断,D8维护保养手册,D8维护保养手册::chunk_10;D8维护保养手册::chunk_11
+REL_000450,Volvo Penta Engine_Electrical System,System,BELONGS_TO,Volvo Penta Engine,Equipment,电气系统属于发动机整体设备,D8维护保养手册,D8维护保养手册::chunk_25;D8维护保养手册::chunk_26;D8维护保养手册::chunk_27;D8维护保养手册::chunk_28
+REL_000451,Volvo Penta Engine_Electrical System_Alternator,Component,BELONGS_TO,Volvo Penta Engine,Equipment,交流发电机属于发动机主体设备的关键部件,D8维护保养手册,D8维护保养手册::chunk_0;D8维护保养手册::chunk_1;D8维护保养手册::chunk_2;D8维护保养手册::chunk_3
+REL_000452,Volvo Penta Engine_Electrical System_Alternator,Component,BELONGS_TO,Volvo Penta Engine_Electrical System,System,交流发电机属于电气系统,D8维护保养手册,D8维护保养手册::chunk_25;D8维护保养手册::chunk_26;D8维护保养手册::chunk_27;D8维护保养手册::chunk_28
+REL_000453,Volvo Penta Engine_Electrical System_Battery,Component,BELONGS_TO,Volvo Penta Engine,Equipment,电池属于沃尔沃遍达发动机设备的电气系统组件,D8维护保养手册,D8维护保养手册::chunk_4;D8维护保养手册::chunk_5
+REL_000454,Volvo Penta Engine_Electrical System_Battery,Component,BELONGS_TO,Volvo Penta Engine_Electrical System,System,电池属于船舶电气系统的关键组成部分,D8维护保养手册,D8维护保养手册::chunk_29;D8维护保养手册::chunk_30
+REL_000455,Volvo Penta Engine_Electrical System_Battery,Component,DIAGNOSED_BY,Volvo Penta Engine_Diagnostic_Battery Voltage Check,DiagnosticMethod,电池状态可通过电压表检查方法进行诊断,D8维护保养手册,D8维护保养手册::chunk_29;D8维护保养手册::chunk_30
+REL_000456,Volvo Penta Engine_Electrical System_Battery Cable,Component,BELONGS_TO,Volvo Penta Engine_Electrical System_Battery,Component,电池电缆是电池设备的配套连接组件,D8维护保养手册,D8维护保养手册::chunk_29;D8维护保养手册::chunk_30
+REL_000457,Volvo Penta Engine_Electrical System_Battery Management System,Component,BELONGS_TO,Volvo Penta Engine,Equipment,电池管理系统属于发动机主体设备的关键部件,D8维护保养手册,D8维护保养手册::chunk_0;D8维护保养手册::chunk_1;D8维护保养手册::chunk_2;D8维护保养手册::chunk_3
+REL_000458,Volvo Penta Engine_Electrical System_Engine Control Module,Component,BELONGS_TO,Volvo Penta Engine,Equipment,发动机控制模块属于发动机主体设备的关键部件,D8维护保养手册,D8维护保养手册::chunk_0;D8维护保养手册::chunk_1;D8维护保养手册::chunk_2;D8维护保养手册::chunk_3
+REL_000459,Volvo Penta Engine_Electrical System_Wiring Harness,Component,BELONGS_TO,Volvo Penta Engine_Electrical System,System,线束属于电气系统,D8维护保养手册,D8维护保养手册::chunk_25;D8维护保养手册::chunk_26;D8维护保养手册::chunk_27;D8维护保养手册::chunk_28
+REL_000460,Volvo Penta Engine_Exhaust System,System,BELONGS_TO,Volvo Penta Engine,Equipment,排气系统隶属于沃尔沃遍达发动机设备,D8维护保养手册,D8维护保养手册::chunk_14
+REL_000461,Volvo Penta Engine_Exhaust System_AdBlue Tank,Component,BELONGS_TO,Volvo Penta Engine_Exhaust System,System,AdBlue 罐作为关键部件隶属于发动机排气系统,D8维护保养手册,D8维护保养手册::chunk_24
+REL_000462,Volvo Penta Engine_Exhaust System_Diesel Particulate Filter,Component,BELONGS_TO,Volvo Penta Engine,Equipment,柴油颗粒过滤器属于沃尔沃遍达发动机设备的排气系统组件,D8维护保养手册,D8维护保养手册::chunk_4;D8维护保养手册::chunk_5
+REL_000463,Volvo Penta Engine_Exhaust System_Silencer,Component,BELONGS_TO,Volvo Penta Engine,Equipment,消音器属于发动机排气系统的部件,D8维护保养手册,D8维护保养手册::chunk_12
+REL_000464,Volvo Penta Engine_Fault_Alternator Water Ingress,FaultPhenomenon,REPAIRED_BY,Volvo Penta Engine_Maintenance_Alternator Drying,RepairMethod,发电机进水故障通过干燥方法修复,D8维护保养手册,D8维护保养手册::chunk_25;D8维护保养手册::chunk_26;D8维护保养手册::chunk_27;D8维护保养手册::chunk_28
+REL_000465,Volvo Penta Engine_Fault_Battery Connection Loose,FaultCause,CAUSED_BY,Volvo Penta Engine_Fault_Battery Stray Current And Discharge,FaultPhenomenon,电池连接松动是导致杂散电流和放电故障的原因,D8维护保养手册,D8维护保养手册::chunk_29;D8维护保养手册::chunk_30
+REL_000466,Volvo Penta Engine_Fault_Battery Terminal Oxidation,FaultCause,CAUSED_BY,Volvo Penta Engine_Fault_Battery Stray Current And Discharge,FaultPhenomenon,端子氧化物是导致杂散电流和放电故障的原因,D8维护保养手册,D8维护保养手册::chunk_29;D8维护保养手册::chunk_30
+REL_000467,Volvo Penta Engine_Fault_Component Malfunction,FaultPhenomenon,CAUSED_BY,Volvo Penta Engine_Fault_Component Contamination,FaultCause,组件功能异常现象由组件污物污染原因导致,D8维护保养手册,D8维护保养手册::chunk_4;D8维护保养手册::chunk_5
+REL_000468,Volvo Penta Engine_Fault_Coolant Leak,FaultPhenomenon,CAUSED_BY,Volvo Penta Engine_Cooling System_Expansion Tank,Component,膨胀箱或软管问题导致冷却液泄漏,D8维护保养手册,D8维护保养手册::chunk_10;D8维护保养手册::chunk_11
+REL_000469,Volvo Penta Engine_Fault_Coolant Leak,FaultPhenomenon,CAUSED_BY,Volvo Penta Engine_Fuel System_Fuel Injector,Component,喷油器连接问题导致燃油泄漏,D8维护保养手册,D8维护保养手册::chunk_10;D8维护保养手册::chunk_11
+REL_000470,Volvo Penta Engine_Fault_Coolant Leak,FaultPhenomenon,CAUSED_BY,Volvo Penta Engine_Mechanical System_Oil Pan,Component,油底壳或涡轮连接导致机油泄漏,D8维护保养手册,D8维护保养手册::chunk_10;D8维护保养手册::chunk_11
+REL_000471,Volvo Penta Engine_Fault_Coolant Leak,FaultPhenomenon,DIAGNOSED_BY,Volvo Penta Engine_Maintenance_General Visual Inspection,DiagnosticMethod,通过一般目视检查发现燃油泄漏,D8维护保养手册,D8维护保养手册::chunk_10;D8维护保养手册::chunk_11
+REL_000472,Volvo Penta Engine_Fault_Electrical Equipment Damage,FaultPhenomenon,CAUSED_BY,Volvo Penta Engine_Fault_Wrong Battery Polarity,FaultCause,电气设备损坏现象由电池极性连接错误原因导致,D8维护保养手册,D8维护保养手册::chunk_4;D8维护保养手册::chunk_5
+REL_000473,Volvo Penta Engine_Fault_Frost Weathering,FaultPhenomenon,CAUSED_BY,Volvo Penta Engine_Cooling System_Heat Exchanger,Component,热交换器残留水导致冰冻风化故障,D8维护保养手册,D8维护保养手册::chunk_25;D8维护保养手册::chunk_26;D8维护保养手册::chunk_27;D8维护保养手册::chunk_28
+REL_000474,Volvo Penta Engine_Fault_Fuel Pipe Cracking,FaultPhenomenon,CAUSED_BY,Volvo Penta Engine_Fault_Fuel Pipe Bending,FaultCause,燃油管开裂现象由违规弯曲管路原因导致,D8维护保养手册,D8维护保养手册::chunk_4;D8维护保养手册::chunk_5
+REL_000475,Volvo Penta Engine_Fault_Fuel Pipe Cracking,FaultPhenomenon,REPAIRED_BY,Volvo Penta Engine_Repair_Fuel Pipe Replacement,RepairMethod,燃油管开裂故障通过更换高压管路方法修复,D8维护保养手册,D8维护保养手册::chunk_4;D8维护保养手册::chunk_5
+REL_000476,Volvo Penta Engine_Fault_Fuel System Microbial Growth,FaultPhenomenon,CAUSED_BY,Volvo Penta Engine_Parameter_Fuel FAME Limit,Parameter,燃油中 FAME 含量超标会导致微生物滋生故障,D8维护保养手册,D8维护保养手册::chunk_22;D8维护保养手册::chunk_23
+REL_000477,Volvo Penta Engine_Fault_Wiring Damage,FaultPhenomenon,DIAGNOSED_BY,Volvo Penta Engine_Maintenance_General Visual Inspection,DiagnosticMethod,通过一般目视检查发现电线损坏,D8维护保养手册,D8维护保养手册::chunk_10;D8维护保养手册::chunk_11
+REL_000478,Volvo Penta Engine_Fuel System,System,BELONGS_TO,Volvo Penta Engine,Equipment,燃油系统隶属于沃尔沃彭塔发动机主体设备,D8维护保养手册,D8维护保养手册::chunk_22;D8维护保养手册::chunk_23
+REL_000479,Volvo Penta Engine_Fuel System_Fuel Pump,Component,BELONGS_TO,Volvo Penta Engine,Equipment,燃油泵属于沃尔沃遍达发动机设备的燃油系统组件,D8维护保养手册,D8维护保养手册::chunk_4;D8维护保养手册::chunk_5
+REL_000480,Volvo Penta Engine_Fuel System_Fuel Tank,Component,BELONGS_TO,Volvo Penta Engine_Fuel System,System,燃油箱是燃油系统的关键存储组件,D8维护保养手册,D8维护保养手册::chunk_22;D8维护保养手册::chunk_23
+REL_000481,Volvo Penta Engine_Fuel System_High Pressure Fuel Pipe,Component,BELONGS_TO,Volvo Penta Engine,Equipment,燃油高压管属于沃尔沃遍达发动机设备的燃油系统组件,D8维护保养手册,D8维护保养手册::chunk_4;D8维护保养手册::chunk_5
+REL_000482,Volvo Penta Engine_Intake System_Air Filter,Component,BELONGS_TO,Volvo Penta Engine,Equipment,空气过滤器属于发动机主体设备的关键部件,D8维护保养手册,D8维护保养手册::chunk_0;D8维护保养手册::chunk_1;D8维护保养手册::chunk_2;D8维护保养手册::chunk_3
+REL_000483,Volvo Penta Engine_Intake System_Air Filter,Component,REPAIRED_BY,Volvo Penta Engine_Repair_Air Filter Replacement,RepairMethod,空气过滤器通过更换方法进行维修,D8维护保养手册,D8维护保养手册::chunk_10;D8维护保养手册::chunk_11
+REL_000484,Volvo Penta Engine_Lubrication System,System,BELONGS_TO,Volvo Penta Engine,Equipment,润滑系统属于沃尔沃遍达发动机设备的一部分,D8维护保养手册,D8维护保养手册::chunk_12
+REL_000485,Volvo Penta Engine_Lubrication System_Bearing And Crankshaft Wear,FaultPhenomenon,CAUSED_BY,Volvo Penta Engine_Lubrication System_Wrong Oil Filter Type,FaultCause,使用错误类型的过滤器会导致轴承和曲轴磨损,D8维护保养手册,D8维护保养手册::chunk_12
+REL_000486,Volvo Penta Engine_Lubrication System_Dipstick,Component,BELONGS_TO,Volvo Penta Engine_Lubrication System,System,油尺是润滑系统用于液位测量的组件,D8维护保养手册,D8维护保养手册::chunk_12
+REL_000487,Volvo Penta Engine_Lubrication System_Engine Level Requirement,SafetyNote,PREVENTS,Volvo Penta Engine_Lubrication System_Increased Oil Consumption,FaultPhenomenon,保持发动机水平可防止因测量不准导致的油位异常故障,D8维护保养手册,D8维护保养手册::chunk_12
+REL_000488,Volvo Penta Engine_Lubrication System_Engine Overheating,FaultPhenomenon,CAUSED_BY,Volvo Penta Engine_Lubrication System_Low Oil Level,FaultCause,低油位可能导致发动机过热,D8维护保养手册,D8维护保养手册::chunk_12
+REL_000489,Volvo Penta Engine_Lubrication System_Increased Oil Consumption,FaultPhenomenon,CAUSED_BY,Volvo Penta Engine_Lubrication System_High Oil Level,FaultCause,高油位会导致机油消耗量增加,D8维护保养手册,D8维护保养手册::chunk_12
+REL_000490,Volvo Penta Engine_Lubrication System_Oil Analysis,DiagnosticMethod,REQUIRES,Volvo Penta Engine_Lubrication System_Oil Sampling Kit,Equipment,机油分析诊断需要使用取样套件设备,D8维护保养手册,D8维护保养手册::chunk_12
+REL_000491,Volvo Penta Engine_Lubrication System_Oil And Filter Replacement,RepairMethod,REQUIRES,Volvo Penta Engine_Lubrication System_Filter Cover Torque,Parameter,更换过滤器维修方法需要遵循 40 Nm 扭矩参数,D8维护保养手册,D8维护保养手册::chunk_12
+REL_000492,Volvo Penta Engine_Lubrication System_Oil Filter,Component,BELONGS_TO,Volvo Penta Engine_Lubrication System,System,机油过滤器是润滑系统的关键组件,D8维护保养手册,D8维护保养手册::chunk_12
+REL_000493,Volvo Penta Engine_Lubrication System_Oil Filter,Component,REPAIRED_BY,Volvo Penta Engine_Lubrication System_Oil And Filter Replacement,RepairMethod,机油过滤器通过更换机油和过滤器方法进行维修,D8维护保养手册,D8维护保养手册::chunk_12
+REL_000494,Volvo Penta Engine_Lubrication System_Piston Seizure,FaultPhenomenon,CAUSED_BY,Volvo Penta Engine_Lubrication System_Low Oil Level,FaultCause,低油位可能导致活塞卡死,D8维护保养手册,D8维护保养手册::chunk_12
+REL_000495,Volvo Penta Engine_Lubrication System_Silencer Clogging,FaultPhenomenon,CAUSED_BY,Volvo Penta Engine_Lubrication System_High Oil Level,FaultCause,高油位可能导致消音器堵塞,D8维护保养手册,D8维护保养手册::chunk_12
+REL_000496,Volvo Penta Engine_Lubrication System_Wait Time Before Measurement,SafetyNote,PREVENTS,Volvo Penta Engine_Lubrication System_Increased Oil Consumption,FaultPhenomenon,停机等待 15 分钟可防止因测量不准导致的油位异常故障,D8维护保养手册,D8维护保养手册::chunk_12
+REL_000497,Volvo Penta Engine_Maintenance_Battery Replacement Procedure,RepairMethod,HAS_PARAMETER,Volvo Penta Engine_Parameter_Battery Terminal Torque 6Nm,Parameter,电池更换程序规定了电缆终端紧固的扭矩参数,D8维护保养手册,D8维护保养手册::chunk_29;D8维护保养手册::chunk_30
+REL_000498,Volvo Penta Engine_Maintenance_Battery Replacement Procedure,RepairMethod,REQUIRES,Volvo Penta Engine_Electrical System_Battery Cable,Component,电池更换程序涉及电池电缆的拆装操作,D8维护保养手册,D8维护保养手册::chunk_29;D8维护保养手册::chunk_30
+REL_000499,Volvo Penta Engine_Maintenance_Battery Terminal Cleaning,RepairMethod,PREVENTS,Volvo Penta Engine_Fault_Battery Stray Current And Discharge,FaultPhenomenon,清洁电池端子可防止杂散电流和异常放电故障,D8维护保养手册,D8维护保养手册::chunk_29;D8维护保养手册::chunk_30
+REL_000500,Volvo Penta Engine_Maintenance_Compressor Oil Check,DiagnosticMethod,REQUIRES,Volvo Penta Engine_Mechanical System_Compressor Oil Specification,Parameter,油位检查需依据机油规格参数,D8维护保养手册,D8维护保养手册::chunk_10;D8维护保养手册::chunk_11
+REL_000501,Volvo Penta Engine_Maintenance_Engine Room Cleaning,RepairMethod,REQUIRES,Volvo Penta Engine_Electrical System_Alternator,Component,清洁维护需要保护交流发电机,D8维护保养手册,D8维护保养手册::chunk_25;D8维护保养手册::chunk_26;D8维护保养手册::chunk_27;D8维护保养手册::chunk_28
+REL_000502,Volvo Penta Engine_Maintenance_Engine Room Cleaning,RepairMethod,REQUIRES,Volvo Penta Engine_Electrical System_Wiring Harness,Component,清洁维护需要检查线束绝缘,D8维护保养手册,D8维护保养手册::chunk_25;D8维护保养手册::chunk_26;D8维护保养手册::chunk_27;D8维护保养手册::chunk_28
+REL_000503,Volvo Penta Engine_Maintenance_Engine Room Cleaning,RepairMethod,REQUIRES,Volvo Penta Engine_Safety_Cover Electrical Parts During Cleaning,SafetyNote,发动机舱清洁需要遵循遮盖电气部件的安全要求,D8维护保养手册,D8维护保养手册::chunk_25;D8维护保养手册::chunk_26;D8维护保养手册::chunk_27;D8维护保养手册::chunk_28
+REL_000504,Volvo Penta Engine_Maintenance_High Pressure Washing,RepairMethod,HAS_PARAMETER,Volvo Penta Engine_Parameter_Washer Distance,Parameter,高压清洗方法受安全距离参数限制,D8维护保养手册,D8维护保养手册::chunk_25;D8维护保养手册::chunk_26;D8维护保养手册::chunk_27;D8维护保养手册::chunk_28
+REL_000505,Volvo Penta Engine_Maintenance_High Pressure Washing,RepairMethod,HAS_PARAMETER,Volvo Penta Engine_Parameter_Washer Pressure Limit,Parameter,高压清洗方法受压力参数限制,D8维护保养手册,D8维护保养手册::chunk_25;D8维护保养手册::chunk_26;D8维护保养手册::chunk_27;D8维护保养手册::chunk_28
+REL_000506,Volvo Penta Engine_Maintenance_Long Term Storage Preparation,RepairMethod,HAS_PARAMETER,Volvo Penta Engine_Parameter_Pre Storage Run Time,Parameter,存储前运转发动机需满足最低时间参数要求,D8维护保养手册,D8维护保养手册::chunk_22;D8维护保养手册::chunk_23
+REL_000507,Volvo Penta Engine_Maintenance_Long Term Storage Preparation,RepairMethod,PREVENTS,Volvo Penta Engine_Fault_Battery Freezing,FaultPhenomenon,电池充电维护防止低温下电池冻结破裂,D8维护保养手册,D8维护保养手册::chunk_22;D8维护保养手册::chunk_23
+REL_000508,Volvo Penta Engine_Maintenance_Long Term Storage Preparation,RepairMethod,PREVENTS,Volvo Penta Engine_Fault_Engine Corrosion And Mold,FaultPhenomenon,存储准备措施防止发动机霉菌形成与腐蚀,D8维护保养手册,D8维护保养手册::chunk_22;D8维护保养手册::chunk_23
+REL_000509,Volvo Penta Engine_Maintenance_Long Term Storage Preparation,RepairMethod,REPAIRED_BY,Volvo Penta Engine,Equipment,长期存储准备流程用于维护发动机主体,D8维护保养手册,D8维护保养手册::chunk_22;D8维护保养手册::chunk_23
+REL_000510,Volvo Penta Engine_Maintenance_Long Term Storage Preparation,RepairMethod,REQUIRES,Volvo Penta Engine_Cooling System,System,长期存储准备程序要求检查冷却系统甘醇加注并泵送海水冷却系统,D8维护保养手册,D8维护保养手册::chunk_24
+REL_000511,Volvo Penta Engine_Maintenance_Long Term Storage Preparation,RepairMethod,REQUIRES,Volvo Penta Engine_Cooling System_Sea Water Pump,Component,存储准备需排空海水泵及拆除叶轮冷藏,D8维护保养手册,D8维护保养手册::chunk_22;D8维护保养手册::chunk_23
+REL_000512,Volvo Penta Engine_Maintenance_Long Term Storage Preparation,RepairMethod,REQUIRES,Volvo Penta Engine_Electrical System_Battery,Component,存储准备需断开电池电缆并进行充电维护,D8维护保养手册,D8维护保养手册::chunk_22;D8维护保养手册::chunk_23
+REL_000513,Volvo Penta Engine_Maintenance_Long Term Storage Preparation,RepairMethod,REQUIRES,Volvo Penta Engine_Exhaust System_AdBlue Tank,Component,长期存储准备程序要求对 AdBlue 罐进行清空和清洁处理,D8维护保养手册,D8维护保养手册::chunk_24
+REL_000514,Volvo Penta Engine_Maintenance_Long Term Storage Preparation,RepairMethod,REQUIRES,Volvo Penta Engine_Fuel System_Fuel Tank,Component,存储准备需执行燃油箱排空清洁与加满操作,D8维护保养手册,D8维护保养手册::chunk_22;D8维护保养手册::chunk_23
+REL_000515,Volvo Penta Engine_Maintenance_Long Term Storage Preparation,RepairMethod,REQUIRES,Volvo Penta Engine_Lubrication System,System,长期存储准备程序要求确保润滑系统内已加注机油,D8维护保养手册,D8维护保养手册::chunk_24
+REL_000516,Volvo Penta Engine_Maintenance_Post Storage Start Procedure,RepairMethod,DIAGNOSED_BY,Volvo Penta Engine_Repair_Post Use Leak And Function Check,RepairMethod,起动后需执行泄露与功能检查以确认状态,D8维护保养手册,D8维护保养手册::chunk_22;D8维护保养手册::chunk_23
+REL_000517,Volvo Penta Engine_Maintenance_Post Storage Start Procedure,RepairMethod,REPAIRED_BY,Volvo Penta Engine,Equipment,存储后起动流程用于恢复发动机运行状态,D8维护保养手册,D8维护保养手册::chunk_22;D8维护保养手册::chunk_23
+REL_000518,Volvo Penta Engine_Maintenance_Post Storage Start Procedure,RepairMethod,REQUIRES,Volvo Penta Engine_Fuel System_Fuel Filter,Component,起动前必须更换燃料过滤器以防微生物阻塞,D8维护保养手册,D8维护保养手册::chunk_22;D8维护保养手册::chunk_23
+REL_000519,Volvo Penta Engine_Maintenance_Post Storage Start Procedure,RepairMethod,REQUIRES,Volvo Penta Engine_Intake System_Air Filter,Component,起动前需拆除空气过滤器上的防尘盖子,D8维护保养手册,D8维护保养手册::chunk_22;D8维护保养手册::chunk_23
+REL_000520,Volvo Penta Engine_Maintenance_Post Storage Start Procedure,RepairMethod,REQUIRES,Volvo Penta Engine_Mechanical System_Drive Belt,Component,起动前需检查传动带状况以确保机械安全,D8维护保养手册,D8维护保养手册::chunk_22;D8维护保养手册::chunk_23
+REL_000521,Volvo Penta Engine_Maintenance_Post Storage Start Procedure,RepairMethod,REQUIRES,Volvo Penta Engine_Mechanical System_Rubber Hose,Component,起动前需检查橡胶软管及软管夹状况,D8维护保养手册,D8维护保养手册::chunk_22;D8维护保养手册::chunk_23
+REL_000522,Volvo Penta Engine_Maintenance_Storage Periodic Engine Start,RepairMethod,HAS_PARAMETER,Volvo Penta Engine_Parameter_Engine Warm Up Time 2-3 Mins,Parameter,存储期间起动程序规定了发动机暖机运行时长参数,D8维护保养手册,D8维护保养手册::chunk_29;D8维护保养手册::chunk_30
+REL_000523,Volvo Penta Engine_Maintenance_Storage Periodic Engine Start,RepairMethod,HAS_PARAMETER,Volvo Penta Engine_Parameter_Manual Shaft Rotation Turns,Parameter,存储期间起动程序规定了手动旋转输出轴的转数参数,D8维护保养手册,D8维护保养手册::chunk_29;D8维护保养手册::chunk_30
+REL_000524,Volvo Penta Engine_Maintenance_Storage Periodic Engine Start,RepairMethod,REQUIRES,Volvo Penta Engine_Cooling System_Seawater Pump Impeller,Component,存储期间起动程序要求取出海水泵叶轮并连接冷却水,D8维护保养手册,D8维护保养手册::chunk_29;D8维护保养手册::chunk_30
+REL_000525,Volvo Penta Engine_Maintenance_Storage Periodic Engine Start,RepairMethod,REQUIRES,Volvo Penta Engine_Diagnostic_Engine Room Condensation Check,DiagnosticMethod,存储期间起动程序要求检查发动机舱冷凝情况,D8维护保养手册,D8维护保养手册::chunk_29;D8维护保养手册::chunk_30
+REL_000526,Volvo Penta Engine_Maintenance_Storage Periodic Engine Start,RepairMethod,REQUIRES,Volvo Penta Engine_Electrical System_Battery Cable,Component,存储期间起动程序要求连接电池电缆,D8维护保养手册,D8维护保养手册::chunk_29;D8维护保养手册::chunk_30
+REL_000527,Volvo Penta Engine_Maintenance_Storage Periodic Engine Start,RepairMethod,REQUIRES,Volvo Penta Engine_Transmission System_Drive Unit Output Shaft,Component,存储期间起动程序要求手动旋转驱动装置输出轴,D8维护保养手册,D8维护保养手册::chunk_29;D8维护保养手册::chunk_30
+REL_000528,Volvo Penta Engine_Mechanical System,System,BELONGS_TO,Volvo Penta Engine,Equipment,机械系统隶属于沃尔沃彭塔发动机主体设备,D8维护保养手册,D8维护保养手册::chunk_22;D8维护保养手册::chunk_23
+REL_000529,Volvo Penta Engine_Mechanical System_Air Compressor,Component,HAS_PARAMETER,Volvo Penta Engine_Mechanical System_Compressor Oil Specification,Parameter,压缩机维护需参考机油规格参数,D8维护保养手册,D8维护保养手册::chunk_10;D8维护保养手册::chunk_11
+REL_000530,Volvo Penta Engine_Mechanical System_Belt Tensioner,Component,BELONGS_TO,Volvo Penta Engine_Mechanical System,System,皮带张紧器属于机械系统,D8维护保养手册,D8维护保养手册::chunk_25;D8维护保养手册::chunk_26;D8维护保养手册::chunk_27;D8维护保养手册::chunk_28
+REL_000531,Volvo Penta Engine_Mechanical System_Crankshaft,Component,BELONGS_TO,Volvo Penta Engine,Equipment,曲轴属于发动机机械系统的核心部件,D8维护保养手册,D8维护保养手册::chunk_12
+REL_000532,Volvo Penta Engine_Mechanical System_Drive Belt,Component,BELONGS_TO,Volvo Penta Engine_Mechanical System,System,传动带是机械系统的核心传动组件,D8维护保养手册,D8维护保养手册::chunk_22;D8维护保养手册::chunk_23
+REL_000533,Volvo Penta Engine_Mechanical System_Idler,Component,BELONGS_TO,Volvo Penta Engine_Mechanical System,System,惰轮属于机械系统,D8维护保养手册,D8维护保养手册::chunk_25;D8维护保养手册::chunk_26;D8维护保养手册::chunk_27;D8维护保养手册::chunk_28
+REL_000534,Volvo Penta Engine_Mechanical System_Overhaul Kit,Component,HAS_COMPONENT,Volvo Penta Engine_Mechanical System_Cylinder Head Overhaul Kit,Component,发动机大修套件包含缸盖大修套件作为子模块,D8维护保养手册,D8维护保养手册::chunk_6
+REL_000535,Volvo Penta Engine_Mechanical System_Rubber Hose,Component,BELONGS_TO,Volvo Penta Engine_Mechanical System,System,橡胶软管是机械系统的密封连接组件,D8维护保养手册,D8维护保养手册::chunk_22;D8维护保养手册::chunk_23
+REL_000536,Volvo Penta Engine_Mechanical System_Sound Insulation Material,Component,BELONGS_TO,Volvo Penta Engine_Mechanical System,System,吸声材料属于机械系统附属,D8维护保养手册,D8维护保养手册::chunk_25;D8维护保养手册::chunk_26;D8维护保养手册::chunk_27;D8维护保养手册::chunk_28
+REL_000537,Volvo Penta Engine_Mechanical System_Turbocharger,Component,BELONGS_TO,Volvo Penta Engine,Equipment,涡轮增压器属于发动机主体设备的关键部件,D8维护保养手册,D8维护保养手册::chunk_0;D8维护保养手册::chunk_1;D8维护保养手册::chunk_2;D8维护保养手册::chunk_3
+REL_000538,Volvo Penta Engine_Repair_Engine Block Replacement,RepairMethod,REQUIRES,Volvo Penta Engine_Diagnostic_Cylinder Measurement,DiagnosticMethod,更换发动机缸体前必须通过气缸测量确认必要性,D8维护保养手册,D8维护保养手册::chunk_6
+REL_000539,Volvo Penta Engine_Repair_Piston Installation,RepairMethod,REQUIRES,Volvo Penta Engine_Diagnostic_Cylinder Measurement,DiagnosticMethod,安装新活塞前必须通过气缸测量确认可行性,D8维护保养手册,D8维护保养手册::chunk_6
+REL_000540,Volvo Penta Engine_Safety_Battery Cable Disconnection During Run,SafetyNote,PREVENTS,Volvo Penta Engine_Fault_Electrical Equipment Damage,FaultPhenomenon,禁止运行中断开电池电缆的安全规定可防止电气设备损坏,D8维护保养手册,D8维护保养手册::chunk_29;D8维护保养手册::chunk_30
+REL_000541,Volvo Penta Engine_Safety_Battery Cable Disconnection During Run,SafetyNote,PREVENTS,交流发电机与电子装置损坏,FaultPhenomenon,运行时断开电池电缆禁忌防止电子装置损坏,D8维护保养手册,D8维护保养手册::chunk_10;D8维护保养手册::chunk_11
+REL_000542,Volvo Penta Engine_Safety_Battery Disposal Requirement,SafetyNote,REQUIRES,Volvo Penta Engine_Maintenance_Battery Replacement Procedure,RepairMethod,电池更换程序必须遵循旧电池处置的安全要求,D8维护保养手册,D8维护保养手册::chunk_29;D8维护保养手册::chunk_30
+REL_000543,Volvo Penta Engine_Safety_Battery Explosion Risk,SafetyNote,PREVENTS,爆炸与火灾危险,FaultPhenomenon,电池防爆安全警示防止电池爆炸与火灾危险,D8维护保养手册,D8维护保养手册::chunk_4;D8维护保养手册::chunk_5
+REL_000544,Volvo Penta Engine_Safety_Battery Polarity Connection,SafetyNote,PREVENTS,Volvo Penta Engine_Fault_Electrical Equipment Damage,FaultPhenomenon,电池极性连接安全要求防止电气设备损坏故障,D8维护保养手册,D8维护保养手册::chunk_4;D8维护保养手册::chunk_5
+REL_000545,Volvo Penta Engine_Safety_Battery Ventilation Before Work,SafetyNote,PREVENTS,Volvo Penta Engine_Fault_Battery Fire And Explosion Risk,FaultPhenomenon,工作前通风安全措施可防止电池火灾和爆炸风险,D8维护保养手册,D8维护保养手册::chunk_29;D8维护保养手册::chunk_30
+REL_000546,Volvo Penta Engine_Safety_Component Cleaning Sensitivity,SafetyNote,PREVENTS,Volvo Penta Engine_Fault_Component Malfunction,FaultPhenomenon,组件清洁度安全要求防止组件功能异常故障,D8维护保养手册,D8维护保养手册::chunk_4;D8维护保养手册::chunk_5
+REL_000547,Volvo Penta Engine_Safety_Connector Contamination Prevention,SafetyNote,PREVENTS,Volvo Penta Engine_Fault_Component Malfunction,FaultPhenomenon,防止连接器污染避免组件故障,D8维护保养手册,D8维护保养手册::chunk_10;D8维护保养手册::chunk_11
+REL_000548,Volvo Penta Engine_Safety_Emergency Start Voltage Risk,SafetyNote,PREVENTS,交流发电机与电子装置损坏,FaultPhenomenon,注意应急启动电压风险防止控制单元损坏,D8维护保养手册,D8维护保养手册::chunk_10;D8维护保养手册::chunk_11
+REL_000549,Volvo Penta Engine_Safety_Fuel Accumulation Fire Risk,SafetyNote,PREVENTS,爆炸与火灾危险,FaultPhenomenon,清除燃料油污积累防止火灾危险,D8维护保养手册,D8维护保养手册::chunk_10;D8维护保养手册::chunk_11
+REL_000550,Volvo Penta Engine_Safety_Glycol Disposal Requirement,SafetyNote,PREVENTS,Volvo Penta Engine_Fault_Engine Corrosion And Mold,FaultPhenomenon,乙二醇处置要求防止环境污染和腐蚀,D8维护保养手册,D8维护保养手册::chunk_25;D8维护保养手册::chunk_26;D8维护保养手册::chunk_27;D8维护保养手册::chunk_28
+REL_000551,Volvo Penta Engine_Safety_Hot Coolant Burn Risk,SafetyNote,PREVENTS,爆炸与火灾危险,FaultPhenomenon,热冷却液安全警示防止因压力释放不当引发的危险,D8维护保养手册,D8维护保养手册::chunk_4;D8维护保养手册::chunk_5
+REL_000552,Volvo Penta Engine_Safety_Main Switch Operation During Run,SafetyNote,PREVENTS,交流发电机与电子装置损坏,FaultPhenomenon,运行时操作主开关禁忌防止电子装置损坏,D8维护保养手册,D8维护保养手册::chunk_10;D8维护保养手册::chunk_11
+REL_000553,Volvo Penta Engine_Safety_No Direct Spray On Alternator,SafetyNote,PREVENTS,Volvo Penta Engine_Fault_Alternator Water Ingress,FaultPhenomenon,禁止直喷安全措施防止发电机进水,D8维护保养手册,D8维护保养手册::chunk_25;D8维护保养手册::chunk_26;D8维护保养手册::chunk_27;D8维护保养手册::chunk_28
+REL_000554,Volvo Penta Engine_Safety_Seal Open Connections Before Storage,SafetyNote,PREVENTS,Volvo Penta Engine_Fault_Engine Corrosion And Mold,FaultPhenomenon,密封开放连接的安全措施可有效防止发动机腐蚀和霉变故障,D8维护保养手册,D8维护保养手册::chunk_24
+REL_000555,Volvo Penta Engine_Safety_Seawater Drainage Precaution,SafetyNote,PREVENTS,Volvo Penta Engine_Fault_Engine Corrosion And Mold,FaultPhenomenon,海水排放 precautions 防止零件腐蚀,D8维护保养手册,D8维护保养手册::chunk_25;D8维护保养手册::chunk_26;D8维护保养手册::chunk_27;D8维护保养手册::chunk_28
+REL_000556,Volvo Penta Engine_Safety_Sound Insulation Replacement Rule,SafetyNote,PREVENTS,Volvo Penta Engine_Fault_Component Malfunction,FaultPhenomenon,吸声材料更换规则防止部件功能失效,D8维护保养手册,D8维护保养手册::chunk_25;D8维护保养手册::chunk_26;D8维护保养手册::chunk_27;D8维护保养手册::chunk_28
+REL_000557,Volvo Penta Engine_Safety_Storage Environment Requirement,SafetyNote,HAS_PARAMETER,Volvo Penta Engine_Parameter_Storage Humidity,Parameter,存储安全要求规定了具体的湿度控制上限,D8维护保养手册,D8维护保养手册::chunk_22;D8维护保养手册::chunk_23
+REL_000558,Volvo Penta Engine_Safety_Storage Environment Requirement,SafetyNote,HAS_PARAMETER,Volvo Penta Engine_Parameter_Storage Temperature,Parameter,存储安全要求规定了具体的温度控制范围,D8维护保养手册,D8维护保养手册::chunk_22;D8维护保养手册::chunk_23
+REL_000559,Volvo Penta Engine_Safety_Storage Environment Requirement,SafetyNote,PREVENTS,Volvo Penta Engine_Fault_Engine Corrosion And Mold,FaultPhenomenon,合规的存储环境防止发动机腐蚀与霉菌生长,D8维护保养手册,D8维护保养手册::chunk_22;D8维护保养手册::chunk_23
+REL_000560,Volvo Penta Engine_Steering System,System,BELONGS_TO,Volvo Penta Engine,Equipment,操舵系统属于沃尔沃彭塔发动机设备,D8维护保养手册,D8维护保养手册::chunk_17;D8维护保养手册::chunk_18;D8维护保养手册::chunk_19;D8维护保养手册::chunk_20
+REL_000561,Volvo Penta Engine_Steering System_Electric Steering Unit,Component,BELONGS_TO,Volvo Penta Engine,Equipment,电动操舵器属于发动机设备的一部分,D8维护保养手册,D8维护保养手册::chunk_9
+REL_000562,Volvo Penta Engine_Steering System_Electric Steering Unit,Component,BELONGS_TO,Volvo Penta Engine_Steering System,System,电动操舵器属于操舵系统,D8维护保养手册,D8维护保养手册::chunk_17;D8维护保养手册::chunk_18;D8维护保养手册::chunk_19;D8维护保养手册::chunk_20
+REL_000563,Volvo Penta Engine_Steering System_Electric Steering Unit,Component,DIAGNOSED_BY,Volvo Penta Engine_Steering System_Electric Steering Unit_Linkage Inspection,DiagnosticMethod,电动操舵器状态需通过检查连杆束缚和螺栓固定来诊断,D8维护保养手册,D8维护保养手册::chunk_21
+REL_000564,Volvo Penta Engine_Steering System_Electric Steering Unit,Component,HAS_COMPONENT,Volvo Penta Engine_Steering System_Dipstick,Component,电动操舵器配有专用量油尺,D8维护保养手册,D8维护保养手册::chunk_17;D8维护保养手册::chunk_18;D8维护保养手册::chunk_19;D8维护保养手册::chunk_20
+REL_000565,Volvo Penta Engine_Steering System_Electric Steering Unit,Component,HAS_PARAMETER,Volvo Penta Engine_Steering System_Steering Oil Specification,Parameter,电动操舵器需要特定的机油规格参数,D8维护保养手册,D8维护保养手册::chunk_9
+REL_000566,Volvo Penta Engine_Steering System_Electric Steering Unit,Component,REPAIRED_BY,Volvo Penta Engine_Steering System_Electric Steering Unit_Oil Change,RepairMethod,电动操舵器需要通过定期换油方法进行维护修复,D8维护保养手册,D8维护保养手册::chunk_21
+REL_000567,Volvo Penta Engine_Steering System_Electric Steering Unit_Oil Change,RepairMethod,HAS_PARAMETER,Volvo Penta Engine_Steering System_Electric Steering Unit_Oil Capacity,Parameter,换油维修方法必须遵循约 5 升的机油容量参数,D8维护保养手册,D8维护保养手册::chunk_21
+REL_000568,Volvo Penta Engine_Steering System_Electric Steering Unit_Oil Change,RepairMethod,REQUIRES,Volvo Penta Engine_Steering System_Dipstick,Component,换油操作必须通过油尺孔进行机油抽出,D8维护保养手册,D8维护保养手册::chunk_21
+REL_000569,Volvo Penta Engine_Steering System_Steering Oil Level Check,DiagnosticMethod,REQUIRES,Volvo Penta Engine_Lubrication System_Dipstick,Component,油位检查方法需要使用油尺组件,D8维护保养手册,D8维护保养手册::chunk_12
+REL_000570,Volvo Penta Engine_Steering System_Steering Oil Level Check,DiagnosticMethod,REQUIRES,Volvo Penta Engine_Steering System_Dipstick,Component,操舵油位检查需要使用操舵量油尺,D8维护保养手册,D8维护保养手册::chunk_17;D8维护保养手册::chunk_18;D8维护保养手册::chunk_19;D8维护保养手册::chunk_20
+REL_000571,Volvo Penta Engine_Steering System_Steering Oil Level Check,DiagnosticMethod,REQUIRES,Volvo Penta Engine_Steering System_Steering Oil Specification,Parameter,操舵油位检查需参考操舵油规格,D8维护保养手册,D8维护保养手册::chunk_17;D8维护保养手册::chunk_18;D8维护保养手册::chunk_19;D8维护保养手册::chunk_20
+REL_000572,Volvo Penta Engine_Steering System_Steering Oil Level Check,DiagnosticMethod,REQUIRES,Volvo Penta Engine_Transmission System_Dipstick,Component,油位检查需要使用变速箱量油尺,D8维护保养手册,D8维护保养手册::chunk_17;D8维护保养手册::chunk_18;D8维护保养手册::chunk_19;D8维护保养手册::chunk_20
+REL_000573,Volvo Penta Engine_Transmission System_ATF Mixing Compatibility,SafetyNote,PREVENTS,Volvo Penta Engine_Transmission System_Transmission Malfunction,FaultPhenomenon,遵守 ATF 机油混合兼容性可防止传动系统故障,D8维护保养手册,D8维护保养手册::chunk_9
+REL_000574,Volvo Penta Engine_Transmission System_Anode Cleaning Restriction,SafetyNote,PREVENTS,Volvo Penta Engine_Fault_Component Malfunction,FaultPhenomenon,正确清洁阳极防止组件功能失效,D8维护保养手册,D8维护保养手册::chunk_14
+REL_000575,Volvo Penta Engine_Transmission System_Anode Replacement,RepairMethod,HAS_PARAMETER,Volvo Penta Engine_Transmission System_Anode Consumption Threshold,Parameter,阳极更换维修需遵循消耗 50% 的阈值参数,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000576,Volvo Penta Engine_Transmission System_Anode Replacement,RepairMethod,HAS_PARAMETER,Volvo Penta Engine_Transmission System_Anode Torque,Parameter,阳极更换维修需遵循 24 Nm 紧固扭矩参数,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000577,Volvo Penta Engine_Transmission System_Anode Replacement,RepairMethod,HAS_SAFETY_NOTE,Volvo Penta Engine_Transmission System_Anode Cleaning Restriction,SafetyNote,更换阳极时禁止使用损坏性工具清洁,D8维护保养手册,D8维护保养手册::chunk_14
+REL_000578,Volvo Penta Engine_Transmission System_Anode Replacement,RepairMethod,PREVENTS,Volvo Penta Engine_Transmission System_Galvanic Corrosion,FaultPhenomenon,更换阳极防止 IPS 装置受到电偶腐蚀,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000579,Volvo Penta Engine_Transmission System_Anode Replacement,RepairMethod,REQUIRES,Volvo Penta Engine_Cooling System_Anode Installation Torque,Parameter,安装新阳极需遵循特定扭矩,D8维护保养手册,D8维护保养手册::chunk_14
+REL_000580,Volvo Penta Engine_Transmission System_Anode Replacement,RepairMethod,REQUIRES,Volvo Penta Engine_Cooling System_Anode Replacement Threshold,Parameter,阳极更换需依据消耗阈值参数,D8维护保养手册,D8维护保养手册::chunk_14
+REL_000581,Volvo Penta Engine_Transmission System_Aquamatic Unit,Component,BELONGS_TO,Volvo Penta Engine_Transmission System_Transmission Device,Component,Aquamatic 单元是传动装置的一种具体类型,D8维护保养手册,D8维护保养手册::chunk_7;D8维护保养手册::chunk_8
+REL_000582,Volvo Penta Engine_Transmission System_Aquamatic Unit,Component,HAS_COMPONENT,Volvo Penta Engine_Transmission System_Lower Gear Kit,Component,Aquamatic 单元包含下部齿轮套件组件,D8维护保养手册,D8维护保养手册::chunk_7;D8维护保养手册::chunk_8
+REL_000583,Volvo Penta Engine_Transmission System_Aquamatic Unit,Component,HAS_COMPONENT,Volvo Penta Engine_Transmission System_Upper Gear Kit,Component,Aquamatic 单元包含上部齿轮套件组件,D8维护保养手册,D8维护保养手册::chunk_7;D8维护保养手册::chunk_8
+REL_000584,Volvo Penta Engine_Transmission System_Clamping Ring,Component,REPAIRED_BY,Volvo Penta Engine_Transmission System_Clamping Ring Cleaning,RepairMethod,夹紧环通过清洁氧化和碎屑进行维护,D8维护保养手册,D8维护保养手册::chunk_15
+REL_000585,Volvo Penta Engine_Transmission System_Dipstick,Component,HAS_PARAMETER,Volvo Penta Engine_Transmission System_Dipstick Torque,Parameter,量油尺检查油位时遵循 10 Nm 紧固扭矩参数,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000586,Volvo Penta Engine_Transmission System_Dipstick,Component,HAS_PARAMETER,Volvo Penta Engine_Transmission System_Oil Settling Time,Parameter,使用量油尺检查前需满足 12 小时停止时间的参数要求,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000587,Volvo Penta Engine_Transmission System_Dipstick,Component,HAS_SAFETY_NOTE,Volvo Penta Engine_Transmission System_Dipstick Plastic Warning,SafetyNote,量油尺由塑料制成需注意切勿过度拧紧的安全警告,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000588,Volvo Penta Engine_Transmission System_Dipstick Plastic Warning,SafetyNote,PREVENTS,Volvo Penta Engine_Fault_Component Malfunction,FaultPhenomenon,量油尺塑料警告防止组件损坏故障,D8维护保养手册,D8维护保养手册::chunk_17;D8维护保养手册::chunk_18;D8维护保养手册::chunk_19;D8维护保养手册::chunk_20
+REL_000589,Volvo Penta Engine_Transmission System_Exhaust Plate,Component,HAS_COMPONENT,Volvo Penta Engine_Transmission System_Exhaust Gasket,Component,排气板组件包含可更换的排气衬垫,D8维护保养手册,D8维护保养手册::chunk_15
+REL_000590,Volvo Penta Engine_Transmission System_Exhaust Plate,Component,HAS_FAULT,Volvo Penta Engine_Transmission System_Exhaust Plate Wear,FaultPhenomenon,排气板可能出现白色塑料部分磨损故障,D8维护保养手册,D8维护保养手册::chunk_15
+REL_000591,Volvo Penta Engine_Transmission System_Exhaust Plate,Component,HAS_FAULT,Volvo Penta Engine_Transmission System_Exhaust Seal Damage,FaultPhenomenon,排气板可能出现排气密封件损坏故障,D8维护保养手册,D8维护保养手册::chunk_15
+REL_000592,Volvo Penta Engine_Transmission System_Exhaust Plate,Component,REPAIRED_BY,Volvo Penta Engine_Transmission System_Exhaust Gasket Replacement,RepairMethod,排气板损坏通过更换排气衬垫进行修复,D8维护保养手册,D8维护保养手册::chunk_15
+REL_000593,Volvo Penta Engine_Transmission System_Exhaust Plate Cleaning Restriction,SafetyNote,PREVENTS,Volvo Penta Engine_Transmission System_Exhaust Plate Wear,FaultPhenomenon,禁止高压清洗排气板可防止磨损故障,D8维护保养手册,D8维护保养手册::chunk_15
+REL_000594,Volvo Penta Engine_Transmission System_Exhaust Plate Wear,FaultPhenomenon,DIAGNOSED_BY,Volvo Penta Engine_Transmission System_Exhaust Plate Inspection,DiagnosticMethod,排气板磨损故障通过目视检查进行诊断,D8维护保养手册,D8维护保养手册::chunk_15
+REL_000595,Volvo Penta Engine_Transmission System_High Pressure Washer Caution,SafetyNote,PREVENTS,Volvo Penta Engine_Transmission System_Seal Damage,FaultPhenomenon,高压清洗避开密封件可防止密封损坏,D8维护保养手册,D8维护保养手册::chunk_15
+REL_000596,Volvo Penta Engine_Transmission System_IPS Drive Painting,RepairMethod,HAS_SAFETY_NOTE,Volvo Penta Engine_Transmission System_Painting Chemical Restriction,SafetyNote,传动装置涂装禁止使用锡基剂或铜基涂料的安全禁忌,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000597,Volvo Penta Engine_Transmission System_IPS Drive Painting,RepairMethod,HAS_SAFETY_NOTE,Volvo Penta Engine_Transmission System_Painting Drying Requirement,SafetyNote,传动装置涂装后必须在船只下水前晾干的安全要求,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000598,Volvo Penta Engine_Transmission System_IPS Drive Painting,RepairMethod,PREVENTS,Volvo Penta Engine_Transmission System_Hull Fouling,FaultPhenomenon,传动装置涂装减少污垢附着从而降低油耗,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000599,Volvo Penta Engine_Transmission System_IPS Drive Unit,Component,BELONGS_TO,Volvo Penta Engine_Transmission System_Transmission Device,Component,IPS 驱动单元是传动装置的一种具体类型,D8维护保养手册,D8维护保养手册::chunk_7;D8维护保养手册::chunk_8
+REL_000600,Volvo Penta Engine_Transmission System_IPS Drive Unit,Component,HAS_COMPONENT,Volvo Penta Engine_Transmission System_Clamping Ring,Component,IPS 驱动单元包含夹紧环组件,D8维护保养手册,D8维护保养手册::chunk_15
+REL_000601,Volvo Penta Engine_Transmission System_IPS Drive Unit,Component,HAS_COMPONENT,Volvo Penta Engine_Transmission System_Control Display,Component,IPS 驱动单元连接控制显示单元用于状态监控,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000602,Volvo Penta Engine_Transmission System_IPS Drive Unit,Component,HAS_COMPONENT,Volvo Penta Engine_Transmission System_Dipstick,Component,IPS 驱动单元包含量油尺组件,D8维护保养手册,D8维护保养手册::chunk_15
+REL_000603,Volvo Penta Engine_Transmission System_IPS Drive Unit,Component,HAS_COMPONENT,Volvo Penta Engine_Transmission System_Exhaust Plate,Component,IPS 驱动单元包含排气板组件,D8维护保养手册,D8维护保养手册::chunk_15
+REL_000604,Volvo Penta Engine_Transmission System_IPS Drive Unit,Component,HAS_COMPONENT,Volvo Penta Engine_Transmission System_Lower Gear Kit,Component,IPS 驱动单元包含下部齿轮套件组件,D8维护保养手册,D8维护保养手册::chunk_7;D8维护保养手册::chunk_8
+REL_000605,Volvo Penta Engine_Transmission System_IPS Drive Unit,Component,HAS_COMPONENT,Volvo Penta Engine_Transmission System_Oil Filter,Component,IPS 驱动单元包含机油过滤器组件,D8维护保养手册,D8维护保养手册::chunk_15
+REL_000606,Volvo Penta Engine_Transmission System_IPS Drive Unit,Component,HAS_COMPONENT,Volvo Penta Engine_Transmission System_Oil Quality Sensor,Component,IPS 驱动单元包含油质量传感器组件,D8维护保养手册,D8维护保养手册::chunk_15
+REL_000607,Volvo Penta Engine_Transmission System_IPS Drive Unit,Component,HAS_COMPONENT,Volvo Penta Engine_Transmission System_Propeller Shaft Seal,Component,IPS 驱动单元包含螺旋桨轴密封件,D8维护保养手册,D8维护保养手册::chunk_15
+REL_000608,Volvo Penta Engine_Transmission System_IPS Drive Unit,Component,HAS_COMPONENT,Volvo Penta Engine_Transmission System_Sacrificial Anode,Component,IPS 驱动单元安装有用于防腐蚀的牺牲阳极组件,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000609,Volvo Penta Engine_Transmission System_IPS Drive Unit,Component,HAS_COMPONENT,Volvo Penta Engine_Transmission System_Steering Seal,Component,IPS 驱动单元包含转向密封件,D8维护保养手册,D8维护保养手册::chunk_15
+REL_000610,Volvo Penta Engine_Transmission System_IPS Drive Unit,Component,HAS_COMPONENT,Volvo Penta Engine_Transmission System_Upper Gear Kit,Component,IPS 驱动单元包含上部齿轮套件组件,D8维护保养手册,D8维护保养手册::chunk_7;D8维护保养手册::chunk_8
+REL_000611,Volvo Penta Engine_Transmission System_IPS Drive Unit,Component,REPAIRED_BY,Volvo Penta Engine_Transmission System_IPS Drive Painting,RepairMethod,IPS 驱动单元通过涂漆方法减少污垢和阳极消耗,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000612,Volvo Penta Engine_Transmission System_No Overfill Warning,SafetyNote,PREVENTS,Volvo Penta Engine_Transmission System_Transmission Malfunction,FaultPhenomenon,禁止过满警示可防止变速箱故障,D8维护保养手册,D8维护保养手册::chunk_17;D8维护保养手册::chunk_18;D8维护保养手册::chunk_19;D8维护保养手册::chunk_20
+REL_000613,Volvo Penta Engine_Transmission System_Oil And Filter Maintenance,RepairMethod,REQUIRES,Volvo Penta Engine_Transmission System_Oil Filter,Component,机油维护需要更换机油过滤器,D8维护保养手册,D8维护保养手册::chunk_17;D8维护保养手册::chunk_18;D8维护保养手册::chunk_19;D8维护保养手册::chunk_20
+REL_000614,Volvo Penta Engine_Transmission System_Oil And Filter Maintenance,RepairMethod,REQUIRES,Volvo Penta Engine_Transmission System_Transmission Oil,Parameter,机油维护需要加注变速箱油,D8维护保养手册,D8维护保养手册::chunk_17;D8维护保养手册::chunk_18;D8维护保养手册::chunk_19;D8维护保养手册::chunk_20
+REL_000615,Volvo Penta Engine_Transmission System_Oil Filter,Component,REPAIRED_BY,Volvo Penta Engine_Lubrication System_Oil And Filter Replacement,RepairMethod,机油过滤器通过更换方法进行维护,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000616,Volvo Penta Engine_Transmission System_Oil Quality Sensor,Component,REPAIRED_BY,Volvo Penta Engine_Transmission System_Oil Quality Sensor Calibration,RepairMethod,油质量传感器更换机油后需通过校准方法恢复功能,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000617,Volvo Penta Engine_Transmission System_Oil Quality Sensor,Component,REPAIRED_BY,Volvo Penta Engine_Transmission System_Oil Quality Sensor Cleaning,RepairMethod,油质量传感器通过清洁方法进行维护,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000618,Volvo Penta Engine_Transmission System_Oil Quality Sensor Calibration,RepairMethod,MONITORS,Volvo Penta Engine_Transmission System_Control Display,Component,校准过程通过控制显示单元确认 SUCCESSFULLY 状态,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000619,Volvo Penta Engine_Transmission System_Oil Quality Sensor Calibration,RepairMethod,REQUIRES,Volvo Penta Engine_Transmission System_Calibration RPM,Parameter,传感器校准过程要求发动机至少以 1000 rpm 运行,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000620,Volvo Penta Engine_Transmission System_Oil Quality Sensor Cleaning,RepairMethod,HAS_PARAMETER,Volvo Penta Engine_Transmission System_Sensor Cleaning Torque,Parameter,传感器清洁维修需遵循 35 Nm 紧固扭矩参数,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000621,Volvo Penta Engine_Transmission System_Oil Quality Sensor Cleaning,RepairMethod,PREVENTS,Volvo Penta Engine_Transmission System_Oil Contamination,FaultPhenomenon,清洁传感器防止更换的机油受到水或金属颗粒污染,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000622,Volvo Penta Engine_Transmission System_Oil Selection Warning,SafetyNote,PREVENTS,Volvo Penta Engine_Transmission System_Transmission Malfunction,FaultPhenomenon,正确的选油警告可防止传动装置故障发生,D8维护保养手册,D8维护保养手册::chunk_7;D8维护保养手册::chunk_8
+REL_000623,Volvo Penta Engine_Transmission System_Overhaul,RepairMethod,REQUIRES,Volvo Penta Engine_Diagnostic_Cylinder Measurement,DiagnosticMethod,发动机大修过程必须依赖气缸测量结果来决策维修方案,D8维护保养手册,D8维护保养手册::chunk_6
+REL_000624,Volvo Penta Engine_Transmission System_Overhaul,RepairMethod,REQUIRES,Volvo Penta Engine_Transmission System_Transmission Oil,Parameter,传动装置大修需要依赖正确的传动油参数,D8维护保养手册,D8维护保养手册::chunk_7;D8维护保养手册::chunk_8
+REL_000625,Volvo Penta Engine_Transmission System_Pre Launch Ventilation,SafetyNote,PREVENTS,Volvo Penta Engine_Transmission System_Seal Damage,FaultPhenomenon,下水前通风防止密封件损坏,D8维护保养手册,D8维护保养手册::chunk_17;D8维护保养手册::chunk_18;D8维护保养手册::chunk_19;D8维护保养手册::chunk_20
+REL_000626,Volvo Penta Engine_Transmission System_Propeller Shaft,Component,BELONGS_TO,Volvo Penta Engine_Transmission System_Transmission Device,Component,螺旋桨轴隶属于传动装置系统,D8维护保养手册,D8维护保养手册::chunk_7;D8维护保养手册::chunk_8
+REL_000627,Volvo Penta Engine_Transmission System_Propeller Shaft,Component,HAS_COMPONENT,Volvo Penta Engine_Transmission System_Propeller Shaft Seal,Component,螺旋桨轴装配有轴密封件,D8维护保养手册,D8维护保养手册::chunk_17;D8维护保养手册::chunk_18;D8维护保养手册::chunk_19;D8维护保养手册::chunk_20
+REL_000628,Volvo Penta Engine_Transmission System_Propeller Shaft,Component,HAS_PARAMETER,Volvo Penta Engine_Transmission System_Propeller Shaft Grease Specification,Parameter,螺旋桨轴部件需要特定的润滑脂规格,D8维护保养手册,D8维护保养手册::chunk_9
+REL_000629,Volvo Penta Engine_Transmission System_Propeller Shaft Seal,Component,REPAIRED_BY,Volvo Penta Engine_Transmission System_Propeller Shaft Seal Replacement,RepairMethod,螺旋桨轴密封件通过更换方法进行维护,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000630,Volvo Penta Engine_Transmission System_Propeller Shaft Seal,Component,REPAIRED_BY,Volvo Penta Engine_Transmission System_Stuffing Box Replacement,RepairMethod,轴密封件损坏通过更换填料函修复,D8维护保养手册,D8维护保养手册::chunk_17;D8维护保养手册::chunk_18;D8维护保养手册::chunk_19;D8维护保养手册::chunk_20
+REL_000631,Volvo Penta Engine_Transmission System_Propeller Shaft Seal Replacement,RepairMethod,HAS_SAFETY_NOTE,Volvo Penta Engine_Transmission System_Authorized Workshop Requirement,SafetyNote,密封件更换必须由授权沃尔沃遍达车间完成的安全要求,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000632,Volvo Penta Engine_Transmission System_Sacrificial Anode,Component,HAS_SAFETY_NOTE,Volvo Penta Engine_Transmission System_Anode Cleaning Restriction,SafetyNote,阳极组件清洁禁止使用钢丝刷或金属研磨料的安全禁忌,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000633,Volvo Penta Engine_Transmission System_Sacrificial Anode,Component,HAS_SAFETY_NOTE,Volvo Penta Engine_Transmission System_Anode Material Selection,SafetyNote,阳极组件需根据海水或淡水环境选择锌或镁材料的安全要求,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000634,Volvo Penta Engine_Transmission System_Sacrificial Anode,Component,REPAIRED_BY,Volvo Penta Engine_Transmission System_Anode Replacement,RepairMethod,牺牲阳极通过更换方法进行维护,D8维护保养手册,D8维护保养手册::chunk_16
+REL_000635,Volvo Penta Engine_Transmission System_Seal Damage,FaultPhenomenon,DIAGNOSED_BY,Volvo Penta Engine_Transmission System_Shaft Seal Inspection,DiagnosticMethod,密封损坏故障通过轴密封检查诊断,D8维护保养手册,D8维护保养手册::chunk_17;D8维护保养手册::chunk_18;D8维护保养手册::chunk_19;D8维护保养手册::chunk_20
+REL_000636,Volvo Penta Engine_Transmission System_Shaft Lubrication,RepairMethod,HAS_PARAMETER,Volvo Penta Engine_Transmission System_Grease Quantity,Parameter,轴润滑操作需遵循润滑脂用量参数,D8维护保养手册,D8维护保养手册::chunk_17;D8维护保养手册::chunk_18;D8维护保养手册::chunk_19;D8维护保养手册::chunk_20
+REL_000637,Volvo Penta Engine_Transmission System_Shaft Seal Inspection,DiagnosticMethod,REQUIRES,Volvo Penta Engine_Transmission System_Propeller Shaft Seal,Component,密封检查针对轴密封件进行,D8维护保养手册,D8维护保养手册::chunk_17;D8维护保养手册::chunk_18;D8维护保养手册::chunk_19;D8维护保养手册::chunk_20
+REL_000638,Volvo Penta Engine_Transmission System_Transmission Device,Component,BELONGS_TO,Volvo Penta Engine,Equipment,传动装置属于沃尔沃遍达发动机设备的组成部分,D8维护保养手册,D8维护保养手册::chunk_7;D8维护保养手册::chunk_8
+REL_000639,Volvo Penta Engine_Transmission System_Transmission Device,Component,HAS_COMPONENT,Volvo Penta Engine_Transmission System_Oil Cooler,Component,传动装置包含机油冷却器作为关键组件,D8维护保养手册,D8维护保养手册::chunk_17;D8维护保养手册::chunk_18;D8维护保养手册::chunk_19;D8维护保养手册::chunk_20
+REL_000640,Volvo Penta Engine_Transmission System_Transmission Device,Component,HAS_PARAMETER,Volvo Penta Engine_Transmission System_Transmission Oil,Parameter,传动装置运行依赖传动油参数指标,D8维护保养手册,D8维护保养手册::chunk_7;D8维护保养手册::chunk_8
+REL_000641,Volvo Penta Engine_Transmission System_Transmission Malfunction,FaultPhenomenon,CAUSED_BY,Volvo Penta Engine_Transmission System_Wrong Oil Usage,FaultCause,传动装置故障由错误用油原因导致,D8维护保养手册,D8维护保养手册::chunk_7;D8维护保养手册::chunk_8
+REL_000642,Volvo Penta Engine_Transmission System_Transmission Oil Change,RepairMethod,REQUIRES,Volvo Penta Engine_Transmission System_Drain Plug Torque,Parameter,换油作业需要遵循排油塞紧固扭矩参数,D8维护保养手册,D8维护保养手册::chunk_15
+REL_000643,Volvo Penta Engine_Transmission System_Transmission Oil Change,RepairMethod,REQUIRES,Volvo Penta Engine_Transmission System_Oil Change Adapter,Equipment,换油作业需要使用专用适配器工具,D8维护保养手册,D8维护保养手册::chunk_15
+REL_000644,Volvo Penta Engine_Transmission System_Transmission Oil Change,RepairMethod,REQUIRES,Volvo Penta Engine_Transmission System_Oil Extraction Pump,Equipment,换油作业需要使用抽油泵设备,D8维护保养手册,D8维护保养手册::chunk_15
+REL_000645,Volvo Penta Engine_Transmission System_Transmission Oil Change,RepairMethod,REQUIRES,Volvo Penta Engine_Transmission System_Transmission Oil,Parameter,换油作业需要依赖变速器油参数规格,D8维护保养手册,D8维护保养手册::chunk_15
+REL_000646,交流发电机与电子装置损坏,FaultPhenomenon,CAUSED_BY,运行中断开主开关,FaultCause,交流发电机与电子装置损坏故障由运行中断开主开关原因导致,D8维护保养手册,D8维护保养手册::chunk_0;D8维护保养手册::chunk_1;D8维护保养手册::chunk_2;D8维护保养手册::chunk_3
+REL_000647,发动机安全管理系统,System,HAS_COMPONENT,发动机安全管理系统_SCR 系统,Equipment,系统包含 SCR 系统设备,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000648,发动机安全管理系统,System,HAS_COMPONENT,发动机安全管理系统_传动装置,Equipment,安全管理系统包含传动装置作为核心子系统,D16维护保养手册,D16维护保养手册::chunk_7
+REL_000649,发动机安全管理系统,System,HAS_COMPONENT,发动机安全管理系统_冷却系统,Equipment,安全管理系统包含冷却系统作为子设备,D16维护保养手册,D16维护保养手册::chunk_1
+REL_000650,发动机安全管理系统,System,HAS_COMPONENT,发动机安全管理系统_发动机,Equipment,系统包含发动机作为核心动力设备,D16维护保养手册,D16维护保养手册::chunk_0
+REL_000651,发动机安全管理系统,System,HAS_COMPONENT,发动机安全管理系统_增压空气系统,Equipment,系统包含增压空气系统设备,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000652,发动机安全管理系统,System,HAS_COMPONENT,发动机安全管理系统_排气系统,Equipment,系统包含排气系统设备,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000653,发动机安全管理系统,System,HAS_COMPONENT,发动机安全管理系统_操舵器,Equipment,安全管理系统包含操舵器作为受监控的独立设备,D16维护保养手册,D16维护保养手册::chunk_4
+REL_000654,发动机安全管理系统,System,HAS_COMPONENT,发动机安全管理系统_润滑系统,Equipment,安全管理系统包含润滑系统作为子设备,D16维护保养手册,D16维护保养手册::chunk_1
+REL_000655,发动机安全管理系统,System,HAS_COMPONENT,发动机安全管理系统_燃油系统,Equipment,安全管理系统包含燃油系统作为子设备,D16维护保养手册,D16维护保养手册::chunk_1
+REL_000656,发动机安全管理系统,System,HAS_COMPONENT,发动机安全管理系统_电气系统,Equipment,安全管理系统包含电气系统作为子设备,D16维护保养手册,D16维护保养手册::chunk_1
+REL_000657,发动机安全管理系统,System,HAS_COMPONENT,发动机安全管理系统_电池,Equipment,系统包含电池作为电气能源设备,D16维护保养手册,D16维护保养手册::chunk_0
+REL_000658,发动机安全管理系统_SCR 系统,Equipment,HAS_COMPONENT,发动机安全管理系统_SCR 系统_泵装置过滤器,Component,SCR 系统包含泵装置过滤器组件,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000659,发动机安全管理系统_SCR 系统,Equipment,HAS_COMPONENT,发动机安全管理系统_SCR 系统_空气过滤器,Component,SCR 系统包含空气过滤器组件,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000660,发动机安全管理系统_SCR 系统_更换泵过滤器,RepairMethod,HAS_PARAMETER,发动机安全管理系统_SCR 系统_过滤器紧固扭矩,Parameter,更换过滤器操作中必须遵循的盖子紧固扭矩参数,D16维护保养手册,D16维护保养手册::chunk_12;D16维护保养手册::chunk_13;D16维护保养手册::chunk_14;D16维护保养手册::chunk_15
+REL_000661,发动机安全管理系统_SCR 系统_更换泵过滤器,RepairMethod,REQUIRES,发动机安全管理系统_电气系统_断电操作要求,SafetyNote,更换过滤器前必须断开电池负极以满足断电安全要求,D16维护保养手册,D16维护保养手册::chunk_12;D16维护保养手册::chunk_13;D16维护保养手册::chunk_14;D16维护保养手册::chunk_15
+REL_000662,发动机安全管理系统_SCR 系统_泵装置过滤器,Component,REPAIRED_BY,发动机安全管理系统_SCR 系统_更换泵过滤器,RepairMethod,SCR 泵装置过滤器损坏或保养时需执行更换过滤器维修方法,D16维护保养手册,D16维护保养手册::chunk_12;D16维护保养手册::chunk_13;D16维护保养手册::chunk_14;D16维护保养手册::chunk_15
+REL_000663,发动机安全管理系统_个人防护装备要求,SafetyNote,PREVENTS,发动机安全管理系统_人身伤害风险,FaultPhenomenon,佩戴防护装备可减少事故发生时的伤害程度,D16维护保养手册,D16维护保养手册::chunk_0
+REL_000664,发动机安全管理系统_传动装置,Equipment,DIAGNOSED_BY,发动机安全管理系统_传动装置_升船后测试,DiagnosticMethod,传动装置设备需通过升船后的特定测试来诊断状态,D16维护保养手册,D16维护保养手册::chunk_8
+REL_000665,发动机安全管理系统_传动装置,Equipment,HAS_COMPONENT,发动机安全管理系统_传动装置_倒档齿轮箱,Component,传动装置包含倒档齿轮箱作为核心传动组件,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000666,发动机安全管理系统_传动装置,Equipment,HAS_COMPONENT,发动机安全管理系统_传动装置_真空泵,Component,传动装置设备包含真空泵作为其关键功能组件,D16维护保养手册,D16维护保养手册::chunk_8
+REL_000667,发动机安全管理系统_传动装置,Equipment,HAS_COMPONENT,发动机安全管理系统_传动装置_螺旋桨轴,Component,传动装置连接螺旋桨轴作为动力输出部件,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000668,发动机安全管理系统_传动装置_倒档齿轮箱,Component,HAS_FAULT,发动机安全管理系统_传动装置_泄漏,FaultPhenomenon,倒档齿轮箱可能出现油液泄漏的故障现象,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000669,发动机安全管理系统_传动装置_倒档齿轮箱,Component,REPAIRED_BY,发动机安全管理系统_传动装置_更换倒档机油,RepairMethod,倒档齿轮箱需定期更换机油和过滤器进行维护,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000670,发动机安全管理系统_传动装置_升船后测试,DiagnosticMethod,REQUIRES,发动机安全管理系统_机油分析,DiagnosticMethod,驱动装置测试需参考机油分析结果以确认磨损限制,D16维护保养手册,D16维护保养手册::chunk_8
+REL_000671,发动机安全管理系统_传动装置_更换倒档机油,RepairMethod,HAS_SAFETY_NOTE,发动机安全管理系统_传动装置_过满加注禁忌,SafetyNote,更换机油时必须遵守切勿过满加注的安全禁忌,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000672,发动机安全管理系统_传动装置_清洁溶剂禁忌,SafetyNote,PREVENTS,发动机安全管理系统_发动机_污物引起故障,FaultPhenomenon,遵守清洁溶剂禁忌可防止因污物污染导致的系统故障,D16维护保养手册,D16维护保养手册::chunk_8
+REL_000673,发动机安全管理系统_传动装置_真空泵,Component,HAS_SAFETY_NOTE,发动机安全管理系统_传动装置_清洁溶剂禁忌,SafetyNote,真空泵清洁作业必须遵守溶剂使用禁忌以防故障,D16维护保养手册,D16维护保养手册::chunk_8
+REL_000674,发动机安全管理系统_传动装置_真空泵,Component,REPAIRED_BY,发动机安全管理系统_传动装置_真空泵清洁,RepairMethod,真空泵组件通过特定的清洁流程进行维护保养,D16维护保养手册,D16维护保养手册::chunk_8
+REL_000675,发动机安全管理系统_传动装置_真空泵清洁,RepairMethod,PREVENTS,发动机安全管理系统_发动机_污物引起故障,FaultPhenomenon,定期清洁真空泵可防止污物积累引起的运行故障,D16维护保养手册,D16维护保养手册::chunk_8
+REL_000676,发动机安全管理系统_传动装置_螺旋桨轴,Component,HAS_COMPONENT,发动机安全管理系统_传动装置_橡胶套筒,Component,水润滑螺旋桨轴包含橡胶套筒作为保护部件,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000677,发动机安全管理系统_传动装置_螺旋桨轴,Component,HAS_COMPONENT,发动机安全管理系统_传动装置_轴密封件,Component,螺旋桨轴组件包含轴密封件以防止泄漏,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000678,发动机安全管理系统_冷却系统,Equipment,DIAGNOSED_BY,发动机安全管理系统_冷却系统_检查冷却剂液位,DiagnosticMethod,冷却系统状态通过检查冷却剂液位进行诊断,D16维护保养手册,D16维护保养手册::chunk_12;D16维护保养手册::chunk_13;D16维护保养手册::chunk_14;D16维护保养手册::chunk_15
+REL_000679,发动机安全管理系统_冷却系统,Equipment,HAS_COMPONENT,发动机安全管理系统_冷却系统_加热元件,Component,冷却系统可能包含可选的船配加热元件组件,D16维护保养手册,D16维护保养手册::chunk_12;D16维护保养手册::chunk_13;D16维护保养手册::chunk_14;D16维护保养手册::chunk_15
+REL_000680,发动机安全管理系统_冷却系统,Equipment,HAS_COMPONENT,发动机安全管理系统_冷却系统_叶轮泵,Component,冷却系统包含叶轮泵用于驱动海水循环,D16维护保养手册,D16维护保养手册::chunk_5
+REL_000681,发动机安全管理系统_冷却系统,Equipment,HAS_COMPONENT,发动机安全管理系统_冷却系统_散热器,Component,冷却系统设备包含散热器作为关键内部组件,D16维护保养手册,D16维护保养手册::chunk_4
+REL_000682,发动机安全管理系统_冷却系统,Equipment,HAS_COMPONENT,发动机安全管理系统_冷却系统_海水塞,Component,冷却系统设备包含海水塞隔离组件,D16维护保养手册,D16维护保养手册::chunk_16;D16维护保养手册::chunk_17;D16维护保养手册::chunk_18;D16维护保养手册::chunk_19
+REL_000683,发动机安全管理系统_冷却系统,Equipment,HAS_COMPONENT,发动机安全管理系统_冷却系统_海水过滤器,Component,冷却系统包含海水过滤器作为进水过滤关键部件,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000684,发动机安全管理系统_冷却系统,Equipment,HAS_COMPONENT,发动机安全管理系统_冷却系统_热交换器,Component,冷却系统设备包含热交换器作为关键内部组件,D16维护保养手册,D16维护保养手册::chunk_4
+REL_000685,发动机安全管理系统_冷却系统,Equipment,HAS_COMPONENT,发动机安全管理系统_冷却系统_热控制阀,Component,冷却系统设备包含用于加注通风的热控制阀组件,D16维护保养手册,D16维护保养手册::chunk_16;D16维护保养手册::chunk_17;D16维护保养手册::chunk_18;D16维护保养手册::chunk_19
+REL_000686,发动机安全管理系统_冷却系统,Equipment,HAS_COMPONENT,发动机安全管理系统_冷却系统_膨胀箱,Component,冷却系统包含膨胀箱用于调节冷却液体积,D16维护保养手册,D16维护保养手册::chunk_5
+REL_000687,发动机安全管理系统_冷却系统,Equipment,HAS_COMPONENT,发动机安全管理系统_冷却系统_阳极,Component,冷却系统包含阳极用于防止电化学腐蚀,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000688,发动机安全管理系统_冷却系统,Equipment,HAS_PARAMETER,发动机安全管理系统_冷却系统_防冻混合比例,Parameter,冷却系统在冷天需维持特定的防冻剂混合比例参数,D16维护保养手册,D16维护保养手册::chunk_24;D16维护保养手册::chunk_25;D16维护保养手册::chunk_26;D16维护保养手册::chunk_27
+REL_000689,发动机安全管理系统_冷却系统,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_冷却系统_冷却剂规格要求,SafetyNote,冷却系统维护必须遵守特定的冷却剂规格安全要求,D16维护保养手册,D16维护保养手册::chunk_12;D16维护保养手册::chunk_13;D16维护保养手册::chunk_14;D16维护保养手册::chunk_15
+REL_000690,发动机安全管理系统_冷却系统,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_冷却系统_压力释放要求,SafetyNote,冷却系统作业需遵循压力释放安全要求,D16维护保养手册,D16维护保养手册::chunk_1
+REL_000691,发动机安全管理系统_冷却系统,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_冷却系统_旧冷却剂回收要求,SafetyNote,冷却系统维护产生的废液需遵守环保回收安全要求,D16维护保养手册,D16维护保养手册::chunk_12;D16维护保养手册::chunk_13;D16维护保养手册::chunk_14;D16维护保养手册::chunk_15
+REL_000692,发动机安全管理系统_冷却系统,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_冷却系统_腐蚀与气蚀风险,SafetyNote,冷却系统需全年使用合格冷却剂以防腐蚀和气蚀风险,D16维护保养手册,D16维护保养手册::chunk_24;D16维护保养手册::chunk_25;D16维护保养手册::chunk_26;D16维护保养手册::chunk_27
+REL_000693,发动机安全管理系统_冷却系统,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_冷却系统_蒸汽灼伤危险,SafetyNote,检查增压空气冷却器排水孔时需防范蒸汽灼伤,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000694,发动机安全管理系统_冷却系统,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_冷却系统_防冻保护检查要求,SafetyNote,冷却系统维护需遵守年度防冻保护检查的安全要求,D16维护保养手册,D16维护保养手册::chunk_12;D16维护保养手册::chunk_13;D16维护保养手册::chunk_14;D16维护保养手册::chunk_15
+REL_000695,发动机安全管理系统_冷却系统,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_冷却系统_高温冷却液警告,SafetyNote,冷却系统作业需遵循高温冷却液警告,D16维护保养手册,D16维护保养手册::chunk_1
+REL_000696,发动机安全管理系统_冷却系统,Equipment,REPAIRED_BY,发动机安全管理系统_冷却系统_加满冷却剂,RepairMethod,冷却系统液位不足时通过加满冷却剂进行维修,D16维护保养手册,D16维护保养手册::chunk_12;D16维护保养手册::chunk_13;D16维护保养手册::chunk_14;D16维护保养手册::chunk_15
+REL_000697,发动机安全管理系统_冷却系统,Equipment,REPAIRED_BY,发动机安全管理系统_冷却系统_拆卸叶轮储存,RepairMethod,存储前需拆下叶轮泵叶轮并密封冷藏,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000698,发动机安全管理系统_冷却系统,Equipment,REPAIRED_BY,发动机安全管理系统_冷却系统_排放残余海水,RepairMethod,存储前需排放冷却系统残余海水以防冻结,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000699,发动机安全管理系统_冷却系统_加满冷却剂,RepairMethod,PREVENTS,发动机安全管理系统_冷却系统_冷却性能下降,FaultPhenomenon,冲洗冷却系统可防止因沉积物导致的冷却性能下降故障,D16维护保养手册,D16维护保养手册::chunk_12;D16维护保养手册::chunk_13;D16维护保养手册::chunk_14;D16维护保养手册::chunk_15
+REL_000700,发动机安全管理系统_冷却系统_加满冷却剂,RepairMethod,REQUIRES,发动机安全管理系统_冷却系统_冷却剂规格要求,SafetyNote,加满冷却剂维修方法需满足冷却剂预先混合的要求,D16维护保养手册,D16维护保养手册::chunk_16;D16维护保养手册::chunk_17;D16维护保养手册::chunk_18;D16维护保养手册::chunk_19
+REL_000701,发动机安全管理系统_冷却系统_加满冷却剂,RepairMethod,REQUIRES,发动机安全管理系统_冷却系统_叶轮泵,Component,清空冷却剂操作需要打开水泵上的排水点,D16维护保养手册,D16维护保养手册::chunk_12;D16维护保养手册::chunk_13;D16维护保养手册::chunk_14;D16维护保养手册::chunk_15
+REL_000702,发动机安全管理系统_冷却系统_加满冷却剂,RepairMethod,REQUIRES,发动机安全管理系统_冷却系统_热交换器,Component,清空冷却剂操作需要打开热交换器上的排水点,D16维护保养手册,D16维护保养手册::chunk_12;D16维护保养手册::chunk_13;D16维护保养手册::chunk_14;D16维护保养手册::chunk_15
+REL_000703,发动机安全管理系统_冷却系统_加满冷却剂,RepairMethod,REQUIRES,发动机安全管理系统_冷却系统_膨胀箱,Component,清空冷却剂操作需要打开膨胀箱盖并进行收集,D16维护保养手册,D16维护保养手册::chunk_12;D16维护保养手册::chunk_13;D16维护保养手册::chunk_14;D16维护保养手册::chunk_15
+REL_000704,发动机安全管理系统_冷却系统_加满冷却剂,RepairMethod,REQUIRES,发动机安全管理系统_发动机_增压空气冷却器,Component,清空冷却剂操作需要打开增压空气冷却器上的排水点,D16维护保养手册,D16维护保养手册::chunk_12;D16维护保养手册::chunk_13;D16维护保养手册::chunk_14;D16维护保养手册::chunk_15
+REL_000705,发动机安全管理系统_冷却系统_叶轮泵,Component,REPAIRED_BY,发动机安全管理系统_冷却系统_拆卸叶轮储存,RepairMethod,叶轮泵内部叶轮损坏时通过更换叶轮方法进行修复,D16维护保养手册,D16维护保养手册::chunk_16;D16维护保养手册::chunk_17;D16维护保养手册::chunk_18;D16维护保养手册::chunk_19
+REL_000706,发动机安全管理系统_冷却系统_拆卸叶轮储存,RepairMethod,HAS_PARAMETER,发动机安全管理系统_冷却系统_叶轮泵盖紧固扭矩,Parameter,更换叶轮安装泵盖时需遵循 6Nm 紧固扭矩参数,D16维护保养手册,D16维护保养手册::chunk_16;D16维护保养手册::chunk_17;D16维护保养手册::chunk_18;D16维护保养手册::chunk_19
+REL_000707,发动机安全管理系统_冷却系统_拆卸叶轮储存,RepairMethod,HAS_SAFETY_NOTE,发动机安全管理系统_冷却系统_润滑剂禁忌,SafetyNote,更换叶轮维修中需遵守仅使用甘油润滑的禁忌,D16维护保养手册,D16维护保养手册::chunk_16;D16维护保养手册::chunk_17;D16维护保养手册::chunk_18;D16维护保养手册::chunk_19
+REL_000708,发动机安全管理系统_冷却系统_拆卸叶轮储存,RepairMethod,HAS_SAFETY_NOTE,发动机安全管理系统_冷却系统_进水危险,SafetyNote,更换叶轮维修前需注意关闭海水塞防止进水危险,D16维护保养手册,D16维护保养手册::chunk_16;D16维护保养手册::chunk_17;D16维护保养手册::chunk_18;D16维护保养手册::chunk_19
+REL_000709,发动机安全管理系统_冷却系统_检查冷却剂液位,DiagnosticMethod,REQUIRES,发动机安全管理系统_冷却系统_高温冷却液警告,SafetyNote,检查液位时必须遵守发动机暖机时禁止打开盖的安全警告,D16维护保养手册,D16维护保养手册::chunk_12;D16维护保养手册::chunk_13;D16维护保养手册::chunk_14;D16维护保养手册::chunk_15
+REL_000710,发动机安全管理系统_冷却系统_海水塞,Component,PREVENTS,发动机安全管理系统_冷却系统_进水危险,SafetyNote,关闭海水塞组件可防止冷却系统进水危险,D16维护保养手册,D16维护保养手册::chunk_16;D16维护保养手册::chunk_17;D16维护保养手册::chunk_18;D16维护保养手册::chunk_19
+REL_000711,发动机安全管理系统_冷却系统_海水过滤器,Component,HAS_FAULT,发动机安全管理系统_冷却系统_过滤器堵塞,FaultPhenomenon,海水过滤器可能因污染物积累发生堵塞故障,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000712,发动机安全管理系统_冷却系统_海水过滤器,Component,REPAIRED_BY,发动机安全管理系统_冷却系统_清洁海水过滤器,RepairMethod,海水过滤器通过清洁滤芯和重新安装进行维护,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000713,发动机安全管理系统_冷却系统_清洁海水过滤器,RepairMethod,REQUIRES,发动机安全管理系统_冷却系统_海水塞,Component,清洁过滤器前必须先关闭通海旋塞以防进水,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000714,发动机安全管理系统_冷却系统_过滤器堵塞,FaultPhenomenon,CAUSED_BY,发动机安全管理系统_发动机_过热,FaultPhenomenon,过滤器堵塞会导致冷却不足从而引起发动机过热,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000715,发动机安全管理系统_冷却系统_过滤器堵塞,FaultPhenomenon,CAUSED_BY,发动机安全管理系统_燃油系统_微生物滋生,FaultCause,过滤器堵塞可能由燃油或水中的微生物滋生引起,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000716,发动机安全管理系统_冷却系统_阳极,Component,REPAIRED_BY,发动机安全管理系统_冷却系统_更换阳极,RepairMethod,阳极磨损超过一半时需执行更换维护,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000717,发动机安全管理系统_冷却系统_高温冷却液警告,SafetyNote,PREVENTS,发动机安全管理系统_冷却系统_灼伤风险,FaultPhenomenon,遵守高温警告可防止冷却液灼伤风险,D16维护保养手册,D16维护保养手册::chunk_1
+REL_000718,发动机安全管理系统_发动机,Equipment,HAS_COMPONENT,发动机安全管理系统_发动机_交流发电机,Component,发动机设备包含交流发电机作为核心组件,D16维护保养手册,D16维护保养手册::chunk_1
+REL_000719,发动机安全管理系统_发动机,Equipment,HAS_COMPONENT,发动机安全管理系统_发动机_传动皮带,Component,发动机本体包含传动皮带用于驱动附件,D16维护保养手册,D16维护保养手册::chunk_5
+REL_000720,发动机安全管理系统_发动机,Equipment,HAS_COMPONENT,发动机安全管理系统_发动机_发动机控制模块,Component,发动机设备包含发动机控制模块作为核心组件,D16维护保养手册,D16维护保养手册::chunk_1
+REL_000721,发动机安全管理系统_发动机,Equipment,HAS_COMPONENT,发动机安全管理系统_发动机_增压空气冷却器,Component,发动机包含增压空气冷却器用于冷却进气,D16维护保养手册,D16维护保养手册::chunk_5
+REL_000722,发动机安全管理系统_发动机,Equipment,HAS_COMPONENT,发动机安全管理系统_发动机_涡轮增压器,Component,发动机内部包含涡轮增压器作为关键增压部件,D16维护保养手册,D16维护保养手册::chunk_0
+REL_000723,发动机安全管理系统_发动机,Equipment,HAS_COMPONENT,发动机安全管理系统_发动机_皮带张紧器,Component,发动机设备包含自动皮带张紧器组件,D16维护保养手册,D16维护保养手册::chunk_16;D16维护保养手册::chunk_17;D16维护保养手册::chunk_18;D16维护保养手册::chunk_19
+REL_000724,发动机安全管理系统_发动机,Equipment,HAS_COMPONENT,发动机安全管理系统_发动机_空气过滤器,Component,发动机进气系统包含空气过滤器作为防护部件,D16维护保养手册,D16维护保养手册::chunk_0
+REL_000725,发动机安全管理系统_发动机,Equipment,HAS_FAULT,发动机安全管理系统_发动机_增压压力过低,FaultPhenomenon,发动机可能出现增压压力过低故障,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000726,发动机安全管理系统_发动机,Equipment,HAS_FAULT,发动机安全管理系统_发动机_运转不平稳,FaultPhenomenon,发动机可能出现运转不平稳故障,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000727,发动机安全管理系统_发动机,Equipment,HAS_PARAMETER,发动机安全管理系统_发动机_冷却液容量参数,Parameter,发动机设备依赖特定的冷却液容量参数进行维护,D16维护保养手册,D16维护保养手册::chunk_4
+REL_000728,发动机安全管理系统_发动机,Equipment,HAS_PARAMETER,发动机安全管理系统_发动机_存储温度要求,Parameter,发动机储存环境必须满足特定的温度范围参数要求,D16维护保养手册,D16维护保养手册::chunk_24;D16维护保养手册::chunk_25;D16维护保养手册::chunk_26;D16维护保养手册::chunk_27
+REL_000729,发动机安全管理系统_发动机,Equipment,HAS_PARAMETER,发动机安全管理系统_发动机_存储湿度要求,Parameter,发动机储存环境必须满足特定的湿度参数要求,D16维护保养手册,D16维护保养手册::chunk_24;D16维护保养手册::chunk_25;D16维护保养手册::chunk_26;D16维护保养手册::chunk_27
+REL_000730,发动机安全管理系统_发动机,Equipment,HAS_PARAMETER,发动机安全管理系统_发动机_机油容量参数,Parameter,发动机设备依赖特定的机油容量参数进行维护,D16维护保养手册,D16维护保养手册::chunk_4
+REL_000731,发动机安全管理系统_发动机,Equipment,HAS_PARAMETER,发动机安全管理系统_发动机_额外冷却剂容量限制,Parameter,发动机设备在特定配置下有额外冷却剂容量限制,D16维护保养手册,D16维护保养手册::chunk_4
+REL_000732,发动机安全管理系统_发动机,Equipment,HAS_PARAMETER,发动机安全管理系统_通用紧固扭矩标准,Parameter,发动机装配维护需参考通用紧固扭矩标准参数,D16维护保养手册,D16维护保养手册::chunk_4
+REL_000733,发动机安全管理系统_发动机,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_冷却液混合禁忌,SafetyNote,发动机冷却系统维护需遵守冷却液混合禁忌以防故障,D16维护保养手册,D16维护保养手册::chunk_4
+REL_000734,发动机安全管理系统_发动机,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_启动前检查要求,SafetyNote,发动机起动前必须执行安全检查要求,D16维护保养手册,D16维护保养手册::chunk_0
+REL_000735,发动机安全管理系统_发动机,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_燃油系统_清洁度要求,SafetyNote,发动机设备需遵循清洁度安全要求,D16维护保养手册,D16维护保养手册::chunk_1
+REL_000736,发动机安全管理系统_发动机,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_螺栓损伤检查要求,SafetyNote,发动机安装维护过程中必须遵守螺栓损伤检查的安全要求,D16维护保养手册,D16维护保养手册::chunk_4
+REL_000737,发动机安全管理系统_发动机,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_警告标识维护,SafetyNote,发动机本体需保持警告标识清晰可见,D16维护保养手册,D16维护保养手册::chunk_0
+REL_000738,发动机安全管理系统_发动机,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_通风安全要求,SafetyNote,发动机运行和维护必须遵守通风安全要求,D16维护保养手册,D16维护保养手册::chunk_0
+REL_000739,发动机安全管理系统_发动机,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_高温表面警告,SafetyNote,发动机及其部件存在高温表面需遵守警告,D16维护保养手册,D16维护保养手册::chunk_0
+REL_000740,发动机安全管理系统_发动机,Equipment,REPAIRED_BY,发动机安全管理系统_发动机_清洁发动机舱,RepairMethod,通过清洁发动机舱来维护发动机状态并降低故障风险,D16维护保养手册,D16维护保养手册::chunk_24;D16维护保养手册::chunk_25;D16维护保养手册::chunk_26;D16维护保养手册::chunk_27
+REL_000741,发动机安全管理系统_发动机,Equipment,REPAIRED_BY,发动机安全管理系统_发动机_长期存储维护,RepairMethod,发动机长期停用时需执行存储维护以防损坏,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000742,发动机安全管理系统_发动机,Equipment,REPAIRED_BY,发动机安全管理系统_润滑系统_机油补充,RepairMethod,发动机机油不足时通过补充机油进行维护修复,D16维护保养手册,D16维护保养手册::chunk_6
+REL_000743,发动机安全管理系统_发动机,Equipment,REQUIRES,发动机安全管理系统_启动前检查要求,SafetyNote,发动机起动依赖严格的安全检查步骤,D16维护保养手册,D16维护保养手册::chunk_0
+REL_000744,发动机安全管理系统_发动机,Equipment,REQUIRES,发动机安全管理系统_通风安全要求,SafetyNote,发动机运行依赖良好的通风环境条件,D16维护保养手册,D16维护保养手册::chunk_0
+REL_000745,发动机安全管理系统_发动机_交流发电机,Component,HAS_SAFETY_NOTE,发动机安全管理系统_发动机_交流发电机_进水损坏风险,SafetyNote,交流发电机在清洁过程中需特别注意防止进水损坏,D16维护保养手册,D16维护保养手册::chunk_24;D16维护保养手册::chunk_25;D16维护保养手册::chunk_26;D16维护保养手册::chunk_27
+REL_000746,发动机安全管理系统_发动机_交流发电机,Component,REPAIRED_BY,发动机安全管理系统_发动机_交流发电机_吹干处理,RepairMethod,交流发电机意外进水后的标准修复处理流程,D16维护保养手册,D16维护保养手册::chunk_24;D16维护保养手册::chunk_25;D16维护保养手册::chunk_26;D16维护保养手册::chunk_27
+REL_000747,发动机安全管理系统_发动机_传动皮带,Component,REPAIRED_BY,发动机安全管理系统_发动机_更换传动皮带,RepairMethod,传动皮带损坏时通过更换传动皮带方法进行修复,D16维护保养手册,D16维护保养手册::chunk_16;D16维护保养手册::chunk_17;D16维护保养手册::chunk_18;D16维护保养手册::chunk_19
+REL_000748,发动机安全管理系统_发动机_叶轮损坏,FaultCause,REQUIRES,发动机安全管理系统_发动机_涡轮增压器更换,RepairMethod,叶轮损坏故障需要更换涡轮增压器,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000749,发动机安全管理系统_发动机_增压压力过低,FaultPhenomenon,CAUSED_BY,发动机安全管理系统_增压空气系统_泄漏,FaultCause,增压压力过低由增压空气系统泄漏导致,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000750,发动机安全管理系统_发动机_更换传动皮带,RepairMethod,HAS_SAFETY_NOTE,发动机安全管理系统_发动机_挤压危险,SafetyNote,更换皮带维修过程中需注意防止手指挤压危险,D16维护保养手册,D16维护保养手册::chunk_16;D16维护保养手册::chunk_17;D16维护保养手册::chunk_18;D16维护保养手册::chunk_19
+REL_000751,发动机安全管理系统_发动机_污物引起故障,FaultPhenomenon,CAUSED_BY,发动机安全管理系统_发动机_污物污染,FaultCause,发动机故障由污物污染原因导致,D16维护保养手册,D16维护保养手册::chunk_1
+REL_000752,发动机安全管理系统_发动机_涡轮增压器,Component,HAS_FAULT,发动机安全管理系统_发动机_叶轮损坏,FaultCause,涡轮增压器可能发生叶轮损坏故障,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000753,发动机安全管理系统_发动机_涡轮增压器,Component,REPAIRED_BY,发动机安全管理系统_发动机_涡轮增压器更换,RepairMethod,涡轮增压器损坏时通过更换方法维修,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000754,发动机安全管理系统_发动机_皮带张紧器,Component,CONTROLS,发动机安全管理系统_发动机_传动皮带,Component,皮带张紧器控制传动皮带的张紧状态,D16维护保养手册,D16维护保养手册::chunk_16;D16维护保养手册::chunk_17;D16维护保养手册::chunk_18;D16维护保养手册::chunk_19
+REL_000755,发动机安全管理系统_发动机_运转不平稳,FaultPhenomenon,CAUSED_BY,发动机安全管理系统_燃油系统_空气残留,FaultCause,运转不平稳由燃油系统空气残留导致,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000756,发动机安全管理系统_发动机_长期存储维护,RepairMethod,PREVENTS,发动机安全管理系统_电池_冷冻破裂,FaultPhenomenon,存储维护中给电池充电可防止低温冷冻破裂,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000757,发动机安全管理系统_发动机_长期存储维护,RepairMethod,REQUIRES,发动机安全管理系统_电池,Equipment,存储维护要求断开电池电缆并进行清洁充电,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000758,发动机安全管理系统_增压空气系统,Equipment,HAS_COMPONENT,发动机安全管理系统_增压空气系统_增压空气管,Component,增压空气系统包含增压空气管组件,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000759,发动机安全管理系统_排气系统,Equipment,HAS_COMPONENT,发动机安全管理系统_排气系统_排气弯管,Component,排气系统包含排气弯管组件,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000760,发动机安全管理系统_排气系统,Equipment,REPAIRED_BY,发动机安全管理系统_排气系统_损坏件更换,RepairMethod,排气系统损坏件通过更换方法维修,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000761,发动机安全管理系统_操舵器,Equipment,HAS_COMPONENT,发动机安全管理系统_操舵器_电动操舵器,Component,操舵器系统包含电动操舵器作为执行机构,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000762,发动机安全管理系统_操舵器,Equipment,HAS_PARAMETER,发动机安全管理系统_操舵器_油量参数,Parameter,操舵器设备依赖特定的油量参数进行维护,D16维护保养手册,D16维护保养手册::chunk_4
+REL_000763,发动机安全管理系统_操舵器,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_ATF 油混合说明,SafetyNote,操舵器维护需遵守 ATF 油混合说明以确保兼容性,D16维护保养手册,D16维护保养手册::chunk_4
+REL_000764,发动机安全管理系统_操舵器_电动操舵器,Component,HAS_PARAMETER,发动机安全管理系统_操舵器_机油容量,Parameter,电动操舵器更换机油时参考约 5 升容量参数,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000765,发动机安全管理系统_操舵器_电动操舵器,Component,HAS_PARAMETER,发动机安全管理系统_操舵器_量油尺紧固扭矩,Parameter,电动操舵器量油尺安装需遵循 10Nm 紧固扭矩,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000766,发动机安全管理系统_操舵器_电动操舵器,Component,REPAIRED_BY,发动机安全管理系统_操舵器_更换机油,RepairMethod,电动操舵器需定期更换机油以维持正常运行,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000767,发动机安全管理系统_机油分析,DiagnosticMethod,HAS_SAFETY_NOTE,发动机安全管理系统_机油分析_取样安全要求,SafetyNote,机油分析诊断过程需遵守取样安全操作要求,D16维护保养手册,D16维护保养手册::chunk_7
+REL_000768,发动机安全管理系统_机油分析,DiagnosticMethod,HAS_SAFETY_NOTE,发动机安全管理系统_机油分析_环保收集要求,SafetyNote,机油分析诊断过程需遵守环保收集安全要求,D16维护保养手册,D16维护保养手册::chunk_7
+REL_000769,发动机安全管理系统_机油分析,DiagnosticMethod,MONITORS,发动机安全管理系统_润滑系统_金属颗粒物,Parameter,机油分析方法用于监测润滑系统金属颗粒参数,D16维护保养手册,D16维护保养手册::chunk_7
+REL_000770,发动机安全管理系统_机油分析,DiagnosticMethod,REQUIRES,发动机安全管理系统_发动机,Equipment,机油分析诊断方法依赖发动机运行至工作温度,D16维护保养手册,D16维护保养手册::chunk_7
+REL_000771,发动机安全管理系统_润滑系统,Equipment,DIAGNOSED_BY,发动机安全管理系统_机油分析,DiagnosticMethod,润滑系统状态通过机油分析方法进行诊断,D16维护保养手册,D16维护保养手册::chunk_7
+REL_000772,发动机安全管理系统_润滑系统,Equipment,HAS_COMPONENT,发动机安全管理系统_润滑系统_机油过滤器,Component,润滑系统包含机油过滤器作为关键过滤组件,D16维护保养手册,D16维护保养手册::chunk_5
+REL_000773,发动机安全管理系统_润滑系统,Equipment,HAS_FAULT,发动机安全管理系统_润滑系统_机油泄漏,FaultPhenomenon,润滑系统设备可能发生的机油泄漏故障,D16维护保养手册,D16维护保养手册::chunk_6
+REL_000774,发动机安全管理系统_润滑系统,Equipment,HAS_PARAMETER,发动机安全管理系统_润滑系统_水含量,Parameter,润滑系统运行状态需监测机油水含量参数,D16维护保养手册,D16维护保养手册::chunk_7
+REL_000775,发动机安全管理系统_润滑系统,Equipment,HAS_PARAMETER,发动机安全管理系统_润滑系统_燃油含量,Parameter,润滑系统运行状态需监测机油燃油含量参数,D16维护保养手册,D16维护保养手册::chunk_7
+REL_000776,发动机安全管理系统_润滑系统,Equipment,HAS_PARAMETER,发动机安全管理系统_润滑系统_金属颗粒物,Parameter,润滑系统运行状态需监测机油金属颗粒参数,D16维护保养手册,D16维护保养手册::chunk_7
+REL_000777,发动机安全管理系统_润滑系统,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_润滑系统_热油警告,SafetyNote,润滑系统作业需遵循热油警告,D16维护保养手册,D16维护保养手册::chunk_1
+REL_000778,发动机安全管理系统_润滑系统_机油泄漏,FaultPhenomenon,DIAGNOSED_BY,发动机安全管理系统_润滑系统_泄漏检查,DiagnosticMethod,通过起动发动机后目视检查来诊断泄漏故障,D16维护保养手册,D16维护保养手册::chunk_6
+REL_000779,发动机安全管理系统_润滑系统_机油过滤器,Component,REPAIRED_BY,发动机安全管理系统_润滑系统_过滤器安装润滑,RepairMethod,更换机油过滤器时需执行衬垫润滑步骤,D16维护保养手册,D16维护保养手册::chunk_6
+REL_000780,发动机安全管理系统_润滑系统_机油过滤器,Component,REPAIRED_BY,发动机安全管理系统_润滑系统_过滤器拧紧,RepairMethod,更换机油过滤器时需执行按规定扭矩拧紧步骤,D16维护保养手册,D16维护保养手册::chunk_6
+REL_000781,发动机安全管理系统_润滑系统_油位检查,DiagnosticMethod,REQUIRES,发动机安全管理系统_发动机_机油容量参数,Parameter,检查油位时需参照技术参数规定的机油容量标准,D16维护保养手册,D16维护保养手册::chunk_6
+REL_000782,发动机安全管理系统_润滑系统_热油警告,SafetyNote,PREVENTS,发动机安全管理系统_冷却系统_灼伤风险,FaultPhenomenon,遵守热油警告可防止热油灼伤风险,D16维护保养手册,D16维护保养手册::chunk_1
+REL_000783,发动机安全管理系统_润滑系统_过滤器安装润滑,RepairMethod,PREVENTS,发动机安全管理系统_润滑系统_机油泄漏,FaultPhenomenon,润滑衬垫可防止因密封不良导致的机油泄漏,D16维护保养手册,D16维护保养手册::chunk_6
+REL_000784,发动机安全管理系统_润滑系统_过滤器拧紧,RepairMethod,PREVENTS,发动机安全管理系统_润滑系统_机油泄漏,FaultPhenomenon,正确拧紧过滤器可防止因松动导致的机油泄漏,D16维护保养手册,D16维护保养手册::chunk_6
+REL_000785,发动机安全管理系统_润滑系统_金属颗粒物,Parameter,CAUSED_BY,发动机安全管理系统_润滑系统_部件磨损,FaultCause,机油中金属颗粒物异常由部件磨损故障导致,D16维护保养手册,D16维护保养手册::chunk_7
+REL_000786,发动机安全管理系统_火灾爆炸风险,FaultPhenomenon,CAUSED_BY,发动机安全管理系统_意外火花,FaultCause,意外火花是点燃易燃物导致火灾爆炸的原因,D16维护保养手册,D16维护保养手册::chunk_0
+REL_000787,发动机安全管理系统_火灾爆炸风险,FaultPhenomenon,CAUSED_BY,发动机安全管理系统_燃油或气体泄漏,FaultCause,燃油或气体泄漏是导致火灾爆炸风险的原因,D16维护保养手册,D16维护保养手册::chunk_0
+REL_000788,发动机安全管理系统_燃油系统,Equipment,HAS_COMPONENT,发动机安全管理系统_燃油系统_压力表,Component,燃油系统双联过滤器包含压力表组件,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000789,发动机安全管理系统_燃油系统,Equipment,HAS_COMPONENT,发动机安全管理系统_燃油系统_手泵,Component,燃油系统包含手泵用于手动燃油输送,D16维护保养手册,D16维护保养手册::chunk_5
+REL_000790,发动机安全管理系统_燃油系统,Equipment,HAS_COMPONENT,发动机安全管理系统_燃油系统_燃油过滤器,Component,燃油系统包含燃油过滤器作为关键过滤组件,D16维护保养手册,D16维护保养手册::chunk_5
+REL_000791,发动机安全管理系统_燃油系统,Equipment,HAS_COMPONENT,发动机安全管理系统_燃油系统_细过滤器,Component,燃油系统设备包含发动机标配的细过滤器组件,D16维护保养手册,D16维护保养手册::chunk_10
+REL_000792,发动机安全管理系统_燃油系统,Equipment,HAS_COMPONENT,发动机安全管理系统_燃油系统_预过滤器,Component,燃油系统设备包含可选安装的预过滤器组件,D16维护保养手册,D16维护保养手册::chunk_10
+REL_000793,发动机安全管理系统_燃油系统,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_燃油系统_FAME 燃料存储禁忌,SafetyNote,燃油系统存储期间禁止使用高 FAME 含量燃料,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000794,发动机安全管理系统_燃油系统,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_燃油系统_清洁度要求,SafetyNote,燃油系统需遵循元件清洁度要求,D16维护保养手册,D16维护保养手册::chunk_1
+REL_000795,发动机安全管理系统_燃油系统,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_燃油系统_热表面火灾风险,SafetyNote,燃油系统操作需注意热表面火灾风险,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000796,发动机安全管理系统_燃油系统,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_燃油系统_管路弯曲禁止,SafetyNote,燃油系统需遵循管路弯曲禁止的禁忌,D16维护保养手册,D16维护保养手册::chunk_1
+REL_000797,发动机安全管理系统_燃油系统,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_燃油系统_过滤器预注禁忌,SafetyNote,燃油系统过滤器安装需注意预注禁忌,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000798,发动机安全管理系统_燃油系统,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_燃油系统_高压泄漏防护,SafetyNote,燃油系统作业需遵循高压泄漏防护要求,D16维护保养手册,D16维护保养手册::chunk_1
+REL_000799,发动机安全管理系统_燃油系统,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_燃油系统_高压皮肤渗透风险,SafetyNote,燃油系统高压管路需注意皮肤渗透风险,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000800,发动机安全管理系统_燃油系统,Equipment,REPAIRED_BY,发动机安全管理系统_燃油系统_双联过滤器切换,RepairMethod,燃油系统双联过滤器通过切换方法维护,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000801,发动机安全管理系统_燃油系统,Equipment,REPAIRED_BY,发动机安全管理系统_燃油系统_过滤器排气,RepairMethod,燃油系统通过系统排气方法维修,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000802,发动机安全管理系统_燃油系统_FAME 燃料存储禁忌,SafetyNote,PREVENTS,发动机安全管理系统_燃油系统_微生物滋生,FaultCause,限制 FAME 含量可防止燃油系统微生物滋生堵塞,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000803,发动机安全管理系统_燃油系统_压力表,Component,HAS_PARAMETER,发动机安全管理系统_燃油系统_全负载压降参数,Parameter,压力表监测全负载压降参数,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000804,发动机安全管理系统_燃油系统_压力表,Component,HAS_PARAMETER,发动机安全管理系统_燃油系统_怠速压降参数,Parameter,压力表监测怠速压降参数,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000805,发动机安全管理系统_燃油系统_清洁度要求,SafetyNote,PREVENTS,发动机安全管理系统_发动机_污物引起故障,FaultPhenomenon,遵守清洁度要求可防止污物引起故障,D16维护保养手册,D16维护保养手册::chunk_1
+REL_000806,发动机安全管理系统_燃油系统_热表面火灾风险,SafetyNote,PREVENTS,发动机安全管理系统_火灾爆炸风险,FaultPhenomenon,热表面火灾风险警告防止火灾爆炸,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000807,发动机安全管理系统_燃油系统_燃油过滤器,Component,REPAIRED_BY,发动机安全管理系统_燃油系统_过滤器排气,RepairMethod,燃油过滤器通过更换方法维修,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000808,发动机安全管理系统_燃油系统_细过滤器,Component,REPAIRED_BY,发动机安全管理系统_燃油系统_过滤器排气,RepairMethod,细过滤器组件需要通过排气方法去除内部空气,D16维护保养手册,D16维护保养手册::chunk_10
+REL_000809,发动机安全管理系统_燃油系统_过滤器排气,RepairMethod,PREVENTS,发动机安全管理系统_发动机_运转不平稳,FaultPhenomenon,系统排气方法防止运转不平稳故障,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000810,发动机安全管理系统_燃油系统_过滤器预注禁忌,SafetyNote,PREVENTS,发动机安全管理系统_发动机_运转不平稳,FaultPhenomenon,过滤器预注禁忌防止污染物引起运转故障,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000811,发动机安全管理系统_燃油系统_预过滤器,Component,REPAIRED_BY,发动机安全管理系统_燃油系统_过滤器排气,RepairMethod,预过滤器组件需要通过排气方法去除内部空气,D16维护保养手册,D16维护保养手册::chunk_10
+REL_000812,发动机安全管理系统_燃油系统_高压泄漏防护,SafetyNote,PREVENTS,发动机安全管理系统_燃油系统_败血病风险,FaultPhenomenon,遵守高压泄漏防护可防止败血病风险,D16维护保养手册,D16维护保养手册::chunk_1
+REL_000813,发动机安全管理系统_燃油系统_高压皮肤渗透风险,SafetyNote,PREVENTS,发动机安全管理系统_人身伤害风险,FaultPhenomenon,高压皮肤渗透风险警告防止人身伤害,D16维护保养手册,D16维护保养手册::chunk_11
+REL_000814,发动机安全管理系统_电气系统,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_电气系统_断电操作要求,SafetyNote,电气系统作业需遵循断电操作安全要求,D16维护保养手册,D16维护保养手册::chunk_1
+REL_000815,发动机安全管理系统_电气系统,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_电气系统_运行中断电禁止,SafetyNote,电气系统需遵循运行中禁止断电的安全禁忌,D16维护保养手册,D16维护保养手册::chunk_1
+REL_000816,发动机安全管理系统_电气系统_运行中断电禁止,SafetyNote,PREVENTS,发动机安全管理系统_发动机_电子元件损坏,FaultPhenomenon,遵守运行中断电禁止可防止电子元件损坏,D16维护保养手册,D16维护保养手册::chunk_1
+REL_000817,发动机安全管理系统_电池,Equipment,HAS_PARAMETER,发动机安全管理系统_电池_端子紧固扭矩,Parameter,电池维护时端子连接需遵循规定的紧固扭矩参数,D16维护保养手册,D16维护保养手册::chunk_24;D16维护保养手册::chunk_25;D16维护保养手册::chunk_26;D16维护保养手册::chunk_27
+REL_000818,发动机安全管理系统_电池,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_火灾爆炸风险,FaultPhenomenon,电池氢气混合可能引发火灾爆炸风险,D16维护保养手册,D16维护保养手册::chunk_0
+REL_000819,发动机安全管理系统_电池,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_电池_极性连接要求,SafetyNote,电池设备需遵循极性连接安全要求,D16维护保养手册,D16维护保养手册::chunk_1
+REL_000820,发动机安全管理系统_电池,Equipment,HAS_SAFETY_NOTE,发动机安全管理系统_电池_电解液防护,SafetyNote,电池设备需遵循电解液防护安全要求,D16维护保养手册,D16维护保养手册::chunk_1
+REL_000821,发动机安全管理系统_电池,Equipment,REPAIRED_BY,发动机安全管理系统_电池_清洁端子,RepairMethod,定期清洁电池端子以防止杂散电流和放电故障,D16维护保养手册,D16维护保养手册::chunk_24;D16维护保养手册::chunk_25;D16维护保养手册::chunk_26;D16维护保养手册::chunk_27
+REL_000822,发动机安全管理系统_电池_冷冻破裂,FaultPhenomenon,CAUSED_BY,发动机安全管理系统_电池_长期放电损坏,FaultCause,电池长期放电是导致寒冷天气下冷冻破裂的主要原因,D16维护保养手册,D16维护保养手册::chunk_24;D16维护保养手册::chunk_25;D16维护保养手册::chunk_26;D16维护保养手册::chunk_27
+REL_000823,发动机安全管理系统_禁止启动喷雾,SafetyNote,PREVENTS,发动机安全管理系统_火灾爆炸风险,FaultPhenomenon,禁止使用启动喷雾可防止引发爆炸风险,D16维护保养手册,D16维护保养手册::chunk_0
+REL_000824,发动机安全管理系统_通用_高压清洗禁忌,SafetyNote,PREVENTS,发动机安全管理系统_发动机_电子元件损坏,FaultPhenomenon,禁止高压水冲洗电气部件可防止电子元件损坏,D16维护保养手册,D16维护保养手册::chunk_20;D16维护保养手册::chunk_21;D16维护保养手册::chunk_22;D16维护保养手册::chunk_23
+REL_000825,发动机安全管理系统_通风安全要求,SafetyNote,PREVENTS,发动机安全管理系统_人身伤害风险,FaultPhenomenon,遵守通风要求可防止废气中毒等人身伤害,D16维护保养手册,D16维护保养手册::chunk_0
+REL_000826,发动机安全管理系统_通风安全要求,SafetyNote,PREVENTS,发动机安全管理系统_火灾爆炸风险,FaultPhenomenon,良好通风可防止易燃气体积聚引发火灾爆炸,D16维护保养手册,D16维护保养手册::chunk_0
+REL_000827,发动机安全管理系统_预防性保养,RepairMethod,PREVENTS,发动机安全管理系统_非计划停机,FaultPhenomenon,实施预防性保养可防止非计划停机故障发生,D16维护保养手册,D16维护保养手册::chunk_7
+REL_000828,发动机安全管理系统_高温表面警告,SafetyNote,PREVENTS,发动机安全管理系统_人身伤害风险,FaultPhenomenon,注意高温表面可防止烫伤等人身伤害,D16维护保养手册,D16维护保养手册::chunk_0
+REL_000829,发动机起动锁定,SafetyNote,PREVENTS,爆炸与火灾危险,FaultPhenomenon,发动机起动锁定安全措施防止爆炸与火灾危险故障,D8维护保养手册,D8维护保养手册::chunk_0;D8维护保养手册::chunk_1;D8维护保养手册::chunk_2;D8维护保养手册::chunk_3
+REL_000830,爆炸与火灾危险,FaultPhenomenon,CAUSED_BY,无气门室盖起动,FaultCause,爆炸与火灾危险故障由无气门室盖起动原因导致,D8维护保养手册,D8维护保养手册::chunk_0;D8维护保养手册::chunk_1;D8维护保养手册::chunk_2;D8维护保养手册::chunk_3
+REL_000831,电气系统作业电源隔离,SafetyNote,PREVENTS,交流发电机与电子装置损坏,FaultPhenomenon,电气系统作业电源隔离安全措施防止交流发电机与电子装置损坏故障,D8维护保养手册,D8维护保养手册::chunk_0;D8维护保养手册::chunk_1;D8维护保养手册::chunk_2;D8维护保养手册::chunk_3

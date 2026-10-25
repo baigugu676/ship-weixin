@@ -1,0 +1,169 @@
+<!--pages/weather/weather.wxml-->
+<view class="weather-container">
+  <!-- 地点管理 -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">⚓ 关注地点</text>
+      <view class="locate-btn {{locating ? 'busy' : ''}}" bindtap="onLocateTap">
+        <text>{{locating ? '定位中…' : '📍 点击定位'}}</text>
+      </view>
+    </view>
+
+    <text class="error-text" wx:if="{{locateError}}">{{locateError}}</text>
+
+    <scroll-view class="location-chips" scroll-x enhanced show-scrollbar="{{false}}">
+      <view
+        wx:for="{{locations}}"
+        wx:key="id"
+        class="location-chip {{item.id === activeId ? 'active' : ''}}"
+        bindtap="onLocationTap"
+        data-id="{{item.id}}"
+      >
+        <text class="chip-name">{{item.name}}</text>
+        <text class="chip-remove" catchtap="onRemoveLocation" data-id="{{item.id}}">✕</text>
+      </view>
+      <view class="location-chip empty" wx:if="{{!locations.length}}">
+        <text class="chip-name">暂无地点，搜索添加或点击定位</text>
+      </view>
+    </scroll-view>
+
+    <view class="search-bar">
+      <input
+        class="search-input"
+        placeholder="输入城市 / 港口名，如：舟山、新加坡"
+        placeholder-class="search-placeholder"
+        value="{{searchText}}"
+        bindinput="onSearchInput"
+        bindconfirm="onSearchConfirm"
+        confirm-type="search"
+      />
+      <view class="search-btn" bindtap="onSearchConfirm">
+        <text>{{searching ? '…' : '搜索'}}</text>
+      </view>
+    </view>
+    <text class="error-text" wx:if="{{searchError}}">{{searchError}}</text>
+
+    <view class="search-results" wx:if="{{searchResults.length}}">
+      <view
+        wx:for="{{searchResults}}"
+        wx:key="index"
+        class="search-result-item"
+        bindtap="onSearchResultTap"
+        data-name="{{item.name}}"
+        data-detail="{{item.detail}}"
+        data-lat="{{item.lat}}"
+        data-lon="{{item.lon}}"
+      >
+        <view class="result-text">
+          <text class="result-name">{{item.name}}</text>
+          <text class="result-detail" wx:if="{{item.detail}}">{{item.detail}}</text>
+        </view>
+        <text class="result-add">＋</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 加载/错误 -->
+  <view class="state-block" wx:if="{{loading && !forecast}}">
+    <text class="state-text">正在获取天气…</text>
+  </view>
+  <view class="state-block" wx:if="{{error && !forecast}}">
+    <text class="error-text">{{error}}</text>
+    <view class="retry-btn" bindtap="refresh"><text>重试</text></view>
+  </view>
+  <view class="state-block" wx:if="{{!activeLocation && !locations.length}}">
+    <text class="state-text">添加地点后即可查看最近 5 天海上天气</text>
+  </view>
+
+  <!-- 当前实况 -->
+  <view class="current-card" wx:if="{{forecast}}">
+    <view class="current-top">
+      <view class="current-loc">
+        <text class="current-name">{{activeLocation.name}} · 当前</text>
+        <text class="current-sub">{{forecast.current.time || ''}}</text>
+        <text class="current-sub">{{forecast.marine_available ? '含海浪数据' : '内陆/近岸（无海浪数据）'}}</text>
+      </view>
+      <view class="current-main">
+        <text class="current-temp">{{forecast.current.temperature == null ? '--' : forecast.current.temperature}}°C</text>
+        <text class="current-weather">{{forecast.current.weather_text}}</text>
+      </view>
+    </view>
+    <view class="current-grid">
+      <view class="current-item">
+        <text class="current-label">🌬️ 风</text>
+        <text class="current-value">{{forecast.current.wind_direction_text}} {{forecast.current.wind_text}}</text>
+      </view>
+      <view class="current-item">
+        <text class="current-label">🌊 浪高(最大)</text>
+        <text class="current-value">{{forecast.daily[0].wave_height_max != null ? forecast.daily[0].wave_height_max + ' m' : '无数据'}}</text>
+      </view>
+      <view class="current-item">
+        <text class="current-label">🌡️ 海面水温</text>
+        <text class="current-value">{{forecast.current.sea_surface_temperature != null ? forecast.current.sea_surface_temperature + ' °C' : '无数据'}}</text>
+      </view>
+      <view class="current-item">
+        <text class="current-label">💧 降水(今日)</text>
+        <text class="current-value">{{forecast.daily[0].precipitation != null ? forecast.daily[0].precipitation + ' mm' : '--'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 逐日预报 -->
+  <view class="section" wx:if="{{forecast}}">
+    <view class="section-header">
+      <text class="section-title">📅 最近 5 天预报</text>
+      <view class="refresh-btn" bindtap="refresh"><text>{{loading ? '刷新中…' : '↻ 刷新'}}</text></view>
+    </view>
+    <view class="day-card" wx:for="{{forecast.daily}}" wx:key="date">
+      <view class="day-head">
+        <text class="day-week">{{item.weekday}}</text>
+        <text class="day-date">{{item.shortDate}}</text>
+      </view>
+      <text class="day-weather">{{item.weather_text}}</text>
+      <view class="day-metrics">
+        <text class="day-metric">🌡️ {{item.temp_min == null ? '--' : item.temp_min}}~{{item.temp_max == null ? '--' : item.temp_max}}°C</text>
+        <text class="day-metric">🌬️ {{item.wind_direction_text}} {{item.wind_text}}</text>
+        <text class="day-metric">🌊 {{item.wave_height_max != null ? item.wave_height_max + 'm' : '—'}}{{item.wave_direction_text && item.wave_height_max != null ? ' ' + item.wave_direction_text : ''}}</text>
+        <text class="day-metric">💧 {{item.precipitation != null ? item.precipitation + 'mm' : '—'}}</text>
+        <text class="day-metric" wx:if="{{item.visibility_km != null}}">👁️ {{item.visibility_km}}km</text>
+      </view>
+    </view>
+    <text class="data-source">数据来源 Open-Meteo（海洋+气象预报）· 更新于 {{forecast.fetched_at || '--'}} · 海上天气需联网获取</text>
+  </view>
+
+  <!-- 历史查询（年+月） -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">📅 历史天气（按年 + 月）</text>
+    </view>
+    <view class="hist-picker-row">
+      <picker class="hist-picker" range="{{histYears}}" bindchange="onHistYearChange">
+        <view class="hist-picker-inner">{{histYear}} 年 ▾</view>
+      </picker>
+      <picker class="hist-picker" range="{{histMonths}}" bindchange="onHistMonthChange">
+        <view class="hist-picker-inner">{{histMonth}} 月 ▾</view>
+      </picker>
+      <view class="search-btn hist-query-btn" bindtap="onHistQuery">
+        <text>{{histLoading ? '查询中…' : '查询'}}</text>
+      </view>
+    </view>
+    <text class="error-text" wx:if="{{histError}}">{{histError}}</text>
+    <text class="state-text hist-empty" wx:if="{{histQueried && !histLoading && !histDays.length && !histError}}">该月份暂无数据</text>
+
+    <view wx:if="{{histDays.length}}" class="hist-list">
+      <view class="day-card" wx:for="{{histDays}}" wx:key="date">
+        <view class="day-head">
+          <text class="day-date">{{item.date}}</text>
+        </view>
+        <text class="day-weather">{{item.weather_text}}</text>
+        <view class="day-metrics">
+          <text class="day-metric">🌡️ {{item.temp_min == null ? '--' : item.temp_min}}~{{item.temp_max == null ? '--' : item.temp_max}}°C</text>
+          <text class="day-metric">🌬️ {{item.wind_direction_text}} {{item.wind_text}}</text>
+          <text class="day-metric">🌊 {{item.wave_height_max != null ? item.wave_height_max + 'm' : '—'}}</text>
+          <text class="day-metric">💧 {{item.precipitation != null ? item.precipitation + 'mm' : '—'}}</text>
+        </view>
+      </view>
+    </view>
+    <text class="data-source" wx:if="{{histNote && histDays.length}}">{{histNote}}</text>
+  </view>
+</view>

@@ -1,0 +1,89 @@
+<!--pages/login/login.wxml-->
+<view class="login-container">
+  <!-- 背景装饰 -->
+  <view class="bg-decoration">
+    <view class="circle circle-1"></view>
+    <view class="circle circle-2"></view>
+    <view class="circle circle-3"></view>
+  </view>
+
+  <!-- 主要内容 -->
+  <view class="login-content">
+    <!-- Logo 区域 -->
+    <view class="logo-section">
+      <view class="logo-box">
+        <text class="logo-icon">⚓</text>
+      </view>
+      <text class="app-title">智能船舶问答系统</text>
+      <text class="app-subtitle">Intelligent Ship Q&A System</text>
+    </view>
+
+    <!-- 错误提示 -->
+    <view class="error-box" wx:if="{{error}}">
+      <text class="error-text">{{error}}</text>
+    </view>
+
+    <!-- 登录表单 -->
+    <view class="form-section">
+      <view class="input-group">
+        <text class="input-label">用户名 / USERNAME</text>
+        <view class="input-wrap">
+          <text class="input-icon">👤</text>
+          <input 
+            class="input-field" 
+            type="text" 
+            placeholder="请输入您的账号"
+            placeholder-class="placeholder"
+            value="{{userId}}"
+            bindinput="onUserIdInput"
+            maxlength="64"
+          />
+        </view>
+      </view>
+
+      <view class="input-group">
+        <text class="input-label">密码 / PASSWORD</text>
+        <view class="input-wrap">
+          <text class="input-icon">🔒</text>
+          <input 
+            class="input-field" 
+            type="{{showPassword ? 'text' : 'password'}}"
+            placeholder="请输入密码"
+            placeholder-class="placeholder"
+            value="{{password}}"
+            bindinput="onPasswordInput"
+            maxlength="64"
+          />
+          <view class="eye-btn" bindtap="togglePassword">
+            <text class="eye-icon">{{showPassword ? '🙈' : '👁️'}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 登录按钮 -->
+      <button 
+        class="login-btn {{loading ? 'loading' : ''}}" 
+        bindtap="handleLogin"
+        disabled="{{loading || !userId || !password}}"
+      >
+        <text wx:if="{{!loading}}">登 录 系 统 →</text>
+        <view wx:else class="loading-wrap">
+          <view class="loading-dot"></view>
+          <view class="loading-dot"></view>
+          <view class="loading-dot"></view>
+          <text class="loading-text">登录中...</text>
+        </view>
+      </button>
+    </view>
+
+    <!-- 底部信息 -->
+    <view class="footer-section">
+      <text class="footer-text">Powered by 智能船舶问答系统</text>
+      <view class="status-dots">
+        <view class="dot"></view>
+        <view class="dot"></view>
+        <view class="dot"></view>
+      </view>
+    </view>
+  </view>
+</view>

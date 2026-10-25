@@ -1,0 +1,14 @@
+{
+  "output_name": "release_20260415",
+  "mode": "package",
+  "kg_names": [
+    "电气",
+    "发动机",
+    "液压"
+  ],
+  "entities": 1317,
+  "relations": 1605,
+  "chunks": 202,
+  "neo4j_imported": true,
+  "neo4j_dumped": true
+}

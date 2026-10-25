@@ -1,0 +1,50 @@
+[
+  {
+    "chunk_id": "1780641413_README::chunk_0",
+    "doc_id": "1780641413_README",
+    "chunk_index": 0,
+    "text": "# Kubernetes 配置文件",
+    "source": "1780641413_README.md",
+    "char_count": 17
+  },
+  {
+    "chunk_id": "1780641413_README::chunk_1",
+    "doc_id": "1780641413_README",
+    "chunk_index": 1,
+    "text": "## 使用说明",
+    "source": "1780641413_README.md",
+    "char_count": 7
+  },
+  {
+    "chunk_id": "1780641413_README::chunk_2",
+    "doc_id": "1780641413_README",
+    "chunk_index": 2,
+    "text": "### 1. 创建SWR镜像拉取Secret\n```bash\nkubectl create secret docker-registry swr-secret \\\n  --docker-server=swr.cn-north-4.myhuaweicloud.com \\\n  --docker-username=cn-north-4@<AK> \\\n  --docker-password=<SK>\n```",
+    "source": "1780641413_README.md",
+    "char_count": 201
+  },
+  {
+    "chunk_id": "1780641413_README::chunk_3",
+    "doc_id": "1780641413_README",
+    "chunk_index": 3,
+    "text": "### 2. 按顺序应用配置\n```bash\nkubectl apply -f 01-configmap.yaml\nkubectl apply -f 02-secret.yaml\nkubectl apply -f 03-pvc.yaml\nkubectl apply -f 04-redis-deployment.yaml\nkubectl apply -f 05-redis-service.yaml\nkubectl apply -f 06-backend-deployment.yaml\nkubectl apply -f 07-backend-service.yaml\nkubectl apply -f 08-nginx-configmap.yaml\nkubectl apply -f 09-frontend-deployment.yaml\nkubectl apply -f 10-frontend-service.yaml\nkubectl apply -f 11-backend-hpa.yaml\n```",
+    "source": "1780641413_README.md",
+    "char_count": 453
+  },
+  {
+    "chunk_id": "1780641413_README::chunk_4",
+    "doc_id": "1780641413_README",
+    "chunk_index": 4,
+    "text": "### 3. 验证部署\n```bash\nkubectl get pods\nkubectl get svc\nkubectl get hpa\nkubectl get pvc\n```",
+    "source": "1780641413_README.md",
+    "char_count": 88
+  },
+  {
+    "chunk_id": "1780641413_README::chunk_5",
+    "doc_id": "1780641413_README",
+    "chunk_index": 5,
+    "text": "## 配置说明\n- **组织名**: ren-li\n- **后端镜像**: swr.cn-north-4.myhuaweicloud.com/ren-li/flask-backend:v1\n- **前端镜像**: swr.cn-north-4.myhuaweicloud.com/ren-li/nginx-frontend:v1\n- **Redis密码**: pwd (base64: cHdk)\n- **存储类**: csi-disk-topology\n- **HPA配置**: minReplicas=1, maxReplicas=4, CPU阈值=60%",
+    "source": "1780641413_README.md",
+    "char_count": 280
+  }
+]
