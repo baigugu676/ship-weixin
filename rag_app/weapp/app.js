@@ -4,7 +4,7 @@ App({
     userInfo: null,
     settings: null,
     chats: [],
-    apiBaseURL: 'http://192.168.10.22:8000', // 局域网地址（手机真机调试用）；纯模拟器调试可改回 http://localhost:8000
+    apiBaseURL: 'https://02cf5fad37564a6e95274bac3b261b2a--8000.ap-shanghai2.cloudstudio.club', // Cloud Studio 云端地址（体验版扫码即用）；本机调试可改回 http://192.168.10.22:8000
   },
 
   onLaunch() {
