@@ -851,6 +851,16 @@
 .kg-node { flex: 1; padding: 12rpx; border-radius: 12rpx; background: #14b8a61a; color: #14b8a6; font-size: 24rpx; word-break: break-all; }
 .kg-relation { width: 140rpx; text-align: center; font-size: 22rpx; color: #94a3b8; }
 .kg-filter-clear { padding: 12rpx 0; color: #14b8a6; font-size: 24rpx; }
+.query-details-trigger { margin: 0 0 12rpx auto; display: block; width: fit-content; background: #0c4a6e; color: #e0f2fe; font-size: 24rpx; }
+.query-details-mask { position: fixed; inset: 0; z-index: 1000; background: #0009; display: flex; align-items: center; justify-content: center; padding: 24rpx; }
+.query-details-dialog { width: 100%; max-width: 1000rpx; border: 1rpx solid #38bdf855; border-radius: 24rpx; background: #041527; color: #e2e8f0; overflow: hidden; }
+.query-details-header { padding: 24rpx; display: flex; align-items: center; justify-content: space-between; gap: 12rpx; font-size: 28rpx; border-bottom: 1rpx solid #94a3b833; }
+.query-details-header button { margin: 0; flex-shrink: 0; }
+.query-details-body { height: 65vh; box-sizing: border-box; padding: 24rpx; }
+.query-details-note { display: block; color: #94a3b8; font-size: 24rpx; margin: 12rpx 0; }
+.query-record { border: 1rpx solid #94a3b833; border-radius: 16rpx; padding: 20rpx; margin-bottom: 24rpx; }
+.query-record-title { display: block; font-size: 28rpx; font-weight: 600; }
+.query-record-label { display: block; font-size: 24rpx; margin: 20rpx 0 12rpx; color: #7dd3fc; }
 .sql-code { display: block; white-space: pre-wrap; font-family: monospace; background: #0003; padding: 16rpx; font-size: 22rpx; word-break: break-all; }
 .sql-table-scroll { width: 100%; margin: 12rpx 0; }
 .sql-table { display: inline-block; min-width: 100%; }

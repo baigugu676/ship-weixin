@@ -16,19 +16,32 @@ const FIELD_LABELS = {
   performed_at: "检修时间", maintenance_type: "检修类型", technician: "检修人员", next_due_at: "下次检修时间",
 };
 
-export function DatabaseResult({ result }) {
+export function DatabaseResult({ result, expanded = false }) {
   if (!result) return null;
-  return (
-    <details className="mt-4 rounded-lg border border-sky-400/25 p-3 text-xs">
-      <summary className="cursor-pointer text-sky-300">设备数据库 · 查看查询依据{result.data_kind === "demo" ? "（演示数据）" : ""}</summary>
+  const columns = result.columns || [], rows = result.rows || [];
+  const content = <>
       <p className="my-2 text-gray-400">上海时间 · {result.executed_at} · 返回 {result.row_count} 条{result.truncated ? "（已截断，请缩小范围）" : ""}</p>
+      <p className="my-2 text-gray-400">SQL 来源：{result.generated_by === 'llm' ? '模型生成' : ['template', 'rule'].includes(result.generated_by) ? '内置规则' : result.generated_by || '未记录'}{result.data_kind === 'demo' ? ' · 演示数据' : ''}</p>
+      {result.notice && <p className="my-2 text-amber-400">{result.notice}</p>}
+      {result.period && <p className="my-2 text-gray-400">统计区间：{result.period.start} 至 {result.period.end_exclusive}（不含结束时间）</p>}
+      <p className="mt-3 mb-1 font-medium">实际执行的 SQL</p>
+      <pre className="whitespace-pre-wrap break-all rounded bg-black/15 p-2">{result.sql || '未记录查询语句'}</pre>
+      <p className="mt-3 mb-1 font-medium">绑定参数</p>
+      <pre className="whitespace-pre-wrap break-all rounded bg-black/15 p-2">{JSON.stringify(result.parameters || {}, null, 2)}</pre>
+      <p className="mt-3 mb-1 font-medium">查询结果</p>
       <div className="overflow-auto max-h-80">
         <table className="w-full text-left border-collapse">
-          <thead><tr>{result.columns.map((column) => <th className="p-2 border-b border-white/15" key={column}>{column}</th>)}</tr></thead>
-          <tbody>{result.rows.map((row, index) => <tr key={index}>{result.columns.map((column) => <td className="p-2 border-b border-white/5" key={column}>{row[column] == null ? "未记录" : String(row[column])}</td>)}</tr>)}</tbody>
+          <thead><tr>{columns.map((column) => <th className="p-2 border-b border-white/15" key={column}>{column}</th>)}</tr></thead>
+          <tbody>{rows.map((row, index) => <tr key={index}>{columns.map((column) => <td className="p-2 border-b border-white/5" key={column}>{row[column] == null ? "未记录" : String(row[column])}</td>)}</tr>)}</tbody>
         </table>
       </div>
-      <details className="mt-3 text-gray-400"><summary className="cursor-pointer">查询语句</summary><pre className="mt-2 whitespace-pre-wrap break-all">{result.sql}</pre><pre className="mt-2 whitespace-pre-wrap">{JSON.stringify(result.parameters, null, 2)}</pre></details>
+      {!rows.length && <p className="my-2 text-gray-400">查询已执行，没有符合条件的记录。</p>}
+    </>;
+  if (expanded) return <div className="text-xs">{content}</div>;
+  return (
+    <details className="mt-4 rounded-lg border border-sky-400/25 p-3 text-xs">
+      <summary className="cursor-pointer text-sky-300">查询语句与结果{result.data_kind === "demo" ? "（演示数据）" : ""}</summary>
+      {content}
     </details>
   );
 }

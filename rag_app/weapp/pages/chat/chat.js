@@ -35,6 +35,8 @@ Page({
     recentUploads: [],
     scrollToMessage: '',
     showNewChatModal: false,
+    showQueryDetails: false,
+    queryRecords: [],
     quickCards: QUICK_CARDS,
     graphEnabled: true,
     offlineMode: false,
@@ -88,6 +90,7 @@ Page({
   },
 
   onHide() {
+    this.setData({ showQueryDetails: false });
     if (this.unsubscribeSync) this.unsubscribeSync();
     if (app.globalData.userInfo) app.setChats(this.snapshotChats(this.data.chats));
   },
@@ -137,6 +140,33 @@ Page({
     if (msg) wx.setClipboardData({ data: msg.content || '' });
   },
   toggleSql(e) { this.toggleMessageFlag(e.currentTarget.dataset.msgid, 'sqlOpen'); },
+  openQueryDetails() {
+    if (typeof wx.hideKeyboard === 'function') wx.hideKeyboard();
+    this.refreshQueryDetails();
+    this.setData({ showQueryDetails: true });
+  },
+  closeQueryDetails() { this.setData({ showQueryDetails: false }); },
+  refreshQueryDetails() {
+    let question = '';
+    const records = [];
+    for (const message of this.data.currentChat?.messages || []) {
+      if (message.role === 'user') question = message.content;
+      else if (message.databaseResult) {
+        const result = message.databaseResult;
+        records.push({
+          id: message.id || `query-${records.length}`, question, result,
+          parametersText: JSON.stringify(result.parameters || {}, null, 2),
+          generatedBy: result.generated_by === 'llm' ? '模型生成' : ['template', 'rule'].includes(result.generated_by) ? '内置规则' : '未记录',
+          rows: (result.rows || []).map(row => (result.columns || []).map(column => row[column] == null ? '未记录' : String(row[column]))),
+        });
+      }
+    }
+    this.setData({ queryRecords: records });
+  },
+  copyQuerySQL(e) {
+    const record = this.data.queryRecords.find(record => record.id === e.currentTarget.dataset.id);
+    if (record) wx.setClipboardData({ data: `${record.result.sql || ''}\n\n绑定参数：\n${record.parametersText}` });
+  },
   toggleMessageFlag(id, key) {
     const chats = this.data.chats.map(c => c.id !== this.data.currentChatId ? c : {
       ...c, messages: c.messages.map(m => m.id !== id ? m : { ...m, [key]: !m[key] }),
@@ -199,6 +229,7 @@ Page({
       graphEnabled: settings.graphOn ?? true,
       offlineMode: settings.offlineOn ?? false,
     });
+    if (this.data.showQueryDetails) this.refreshQueryDetails();
   },
 
   // 按 id 合并会话列表：本地优先（可能正在流式输出），远端只补本地没有的
@@ -466,6 +497,7 @@ Page({
 
     chat.messages[msgIndex] = msg;
     this.setData({ chats, ...(this.data.currentChatId === chatId ? { currentChat: chat } : {}) });
+    if (this.data.showQueryDetails && event === 'sql_result') this.refreshQueryDetails();
   },
 
   // 更新消息内容到 UI

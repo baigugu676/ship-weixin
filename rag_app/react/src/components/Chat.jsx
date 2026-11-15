@@ -1,6 +1,7 @@
 import { API_BASE_URL } from "../api";
 import { uniqueId } from "../chatSync";
 import { useAccountSync } from "../useAccountSync";
+import QueryDetailsDialog from "./QueryDetailsDialog";
 import { useState, useRef, useEffect, useCallback } from "react";
 import * as echarts from "echarts";
 import Setting from "./setting";
@@ -521,6 +522,7 @@ export default function Chat({ user }) {
   }, [userSettings.graphOn, userSettings.offlineOn]);
   const [isAnswering, setIsAnswering] = useState(false); // 新增：是否正在回答
   const [showEquipment, setShowEquipment] = useState(false);
+  const [showQueryDetails, setShowQueryDetails] = useState(false);
   const [queryMode, setQueryMode] = useState("auto");
   const [showSetting, setShowSetting] = useState(false); // 新增：设置页面开关
   const [showHelpDocs, setShowHelpDocs] = useState(false);
@@ -1836,6 +1838,7 @@ export default function Chat({ user }) {
       }}
     >
       {showEquipment && <EquipmentPanel baseURL={API_CONFIG.baseURL} userId={userId} userRole={userRole} onClose={() => setShowEquipment(false)} isAnswering={isAnswering} onQuestion={(question) => { setShowEquipment(false); handleSend(question, { queryMode: "equipment", useLlm: false }); }} />}
+      {showQueryDetails && <QueryDetailsDialog chat={currentChat} isAnswering={isAnswering} onClose={() => setShowQueryDetails(false)} />}
       {/* ========== 左侧边栏 ========== */}
       <aside className="w-64 z-20 flex flex-col h-full shrink-0 glass-sidebar">
         <div className="p-5">
@@ -2129,6 +2132,11 @@ export default function Chat({ user }) {
                 </div>
               </div>
             )}
+            <div className="mb-2 flex justify-end">
+              <button type="button" onClick={() => setShowQueryDetails(true)} className="rounded-lg border border-sky-400/35 bg-sky-500/10 px-3 py-1.5 text-xs text-sky-400 hover:bg-sky-500/20" aria-haspopup="dialog">
+                查询语句与结果{currentChat?.messages.some(message => message.databaseResult) ? `（${currentChat.messages.filter(message => message.databaseResult).length}）` : ''}
+              </button>
+            </div>
             <div className="glass-input-chat rounded-xl flex items-center p-2 pr-2 shadow-lg">
               <input
                 ref={fileInputRef}

@@ -180,6 +180,7 @@
   <!-- 底部输入区 -->
   <view class="input-section">
     <view class="sync-hint" wx:if="{{syncError}}" bindtap="retrySync">{{syncError}}</view>
+    <button class="query-details-trigger" size="mini" bindtap="openQueryDetails">查询语句与结果</button>
     <picker range="{{queryModes}}" value="{{queryModeIndex}}" bindchange="onQueryModeChange" disabled="{{isAnswering}}">
       <view class="mode-picker">查询模式：{{queryModes[queryModeIndex]}} ▾</view>
     </picker>
@@ -282,6 +283,37 @@
       >
         <text class="send-icon">{{isAnswering && !activeStreamingPaused ? '⏸' : '▶'}}</text>
       </view>
+    </view>
+  </view>
+
+  <view class="query-details-mask" wx:if="{{showQueryDetails}}" bindtap="closeQueryDetails">
+    <view class="query-details-dialog" catchtap="preventBubble">
+      <view class="query-details-header"><text>查询语句与结果 · {{queryRecords.length}} 次查询</text><button size="mini" bindtap="closeQueryDetails">关闭</button></view>
+      <scroll-view scroll-y class="query-details-body">
+        <text class="query-details-note" wx:if="{{isAnswering}}">当前问题正在处理，新的数据库查询结果返回后会显示在这里。</text>
+        <text class="query-details-note" wx:if="{{!queryRecords.length}}">当前会话尚无数据库查询记录。选择“设备数据库”并发送问题后，可在这里查看实际执行的 SQL 和返回结果。</text>
+        <view class="query-record" wx:for="{{queryRecords}}" wx:for-item="record" wx:key="id">
+          <text class="query-record-title">查询 {{index + 1}} · {{record.question || '历史查询'}}</text>
+          <text class="query-details-note">{{record.result.executed_at}}（上海时间） · 返回 {{record.result.row_count}} 条记录</text>
+          <text class="query-details-note">SQL 来源：{{record.generatedBy}}{{record.result.data_kind === 'demo' ? ' · 演示数据' : ''}}</text>
+          <text class="query-details-note" wx:if="{{record.result.notice}}">{{record.result.notice}}</text>
+          <text class="query-details-note" wx:if="{{record.result.period}}">统计区间：{{record.result.period.start}} 至 {{record.result.period.end_exclusive}}（不含结束时间）</text>
+          <text class="query-record-label">实际执行的 SQL</text>
+          <text class="sql-code" selectable>{{record.result.sql || '未记录查询语句'}}</text>
+          <text class="query-record-label">绑定参数</text>
+          <text class="sql-code" selectable>{{record.parametersText}}</text>
+          <button size="mini" bindtap="copyQuerySQL" data-id="{{record.id}}">复制 SQL 和参数</button>
+          <text class="query-record-label">查询结果</text>
+          <scroll-view scroll-x class="sql-table-scroll">
+            <view class="sql-table">
+              <view class="sql-row sql-head"><text class="sql-cell" wx:for="{{record.result.columns}}" wx:key="*this">{{item}}</text></view>
+              <view class="sql-row" wx:for="{{record.rows}}" wx:for-item="row" wx:key="index"><text class="sql-cell" wx:for="{{row}}" wx:key="index" selectable>{{item}}</text></view>
+            </view>
+          </scroll-view>
+          <text class="query-details-note" wx:if="{{!record.rows.length}}">查询已执行，没有符合条件的记录。</text>
+          <text class="query-details-note" wx:if="{{record.result.truncated}}">结果已截断，请缩小查询范围。</text>
+        </view>
+      </scroll-view>
     </view>
   </view>
 

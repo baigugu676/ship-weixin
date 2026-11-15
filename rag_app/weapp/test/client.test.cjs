@@ -179,3 +179,33 @@ test('background settings sync cannot reset a profile field while editing', () =
   settings.onInputFocus(); settings.loadSettings();
   assert.equal(settings.data.settings.nickname, '正在输入的昵称');
 });
+
+test('query details show executed SQL, parameters and zero/null results without running another query', () => {
+  let copied = '';
+  const chatPage = page('pages/chat/chat.js', {}, appMock(), { setClipboardData: value => { copied = value.data; } });
+  const result = { sql: 'SELECT value FROM equipment_parameters WHERE equipment_code = :code', parameters: { code: 'ME01' }, columns: ['value', 'date'], rows: [{ value: 0, date: null }], row_count: 1, generated_by: 'llm' };
+  chatPage.data.currentChat = { messages: [
+    { role: 'user', content: '主机参数是多少？' }, { id: 'one', role: 'ai', databaseResult: result },
+    { role: 'user', content: '另一台设备呢？' }, { id: 'two', role: 'ai', databaseResult: { ...result, rows: [], row_count: 0, generated_by: 'template' } },
+    { role: 'ai', content: '普通知识库回答' },
+  ] };
+  chatPage.openQueryDetails();
+  assert.equal(chatPage.data.queryRecords.length, 2);
+  assert.equal(chatPage.data.queryRecords[0].question, '主机参数是多少？');
+  assert.equal(chatPage.data.queryRecords[0].result.sql, result.sql);
+  assert.deepEqual(plain(chatPage.data.queryRecords[0].rows), [['0', '未记录']]);
+  assert.equal(chatPage.data.queryRecords[1].generatedBy, '内置规则');
+  assert.equal(chatPage.data.queryRecords[1].rows.length, 0);
+  chatPage.copyQuerySQL({ currentTarget: { dataset: { id: 'one' } } });
+  assert.ok(copied.includes(result.sql)); assert.ok(copied.includes('ME01'));
+});
+
+test('query details update when SQL results arrive while the panel is open', () => {
+  const chatPage = page('pages/chat/chat.js', {}, appMock());
+  const current = { id: 'chat', messages: [{ role: 'user', content: '报警次数' }, { id: 'ai', role: 'ai', traceSteps: [] }] };
+  chatPage.data.chats = [current]; chatPage.data.currentChat = current; chatPage.data.currentChatId = 'chat';
+  chatPage.openQueryDetails(); assert.equal(chatPage.data.queryRecords.length, 0);
+  chatPage.handleStreamEvent('chat', 'ai', 'sql_result', { sql: 'SELECT COUNT(*) AS n FROM alarm_events', parameters: {}, columns: ['n'], rows: [{ n: 5 }], row_count: 1 }, {});
+  assert.equal(chatPage.data.queryRecords.length, 1);
+  assert.equal(chatPage.data.queryRecords[0].rows[0][0], '5');
+});
