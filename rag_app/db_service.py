@@ -172,7 +172,7 @@ def save_user_settings(
             db.add(user)
             db.flush()
         settings = _get_or_create_settings(db, user)
-        _apply_settings_payload(settings, payload)
+        _apply_settings_payload(settings, {**_settings_to_dict(settings), **payload})
         snapshot = _settings_to_dict(settings)
         db.add(
             SettingHistory(

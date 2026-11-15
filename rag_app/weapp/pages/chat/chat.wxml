@@ -1,5 +1,5 @@
 <!--pages/chat/chat.wxml-->
-<view class="chat-container">
+<view class="chat-container {{appearance}}" style="font-size: {{fontSize}}px;">
   <!-- 自定义导航栏 -->
   <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
     <view class="nav-content">
@@ -8,7 +8,9 @@
         <text class="nav-title">{{currentChat ? currentChat.title : '智能船舶问答'}}</text>
       </view>
       <view class="nav-actions">
-        <view class="nav-btn" bindtap="showNewChatConfirm" wx:if="{{currentChat}}">
+        <view class="nav-btn" bindtap="goToEquipment"><text>设备</text></view>
+        <view class="nav-btn" wx:if="{{currentChatId}}" bindtap="exportCurrentChat"><text>导出</text></view>
+        <view class="nav-btn" bindtap="showNewChatConfirm" wx:if="{{currentChatId}}">
           <text class="nav-btn-icon">+</text>
         </view>
       </view>
@@ -25,6 +27,11 @@
     <text class="welcome-desc">基于知识图谱的深度故障诊断引擎已就绪
 请告诉我您想了解的船舶设备问题</text>
     
+    <view class="demo-card" wx:if="{{demoQuestions.length}}">
+      <text class="demo-title">设备数据演示</text>
+      <text class="demo-note">使用模拟记录，可查看参数、报警、故障和检修日期</text>
+      <view class="demo-question" wx:for="{{demoQuestions}}" wx:key="*this" bindtap="onDemoQuestion" data-question="{{item}}">{{item}} ›</view>
+    </view>
     <view class="quick-cards">
       <view class="quick-card" wx:for="{{quickCards}}" wx:key="title" bindtap="onQuickCardTap" data-title="{{item.title}}">
         <text class="quick-card-icon">{{item.icon}}</text>
@@ -86,14 +93,38 @@
             </view>
           </view>
 
-          <!-- 消息内容 -->
+          <!-- 消息内容：收尾后渲染富文本（去吃 ###、** 等 Markdown 标记）；流式中显示去标记的纯文本 -->
           <view class="message-bubble-ai">
-            <text class="message-text" wx:if="{{!item.isOffline}}">{{item.content}}</text>
-            <rich-text class="message-rich-text" wx:if="{{item.isOffline}}" nodes="{{item.renderedContent}}"></rich-text>
+            <rich-text wx:if="{{item.renderedContent}}" class="message-rich-text" nodes="{{item.renderedContent}}"></rich-text>
+            <text class="message-text" wx:else>{{item.displayText || item.content}}</text>
             <view class="typing-cursor" wx:if="{{item.isStreaming && !item.isPaused}}">
               <view class="cursor"></view>
             </view>
           </view>
+
+          <view class="trace-panel" wx:if="{{item.databaseResult}}">
+            <view class="trace-header" bindtap="toggleSql" data-msgid="{{item.id}}">
+              <text class="trace-title">设备数据库{{item.databaseResult.data_kind === 'demo' ? ' · 演示数据' : ''}}</text>
+              <text>{{item.sqlOpen ? '收起' : '展开 SQL / 表格'}}</text>
+            </view>
+            <view class="trace-body" wx:if="{{item.sqlOpen}}">
+              <text class="trace-step">查询时间：{{item.databaseResult.executed_at}}（上海时间） · {{item.databaseResult.row_count}} 条记录</text>
+              <text class="trace-step" wx:if="{{item.databaseResult.period}}">统计区间：{{item.databaseResult.period.start}} 至 {{item.databaseResult.period.end_exclusive}}（不含结束时间）</text>
+              <text class="sql-code" selectable>{{item.databaseResult.sql}}</text>
+              <scroll-view scroll-x class="sql-table-scroll">
+                <view class="sql-table">
+                  <view class="sql-row sql-head"><text class="sql-cell" wx:for="{{item.databaseResult.columns}}" wx:key="*this">{{item}}</text></view>
+                  <view class="sql-row" wx:for="{{item.databaseRows}}" wx:for-item="row" wx:key="index">
+                    <text class="sql-cell" wx:for="{{row}}" wx:for-item="cell" wx:key="index" selectable>{{cell}}</text>
+                  </view>
+                </view>
+              </scroll-view>
+              <text class="trace-step" wx:if="{{!item.databaseResult.row_count}}">没有符合条件的记录</text>
+              <text class="trace-step" wx:if="{{item.databaseResult.truncated}}">结果已截断，请缩小时间范围。</text>
+              <view class="stream-btn" bindtap="exportSqlResult" data-msgid="{{item.id}}">导出结果 CSV</view>
+            </view>
+          </view>
+          <view class="message-tools" wx:if="{{!item.isStreaming}}" bindtap="copyMessage" data-msgid="{{item.id}}">复制回答</view>
 
           <!-- 流式控制 -->
           <view class="stream-controls" wx:if="{{item.isStreaming && item.isPaused}}">
@@ -141,6 +172,10 @@
 
   <!-- 底部输入区 -->
   <view class="input-section">
+    <view class="sync-hint" wx:if="{{syncError}}" bindtap="retrySync">{{syncError}}</view>
+    <picker range="{{queryModes}}" value="{{queryModeIndex}}" bindchange="onQueryModeChange" disabled="{{isAnswering}}">
+      <view class="mode-picker">查询模式：{{queryModes[queryModeIndex]}} ▾</view>
+    </picker>
     <!-- 上传状态 -->
     <view class="upload-status" wx:if="{{uploadStatus}}">
       <text class="upload-status-text {{uploadStatus.type}}">{{uploadStatus.text}}</text>
@@ -231,7 +266,7 @@
         bindinput="onInputChange"
         confirm-type="send"
         bindconfirm="handleSend"
-        disabled="{{isAnswering && !activeStreamingPaused}}"
+        disabled="{{isAnswering}}"
       />
       
       <view 

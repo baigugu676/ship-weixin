@@ -1,5 +1,5 @@
 <!--pages/weather/weather.wxml-->
-<view class="weather-container">
+<view class="weather-container {{appearance}}" style="font-size: {{fontSize}}px;">
   <!-- 地点管理 -->
   <view class="section">
     <view class="section-header">

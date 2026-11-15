@@ -1,10 +1,10 @@
+import { API_BASE_URL } from "../api";
 // setting.jsx
 import { useState, useEffect, useRef } from "react";
 
 // ===================== 通用组件 =====================
 
-const API_HOST = window.location.hostname || "127.0.0.1";
-const BASE_URL = `http://${API_HOST}:8000`;
+const BASE_URL = API_BASE_URL;
 const PROJECT_META = {
     name: "智能船舶问答系统",
     version: "2.4.1",
@@ -1033,7 +1033,7 @@ export default function Setting({
                                     <p className="text-xs font-medium truncate" style={{ color: isLightUi ? "#0f172a" : "#e5e7eb" }}>{chat.title}</p>
                                 </div>
                                 <button
-                                    onClick={() => onDeleteChat && onDeleteChat(chat.id)}
+                                    onClick={async () => { try { if (onDeleteChat) await onDeleteChat(chat.id); } catch (error) { triggerToast(error.message); } }}
                                     className="w-8 h-8 rounded flex items-center justify-center transition-all hover:text-red-400 hover:bg-red-500/10"
                                     style={{ color: isLightUi ? "#334155" : "#6b7280" }}
                                     title="删除该条对话"
@@ -1290,13 +1290,15 @@ export default function Setting({
             <ConfirmDialog
                 isOpen={showConfirm}
                 onClose={() => setShowConfirm(false)}
-                onConfirm={() => {
-                    if (onClearChats) onClearChats();
-                    setShowConfirm(false);
-                    triggerToast("已成功清空所有历史记录");
+                onConfirm={async () => {
+                    try {
+                        if (onClearChats) await onClearChats();
+                        setShowConfirm(false);
+                        triggerToast("已成功清空所有历史记录");
+                    } catch (error) { triggerToast(error.message); }
                 }}
                 title="清空历史记录"
-                message="此操作不可逆。是否确认删除本设备上的所有本地问答缓存及图谱分析记录？"
+                message="此操作不可逆。是否确认清空此账号的所有会话？网页和小程序会同步删除。"
             />
 
             <Toast show={showToast} message={toastMessage} />

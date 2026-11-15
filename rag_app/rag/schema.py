@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Literal
 
 
 class Passage(BaseModel):
@@ -33,6 +33,7 @@ class QueryRequest(BaseModel):
     """查询请求参数。"""
 
     question: str
+    query_mode: Literal["auto", "knowledge", "equipment"] = "auto"
     top_k: Optional[int] = None
     use_kg: bool = True
     use_llm: bool = True

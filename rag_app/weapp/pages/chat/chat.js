@@ -1,6 +1,9 @@
 // pages/chat/chat.js
 const api = require('../../utils/api.js');
+const markdown = require('../../utils/markdown.js');
 const app = getApp();
+const sync = require('../../utils/chat-sync.js');
+const exporter = require('../../utils/export.js');
 
 const QUICK_CARDS = [
   { title: "主机故障诊断", desc: "分析推进系统异常", icon: "⚙️" },
@@ -11,6 +14,13 @@ const QUICK_CARDS = [
 
 Page({
   data: {
+    appearance: 'dark',
+    fontSize: 16,
+    queryMode: 'auto',
+    queryModes: ['自动识别', '设备数据库', '知识库'],
+    queryModeIndex: 0,
+    demoQuestions: [],
+    syncError: '',
     statusBarHeight: 44,
     userId: '',
     userSettings: {},
@@ -41,6 +51,7 @@ Page({
   streamingSessions: new Map(),
 
   onLoad() {
+    this.streamingSessions = new Map();
     // 获取状态栏高度
     const systemInfo = wx.getSystemInfoSync();
     this.setData({ statusBarHeight: systemInfo.statusBarHeight });
@@ -55,16 +66,119 @@ Page({
   },
 
   onShow() {
-    if (app.globalData.userInfo) {
-      this.initUserData();
+    if (!app.globalData.userInfo) { wx.reLaunch({ url: '/pages/login/login' }); return; }
+    this.initUserData();
+    this.setData(app.appearance());
+    if (app.globalData.selectedChatId) {
+      const id = app.globalData.selectedChatId;
+      app.globalData.selectedChatId = null;
+      this.setData({ currentChatId: id, currentChat: this.data.chats.find(c => c.id === id) || null });
     }
+    this.syncFromServer();
+    clearInterval(this.syncTimer);
+    this.syncTimer = setInterval(() => this.syncFromServer(), 15000);
+    api.getEquipmentOverview().then(data => this.setData({ demoQuestions: data.demo_questions || [] })).catch(() => {});
+    if (app.globalData.pendingQuestion && !this.data.isAnswering) {
+      const question = app.globalData.pendingQuestion;
+      app.globalData.pendingQuestion = null;
+      this.confirmNewChat();
+      this.setData({ queryMode: 'equipment', queryModeIndex: 1 });
+      this.handleSend(question, null, { useLlm: false });
+    }
+  },
+
+  onHide() {
+    clearInterval(this.syncTimer);
+    if (app.globalData.userInfo) app.setChats(this.snapshotChats(this.data.chats));
+  },
+
+  async retrySync() { await this.saveChatsToServer(this.data.chats); await this.syncFromServer(); },
+
+  async syncFromServer() {
+    const userId = this.data.userId;
+    if (!userId || this.syncBusy) return;
+    this.syncBusy = true;
+    try {
+      const data = await api.getUserChats(userId);
+      if (app.globalData.userInfo?.user_id !== userId) return;
+      app.setDeletedChatIds(data.deleted_chat_ids || []);
+      const chats = this.mergeChats(this.data.chats, data.chats || []);
+      const currentChat = chats.find(c => c.id === this.data.currentChatId) || null;
+      if (!currentChat && this.data.currentChatId) this.stopStreams();
+      this.setData({ chats, currentChat, currentChatId: currentChat ? currentChat.id : null, syncError: '' });
+      app.setChats(this.snapshotChats(chats));
+    } catch (err) { this.setData({ syncError: '同步失败，记录已保存在本机。点此重试' }); }
+    finally { this.syncBusy = false; }
+  },
+
+  goToEquipment() { wx.navigateTo({ url: '/pages/equipment/equipment' }); },
+  onQueryModeChange(e) {
+    if (this.data.isAnswering) return;
+    const index = Number(e.detail.value);
+    this.setData({ queryModeIndex: index, queryMode: ['auto', 'equipment', 'knowledge'][index] });
+  },
+  onDemoQuestion(e) {
+    if (this.data.isAnswering) return;
+    this.setData({ queryMode: 'equipment', queryModeIndex: 1 });
+    this.handleSend(e.currentTarget.dataset.question, null, { useLlm: false });
+  },
+  exportCurrentChat() {
+    if (this.data.currentChat) exporter.exportChats([this.data.currentChat]).catch(() => wx.showToast({ title: '导出失败', icon: 'none' }));
+  },
+  copyMessage(e) {
+    const msg = this.data.currentChat?.messages.find(m => m.id === e.currentTarget.dataset.msgid);
+    if (msg) wx.setClipboardData({ data: msg.content || '' });
+  },
+  toggleSql(e) { this.toggleMessageFlag(e.currentTarget.dataset.msgid, 'sqlOpen'); },
+  toggleMessageFlag(id, key) {
+    const chats = this.data.chats.map(c => c.id !== this.data.currentChatId ? c : {
+      ...c, messages: c.messages.map(m => m.id !== id ? m : { ...m, [key]: !m[key] }),
+    });
+    this.setData({ chats, currentChat: chats.find(c => c.id === this.data.currentChatId) });
+  },
+  exportSqlResult(e) {
+    const msg = this.data.currentChat?.messages.find(m => m.id === e.currentTarget.dataset.msgid);
+    const result = msg?.databaseResult;
+    if (result) exporter.exportFile(`equipment-query-${Date.now()}.csv`, exporter.csvText(result.columns || [], result.rows || []))
+      .catch(() => wx.showToast({ title: '导出失败', icon: 'none' }));
   },
 
   initUserData() {
     const userInfo = app.globalData.userInfo;
+    if (this.data.userId && this.data.userId !== userInfo.user_id) {
+      for (const session of this.streamingSessions.values()) {
+        if (session.requestTask) session.requestTask.abort();
+        clearInterval(session.typeTimer);
+      }
+      this.streamingSessions.clear();
+      this.setData({ chats: [], currentChat: null, currentChatId: null, isAnswering: false,
+        activeStreamingPaused: false, activeStreamingMsgId: null, pendingImage: null,
+        visionDesc: '', visionHint: '', visionError: '', recentUploads: [], syncError: '' });
+    }
     const settings = api.normalizeSettings(app.globalData.settings);
-    const chats = app.globalData.chats || [];
-    
+
+    // 关键：合并而不是覆盖。
+    // onShow 每次切回本页都会走到这里，若直接拿 globalData.chats 覆盖，
+    // 会把"本轮对话还没保存的会话"从列表里抹掉；之后 handleSend 按 chatId
+    // 找不到会话，新消息和流式回答就全部追加到虚空（表现为没有回答 + 输入框永久锁死）。
+    const chats = this.mergeChats(this.data.chats, app.globalData.chats || []);
+
+    let currentChat = this.data.currentChat;
+    let currentChatId = this.data.currentChatId;
+    if (currentChatId) {
+      const found = chats.find(c => c.id === currentChatId);
+      if (found) {
+        currentChat = found;
+      } else if (currentChat && currentChat.id === currentChatId && !(app.globalData.deletedChatIds || []).includes(currentChatId)) {
+        // 会话只在内存里（还没落库），就地登记回来
+        chats.unshift(currentChat);
+      } else {
+        // 彻底找不到，避免停在"空白消息区 + 锁死输入框"的死状态
+        currentChat = null;
+        currentChatId = null;
+      }
+    }
+
     const nickname = settings.nickname || 'Captain Park';
     const avatarText = nickname.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
 
@@ -73,9 +187,22 @@ Page({
       userSettings: settings,
       userAvatarText: avatarText,
       chats: chats,
+      currentChatId,
+      currentChat,
       graphEnabled: settings.graphOn ?? true,
       offlineMode: settings.offlineOn ?? false,
     });
+  },
+
+  // 按 id 合并会话列表：本地优先（可能正在流式输出），远端只补本地没有的
+  mergeChats(localChats, remoteChats) {
+    return sync.mergeChats(localChats, remoteChats, app.globalData.deletedChatIds || []).map(markdown.decorateChat);
+  },
+
+  // 给消息补上渲染字段：content 保留原始 Markdown（存档用），
+  // displayText 是去标记的纯文本（流式阶段显示），renderedContent 是富文本 HTML（收尾后显示）
+  decorateMessage(msg) {
+    return markdown.decorateMessage(msg);
   },
 
   // 输入处理
@@ -90,6 +217,8 @@ Page({
     if (isAnswering && !activeStreamingPaused && activeStreamingMsgId) {
       // 暂停流式输出
       this.pauseStreaming(activeStreamingMsgId);
+    } else if (isAnswering && activeStreamingPaused) {
+      this.resumeStreaming({ currentTarget: { dataset: { msgid: activeStreamingMsgId } } });
     } else {
       this.handleSend();
     }
@@ -103,13 +232,13 @@ Page({
   },
 
   // 发送消息
-  async handleSend(text, imagePath) {
+  async handleSend(text, imagePath, options = {}) {
     // bindconfirm 会把事件对象传进来，做一层保护
     if (text && typeof text !== 'string') text = this.data.inputValue;
     text = (text || this.data.inputValue || '').trim();
     if (!text) return;
 
-    if (this.data.isAnswering && !this.data.activeStreamingPaused) {
+    if (this.data.isAnswering) {
       wx.showToast({ title: '请等待当前回答完成', icon: 'none' });
       return;
     }
@@ -120,8 +249,18 @@ Page({
     let chats = [...this.data.chats];
     let sessionUserId = '';
 
+    // 兜底：currentChatId 指向的会话不在列表里（被覆盖、或从历史页带进来），
+    // 先把它登记回列表，否则下面的 map 找不到目标，消息会全部丢失。
+    if (chatId && !chats.some(c => c.id === chatId)) {
+      if (this.data.currentChat && this.data.currentChat.id === chatId) {
+        chats = [this.data.currentChat, ...chats];
+      } else {
+        chatId = null; // 彻底找不到就按新会话处理
+      }
+    }
+
     if (!chatId) {
-      chatId = Date.now().toString();
+      chatId = sync.uniqueId('wx');
       const title = text.length > 12 ? text.substring(0, 12) + '...' : text;
       sessionUserId = api.getSessionUserId(this.data.userId, chatId);
       chats = [{ 
@@ -140,9 +279,9 @@ Page({
       }
     }
 
-    const userMsg = { role: 'user', content: text };
+    const userMsg = { id: sync.uniqueId('user'), role: 'user', content: text };
     if (imagePath) userMsg.image = imagePath;
-    const msgId = `ai-${Date.now()}`;
+    const msgId = sync.uniqueId('ai');
     const aiMsg = {
       id: msgId,
       role: 'ai',
@@ -154,35 +293,46 @@ Page({
       kgTriplets: [],
       isStreaming: true,
       isPaused: false,
-      isOffline: this.data.offlineMode,
+      isOffline: options.useLlm === false || this.data.offlineMode,
       isGraphEnabled: this.data.graphEnabled,
       traceOpen: true,
       citationsOpen: false,
       kgOpen: false,
       renderedContent: '',
+      displayText: '',
     };
 
-    chats = chats.map(c => 
-      c.id === chatId 
-        ? { ...c, messages: [...c.messages, userMsg, aiMsg] } 
+    const existingMessages = chats.find(c => c.id === chatId)?.messages || [];
+    chats = chats.map(c =>
+      c.id === chatId
+        ? { ...c, messages: [...existingMessages, userMsg, aiMsg] }
         : c
     );
+
+    const updatedChat = chats.find(c => c.id === chatId);
+    if (!updatedChat) {
+      // 理论上不该发生；真发生也别让输入框永久锁死
+      this.setData({ isAnswering: false, activeStreamingMsgId: null });
+      wx.showToast({ title: '会话状态异常，请新建对话', icon: 'none' });
+      return;
+    }
 
     this.setData({ 
       chats, 
       isAnswering: true, 
       activeStreamingPaused: false,
       activeStreamingMsgId: msgId,
-      currentChat: chats.find(c => c.id === chatId)
+      currentChat: updatedChat
     }, () => {
       this.scrollToBottom();
     });
 
-    this.startStreaming(chatId, msgId, text, sessionUserId);
+    app.setChats(this.snapshotChats(chats));
+    this.startStreaming(chatId, msgId, text, sessionUserId, options);
   },
 
   // 开始流式输出
-  startStreaming(chatId, msgId, question, sessionUserId) {
+  startStreaming(chatId, msgId, question, sessionUserId, options = {}) {
     const streamSession = {
       pendingText: '',
       renderedText: '',
@@ -222,7 +372,8 @@ Page({
         question: question,
         top_k: 5,
         use_kg: this.data.graphEnabled,
-        use_llm: !this.data.offlineMode,
+        use_llm: options.useLlm ?? !this.data.offlineMode,
+        query_mode: this.data.queryMode,
         use_history: true,
         enable_retrieval_optimization: true,
         neo4j_uri: String(settings?.neo4jUri || '').trim(),
@@ -276,6 +427,12 @@ Page({
       }
       msg.searchProcess = traceText;
       msg.traceSteps = [...msg.traceSteps, { stage, text: traceText }];
+    } else if (event === 'sql_result') {
+      msg.databaseResult = data;
+      msg.databaseRows = (data.rows || []).map(row => (data.columns || []).map(col => row[col] == null ? '—' : String(row[col])));
+      msg.sqlOpen = true;
+      msg.isGraphEnabled = false;
+      msg.searchProcess = `设备数据库查询完成，返回 ${data.row_count} 条记录`;
     } else if (event === 'token' && data.text) {
       streamSession.pendingText += data.text;
     } else if (event === 'references') {
@@ -300,7 +457,7 @@ Page({
     }
 
     chat.messages[msgIndex] = msg;
-    this.setData({ chats, currentChat: chat });
+    this.setData({ chats, ...(this.data.currentChatId === chatId ? { currentChat: chat } : {}) });
   },
 
   // 更新消息内容到 UI
@@ -315,13 +472,12 @@ Page({
     const msg = chat.messages[msgIndex];
     msg.content = text;
     msg.fullText = text;
-    
-    if (msg.isOffline) {
-      msg.renderedContent = this.formatOfflineText(text);
-    }
+    // 流式阶段只显示去标记的纯文本，富文本留给收尾时一次性渲染（每帧转换太贵）
+    msg.displayText = markdown.toPlainText(text);
+    msg.renderedContent = '';
 
     chat.messages[msgIndex] = msg;
-    this.setData({ chats, currentChat: chat });
+    this.setData({ chats, ...(this.data.currentChatId === chatId ? { currentChat: chat } : {}) });
   },
 
   // 结束流式输出
@@ -334,29 +490,53 @@ Page({
       clearInterval(session.typeTimer);
     }
     this.streamingSessions.delete(msgId);
+    if (this.data.userSettings.notify && typeof wx.vibrateShort === 'function') wx.vibrateShort({ type: 'light', fail() {} });
 
     const chats = [...this.data.chats];
     const chat = chats.find(c => c.id === chatId);
-    if (!chat) return;
+    if (!chat) {
+      // 会话不在了也别让 isAnswering 卡在 true（否则输入框永久禁用，只能杀进程重进）
+      this.setData({
+        isAnswering: false,
+        activeStreamingPaused: false,
+        activeStreamingMsgId: null,
+      });
+      return;
+    }
     
     const msgIndex = chat.messages.findIndex(m => m.id === msgId);
-    if (msgIndex === -1) return;
+    if (msgIndex === -1) {
+      this.setData({
+        isAnswering: false,
+        activeStreamingPaused: false,
+        activeStreamingMsgId: null,
+      });
+      return;
+    }
 
     const msg = chat.messages[msgIndex];
-    msg.content = session.renderedText || ' ';
-    msg.fullText = session.renderedText || ' ';
+    // 把还没来得及打字机渲染的尾巴（含错误提示）也收进最终内容，避免收尾时丢文本
+    const rawText = (session.renderedText || '') + (session.pendingText || '');
+    // 后端一个 token 都没吐时，原来是留一条空白气泡（看着像"没有结果"），这里给出明确提示
+    const finalText = rawText.trim() ? rawText : '（本次没有返回内容，请重试或换一种问法）';
+    msg.content = finalText;
+    msg.fullText = finalText;
+    msg.displayText = markdown.toPlainText(finalText);
+    msg.renderedContent = markdown.toRichNodes(finalText);
     msg.isStreaming = false;
     msg.isPaused = false;
-    
-    if (msg.isOffline) {
-      msg.renderedContent = this.formatOfflineText(session.renderedText || '');
+    if (!rawText.trim()) {
+      msg.traceSteps = [
+        ...(msg.traceSteps || []),
+        { stage: 'empty', text: '后端未返回任何内容（可能是模型侧空响应或超时）' },
+      ];
     }
 
     chat.messages[msgIndex] = msg;
     
     this.setData({ 
       chats, 
-      currentChat: chat,
+      ...(this.data.currentChatId === chatId ? { currentChat: chat } : {}),
       isAnswering: false,
       activeStreamingPaused: false,
       activeStreamingMsgId: null,
@@ -457,19 +637,14 @@ Page({
   preventBubble() {},
 
   confirmNewChat() {
-    // 中断所有流式会话
-    this.streamingSessions.forEach((session) => {
-      if (session.requestTask) {
-        session.requestTask.abort();
-      }
-      if (session.typeTimer) {
-        clearInterval(session.typeTimer);
-      }
-    });
-    this.streamingSessions.clear();
+    this.stopStreams();
+
+    // 被打断的消息不能再带着 isStreaming，否则回到该会话时光标会一直闪
+    const chats = this.snapshotChats(this.data.chats);
 
     const settings = this.data.userSettings;
     this.setData({
+      chats,
       currentChatId: null,
       currentChat: null,
       inputValue: '',
@@ -480,6 +655,22 @@ Page({
       graphEnabled: settings.graphOn ?? true,
       offlineMode: settings.offlineOn ?? false,
     });
+
+    // 弹窗里承诺了"当前会话内容将自动保存"：原来这里什么都没做，
+    // 中途打断/没答完的会话就永远不会出现在历史里。
+    this.saveChatsToServer(chats);
+  },
+
+  // 存档快照：消息去掉流式中间态，避免写入 isStreaming 之类的临时字段
+  snapshotChats(chats) {
+    return (chats || []).map(chat => ({
+      ...chat,
+      messages: (chat.messages || []).map(msg => ({
+        ...msg,
+        isStreaming: false,
+        isPaused: false,
+      })),
+    }));
   },
 
   // 文件上传
@@ -625,15 +816,35 @@ Page({
     this.setData({ pendingImage: null, visionDesc: '', visionHint: '', visionError: '', visionCollapsed: false });
   },
 
-  // 保存聊天记录到服务器
+  // 保存聊天记录：先落本地（历史页立刻可见，不再被网络往返卡住），再同步服务端
   async saveChatsToServer(chats) {
+    if (!this.data.userId || app.globalData.userInfo?.user_id !== this.data.userId) return;
+    const snapshot = this.snapshotChats(chats);
+
+    // 本地缓存一定要更新：原来只在服务端保存成功后才 setChats，
+    // 一旦这个 PUT 失败（断网/超时/后端 500），历史页就永远是空的。
+    app.setChats(snapshot);
+
     if (!this.data.userSettings.autoSave) return;
-    
+
+    // user_id 缺失时绝不能发请求：encodeURIComponent(undefined) === "undefined"，
+    // 记录会被写到 /users/undefined/chats 这个"幽灵账号"下，当前账号自然查不到。
+    const userId = this.data.userId || app.globalData.userInfo?.user_id || '';
+    if (!userId) {
+      console.warn('未登录或 user_id 缺失，跳过服务端保存');
+      return;
+    }
+
     try {
-      await api.saveUserChats(this.data.userId, chats);
-      app.setChats(chats);
+      const data = await api.saveUserChats(userId, snapshot);
+      if (app.globalData.userInfo?.user_id !== userId) return;
+      app.setDeletedChatIds(data.deleted_chat_ids || []);
+      const merged = this.mergeChats(this.data.chats, data.chats || []);
+      app.setChats(this.snapshotChats(merged));
+      const currentChat = merged.find(c => c.id === this.data.currentChatId) || null;
+      this.setData({ chats: merged, currentChat, currentChatId: currentChat?.id || null, syncError: '' });
     } catch (err) {
-      console.warn('保存聊天记录失败:', err.message);
+      this.setData({ syncError: '云端保存失败，记录已保存在本机。点此重试' });
     }
   },
 
@@ -642,38 +853,22 @@ Page({
     this.setData({ scrollToMessage: 'msg-bottom' });
   },
 
-  // 格式化离线文本（简化版）
+  // 格式化离线文本（统一走 markdown 工具，保持在线/离线一致）
   formatOfflineText(text = '') {
-    if (!text) return '';
-    return api.stripMarkdown(text)
-      .replace(/\\leq/g, '≤')
-      .replace(/\\geq/g, '≥')
-      .replace(/\\pm/g, '±')
-      .replace(/\\sim/g, '~')
-      .replace(/\\times/g, '×')
-      .replace(/\\%/g, '%')
-      .replace(/\^\{\\circ\}/g, '°')
-      .replace(/\\circ/g, '°')
-      .replace(/\\mathrm\{([^}]*)\}/g, '$1')
-      .replace(/\\text\{([^}]*)\}/g, '$1')
-      .replace(/\\left|\\right/g, '')
-      .replace(/[{}]/g, '')
-      .replace(/\\/g, '')
-      .replace(/\s+([,.;:，。；：])/g, '$1')
-      .replace(/\n{3,}/g, '\n\n')
-      .trim();
+    return markdown.toPlainText(text);
   },
 
+  stopStreams() {
+    for (const [msgId, session] of [...this.streamingSessions.entries()]) {
+      const chat = this.data.chats.find(c => (c.messages || []).some(m => m.id === msgId));
+      if (session.requestTask) session.requestTask.abort();
+      if (chat) this.finalizeStreaming(chat.id, msgId);
+      else { clearInterval(session.typeTimer); this.streamingSessions.delete(msgId); }
+    }
+    this.setData({ isAnswering: false, activeStreamingPaused: false, activeStreamingMsgId: null });
+  },
   onUnload() {
-    // 清理所有流式会话
-    this.streamingSessions.forEach((session) => {
-      if (session.requestTask) {
-        session.requestTask.abort();
-      }
-      if (session.typeTimer) {
-        clearInterval(session.typeTimer);
-      }
-    });
-    this.streamingSessions.clear();
+    clearInterval(this.syncTimer);
+    this.stopStreams();
   },
 });

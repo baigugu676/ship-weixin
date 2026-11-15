@@ -51,7 +51,7 @@ function request(options) {
         'Content-Type': 'application/json',
         ...header,
       },
-      timeout: 90000,
+      timeout: 300000, /* 非流式问答在大模型下要 40s+，原来 90s 容易踩线 */
       ...rest,
       success: (res) => {
         if (res.statusCode >= 200 && res.statusCode < 300) {
@@ -115,77 +115,115 @@ function queryRag(payload) {
   return request({
     url: '/rag/query',
     method: 'POST',
-    data: payload
+    data: { ...payload, session_id: payload.session_id || payload.user_id }
   });
 }
 
-// 流式问答（使用 enableChunked）
+// 流式问答（优先 enableChunked；不生效时自动退化为"整包解析"）
 function streamQueryRag(payload, onChunk, onError, onComplete) {
-  const requestTask = wx.request({
-    url: `${getBaseURL()}/rag/query/stream`,
-    method: 'POST',
-    header: {
-      'Content-Type': 'application/json',
-      'Accept': 'text/event-stream',
-    },
-    data: payload,
-    enableChunked: true,
-    timeout: 600000,
-    success: (res) => {
-      // 流式响应在 onHeadersReceived 和 onChunkReceived 中处理
-      if (res.statusCode >= 200 && res.statusCode < 300) {
-        onComplete && onComplete();
-      } else {
-        onError && onError(new Error(`HTTP ${res.statusCode}`));
-      }
-    },
-    fail: (err) => {
-      onError && onError(new Error(err.errMsg || '流式请求失败'));
-    }
-  });
-
   let buffer = '';
-
-  requestTask.onChunkReceived((res) => {
-    // 将 ArrayBuffer 转为字符串
-    const chunk = arrayBufferToString(res.data);
-    buffer += chunk.replace(/\r/g, '');
-    
-    const blocks = buffer.split('\n\n');
-    buffer = blocks.pop() || '';
-
-    for (const block of blocks) {
-      const evt = parseSSEBlock(block);
-      if (!evt) continue;
-      
-      let data = {};
-      try {
-        data = JSON.parse(evt.data);
-      } catch {
-        continue;
-      }
-      
-      onChunk && onChunk(evt.event, data);
+  let finished = false;
+  let chunked = false;
+  let terminal = false;
+  const decode = createStreamingDecoder();
+  const dispatch = (block) => {
+    const evt = parseSSEBlock(block);
+    if (!evt) return;
+    let data;
+    try { data = JSON.parse(evt.data); }
+    catch { return; }
+    if (evt.event === 'done' || evt.event === 'error') terminal = true;
+    if (onChunk) onChunk(evt.event, data);
+  };
+  const feed = (raw) => {
+    if (finished || raw === undefined || raw === null) return;
+    buffer += (typeof raw === 'string' ? raw : decode(raw)).replace(/\r/g, '');
+    let boundary;
+    while ((boundary = buffer.indexOf('\n\n')) !== -1) {
+      const block = buffer.slice(0, boundary);
+      buffer = buffer.slice(boundary + 2);
+      dispatch(block);
     }
+  };
+  const fail = (error) => {
+    if (finished) return;
+    finished = true;
+    if (onError) onError(error);
+  };
+  const task = wx.request({
+    url: `${getBaseURL()}/rag/query/stream`, method: 'POST',
+    header: { 'Content-Type': 'application/json', 'Accept': 'text/event-stream' },
+    data: payload, enableChunked: true, timeout: 600000,
+    dataType: 'text', responseType: 'text',
+    success: (res) => {
+      if (finished) return;
+      if (res.statusCode < 200 || res.statusCode >= 300) {
+        fail(new Error(`请求失败 HTTP ${res.statusCode}`));
+        return;
+      }
+      // Some runtimes return the entire body after also delivering chunks.
+      if (!chunked && res.data) feed(res.data);
+      if (buffer.trim()) dispatch(buffer);
+      buffer = '';
+      if (!terminal) { fail(new Error('连接提前结束，请重试')); return; }
+      finished = true;
+      if (onComplete) onComplete();
+    },
+    fail: (err) => fail(new Error(err.errMsg || '流式请求失败')),
   });
-
-  return requestTask;
+  if (task && typeof task.onChunkReceived === 'function') {
+    task.onChunkReceived((res) => {
+      if (res.data && (res.data.byteLength || res.data.length)) chunked = true;
+      feed(res.data);
+    });
+  }
+  return { abort() { finished = true; if (task) task.abort(); } };
 }
 
-// ArrayBuffer 转字符串
-function arrayBufferToString(buffer) {
-  const uint8Array = new Uint8Array(buffer);
-  let result = '';
-  // 使用 TextDecoder 如果可用
-  if (typeof TextDecoder !== 'undefined') {
-    const decoder = new TextDecoder('utf-8');
-    return decoder.decode(uint8Array);
-  }
-  // 降级方案
-  for (let i = 0; i < uint8Array.length; i++) {
-    result += String.fromCharCode(uint8Array[i]);
-  }
-  return decodeURIComponent(escape(result));
+// 增量 UTF-8 解码器：正确处理被切分到两个 chunk 里的多字节中文字符
+function createStreamingDecoder() {
+  const hasTextDecoder = typeof TextDecoder !== 'undefined';
+  const decoder = hasTextDecoder ? new TextDecoder('utf-8') : null;
+  let pending = new Uint8Array(0);
+
+  return (buffer) => {
+    const incoming = buffer instanceof ArrayBuffer ? new Uint8Array(buffer) : buffer;
+    if (!incoming || !incoming.length) return '';
+
+    const merged = new Uint8Array(pending.length + incoming.length);
+    merged.set(pending);
+    merged.set(incoming, pending.length);
+
+    // 找到最后一个"完整 UTF-8 序列"的边界，把不完整尾巴留到下一块
+    let cut = merged.length;
+    let k = merged.length - 1;
+    while (k >= 0 && (merged[k] & 0xc0) === 0x80 && merged.length - k <= 3) k -= 1;
+    if (k >= 0) {
+      const lead = merged[k];
+      let need = 1;
+      if (lead >= 0xf0) need = 4;
+      else if (lead >= 0xe0) need = 3;
+      else if (lead >= 0xc0) need = 2;
+      if (merged.length - k < need) cut = k;
+    }
+
+    const complete = merged.subarray(0, cut);
+    pending = merged.slice(cut);
+    if (!complete.length) return '';
+
+    if (decoder) return decoder.decode(complete);
+
+    // 老基础库降级方案：按字节做百分号转义再解码
+    let escaped = '';
+    for (let i = 0; i < complete.length; i += 1) {
+      escaped += `%${complete[i].toString(16).padStart(2, '0')}`;
+    }
+    try {
+      return decodeURIComponent(escaped);
+    } catch {
+      return '';
+    }
+  };
 }
 
 // 解析 SSE 数据块
@@ -338,7 +376,46 @@ function formatText(text) {
   return plain.replace(/\n/g, '\n');
 }
 
+
+function deleteUserChat(userId, chatId) {
+  return request({ url: `/users/${encodeURIComponent(userId)}/chats/${encodeURIComponent(chatId)}`, method: 'DELETE' });
+}
+function clearUserChats(userId, chatIds = []) {
+  return request({ url: `/users/${encodeURIComponent(userId)}/chats`, method: 'DELETE', data: { chat_ids: chatIds } });
+}
+function getEquipmentOverview() { return request({ url: '/equipment/overview' }); }
+function getEquipmentSchema() { return request({ url: '/equipment/schema' }); }
+function getEquipmentRecords(dataset) { return request({ url: `/equipment/records/${dataset}?limit=100` }); }
+function getEquipmentTemplate(dataset) { return request({ url: `/equipment/templates/${dataset}`, dataType: 'text' }); }
+function adminHeader(userId, password) {
+  const bytes = [];
+  const encoded = encodeURIComponent(`${userId}:${password}`);
+  for (let i = 0; i < encoded.length; i++) {
+    if (encoded[i] === '%') { bytes.push(parseInt(encoded.slice(i + 1, i + 3), 16)); i += 2; }
+    else bytes.push(encoded.charCodeAt(i));
+  }
+  return { Authorization: `Basic ${wx.arrayBufferToBase64(new Uint8Array(bytes).buffer)}` };
+}
+function saveEquipmentRecord(dataset, record, userId, password) {
+  return request({ url: `/equipment/records/${dataset}`, method: 'POST', data: record, header: adminHeader(userId, password) });
+}
+function importEquipmentCSV(dataset, filePath, userId, password) {
+  return new Promise((resolve, reject) => wx.uploadFile({
+    url: `${getBaseURL()}/equipment/import/${dataset}`, filePath, name: 'file',
+    header: adminHeader(userId, password), timeout: 120000,
+    success(res) {
+      try {
+        const data = JSON.parse(res.data);
+        if (res.statusCode >= 200 && res.statusCode < 300) resolve(data);
+        else reject(new Error(data.detail || '导入失败'));
+      } catch (error) { reject(error); }
+    }, fail(err) { reject(new Error(err.errMsg || '导入失败')); },
+  }));
+}
+
 module.exports = {
+  deleteUserChat, clearUserChats, getEquipmentOverview, getEquipmentSchema, getEquipmentRecords,
+  getEquipmentTemplate, saveEquipmentRecord, importEquipmentCSV,
   DEFAULT_SETTINGS,
   normalizeSettings,
   sanitizeUserId,

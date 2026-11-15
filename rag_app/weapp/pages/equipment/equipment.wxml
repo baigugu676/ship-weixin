@@ -1,0 +1,48 @@
+<view class="equipment-page {{appearance}}" style="font-size: {{fontSize}}px;">
+  <view class="page-heading"><text class="page-title">设备数据中心</text><view class="small-btn" bindtap="refresh">刷新</view></view>
+  <text class="subtitle">设备台账 · 参数 · 报警 · 故障 · 检修</text>
+  <view class="error-box" wx:if="{{error}}">{{error}}</view>
+  <view class="notice" wx:if="{{notice}}">{{notice}}</view>
+  <view class="muted" wx:if="{{loading}}">正在加载设备数据…</view>
+  <block wx:if="{{overview}}">
+    <view class="demo-label" wx:if="{{overview.data_kind === 'demo'}}">演示数据 · 模拟记录，不用于真实船舶运行判断</view>
+    <view class="counter-grid"><view class="counter" wx:for="{{counters}}" wx:key="title"><text class="counter-value">{{item.count}}</text><text class="muted">{{item.title}}</text></view></view>
+    <view class="card" wx:if="{{overview.demo_questions.length}}">
+      <text class="section-title">一键演示提问</text>
+      <view class="demo-question" wx:for="{{overview.demo_questions}}" wx:key="*this" bindtap="askDemo" data-question="{{item}}">{{item}} ›</view>
+    </view>
+    <view class="card">
+      <text class="section-title">最近 30 天设备概况</text>
+      <text class="muted">查询时间：{{overview.executed_at}}（上海时间）</text>
+      <text class="muted" wx:if="{{!devices.length}}">暂无设备，请先录入设备台账。</text>
+      <view class="device" wx:for="{{devices}}" wx:key="code">
+        <text class="device-name">{{item.name}} · {{item.code}}</text>
+        <view class="bar-row"><text>报警 {{item.alarm_count}}</text><view class="bar-track"><view class="bar alarm" style="width: {{item.alarmWidth}}%;"></view></view></view>
+        <view class="bar-row"><text>故障 {{item.fault_count}}</text><view class="bar-track"><view class="bar fault" style="width: {{item.faultWidth}}%;"></view></view></view>
+        <text class="muted">最近检修：{{item.last_maintenance || '暂无记录'}}</text>
+        <text class="muted">下次检修：{{item.next_maintenance || '未安排'}}</text>
+      </view>
+      <text class="muted" wx:if="{{overview.truncated}}">设备较多，仅展示前 100 台。</text>
+    </view>
+  </block>
+  <view class="card">
+    <text class="section-title">数据记录</text>
+    <picker range="{{datasets}}" range-key="title" value="{{datasetIndex}}" bindchange="onDatasetChange" disabled="{{busy}}"><view class="picker">{{datasets[datasetIndex].title}} ▾</view></picker>
+    <view class="actions"><view class="small-btn" bindtap="downloadTemplate">导出 CSV 模板</view><view class="small-btn" wx:if="{{canEdit}}" bindtap="toggleForm">{{showForm ? '收起录入' : '录入记录'}}</view></view>
+    <block wx:if="{{canEdit}}">
+      <text class="muted">录入或导入需要管理员密码；同一记录编号会更新原记录。导入其它记录前请先建立设备台账。</text>
+      <input class="field-input" password value="{{password}}" bindinput="onPasswordInput" placeholder="管理员密码（仅本次使用）" disabled="{{busy}}" />
+      <view class="small-btn" bindtap="chooseCSV">{{busy ? '处理中…' : '选择并导入 CSV'}}</view>
+      <view wx:if="{{showForm}}">
+        <view class="field" wx:for="{{fields}}" wx:key="key"><text>{{item.label}}{{item.required ? ' *' : ''}}</text><input class="field-input" value="{{item.value}}" data-index="{{index}}" bindinput="onFieldInput" placeholder="{{item.placeholder || item.label}}" disabled="{{busy}}" maxlength="2000" /></view>
+        <button class="btn-primary" bindtap="saveRecord" disabled="{{busy}}">保存记录</button>
+      </view>
+    </block>
+    <text class="muted" wx:else>当前账号可查看数据；管理员可录入及导入 CSV。</text>
+    <text class="error-box" wx:if="{{recordsError}}">{{recordsError}}</text>
+    <text class="muted" wx:if="{{recordsLoading}}">正在加载记录…</text>
+    <text class="muted" wx:if="{{!recordsLoading && !recordCards.length}}">暂无记录</text>
+    <view class="record" wx:for="{{recordCards}}" wx:key="id"><text class="device-name">{{item.title}}</text><view class="record-cell" wx:for="{{item.cells}}" wx:for-item="cell" wx:key="label"><text class="muted">{{cell.label}}</text><text selectable>{{cell.value}}</text></view></view>
+    <text class="muted" wx:if="{{recordCards.length >= 100}}">仅显示最新 100 条记录，完整统计请在问答页查询。</text>
+  </view>
+</view>

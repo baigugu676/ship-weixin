@@ -1,62 +1,59 @@
+"""Atomic per-session JSON history for concurrent requests in the API process."""
 from typing import Sequence
-from langchain_core.chat_history import BaseChatMessageHistory
+import hashlib
 import json
 import os
+import re
+import tempfile
+import threading
+from langchain_core.chat_history import BaseChatMessageHistory
 from langchain_core.messages import messages_from_dict, message_to_dict, BaseMessage
 
-chat_history_record = {}
-# 存储于本地
+_LOCKS = [threading.RLock() for _ in range(128)]
+
+
 def get_history(user_id):
-   return FileChatMessageHistory(user_id,"./history")
+    return FileChatMessageHistory(user_id, "./history")
+
 
 class FileChatMessageHistory(BaseChatMessageHistory):
     def __init__(self, session_id, storage_dir):
-        self.session_id = session_id
+        self.session_id = str(session_id)
         self.storage_dir = storage_dir
+        safe = re.sub(r"[^a-zA-Z0-9_-]", "_", self.session_id)
+        if safe != self.session_id or len(safe) > 100:
+            safe = safe[:70] + "_" + hashlib.sha256(self.session_id.encode()).hexdigest()[:20]
+        self.file_path = os.path.join(storage_dir, (safe or "default") + ".json")
+        os.makedirs(storage_dir, exist_ok=True)
+        self._history_lock = _LOCKS[int(hashlib.sha256(os.path.abspath(self.file_path).encode()).hexdigest()[:8], 16) % len(_LOCKS)]
 
-        self.file_path = os.path.join(self.storage_dir, f"{self.session_id}.json")
-
-        # 创建的文件夹路径
-        os.makedirs(os.path.dirname(self.file_path), exist_ok=True)
-        # 创建的是文件路径
-        # os.makedirs(self.file_path,exist_ok=True)
-
-    # 写入
-    def add_message(self, message: BaseMessage) -> None:
-        all_messages = list(self.messages)
-        all_messages.append(message)
-
-        messages_dict = [message_to_dict(message) for message in all_messages]
-        with open(self.file_path, "w", encoding="utf-8") as f:
-            json.dump(messages_dict, f)
-
-    # 读取
     @property
     def messages(self) -> Sequence[BaseMessage]:
+        with self._history_lock:
+            try:
+                with open(self.file_path, encoding="utf-8") as handle:
+                    return messages_from_dict(json.load(handle))
+            except FileNotFoundError:
+                return []
+
+    def _write(self, messages):
+        temporary = None
         try:
-            with open(self.file_path, "r", encoding="utf-8") as f:
-                message_dict = json.load(f)
-                return messages_from_dict(message_dict)
-        except FileNotFoundError:
-            return []
+            with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=self.storage_dir, prefix=".history-", delete=False) as handle:
+                temporary = handle.name
+                json.dump([message_to_dict(message) for message in messages], handle, ensure_ascii=False)
+            os.replace(temporary, self.file_path)
+        finally:
+            if temporary and os.path.exists(temporary):
+                os.unlink(temporary)
+
+    def add_message(self, message: BaseMessage) -> None:
+        self.add_messages([message])
+
+    def add_messages(self, messages: Sequence[BaseMessage]) -> None:
+        with self._history_lock:
+            self._write(list(self.messages) + list(messages))
 
     def clear(self) -> None:
-        with open(self.file_path, "w", encoding="utf-8") as f:
-            json.dump([], f)
-
-#
-#
-# # 运行实例：
-# if __name__ == "__main__":
-#     config = {
-#         "configurable": {
-#             "session_id": "user1"
-#         }
-#     }
-#     # for chunk in conversation_chain.stream({"question":"你是小明"},config=config):
-#     #     print(chunk,end="",flush=True)
-#
-#     for chunk in conversation_chain.stream({"question": "你是谁？请介绍一下你自己"}, config=config):
-#         print(chunk, end="", flush=True)
-#
-    # def add_message(self,message)->None:
+        with self._history_lock:
+            self._write([])

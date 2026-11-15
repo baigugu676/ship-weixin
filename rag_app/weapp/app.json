@@ -4,7 +4,8 @@
     "pages/chat/chat",
     "pages/weather/weather",
     "pages/history/history",
-    "pages/settings/settings"
+    "pages/settings/settings",
+    "pages/equipment/equipment"
   ],
   "window": {
     "backgroundTextStyle": "light",

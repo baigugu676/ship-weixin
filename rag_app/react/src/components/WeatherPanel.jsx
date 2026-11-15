@@ -1,7 +1,7 @@
+import { API_BASE_URL } from "../api";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const API_HOST = window.location.hostname || "127.0.0.1";
-const WEATHER_API = `http://${API_HOST}:8000`;
+const WEATHER_API = API_BASE_URL;
 
 const LOCATIONS_STORAGE_KEY = "ship_weather_locations";
 const ACTIVE_STORAGE_KEY = "ship_weather_active";

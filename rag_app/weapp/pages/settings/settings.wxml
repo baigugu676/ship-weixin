@@ -1,5 +1,8 @@
 <!--pages/settings/settings.wxml-->
-<view class="settings-container">
+<view class="settings-container {{appearance}}" style="font-size: {{fontSize}}px;">
+  <text class="settings-error" wx:if="{{error}}">{{error}}</text>
+  <view class="setting-item" bindtap="goToEquipment"><text class="setting-name">设备数据中心</text><text>›</text></view>
+  <view class="setting-item" bindtap="goToHistory"><text class="setting-name">历史记录 · 导出 · 删除</text><text>›</text></view>
   <!-- 用户信息卡片 -->
   <view class="user-card">
     <view class="user-avatar">
@@ -7,7 +10,7 @@
     </view>
     <view class="user-info">
       <text class="user-name">{{settings.nickname || 'Captain Park'}}</text>
-      <text class="user-role">一级轮机长</text>
+      <text class="user-role">{{userRole === 1 ? '管理员' : '船舶用户'}}</text>
     </view>
   </view>
 
@@ -43,12 +46,12 @@
         color="#14b8a6"
       />
     </view>
-    <view class="setting-desc">启用后，将调用本地部署的大模型和知识库，不依赖外部网络连接</view>
+    <view class="setting-desc">启用后使用知识库抽取和设备查询规则，跳过在线大模型；仍需连接后端服务器</view>
 
     <view class="setting-item">
       <view class="setting-label">
         <text class="setting-icon">🔔</text>
-        <text class="setting-name">消息通知</text>
+        <text class="setting-name">回答完成震动提示</text>
       </view>
       <switch 
         class="setting-switch" 
@@ -74,6 +77,12 @@
     </view>
   </view>
 
+  <view class="settings-group">
+    <view class="group-title">显示与回答</view>
+    <picker range="{{themes}}" value="{{themeIndex}}" bindchange="onThemeChange"><view class="setting-item"><text>主题</text><text>{{themes[themeIndex]}} ▾</text></view></picker>
+    <view class="setting-item"><text>回答字号 {{settings.fontSize}}px</text><slider min="12" max="22" step="1" value="{{settings.fontSize}}" data-key="fontSize" bindchange="onSliderChange" activeColor="#14b8a6" /></view>
+    <view class="setting-item"><text>输出速度 {{settings.streamSpeed}}</text><slider min="1" max="100" value="{{settings.streamSpeed}}" data-key="streamSpeed" bindchange="onSliderChange" activeColor="#14b8a6" /></view>
+  </view>
   <!-- 个人信息 -->
   <view class="settings-group">
     <view class="group-title">个人信息</view>

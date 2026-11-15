@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import re
 import os
 import sys
@@ -5,7 +7,7 @@ import threading
 import time
 import json
 from pathlib import Path
-from typing import Optional
+from typing import Optional, TYPE_CHECKING
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
@@ -14,12 +16,15 @@ from langchain_core.runnables import RunnableLambda
 from langserve import add_routes
 
 from rag.config import SETTINGS
-from rag.pipeline import RagPipeline
+if TYPE_CHECKING:
+    from rag.pipeline import RagPipeline
 from rag.schema import QueryRequest
 from rag.vision import ALLOWED_SUFFIXES as VISION_IMAGE_SUFFIXES
 from rag.vision import MAX_IMAGE_BYTES as VISION_MAX_IMAGE_BYTES
 from rag.vision import describe_image
-from update_index_incremental import main as run_incremental_update
+from chat_sync import merge_user_chats, delete_user_chat, clear_user_chats, deleted_chat_ids
+from equipment_api import router as equipment_router
+from equipment_query import is_equipment_question, query_equipment
 from weather_service import (
     build_marine_forecast,
     query_history,
@@ -31,7 +36,6 @@ from db_service import (
     get_user_settings,
     initialize_database,
     list_user_chats,
-    replace_user_chats,
     save_user_settings,
 )
 
@@ -61,6 +65,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(equipment_router)
+
 _pipeline_lock = threading.RLock()
 _pipeline: Optional[RagPipeline] = None
 _warmup_lock = threading.Lock()
@@ -87,6 +93,8 @@ initialize_database()
 
 
 def _get_pipeline() -> RagPipeline:
+    from rag.pipeline import RagPipeline
+
     global _pipeline
     with _pipeline_lock:
         if _pipeline is None:
@@ -95,6 +103,8 @@ def _get_pipeline() -> RagPipeline:
 
 
 def _reload_pipeline() -> None:
+    from rag.pipeline import RagPipeline
+
     global _pipeline
     with _pipeline_lock:
         _pipeline = RagPipeline()
@@ -103,6 +113,13 @@ def _reload_pipeline() -> None:
 def _warmup_pipeline() -> None:
     try:
         _get_pipeline()
+        # 预热重排序模型（约1GB，启动后台加载，避免首次查询卡顿数十秒）
+        try:
+            from rag.reranker import get_reranker
+
+            get_reranker()
+        except Exception as exc:
+            print(f"[startup] reranker warmup skipped: {exc}", file=sys.stderr)
     except Exception as exc:
         print(f"[startup] pipeline warmup failed: {exc}", file=sys.stderr)
 
@@ -129,6 +146,12 @@ def _sanitize_user_id(user_id: str) -> str:
     return cleaned[:64] or "anonymous"
 
 
+def _use_equipment_query(req: QueryRequest) -> bool:
+    return req.query_mode == "equipment" or (
+        req.query_mode == "auto" and is_equipment_question(req.question)
+    )
+
+
 def _run_query(payload: dict) -> dict:
     question = str(payload.get("question", "")).strip()
     if not question:
@@ -137,6 +160,7 @@ def _run_query(payload: dict) -> dict:
     req = QueryRequest(
         question=question,
         session_id=user_id,
+        query_mode=payload.get("query_mode", "auto"),
         top_k=payload.get("top_k"),
         use_kg=payload.get("use_kg", True),
         use_llm=payload.get("use_llm", True),
@@ -148,10 +172,11 @@ def _run_query(payload: dict) -> dict:
         neo4j_user=payload.get("neo4j_user"),
         neo4j_password=payload.get("neo4j_password"),
     )
-    with _pipeline_lock:
-        pipeline = _get_pipeline()
-        answer = pipeline.query(req)
-        return pipeline.export_answer(answer)
+    if _use_equipment_query(req):
+        return query_equipment(req.question, use_llm=req.use_llm, request=req)
+    pipeline = _get_pipeline()
+    answer = pipeline.query(req)
+    return pipeline.export_answer(answer)
 
 
 def _build_query_request(payload: dict) -> QueryRequest:
@@ -162,6 +187,7 @@ def _build_query_request(payload: dict) -> QueryRequest:
     return QueryRequest(
         question=question,
         session_id=user_id,
+        query_mode=payload.get("query_mode", "auto"),
         top_k=payload.get("top_k"),
         use_kg=payload.get("use_kg", True),
         use_llm=payload.get("use_llm", True),
@@ -185,10 +211,14 @@ add_routes(app, rag_runnable, path="/rag")
 
 @app.post("/rag/query")
 def query_rag(req: QueryRequest):
-    with _pipeline_lock:
-        pipeline = _get_pipeline()
-        answer = pipeline.query(req)
-        return pipeline.export_answer(answer)
+    if _use_equipment_query(req):
+        try:
+            return query_equipment(req.question, use_llm=req.use_llm, request=req)
+        except ValueError as exc:
+            raise HTTPException(status_code=400, detail=str(exc)) from exc
+    pipeline = _get_pipeline()
+    answer = pipeline.query(req)
+    return pipeline.export_answer(answer)
 
 
 @app.post("/auth/login")
@@ -205,6 +235,7 @@ def auth_login(payload: dict):
         "user": user,
         "settings": get_user_settings(user_id),
         "chats": list_user_chats(user_id),
+        "deleted_chat_ids": deleted_chat_ids(user_id),
     }
 
 
@@ -225,7 +256,7 @@ def update_settings(user_id: str, payload: dict):
 
 @app.get("/users/{user_id}/chats")
 def read_chats(user_id: str):
-    return {"ok": True, "chats": list_user_chats(user_id)}
+    return {"ok": True, "chats": list_user_chats(user_id), "deleted_chat_ids": deleted_chat_ids(user_id)}
 
 
 @app.put("/users/{user_id}/chats")
@@ -233,8 +264,29 @@ def save_chats(user_id: str, payload: dict):
     chats = payload.get("chats")
     if not isinstance(chats, list):
         raise HTTPException(status_code=400, detail="chats must be an array")
-    saved = replace_user_chats(user_id, chats)
-    return {"ok": True, "chats": saved}
+    try:
+        saved = merge_user_chats(user_id, chats)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return {"ok": True, "chats": saved, "deleted_chat_ids": deleted_chat_ids(user_id)}
+
+
+@app.delete("/users/{user_id}/chats/{chat_id}")
+def delete_chat(user_id: str, chat_id: str):
+    try:
+        delete_user_chat(user_id, chat_id)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return {"ok": True, "deleted_chat_ids": deleted_chat_ids(user_id)}
+
+
+@app.delete("/users/{user_id}/chats")
+def clear_chats(user_id: str, payload: dict | None = None):
+    local_ids = (payload or {}).get("chat_ids", [])
+    if not isinstance(local_ids, list) or any(not isinstance(value, str) for value in local_ids):
+        raise HTTPException(400, "chat_ids must be an array of strings")
+    clear_user_chats(user_id, local_ids)
+    return {"ok": True, "deleted_chat_ids": deleted_chat_ids(user_id)}
 
 
 @app.post("/rag/query/stream")
@@ -255,66 +307,78 @@ def query_rag_stream(payload: dict):
             },
         )
         try:
-            with _pipeline_lock:
-                pipeline = _get_pipeline()
-                token_stream, payload_ctx = pipeline.stream_query_with_payload(req)
+            if _use_equipment_query(req):
+                yield _sse_json("trace", {"stage": "sql_generate", "message": "正在将问题转换为设备数据库查询"})
+                result = query_equipment(req.question, use_llm=req.use_llm, request=req)
+                sql_result = result["sql_result"]
+                yield _sse_json("trace", {"stage": "sql_query", "message": f"已查询设备数据库，返回 {sql_result['row_count']} 条记录"})
+                yield _sse_json("sql_result", sql_result)
+                answer_text = result["answer"]
+                for offset in range(0, len(answer_text), 120):
+                    yield _sse_json("token", {"text": answer_text[offset:offset + 120]})
+                yield _sse_json("done", {"finish_reason": "stop", "elapsed_ms": int((time.perf_counter() - started) * 1000), "citation_count": 0, "retriever": "sql"})
+                return
+            # The pipeline reference is a snapshot; model generation/retrieval must not
+            # hold the global construction/reload lock and block another client.
+            pipeline = _get_pipeline()
+            token_stream, payload_ctx = pipeline.stream_query_with_payload(req)
 
-                timing = payload_ctx.get("timing") or {}
-                t0 = timing.get("t0")
-                t1 = timing.get("t1")
-                t2 = timing.get("t2")
-                retrieve_ms = (
-                    int((t1 - t0) * 1000)
-                    if isinstance(t0, (int, float)) and isinstance(t1, (int, float))
-                    else None
-                )
-                kg_ms = (
-                    int((t2 - t1) * 1000)
-                    if isinstance(t1, (int, float)) and isinstance(t2, (int, float))
-                    else None
-                )
+            timing = payload_ctx.get("timing") or {}
+            t0 = timing.get("t0")
+            t1 = timing.get("t1")
+            t2 = timing.get("t2")
+            retrieve_ms = (
+                int((t1 - t0) * 1000)
+                if isinstance(t0, (int, float)) and isinstance(t1, (int, float))
+                else None
+            )
+            kg_ms = (
+                int((t2 - t1) * 1000)
+                if isinstance(t1, (int, float)) and isinstance(t2, (int, float))
+                else None
+            )
 
-                context_count = len(
-                    payload_ctx.get("context", {}).passages
-                    if payload_ctx.get("context")
-                    else []
-                )
+            context_count = len(
+                payload_ctx.get("context", {}).passages
+                if payload_ctx.get("context")
+                else []
+            )
+            yield _sse_json(
+                "trace",
+                {
+                    "stage": "retrieve",
+                    "message": "完成知识库检索",
+                    "context_count": context_count,
+                    "elapsed_ms": retrieve_ms,
+                },
+            )
+
+            if req.use_kg:
+                kg_count = len(payload_ctx.get("kg_triplets") or [])
                 yield _sse_json(
                     "trace",
                     {
-                        "stage": "retrieve",
-                        "message": "完成知识库检索",
-                        "context_count": context_count,
-                        "elapsed_ms": retrieve_ms,
+                        "stage": "kg",
+                        "message": "完成知识图谱查询",
+                        "kg_triplet_count": kg_count,
+                        "elapsed_ms": kg_ms,
                     },
                 )
 
-                if req.use_kg:
-                    kg_count = len(payload_ctx.get("kg_triplets") or [])
-                    yield _sse_json(
-                        "trace",
-                        {
-                            "stage": "kg",
-                            "message": "完成知识图谱查询",
-                            "kg_triplet_count": kg_count,
-                            "elapsed_ms": kg_ms,
-                        },
-                    )
+            yield _sse_json(
+                "trace",
+                {
+                    "stage": "generate",
+                    "message": "开始答案生成",
+                    "mode": "online" if req.use_llm else "offline",
+                },
+            )
 
-                yield _sse_json(
-                    "trace",
-                    {
-                        "stage": "generate",
-                        "message": "开始答案生成",
-                        "mode": "online" if req.use_llm else "offline",
-                    },
-                )
-
-                for token in token_stream:
-                    if not token:
-                        continue
-                    chunk = str(token).replace("\r", "")
-                    yield _sse_json("token", {"text": chunk})
+            for token in token_stream:
+                if not token:
+                    continue
+                chunk = str(token).replace("\r", "")
+                yield _sse_json("token", {"text": chunk})
         except Exception as exc:
             yield _sse_json(
                 "error",
@@ -387,6 +451,8 @@ async def upload_incremental_file(
 
     try:
         with _pipeline_lock:
+            from update_index_incremental import main as run_incremental_update
+
             stats = run_incremental_update(target_paths=[str(save_path_abs)])
             _reload_pipeline()
     except Exception as exc:
@@ -512,7 +578,7 @@ def serve_frontend_root():
 
 @app.get("/{full_path:path}", include_in_schema=False)
 def serve_frontend_assets(full_path: str):
-    if full_path.startswith(("api", "rag", "auth", "users", "weather", "vision", "docs", "openapi.json")):
+    if full_path.startswith(("api", "rag", "auth", "users", "weather", "vision", "equipment", "docs", "openapi.json")):
         raise HTTPException(status_code=404, detail="not found")
     if not _frontend_dist_dir:
         raise HTTPException(status_code=404, detail="frontend dist not found")

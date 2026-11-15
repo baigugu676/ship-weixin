@@ -111,6 +111,8 @@ def _friendly_llm_error_text(exc: Exception, llm_model: Optional[str]) -> str:
     raw = str(exc or "").strip()
     text = raw.lower()
     model_name = (llm_model or SETTINGS.llm_model_name or "").strip() or "当前模型"
+    if SETTINGS.llm_provider != "ollama" and "ollama" not in text:
+        return ""
 
     if (
         ("model" in text and "not found" in text)
@@ -170,14 +172,14 @@ def generate_answer(
         context_text = _build_context(passages)
         kg_context_text = build_kg_text(kg_triplets)
         prompt = _build_prompt()
-        llm = build_chat_llm(
-            provider=llm_provider,
-            model_name=llm_model,
-            base_url=llm_api_base,
-            api_key=llm_api_key,
-        )
-        chain = prompt | llm
         try:
+            llm = build_chat_llm(
+                provider=llm_provider,
+                model_name=llm_model,
+                base_url=llm_api_base,
+                api_key=llm_api_key,
+            )
+            chain = prompt | llm
             if use_history and SETTINGS.use_history:
                 chain = RunnableWithMessageHistory(
                     chain,
@@ -230,24 +232,24 @@ def stream_answer(
         context_text = _build_context(passages)
         kg_context_text = build_kg_text(kg_triplets)
         prompt = _build_prompt()
-        llm = build_chat_llm(
-            provider=llm_provider,
-            model_name=llm_model,
-            base_url=llm_api_base,
-            api_key=llm_api_key,
-        )
-        chain = prompt | llm
-        stream_input = {
-            "question": question,
-            "context": context_text,
-            "kg_context": kg_context_text,
-        }
-        history = None
-        if use_history and SETTINGS.use_history:
-            history = get_history(session_id)
-            stream_input["history"] = list(history.messages)
-        pieces: List[str] = []
         try:
+            llm = build_chat_llm(
+                provider=llm_provider,
+                model_name=llm_model,
+                base_url=llm_api_base,
+                api_key=llm_api_key,
+            )
+            chain = prompt | llm
+            stream_input = {
+                "question": question,
+                "context": context_text,
+                "kg_context": kg_context_text,
+            }
+            history = None
+            if use_history and SETTINGS.use_history:
+                history = get_history(session_id)
+                stream_input["history"] = list(history.messages)
+            pieces: List[str] = []
             for chunk in chain.stream(stream_input):
                 token = str(getattr(chunk, "content", chunk) or "")
                 if not token:
@@ -257,8 +259,7 @@ def stream_answer(
             if history is not None:
                 final_text = "".join(pieces).strip()
                 if final_text:
-                    history.add_message(HumanMessage(content=question))
-                    history.add_message(AIMessage(content=final_text))
+                    history.add_messages([HumanMessage(content=question), AIMessage(content=final_text)])
             print("[llm] provider=ollama status=stream_ok")
             return
         except Exception as exc:

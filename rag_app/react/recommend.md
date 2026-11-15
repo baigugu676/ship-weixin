@@ -1,67 +1,43 @@
-# 项目启动指南 (Frontend & Backend Startup Guide)
+# 本地启动速查
 
-本文档推荐了前后端分离架构下的本地启动方法。
+完整的模型准备、默认配置和限制统一维护在 [主 README](../README.md)，网页详情见 [网页端 README](README.md)。下面是当前代码的启动入口，不需要另建 API 服务。
 
-## 1. 后端启动 (Backend)
+## 后端
 
-后端使用 Python 和 FastAPI 提供 API 服务，推荐在项目根目录 (`rag_app`) 下使用虚拟环境运行。
-
-### 1.1 安装依赖
-
-请确保你处于项目根目录下：
+从仓库根目录执行：
 
 ```bash
-# 1. 创建虚拟环境 (可选但强烈推荐)
+cd rag_app
 python -m venv .venv
-
-# 2. 激活虚拟环境
-# Windows 命令行 / PowerShell:
-.venv\Scripts\activate
-# macOS / Linux:
-source .venv/bin/activate
-
-# 3. 安装依赖包
-pip install -r requirements.txt
 ```
 
-### 1.2 启动服务
-
-运行以下命令启动 FastAPI 后端服务：
+激活虚拟环境（Linux/macOS/WSL 使用 `source .venv/bin/activate`；Windows PowerShell 使用 `.\.venv\Scripts\Activate.ps1`），然后执行：
 
 ```bash
-uvicorn api_server:app --reload --host 0.0.0.0 --port 8000
+python -m pip install -r requirements.txt
 ```
-服务启动后：
-- API 服务地址：`http://localhost:8000`
-- Swagger 接口文档：`http://localhost:8000/docs`
 
-> 注意：如果不需要前后端分离，项目中也提供了一个基于 Streamlit 的独立 UI，可以通过在根目录运行 `streamlit run app_streamlit.py` 启动。
-
----
-
-## 2. 前端启动 (Frontend)
-
-前端使用 React + Vite 构建，所有相关代码均在 `react` 文件夹中。
-
-### 2.1 安装依赖
-
-请确保你的终端路径已切换到 `react` 文件夹下：
+复制 `.env.example` 为本目录 `.env`，配置模型密钥及 Neo4j；提前准备嵌入模型缓存，具体步骤见主 README。随后启动：
 
 ```bash
-cd react
+python -m uvicorn api_server:app --host 0.0.0.0 --port 8000
+```
 
-# 使用 npm 安装依赖
+接口文档在 `http://localhost:8000/docs`。后台预热模型期间，API 文档可访问不代表问答已经就绪。保持后端工作目录为 `rag_app/`，避免相对 SQLite 路径产生另一份数据库。
+
+## 网页开发
+
+另开终端进入 `rag_app/react/`：
+
+```bash
 npm install
-# 或者使用 yarn / pnpm
-# yarn install
-# pnpm install
-```
-
-### 2.2 启动服务
-
-运行以下命令启动前端开发服务器：
-
-```bash
 npm run dev
 ```
-服务启动后，Vite 将在终端输出本地访问地址（通常为 `http://localhost:5173`），你可以直接在浏览器中打开此地址进行访问。前端会自动与后端的 `http://localhost:8000` 端口进行交互。
+
+网页包清单已包含 ECharts 和 Tailwind PostCSS 依赖，参见 [网页端 README](README.md)。访问 Vite 输出的地址，通常为 `http://localhost:5173`；网页请求 `http://<当前主机名>:8000`。
+
+## 合并托管与辅助入口
+
+在 `react/` 执行 `npm run build`，然后从 `rag_app/` 重启后端，通过 `http://localhost:8000/` 访问。生产构建默认使用同源 API，独立后端可用 `VITE_API_BASE_URL` 配置。
+
+从 `rag_app/` 可运行 `python run_cli.py`、`streamlit run app_streamlit.py`。Windows 的 `scripts/start-all.ps1` 依赖本机 Docker、已有 Neo4j 容器与固定 `D:\29` 路径，使用前应按实际环境核对。

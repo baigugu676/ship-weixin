@@ -1,12 +1,14 @@
+import { API_BASE_URL } from "../api";
+import { mergeChats, uniqueId } from "../chatSync";
 import { useState, useRef, useEffect, useCallback } from "react";
 import * as echarts from "echarts";
 import Setting from "./setting";
 import WeatherFeature from "./WeatherPanel";
+import EquipmentPanel, { DatabaseResult, EquipmentDemoCard } from "./EquipmentPanel";
 
 // ===================== 模拟后端 API =====================
-const API_HOST = window.location.hostname || "127.0.0.1";
 const API_CONFIG = {
-  baseURL: `http://${API_HOST}:8000`,
+  baseURL: API_BASE_URL,
   // 在线模式空闲超时：只要流式响应还有数据到达就会重置计时（在线模型全程可能2~3分钟）
   timeoutOnline: 300000,
   timeoutOffline: 60000,
@@ -513,6 +515,8 @@ export default function Chat({ user }) {
   const [graphEnabled, setGraphEnabled] = useState(userSettings?.graphOn ?? true);
   const [offlineMode, setOfflineMode] = useState(userSettings?.offlineOn ?? false); // 离线模式
   const [isAnswering, setIsAnswering] = useState(false); // 新增：是否正在回答
+  const [showEquipment, setShowEquipment] = useState(false);
+  const [queryMode, setQueryMode] = useState("auto");
   const [showSetting, setShowSetting] = useState(false); // 新增：设置页面开关
   const [showHelpDocs, setShowHelpDocs] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
@@ -560,11 +564,13 @@ export default function Chat({ user }) {
   }, []);
 
   const chatPersistReadyRef = useRef(false);
+  const deletedChatIdsRef = useRef(new Set(user?.deleted_chat_ids || []));
 
   useEffect(() => {
     setUserSettings(normalizeSettings(user?.settings || {}));
     const nextChats = Array.isArray(user?.chats) ? user.chats : INITIAL_CHATS;
     setChats(nextChats);
+    deletedChatIdsRef.current = new Set(user?.deleted_chat_ids || []);
     setCurrentChatId(null);
     chatPersistReadyRef.current = false;
   }, [user]);
@@ -593,6 +599,39 @@ export default function Chat({ user }) {
     }, 600);
     return () => clearTimeout(timer);
   }, [chats, userId, userSettings.autoSave]);
+
+  useEffect(() => {
+    let disposed = false;
+    const refresh = async () => {
+      if (document.hidden) return;
+      try {
+        const response = await fetch(`${API_CONFIG.baseURL}/users/${encodeURIComponent(userId)}/chats`);
+        if (!response.ok || disposed) return;
+        const data = await response.json();
+        if (disposed) return;
+        for (const id of data.deleted_chat_ids || []) deletedChatIdsRef.current.add(id);
+        setChats(prev => {
+          const merged = mergeChats(prev, data.chats || [], [...deletedChatIdsRef.current]);
+          return JSON.stringify(merged) === JSON.stringify(prev) ? prev : merged;
+        });
+        setCurrentChatId(id => deletedChatIdsRef.current.has(id) ? null : id);
+      } catch (error) { console.warn('chat sync failed', error.message); }
+    };
+    refresh();
+    const timer = setInterval(refresh, 15000);
+    window.addEventListener('focus', refresh);
+    return () => { disposed = true; clearInterval(timer); window.removeEventListener('focus', refresh); };
+  }, [userId]);
+
+  const removeChats = async (id) => {
+    const response = await fetch(`${API_CONFIG.baseURL}/users/${encodeURIComponent(userId)}/chats${id ? `/${encodeURIComponent(id)}` : ''}`, { method: 'DELETE', headers: { 'Content-Type': 'application/json' }, ...(id ? {} : { body: JSON.stringify({ chat_ids: chats.map(chat => chat.id) }) }) });
+    if (!response.ok) throw new Error('删除失败，请重试');
+    const result = await response.json();
+    const removed = [...(id ? [id] : chats.map(chat => chat.id)), ...(result.deleted_chat_ids || [])];
+    for (const key of removed) deletedChatIdsRef.current.add(key);
+    setChats(prev => prev.filter(chat => !deletedChatIdsRef.current.has(chat.id)));
+    setCurrentChatId(current => deletedChatIdsRef.current.has(current) ? null : current);
+  };
 
   // 流式会话管理
   const streamingRefs = useRef(new Map());
@@ -664,76 +703,9 @@ export default function Chat({ user }) {
     );
   }, []);
 
-  // 1. 发送消息并连接后端（流式）
-  const handleSend = useCallback(async (text, options = {}) => {
-    text = (text || "").trim();
-    if (!text) return;
-
-    if (isAnswering) {
-      alert("请等待当前回答完成后，再发送下一条问题。");
-      return;
-    }
-
-    setInputValue("");
-
-    let chatId = currentChatId;
-    let updatedChats = [...chats];
-    let sessionUserId = "";
-
-    if (!chatId) {
-      chatId = Date.now().toString();
-      const title = text.length > 12 ? text.substring(0, 12) + "..." : text;
-      sessionUserId = getSessionUserId(chatId);
-      updatedChats = [{ id: chatId, title, sessionUserId, messages: [], createdAt: new Date() }, ...updatedChats];
-      setCurrentChatId(chatId);
-    } else {
-      const current = updatedChats.find((c) => c.id === chatId);
-      sessionUserId = current?.sessionUserId || getSessionUserId(chatId);
-      if (!current?.sessionUserId) {
-        updatedChats = updatedChats.map((c) =>
-          c.id === chatId ? { ...c, sessionUserId } : c
-        );
-      }
-    }
-
-    const userMsg = {
-      role: "user",
-      content: text,
-      ...(options.image ? { image: options.image } : {}),
-    };
-    const msgId = `ai-${Date.now()}`;
-    const aiMsg = {
-      id: msgId,
-      role: "ai",
-      content: "",
-      fullText: "",
-      searchProcess: `正在检索，模式: ${graphEnabled ? "知识图谱" : "常规检索"}${offlineMode ? " [离线]" : " [在线]"}`,
-      traceSteps: [
-        {
-          stage: "queued",
-          text: `请求已提交（${offlineMode ? "离线" : "在线"}模式）`,
-        },
-      ],
-      citations: [],
-      kgTriplets: [],
-      isStreaming: true,
-      isPaused: false,
-      isOffline: offlineMode,
-      isGraphEnabled: graphEnabled,
-    };
-
-    updatedChats = updatedChats.map((c) =>
-      c.id === chatId ? { ...c, messages: [...c.messages, userMsg, aiMsg] } : c
-    );
-    setChats(updatedChats);
-    setIsAnswering(true);
-
-    startStreaming(chatId, msgId, text, sessionUserId);
-  }, [chats, currentChatId, graphEnabled, offlineMode, isAnswering]);
-
   // 流式输出逻辑（打字机）
-  const startStreaming = useCallback(async (chatId, msgId, originalText, sessionUserId) => {
-    const isOnlineMode = !offlineMode; // 离线关闭 => 在线
+  const startStreaming = useCallback(async (chatId, msgId, originalText, sessionUserId, options = {}) => {
+    const isOnlineMode = options.useLlm ?? !offlineMode; // 离线关闭 => 在线
     const streamSession = {
       controller: new AbortController(),
       timeoutId: null,
@@ -842,11 +814,12 @@ export default function Chat({ user }) {
           Accept: "text/event-stream",
         },
         body: JSON.stringify({
-          user_id: sessionUserId || getSessionUserId(chatId),
+          user_id: sessionUserId || getSessionUserId(userId, chatId),
           question: originalText,
+          query_mode: options.queryMode || queryMode,
           top_k: 5,
           use_kg: graphEnabled,
-          use_llm: !offlineMode,
+          use_llm: isOnlineMode,
           use_history: true,
           enable_retrieval_optimization: true,
           neo4j_uri: String(userSettings?.neo4jUri || "").trim(),
@@ -936,6 +909,13 @@ export default function Chat({ user }) {
                   }
               )
             );
+          } else if (evt.event === "sql_result") {
+            setChats((prev) => prev.map((chat) => chat.id !== chatId ? chat : {
+              ...chat,
+              messages: chat.messages.map((message) => message.id !== msgId ? message : {
+                ...message, databaseResult: data, isGraphEnabled: false,
+              }),
+            }));
           } else if (evt.event === "token" && data.text) {
             streamSession.pendingText += data.text;
           } else if (evt.event === "references") {
@@ -1024,7 +1004,75 @@ export default function Chat({ user }) {
         tryFinalize();
       }
     }
-  }, [graphEnabled, offlineMode, finishStreaming]);
+  }, [graphEnabled, offlineMode, queryMode, finishStreaming, userId, userSettings?.neo4jPassword, userSettings?.neo4jUri, userSettings?.neo4jUser, userSettings?.streamSpeed]);
+
+  // 1. 发送消息并连接后端（流式）
+  const handleSend = useCallback(async (text, options = {}) => {
+    text = (text || "").trim();
+    if (!text) return;
+
+    if (isAnswering) {
+      alert("请等待当前回答完成后，再发送下一条问题。");
+      return;
+    }
+
+    setInputValue("");
+
+    let chatId = currentChatId;
+    let updatedChats = [...chats];
+    let sessionUserId = "";
+
+    if (!chatId) {
+      chatId = uniqueId("web");
+      const title = text.length > 12 ? text.substring(0, 12) + "..." : text;
+      sessionUserId = getSessionUserId(userId, chatId);
+      updatedChats = [{ id: chatId, title, sessionUserId, messages: [], createdAt: new Date() }, ...updatedChats];
+      setCurrentChatId(chatId);
+    } else {
+      const current = updatedChats.find((c) => c.id === chatId);
+      sessionUserId = current?.sessionUserId || getSessionUserId(userId, chatId);
+      if (!current?.sessionUserId) {
+        updatedChats = updatedChats.map((c) =>
+          c.id === chatId ? { ...c, sessionUserId } : c
+        );
+      }
+    }
+
+    const userMsg = {
+      id: uniqueId("user"),
+      role: "user",
+      content: text,
+      ...(options.image ? { image: options.image } : {}),
+    };
+    const msgId = uniqueId("ai");
+    const aiMsg = {
+      id: msgId,
+      role: "ai",
+      content: "",
+      fullText: "",
+      searchProcess: options.queryMode === "equipment" ? "正在查询设备数据库" : `正在检索，模式: ${graphEnabled ? "知识图谱" : "常规检索"}${offlineMode ? " [离线]" : " [在线]"}`,
+      traceSteps: [
+        {
+          stage: "queued",
+          text: `请求已提交（${(options.useLlm ?? !offlineMode) ? "在线" : "离线"}模式）`,
+        },
+      ],
+      citations: [],
+      kgTriplets: [],
+      isStreaming: true,
+      isPaused: false,
+      isOffline: !(options.useLlm ?? !offlineMode),
+      isGraphEnabled: options.queryMode === "equipment" ? false : graphEnabled,
+    };
+
+    updatedChats = updatedChats.map((c) =>
+      c.id === chatId ? { ...c, messages: [...c.messages, userMsg, aiMsg] } : c
+    );
+    setChats(updatedChats);
+    setIsAnswering(true);
+
+    startStreaming(chatId, msgId, text, sessionUserId, options);
+  }, [chats, currentChatId, graphEnabled, offlineMode, isAnswering, userId, startStreaming]);
 
   // 暂停回答：暂停打字机，不中断请求
   const pauseStreaming = useCallback((msgId) => {
@@ -1474,8 +1522,6 @@ export default function Chat({ user }) {
     const chartRef = useRef(null);
     const chartInstanceRef = useRef(null);
     const triplets = Array.isArray(msg.kgTriplets) ? msg.kgTriplets : [];
-    if (!triplets.length) return null;
-
     const nodeSet = new Set();
     const edges = [];
     triplets.forEach((t) => {
@@ -1594,6 +1640,8 @@ export default function Chat({ user }) {
       };
     }, []);
 
+    if (!triplets.length) return null;
+
     return (
       <div className="mt-3 rounded-xl border border-teal-500/20 bg-teal-500/5 overflow-hidden">
         <button
@@ -1695,6 +1743,7 @@ export default function Chat({ user }) {
                 }}
               />
 
+              <DatabaseResult result={msg.databaseResult} />
               <GraphPanel msg={msg} />
 
               {/* 流式控制按钮：仅暂停时显示“继续回答” */}
@@ -1771,10 +1820,7 @@ export default function Chat({ user }) {
       userId={userId}
       userRole={userRole}
       initialSettings={userSettings}
-      onClearChats={() => {
-        setChats([]);
-        setCurrentChatId(null);
-      }}
+      onClearChats={() => removeChats()}
       onSettingsChange={(next) => {
         const normalized = normalizeSettings(next || {});
         setUserSettings(normalized);
@@ -1783,10 +1829,7 @@ export default function Chat({ user }) {
           setOfflineMode(normalized.offlineOn ?? false);
         }
       }}
-      onDeleteChat={(id) => {
-        setChats((prev) => prev.filter((c) => c.id !== id));
-        if (currentChatId === id) setCurrentChatId(null);
-      }}
+      onDeleteChat={(id) => removeChats(id)}
     />;
   }
 
@@ -1799,6 +1842,7 @@ export default function Chat({ user }) {
         background: themeSurface.shellBg,
       }}
     >
+      {showEquipment && <EquipmentPanel baseURL={API_CONFIG.baseURL} userId={userId} userRole={userRole} onClose={() => setShowEquipment(false)} isAnswering={isAnswering} onQuestion={(question) => { setShowEquipment(false); handleSend(question, { queryMode: "equipment", useLlm: false }); }} />}
       {/* ========== 左侧边栏 ========== */}
       <aside className="w-64 z-20 flex flex-col h-full shrink-0 glass-sidebar">
         <div className="p-5">
@@ -1826,6 +1870,7 @@ export default function Chat({ user }) {
               return (
                 <div
                   key={chat.id}
+                  data-chat-id={chat.id}
                   onClick={() => loadChat(chat.id)}
                   className={`history-item group flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-colors ${isActive
                     ? isLightUi
@@ -1913,6 +1958,9 @@ export default function Chat({ user }) {
             </h1>
           </div>
           <div className="flex items-center gap-4">
+            <button type="button" onClick={() => setShowEquipment(true)} className="flex items-center gap-2 px-3 py-1.5 rounded-md border border-teal-400/25 text-teal-300 text-xs">
+              <i className="ph ph-database text-sm"></i> 设备数据
+            </button>
             <button
               onClick={handleExport}
               className="flex items-center gap-2 px-3 py-1.5 rounded-md border border-white/10 hover:bg-white/5 transition-colors text-xs text-gray-300"
@@ -1947,6 +1995,8 @@ export default function Chat({ user }) {
                 <br />
                 请告诉我您想了解的船舶设备问题
               </p>
+
+              <EquipmentDemoCard baseURL={API_CONFIG.baseURL} disabled={isAnswering} onQuestion={(question) => handleSend(question, { queryMode: "equipment", useLlm: false })} />
 
               <div className="quick-grid">
                 {QUICK_CARDS.map((card) => (
@@ -2217,6 +2267,13 @@ export default function Chat({ user }) {
           </div>
 
           <div className="flex-1 overflow-y-auto p-6 custom-scrollbar">
+            <div className="sidebar-card p-4 mb-4 rounded-xl border border-white/10">
+              <label className="text-xs text-gray-400 block mb-2" htmlFor="query-source">回答来源</label>
+              <select id="query-source" value={queryMode} onChange={(event) => setQueryMode(event.target.value)} className="w-full rounded-lg p-2 text-sm bg-[#0a2530] border border-white/10">
+                <option value="auto">自动选择</option><option value="equipment">设备数据</option><option value="knowledge">维修手册与知识图谱</option>
+              </select>
+              <p className="text-xs text-gray-500 mt-2">设备参数、检修日期和次数统计查询设备数据；故障排查检索手册。</p>
+            </div>
             {/* 海上天气 */}
             <WeatherFeature userId={userId} />
 
@@ -2273,7 +2330,7 @@ export default function Chat({ user }) {
                 <Switch checked={offlineMode} onChange={setOfflineMode} />
               </div>
               <p className="text-xs text-gray-500 leading-relaxed mt-2">
-                启用后，将调用本地部署的大模型和知识库，不依赖外部网络连接
+                启用后使用知识库抽取和设备查询规则，跳过在线大模型；仍需连接后端服务器
               </p>
             </div>
           </div>

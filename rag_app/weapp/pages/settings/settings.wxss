@@ -252,3 +252,6 @@
   background: linear-gradient(135deg, #0d9488, #0a2540);
   color: #fff;
 }
+
+.settings-error { display: block; color: #fca5a5; padding: 12rpx; }
+.setting-item slider { width: 300rpx; margin: 0; }

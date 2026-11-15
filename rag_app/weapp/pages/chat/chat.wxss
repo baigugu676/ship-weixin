@@ -839,3 +839,20 @@
 .vision-collapsed-close:active {
   color: #fb7185;
 }
+
+.demo-card { width: 100%; box-sizing: border-box; padding: 24rpx; margin: 24rpx 0; border: 1px solid #14b8a655; border-radius: 20rpx; background: #14b8a60d; text-align: left; }
+.demo-title { display: block; color: #2dd4bf; font-size: 30rpx; font-weight: bold; }
+.demo-note { display: block; font-size: 22rpx; color: #94a3b8; margin: 8rpx 0 16rpx; }
+.demo-question { padding: 10rpx 0; font-size: 24rpx; color: #5eead4; }
+.mode-picker { padding: 10rpx 0; color: #2dd4bf; font-size: 24rpx; }
+.sync-hint { padding: 12rpx; color: #fbbf24; font-size: 24rpx; }
+.sql-code { display: block; white-space: pre-wrap; font-family: monospace; background: #0003; padding: 16rpx; font-size: 22rpx; word-break: break-all; }
+.sql-table-scroll { width: 100%; margin: 12rpx 0; }
+.sql-table { display: inline-block; min-width: 100%; }
+.sql-row { display: flex; border-bottom: 1px solid #94a3b833; }
+.sql-head { color: #2dd4bf; font-weight: bold; }
+.sql-cell { width: 230rpx; flex-shrink: 0; padding: 12rpx; box-sizing: border-box; font-size: 22rpx; word-break: break-all; }
+.message-tools { text-align: right; color: #94a3b8; padding: 8rpx 0; font-size: 22rpx; }
+.chat-container .message-text { font-size: inherit; }
+.welcome-section { overflow-y: auto; padding-bottom: 260rpx; }
+.nav-btn { min-width: 62rpx; width: auto; padding: 0 8rpx; font-size: 23rpx; }

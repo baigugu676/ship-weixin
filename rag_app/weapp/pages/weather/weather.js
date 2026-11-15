@@ -1,5 +1,6 @@
 // pages/weather/weather.js
 const api = require('../../utils/api.js');
+const app = getApp();
 
 const WEEKDAYS = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
 
@@ -23,6 +24,8 @@ function decorateForecast(data) {
 
 Page({
   data: {
+    appearance: 'dark',
+    fontSize: 16,
     locations: [],
     activeId: null,
     activeLocation: null,
@@ -60,11 +63,11 @@ Page({
       histYear: now.getFullYear(),
       histMonth: now.getMonth() + 1,
     });
-    this.refresh();
   },
 
   onShow() {
-    // 登录后/每次进入自动抓取最新天气并归档
+    if (!app.globalData.userInfo) { wx.reLaunch({ url: '/pages/login/login' }); return; }
+    this.setData(app.appearance());
     this.refresh();
   },
 
@@ -78,6 +81,7 @@ Page({
   },
 
   async refresh() {
+    const sequence = this.refreshSequence = (this.refreshSequence || 0) + 1;
     const loc = this.activeLocation();
     if (!loc) {
       this.setData({ forecast: null, activeLocation: null });
@@ -86,8 +90,10 @@ Page({
     this.setData({ loading: true, error: '', activeLocation: loc });
     try {
       const data = await api.getWeatherForecast(loc.lat, loc.lon, 5);
+      if (sequence !== this.refreshSequence) return;
       this.setData({ forecast: decorateForecast(data), loading: false });
     } catch (err) {
+      if (sequence !== this.refreshSequence) return;
       this.setData({ forecast: null, loading: false, error: err.message || '获取天气失败，请检查网络' });
     }
   },

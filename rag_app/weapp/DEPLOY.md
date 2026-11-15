@@ -1,235 +1,71 @@
-# 微信小程序部署指南
+# 微信小程序部署与联调
 
-## 一、开发环境调试
+本指南依据 2026-11-04 的仓库实现。小程序结构见 [README.md](README.md)，后端运行与持久化见 [部署文档](../backend_docker_and_frontend_call.md)，API 见 [接口协议](../react/frontend_api.md)。
 
-### 1. 启动后端服务
+## 本地开发
 
-确保后端服务在本地运行：
+先按主 README 安装依赖、配置 `.env` 和模型缓存，再从 `rag_app/` 执行：
 
 ```bash
-cd rag_app
-python api_server.py
-# 或
-uvicorn api_server:app --host 0.0.0.0 --port 8000
+python -m uvicorn api_server:app --host 0.0.0.0 --port 8000
 ```
 
-### 2. 微信开发者工具设置
+`python api_server.py` 不是启动命令：该文件当前没有直接运行 Uvicorn 的入口。
 
-1. 打开微信开发者工具
-2. 导入 `rag_app/weapp` 目录
-3. 点击右上角 **"详情"** → **"本地设置"**
-4. 勾选以下选项：
-   - [x] 不校验合法域名、web-view（业务域名）、TLS 版本以及 HTTPS 证书
-   - [x] 不校验请求域名
-   - [x] 不校验 HTTPS 证书
+在微信开发者工具中导入 `rag_app/weapp/`，核对自己的 AppID，将 `app.js` 中的 `globalData.apiBaseURL` 改为调试后端。本地版本默认使用 `http://127.0.0.1:8000`，也可在登录页的“后端连接设置”保存真机或云端地址。
 
-### 3. 修改 API 地址
+| 场景 | 地址 |
+|---|---|
+| 开发者工具和后端在同一电脑 | `http://localhost:8000` |
+| 真机访问局域网电脑 | `http://<电脑局域网IP>:8000`，手机需能访问该端口 |
+| 云端/发布部署 | 实际可达的 HTTPS API 地址 |
 
-在 `weapp/app.js` 中确认：
+本地调试时可使用开发工具的“不校验合法域名、web-view（业务域名）、TLS 版本以及 HTTPS 证书”选项。真机不能用 `localhost` 访问电脑；切换网络后应重新核对地址与端口。
 
-```javascript
-apiBaseURL: 'http://localhost:8000'
-```
+`utils/api.js` 已从 `app.globalData.apiBaseURL` 读取地址，可在登录页保存当前设备地址，或修改 `app.js` 默认值。Cloud Studio 演示还需确保工作区和后端服务已启动。
 
-> 注意：如果后端不在本机，请修改为实际 IP 地址，如 `http://192.168.1.100:8000`
+## HTTPS 与流式代理
 
-### 4. 真机调试
+部署时配置实际的 HTTPS 后端及证书，按微信公众平台当前的服务器域名要求配置 request 和 uploadFile 域名；如使用下载接口，再配置相应 downloadFile 域名。具体账号权限、审核和位置能力要求以平台控制台为准。
 
-1. 点击开发者工具顶部的 **"真机调试"**
-2. 扫描二维码在手机上预览
-3. 确保手机和电脑在同一局域网
-
----
-
-## 二、生产环境部署
-
-### 1. 后端部署
-
-#### 1.1 配置 HTTPS
-
-微信小程序要求所有网络请求使用 HTTPS。可以使用以下方案：
-
-**方案 A：Nginx 反向代理（推荐）**
+代理需要同时转发 `/auth`、`/users`、`/rag`、`/vision`、`/weather`、`/equipment`。下面片段放入已配置 TLS 的 Nginx `server`，假设代理和 API 位于同一主机：
 
 ```nginx
-server {
-    listen 443 ssl;
-    server_name your-domain.com;
-
-    ssl_certificate /path/to/cert.pem;
-    ssl_certificate_key /path/to/key.pem;
-
-    location / {
-        proxy_pass http://127.0.0.1:8000;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        
-        # SSE 支持
-        proxy_buffering off;
-        proxy_cache off;
-        proxy_read_timeout 86400s;
-        proxy_send_timeout 86400s;
-    }
+location / {
+    proxy_pass http://127.0.0.1:8000;
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_buffering off;
+    proxy_cache off;
+    proxy_read_timeout 600s;
+    proxy_send_timeout 600s;
 }
 ```
 
-**方案 B：使用云服务器 + 域名**
+关闭缓冲以避免 SSE 积累到末尾才显示。后端检索和模型初始化期间可能没有后续事件，代理超时应结合实际模型延迟验证。CORS 与微信平台域名配置是不同机制；后端当前允许所有 CORS 来源，并不替代域名配置或鉴权。
 
-- 购买域名并备案（国内服务器必须备案）
-- 申请 SSL 证书（Let's Encrypt 免费）
-- 配置域名解析到服务器 IP
+将 `app.js` 中的地址改为实际部署地址后，测试登录、流式问答、三种查询模式、设备总览、SQL 表格、CSV 导入/导出、文档上传、图片识别、天气及历史查询。`app.json` 已声明定位权限和 `getLocation` 隐私接口，但仍需核对平台配置与用户授权。
 
-#### 1.2 确保 CORS 正常
+## 更新与发布
 
-后端 `api_server.py` 已配置：
+1. 使用自己的 AppID 和后端地址，在开发工具及真机完成联调。
+2. 通过开发工具上传代码，在平台版本管理中按当前流程提交审核、发布。
+3. 后端更新后重启服务，配置和数据目录按后端部署文档持久化；API 不兼容变更需同步更新两端。
+4. React 网页单独在 `react/` 构建并部署。网页生产构建使用同源 API，支持 HTTPS 托管；独立后端可在构建时通过 `VITE_API_BASE_URL` 指定。
 
-```python
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # 生产环境建议改为具体域名
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-```
+## 当前实现边界
 
-生产环境建议修改为：
+- 登录接口仅校验账号密码，不签发 token；后续设置、聊天、上传等业务接口没有登录身份校验，公开部署前需完善服务端鉴权。
+- 默认演示账号为 `admin` 和 `captain_park`，密码均为 `123456`；不能依赖登录界面隔离数据。
+- 文档上传追加到共享知识库，用户目录不提供私有检索权限；文档接口暂无显式服务端大小上限，图片单独限制为 10 MiB。
+- 设置的“离线模式”是抽取式答案，不是自动切换 Ollama；问题分解也需要核对后端配置。图片和天气需要联网。
+- 临时公网映射或云工作区地址变化后，要同时核对 `app.js` 和平台配置；本指南不保证某一演示地址持续可用。
 
-```python
-allow_origins=[
-    "https://your-domain.com",
-    "https://your-miniapp-domain.com",  # 如果有 H5 版
-]
-```
+## 双端升级顺序
 
-### 2. 小程序后台配置
+先部署同版本后端和网页构建，再在开发者工具导入此小程序目录。数据库启动时自动新增 `chat_deletions` 表，保留账号、旧会话、天气和设备记录，不需要清库。验证同一账号两端各建一个会话、互相刷新都能看见，再删除其中一个并确认另一端不会恢复。模拟记录不会在启动或升级时重复填入。
 
-登录 [微信公众平台](https://mp.weixin.qq.com/)：
-
-1. 进入 **开发管理** → **开发设置**
-2. 在 **服务器域名** 中添加：
-   - **request 合法域名**：`https://your-domain.com`
-   - **uploadFile 合法域名**：`https://your-domain.com`
-   - **downloadFile 合法域名**：`https://your-domain.com`
-3. 保存并等待生效（约 5 分钟）
-
-### 3. 修改小程序 API 地址
-
-修改 `weapp/app.js`：
-
-```javascript
-App({
-  globalData: {
-    apiBaseURL: 'https://your-domain.com',
-  }
-});
-```
-
-同时修改 `utils/api.js` 中的 `getBaseURL()` 函数，确保所有请求都使用 HTTPS。
-
-### 4. 上传代码
-
-1. 在微信开发者工具中点击 **"上传"**
-2. 填写版本号和项目备注
-3. 上传成功后，登录微信公众平台
-4. 进入 **版本管理** → **开发版本**
-5. 点击 **"提交审核"**
-6. 审核通过后，点击 **"发布"**
-
----
-
-## 三、内网穿透方案（快速测试）
-
-如果没有公网服务器，可以使用内网穿透工具临时测试：
-
-### 使用 ngrok
-
-```bash
-# 安装 ngrok
-# 注册并获取 authtoken
-ngrok config add-authtoken YOUR_TOKEN
-
-# 启动穿透
-ngrok http 8000
-```
-
-获取到的 `https://xxxx.ngrok-free.app` 地址可以临时填入小程序后台的合法域名中（需要是付费版 ngrok 才能绑定自定义域名）。
-
-### 使用花生壳/FRP
-
-配置类似，将本地 8000 端口映射到公网域名即可。
-
-> ⚠️ 注意：免费内网穿透工具通常有流量限制和域名变动问题，仅适合临时测试。
-
----
-
-## 四、同时支持电脑端和手机端
-
-当前架构已天然支持多端：
-
-```
-用户访问方式：
-├─ 电脑浏览器 → https://your-domain.com/ → 加载 React 前端
-├─ 手机浏览器 → https://your-domain.com/ → 加载 React 前端（响应式）
-└─ 微信小程序 → 打开小程序 → 调用同一套 API
-```
-
-### 可选：为电脑端添加手机端 H5 页面
-
-如果希望手机浏览器也能获得更好的体验，可以：
-
-1. 保持现有 React 代码不变（它已经是响应式的）
-2. 或者单独构建一个手机端 H5 页面（如使用 Vue3 + Vant）
-3. 部署到同一域名的 `/mobile` 路径下
-
-### 可选：后端自动识别客户端
-
-可以在 `api_server.py` 中添加：
-
-```python
-from fastapi import Request
-
-@app.get("/client/detect")
-def detect_client(request: Request):
-    ua = request.headers.get("user-agent", "")
-    if "MicroMessenger" in ua:
-        if "miniProgram" in ua:
-            return {"client": "weapp", "name": "微信小程序"}
-        return {"client": "wechat", "name": "微信内置浏览器"}
-    if "Mobile" in ua or "Android" in ua or "iPhone" in ua:
-        return {"client": "mobile", "name": "手机浏览器"}
-    return {"client": "desktop", "name": "电脑浏览器"}
-```
-
----
-
-## 五、安全建议
-
-1. **HTTPS 必须**：微信小程序强制要求 HTTPS
-2. **域名备案**：使用国内服务器必须备案
-3. **API 鉴权**：建议为 API 添加 Token 鉴权（当前仅使用 user_id + password）
-4. **数据加密**：敏感配置（如 neo4j 密码）不要在小程序前端暴露
-5. **文件上传限制**：限制上传文件大小和类型
-6. ** rate limiting**：为 API 添加请求频率限制
-
----
-
-## 六、更新维护
-
-### 更新小程序
-
-1. 修改代码后，在微信开发者工具点击 **"上传"**
-2. 在小程序后台提交审核
-3. 审核通过后发布
-
-### 更新后端
-
-直接更新服务器上的后端代码，重启服务即可。小程序端无需改动。
-
-### 更新电脑端
-
-1. 修改 `rag_app/react/src/` 下的代码
-2. 运行 `npm run build`
-3. 将 `dist/` 目录部署到服务器
-4. 小程序端完全不受影响
+小程序源代码同步到服务器不等于微信平台版本已更新：开发工具编译、真机预览和上传体验版是独立步骤。本次改动没有代替用户提交审核或发布正式版。

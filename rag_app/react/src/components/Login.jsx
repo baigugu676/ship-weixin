@@ -1,7 +1,7 @@
+import { API_BASE_URL } from "../api";
 import { useState } from 'react';
 
-const API_HOST = window.location.hostname || '127.0.0.1';
-const BASE_URL = `http://${API_HOST}:8000`;
+const BASE_URL = API_BASE_URL;
 
 export default function Login({ onLogin }) {
     const [userId, setUserId] = useState('');

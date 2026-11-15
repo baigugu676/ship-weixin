@@ -1,0 +1,24 @@
+.equipment-page { min-height: 100vh; padding: 32rpx; box-sizing: border-box; background: #041527; padding-bottom: 80rpx; }
+.page-heading, .actions { display: flex; justify-content: space-between; align-items: center; gap: 16rpx; }
+.page-title { font-size: 38rpx; font-weight: bold; color: #f1f5f9; }
+.subtitle, .muted { display: block; font-size: 23rpx; color: #94a3b8; margin: 8rpx 0; }
+.section-title { display: block; font-weight: bold; margin-bottom: 16rpx; color: #e2e8f0; }
+.demo-label, .notice { padding: 18rpx; border: 1px solid #14b8a644; border-radius: 12rpx; background: #14b8a615; color: #5eead4; font-size: 24rpx; margin: 16rpx 0; }
+.error-box { display: block; padding: 16rpx; color: #fca5a5; background: #ef444415; border-radius: 12rpx; word-break: break-all; }
+.counter-grid { display: flex; flex-wrap: wrap; gap: 12rpx; margin: 20rpx 0; }
+.counter { flex: 1; min-width: 140rpx; padding: 16rpx; background: #ffffff06; border: 1px solid #ffffff15; border-radius: 12rpx; }
+.counter-value { display: block; color: #2dd4bf; font-size: 40rpx; font-weight: bold; }
+.demo-question { padding: 14rpx 0; color: #5eead4; border-bottom: 1px solid #ffffff0d; font-size: 25rpx; }
+.device, .record { padding: 20rpx 0; border-bottom: 1px solid #ffffff1a; }
+.device-name { display: block; font-size: 27rpx; font-weight: bold; }
+.bar-row { display: flex; align-items: center; gap: 20rpx; font-size: 23rpx; margin: 12rpx 0; }
+.bar-row > text { width: 130rpx; }
+.bar-track { flex: 1; background: #ffffff0d; height: 12rpx; border-radius: 8rpx; overflow: hidden; }
+.bar { height: 100%; border-radius: 8rpx; }
+.alarm { background: #f59e0b; }
+.fault { background: #ef4444; }
+.picker, .field-input { padding: 20rpx; background: #ffffff08; border: 1px solid #ffffff22; border-radius: 12rpx; margin: 16rpx 0; color: #e2e8f0; font-size: 26rpx; }
+.small-btn { padding: 12rpx 20rpx; border: 1px solid #14b8a655; border-radius: 10rpx; color: #2dd4bf; font-size: 25rpx; text-align: center; }
+.field { margin: 20rpx 0; font-size: 25rpx; }
+.record-cell { display: flex; justify-content: space-between; gap: 20rpx; font-size: 24rpx; padding: 4rpx 0; }
+.record-cell > text:last-child { max-width: 66%; word-break: break-all; text-align: right; }

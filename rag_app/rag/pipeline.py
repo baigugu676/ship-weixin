@@ -63,12 +63,14 @@ class RagPipeline:
             self.chunks, SETTINGS.index_dir, allow_build=not query_only
         )
         self.bm25 = build_bm25(self.chunks)
-        self.parent_retriever = build_parent_document_retriever(
-            self.chunks,
-            embedding_model=SETTINGS.embedding_model,
-            search_k=max(1, SETTINGS.parent_retriever_k),
-            persist_dir=SETTINGS.parent_index_cache_dir,
-        )
+        self.parent_retriever = None
+        if SETTINGS.use_parent_retriever:
+            self.parent_retriever = build_parent_document_retriever(
+                self.chunks,
+                embedding_model=SETTINGS.embedding_model,
+                search_k=max(1, SETTINGS.parent_retriever_k),
+                persist_dir=SETTINGS.parent_index_cache_dir,
+            )
         self.decomposer = self._build_decomposer()
         self._chain = self._build_chain()
 

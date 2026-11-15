@@ -61,6 +61,14 @@ class ChatSession(Base):
     messages = relationship("ChatMessage", back_populates="session", cascade="all, delete-orphan")
 
 
+class ChatDeletion(Base):
+    """Explicit deletions survive stale snapshots from another client."""
+    __tablename__ = "chat_deletions"
+    user_id = Column(String, ForeignKey("users.user_id"), primary_key=True)
+    session_id = Column(String, primary_key=True)
+    deleted_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+
 class ChatMessage(Base):
     """
     用于记录 Chat 里的具体消息记录 (User 和 AI 的一问一答)

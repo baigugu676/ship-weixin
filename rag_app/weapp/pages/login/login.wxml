@@ -60,6 +60,12 @@
         </view>
       </view>
 
+      <view class="server-toggle" bindtap="toggleServerConfig">后端连接设置 {{showServerConfig ? '▴' : '▾'}}</view>
+      <view class="server-config" wx:if="{{showServerConfig}}">
+        <text>开发工具用 127.0.0.1，真机填写电脑局域网 IP 或云端 HTTPS 地址。</text>
+        <input class="server-input" value="{{apiBaseURL}}" bindinput="onServerInput" maxlength="300" placeholder="http://127.0.0.1:8000" />
+        <view class="server-toggle" bindtap="saveServerConfig">保存后端地址</view>
+      </view>
       <!-- 登录按钮 -->
       <button 
         class="login-btn {{loading ? 'loading' : ''}}" 

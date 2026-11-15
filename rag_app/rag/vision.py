@@ -12,7 +12,6 @@ from typing import Optional
 from langchain_core.messages import HumanMessage
 
 from .config import SETTINGS
-from .model import build_chat_llm
 
 logger = logging.getLogger(__name__)
 
@@ -56,6 +55,8 @@ def encode_image_for_vision(image_bytes: bytes) -> str:
 
 def _invoke_vision(data_url: str, user_text: str, model_name: str) -> str:
     """用指定视觉模型生成描述，失败抛异常。"""
+    from .model import build_chat_llm
+
     llm = build_chat_llm(
         provider=SETTINGS.vision_provider,
         model_name=model_name,

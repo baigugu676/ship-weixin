@@ -187,3 +187,13 @@ page {
   padding-bottom: constant(safe-area-inset-bottom);
   padding-bottom: env(safe-area-inset-bottom);
 }
+
+/* Scoped appearance supports base libraries without theme events. */
+.light { --bg-dark: #f8fafc; --bg-panel: #ffffff; --text-main: #0f172a; --text-secondary: #475569; --border: #cbd5e1; background: #f8fafc !important; color: #0f172a; }
+.light .card, .light .setting-item, .light .user-card, .light .history-item, .light .counter, .light .record, .light .trace-panel, .light .citations-panel, .light .kg-panel { background: #ffffff; border-color: #cbd5e1; color: #0f172a; }
+.light .nav-bar, .light .input-section, .light .input-bar, .light .modal-content { background: #f8fafc; border-color: #cbd5e1; color: #0f172a; }
+.light .message-bubble-ai { background: #ffffff; border-color: #cbd5e1; color: #0f172a; }
+.light .user-name, .light .setting-name, .light .info-value, .light .history-title, .light .nav-title, .light .welcome-title, .light .page-title, .light .device-name, .light .section-title, .light .chat-input, .light .field-input { color: #0f172a; }
+.light .muted, .light .subtitle, .light .setting-desc, .light .demo-note, .light .trace-step { color: #475569; }
+.light .field-input, .light .picker, .light .setting-input { background: #ffffff; color: #0f172a; border-color: #cbd5e1; }
+.light .small-btn, .light .mode-picker, .light .demo-question, .light .demo-title { color: #0f766e; }

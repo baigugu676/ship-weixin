@@ -9,15 +9,27 @@ Page({
     showPassword: false,
     loading: false,
     error: '',
+    apiBaseURL: '',
+    showServerConfig: false,
   },
 
   onLoad() {
+    this.setData({ apiBaseURL: app.globalData.apiBaseURL });
     // 如果已登录，直接跳转到聊天页
     if (app.globalData.userInfo) {
       wx.switchTab({ url: '/pages/chat/chat' });
     }
   },
 
+  toggleServerConfig() { this.setData({ showServerConfig: !this.data.showServerConfig }); },
+  onServerInput(e) { this.setData({ apiBaseURL: e.detail.value }); },
+  saveServerConfig() {
+    try {
+      app.setAPIBaseURL(this.data.apiBaseURL);
+      this.setData({ apiBaseURL: app.globalData.apiBaseURL, error: '', showServerConfig: false });
+      wx.showToast({ title: '后端地址已保存', icon: 'success' });
+    } catch (error) { this.setData({ error: error.message }); }
+  },
   onUserIdInput(e) {
     this.setData({ userId: e.detail.value, error: '' });
   },
@@ -45,9 +57,11 @@ Page({
       
       if (data.ok && data.user) {
         // 保存用户数据
+        app.clearUserData();
         app.setUserInfo(data.user);
         app.setSettings(api.normalizeSettings(data.settings));
         app.setChats(data.chats || []);
+        app.setDeletedChatIds(data.deleted_chat_ids || []);
 
         wx.showToast({
           title: '登录成功',

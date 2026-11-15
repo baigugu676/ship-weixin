@@ -1,168 +1,89 @@
-# 智能船舶问答系统 - 微信小程序端
+# 智能船舶问答系统 · 微信小程序
 
-本项目为智能船舶问答系统的微信小程序端，与原有电脑端（React）完全独立，共用同一套后端 API。
+原生微信小程序，与 React 网页端共用 `api_server.py` 提供的 API。本文依据 2026-11-04 的实现。
 
-## 项目结构
+## 页面与功能
 
-```
-weapp/
-├── app.js              # 小程序全局逻辑
-├── app.json            # 小程序全局配置
-├── app.wxss            # 小程序全局样式
-├── sitemap.json        # 小程序索引配置
-├── utils/
-│   └── api.js          # API 封装与工具函数
-├── pages/
-│   ├── login/          # 登录页
-│   ├── chat/           # 聊天问答页（核心页面）
-│   ├── history/        # 历史记录页
-│   └── settings/       # 设置页
-└── assets/
-    └── icons/          # TabBar 图标（需自行准备）
-```
+| 页面/模块 | 功能 |
+|---|---|
+| `pages/login/` | 账号密码登录 |
+| `pages/chat/` | SSE 问答、三种查询模式、SQL 与表格、引用、图谱、文档上传、图片辅助诊断、回答复制与导出 |
+| `pages/weather/` | 定位和地点搜索、天气预报、按年月查询历史 |
+| `pages/history/` | 本机缓存与云端合并、搜索、加载、Markdown 导出、单条删除与清空 |
+| `pages/equipment/` | 设备总览、报警/故障排名、六个演示提问、五类记录浏览、管理员表单与 CSV 导入、模板导出 |
+| `pages/settings/` | 用户资料、主题、图谱与离线开关等偏好 |
+| `utils/api.js` | API 请求、分块流解析、上传封装和会话标识 |
+| `utils/markdown.js` | 回答 Markdown 展示辅助 |
+| `assets/icons/` | 问答、天气、历史、设置四组 TabBar 图标，仓库已包含 |
 
-## 功能特性
+应用通过本地存储恢复用户、设置和聊天，并与服务端同步。客户端保存的登录数据不等于服务端认证会话。
 
-- ✅ 用户登录（复用后端 `/auth/login` 接口）
-- ✅ 流式问答（SSE 兼容，支持打字机效果）
-- ✅ 知识图谱开关、离线模式切换
-- ✅ 文件上传（支持 md/pdf/txt）
-- ✅ 聊天记录本地缓存 + 服务器同步
-- ✅ 参考文献与知识图谱三元组展示
-- ✅ 用户设置管理
-- ✅ 历史记录浏览与加载
+## 导入和启动
 
-## 快速开始
+1. 按 [主 README](../README.md) 配置并启动后端。
+2. 用微信开发者工具导入 `rag_app/weapp/`，使用自己的 AppID 核对项目配置；运行配置以该目录的 `app.json`、`project.config.json` 为准。
+3. 默认访问 `http://127.0.0.1:8000`。登录页展开“后端连接设置”可保存当前设备的地址，也可修改 `app.js` 的 `globalData.apiBaseURL`。
+4. 开发工具本地调试可关闭请求域名及证书校验；真机和发布环境按平台配置要求验证。
 
-### 1. 准备开发环境
-
-1. 下载并安装 [微信开发者工具](https://developers.weixin.com/miniprogram/dev/devtools/download.html)
-2. 注册微信小程序账号（个人或企业）
-3. 获取小程序的 AppID
-
-### 2. 导入项目
-
-1. 打开微信开发者工具
-2. 选择 "导入项目"
-3. 选择 `rag_app/weapp` 目录
-4. 填写你的 AppID
-5. 点击确定
-
-### 3. 准备 TabBar 图标
-
-在 `assets/icons/` 目录下放置以下图标（建议尺寸 81x81px，PNG 格式）：
-
-- `chat.png` / `chat-active.png`
-- `history.png` / `history-active.png`
-- `settings.png` / `settings-active.png`
-
-> 如果没有图标，可以临时将 `app.json` 中的 `tabBar` 配置删除，使用无图标模式。
-
-### 4. 配置后端地址
-
-修改 `app.js` 中的 `apiBaseURL`：
+本地版本默认连接本机后端。真机请填写电脑的局域网地址，云端使用实际 HTTPS 地址。地址保存在当前设备，退出登录后保留；Cloud Studio 地址还取决于云工作区运行状态。
 
 ```javascript
-App({
-  globalData: {
-    // 开发环境（需要开启微信开发者工具的"不校验合法域名"）
-    apiBaseURL: 'http://localhost:8000',
-    
-    // 生产环境（必须是 HTTPS + 已备案域名）
-    // apiBaseURL: 'https://your-domain.com',
-  }
-});
+// 本机开发工具访问本机后端
+apiBaseURL: 'http://localhost:8000'
+
+// 真机访问同一局域网电脑上的后端：改成电脑的实际局域网 IP
+// apiBaseURL: 'http://192.168.1.100:8000'
+
+// 部署后的 HTTPS 后端
+// apiBaseURL: 'https://your-domain.example'
 ```
 
-### 5. 开发调试
+`utils/api.js` 的 `getBaseURL()` 已统一读取上述配置，登录页可覆盖默认值，无需再修改第二份地址。真机的 `localhost` 指手机自身；局域网调试需确保手机能访问电脑端口，后端应监听 `0.0.0.0:8000`。
 
-在微信开发者工具中：
+## API 与问答行为
 
-1. 点击右上角 "详情" → "本地设置"
-2. 勾选 **"不校验合法域名、web-view（业务域名）、TLS 版本以及 HTTPS 证书"**
-3. 这样就可以连接本地 `http://localhost:8000` 进行调试
+共用的接口包括 `/auth/login`、`/users/{user_id}/settings`、`/users/{user_id}/chats`、`/rag/query/stream`、`/rag/query`、`/rag/incremental/upload`、`/vision/describe` 以及 `/weather/*`。完整字段和 SSE 事件见 [接口文档](../react/frontend_api.md)。
 
-## 后端适配说明
-
-### 已有接口（无需修改）
-
-微信小程序直接复用原有后端接口：
-
-| 接口 | 方法 | 用途 |
-|------|------|------|
-| `/auth/login` | POST | 用户登录 |
-| `/users/{id}/settings` | GET/PUT | 用户设置 |
-| `/users/{id}/chats` | GET/PUT | 聊天记录 |
-| `/rag/query/stream` | POST | 流式问答（SSE） |
-| `/rag/query` | POST | 普通问答 |
-| `/rag/incremental/upload` | POST | 文件上传 |
-
-### 生产环境部署要点
-
-1. **HTTPS**：微信小程序要求所有网络请求必须使用 HTTPS
-2. **域名白名单**：在微信小程序后台 → 开发管理 → 开发设置 → 服务器域名中，添加：
-   - request 合法域名：`https://your-domain.com`
-   - uploadFile 合法域名：`https://your-domain.com`
-3. **CORS**：后端已配置 `allow_origins=["*"]`，无需额外修改
-
-### 可选：后端添加小程序专用接口
-
-如果需要在后端区分小程序和电脑端，可以在 `api_server.py` 中添加请求头识别：
-
-```python
-@app.middleware("http")
-async def identify_client(request, call_next):
-    user_agent = request.headers.get("user-agent", "")
-    is_weapp = "MicroMessenger" in user_agent and "miniProgram" in user_agent
-    # 可根据 is_weapp 做不同处理
-    response = await call_next(request)
-    return response
-```
-
-## 与电脑端的关系
-
-```
-┌─────────────────┐      ┌─────────────────┐
-│   电脑端 (React) │      │  微信小程序端    │
-│  rag_app/react/  │      │ rag_app/weapp/  │
-└────────┬────────┘      └────────┬────────┘
-         │                        │
-         └──────────┬─────────────┘
-                    │
-         ┌──────────▼──────────┐
-         │   后端 API (FastAPI) │
-         │   rag_app/api_server.py
-         └─────────────────────┘
-```
-
-- 电脑端代码完全不变，继续独立维护
-- 小程序端是全新代码，不依赖电脑端
-- 两端共用同一套后端 API 和数据
-
-## 注意事项
-
-1. **SSE 流式响应**：微信小程序使用 `enableChunked: true` 来支持流式响应，需要基础库版本 2.10.0+
-2. **文件上传**：微信小程序使用 `wx.chooseMessageFile` 选择文件，仅支持 md/pdf/txt
-3. **本地存储**：聊天记录和设置会同时保存在本地（`wx.setStorageSync`）和服务器
-4. **安全**：生产环境务必使用 HTTPS，并在小程序后台配置合法域名
+- 流式问答使用 `wx.request` 分块接收，运行基础库需支持 `enableChunked` 和 `onChunkReceived`；事件解析需处理跨传输块的文本。
+- “离线模式”发送 `use_llm=false`，使用抽取式回答，不会自动调用 Ollama；默认问题分解仍可能访问在线模型，需同时核对后端配置。
+- 文件上传支持 TXT、Markdown、PDF，进入共享知识索引，不是私有用户知识库。服务端文档接口目前没有显式大小上限。
+- 图片先调用 `/vision/describe`，最大 10 MiB，再将用户确认后的描述提交问答。
+- 位置功能在 `app.json` 已声明 `scope.userLocation` 和 `requiredPrivateInfos: ["getLocation"]`；是否可用还取决于用户授权及平台配置。
+- 当前后端登录只校验密码，设置、聊天和上传等接口尚无服务端登录身份校验。
 
 ## 常见问题
 
-**Q: 请求失败，提示 "fail url not in domain list"？**
-A: 在开发者工具中勾选 "不校验合法域名"，或确保后端域名已添加到小程序后台的服务器域名列表中。
+- 请求地址错误：检查 `app.js`，真机不要使用 `localhost`；Cloud Studio 地址还需确认工作区与 8000 端口服务在运行。
+- 域名校验失败：核对开发工具本地设置和平台的 request/uploadFile 域名配置，修改 CORS 不能替代平台配置。
+- 收到初始事件后长时间无文本：后端可能在模型预热、检索或等待上游模型，查看服务端日志；首个 `meta` 不代表生成已开始。
+- 定位不可用：检查用户授权和小程序位置配置，可改用地点搜索。
+- 修改颜色：公共样式在 `app.wxss`，各页面另有对应 `wxss`。
 
-**Q: 流式输出没有反应？**
-A: 检查后端是否支持 chunked 传输，并确保微信基础库版本 >= 2.10.0。
+部署流程见 [DEPLOY.md](DEPLOY.md)。
 
-**Q: 文件上传失败？**
-A: 确保后端 `/rag/incremental/upload` 接口可访问，且文件大小不超过微信小程序限制（默认 200MB）。
+## 设备数据与展示
 
-**Q: 如何修改主题颜色？**
-A: 修改 `app.wxss` 中的 CSS 变量：
-```css
-page {
-  --primary: #14b8a6;
-  --bg-dark: #041527;
-  /* ... */
-}
+问答页顶部的“设备”和设置页的“设备数据中心”进入同一页面。页面展示设备、参数、报警、故障和检修数量，以及最近 30 天各设备的报警/故障条形排名、最近和下次检修时间。云端已填入标记为演示的模拟记录；六个示例按钮直接进入设备查询，使用规则生成 SQL，方便现场展示，无需等待在线模型。
+
+问答输入框上方可选择“自动识别 / 设备数据库 / 知识库”。数据库回答可展开 SQL、上海时区的查询时间、统计区间和横向滚动的结果表，并导出 CSV。报警和故障分别统计，零次也会显示。
+
+普通账号可浏览；管理员可在五类记录间切换、填写表单，或选择微信会话里的 CSV 文件（最多 5 MiB）导入。先建立设备台账，再录入其参数或事件。同一设备编号、参数名或事件记录编号用于更新，避免重复累计。写入使用管理员密码的 HTTP Basic 验证，密码只用于当次操作，离开页面会清除。CSV 模板与查询结果使用微信文件分享，基础库不支持时复制文本。字段口径见 [设备数据库说明](../EQUIPMENT_DATABASE.md)。
+
+## 网页与小程序同时使用
+
+两端共用一个后端和关系型数据库，可用同一账号同时登录。不同会话用独立标识，模型调用不再持有全局查询锁。问答历史 JSON 使用按会话加锁的原子写入；聊天存档使用按账号合并，不再用整份列表替换。浏览页面时每 15 秒拉取远端记录，网页重新获得焦点或小程序重新进入问答页时也会同步；未上传成功的记录保存在本机，问答页显示重试入口。关闭自动保存时，新增会话只保存到本机。
+
+删除使用显式 DELETE 接口，服务端保留删除标记，另一端上传旧快照不能恢复已删除会话。清空会同步到两端。后端和两端代码应一起升级；旧客户端用 PUT 空列表清空的方式已停用。
+
+切换标签页时流式回答会继续；新建会话会中断当前请求，并把尚未显示的文本一起保存。暂停按钮只暂停显示，再点击继续显示，不会另发一个问题。分块接收和整包兜底互斥，防止回答重复；缺少结束事件时会提示连接提前结束。
+
+## 验证
+
+从项目根目录运行：
+
+```bash
+python -m unittest discover -s rag_app/test -p 'test_*.py' -v
+node --test rag_app/weapp/test/client.test.cjs
 ```
+
+测试覆盖设备 SQL、导入校验、双端存档合并、删除防恢复、历史并发写入、慢网页查询与小程序流式请求同时执行，以及小程序 SSE、暂停/恢复、SQL 结果和页面状态。WXML/WXSS 已通过本机微信官方编译器；真机登录、文件分享、定位和平台域名配置仍须在微信环境联调。工具编译不等于已上传体验版。
