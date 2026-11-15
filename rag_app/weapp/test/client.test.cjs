@@ -169,3 +169,13 @@ test('mini knowledge graph supports entity selection and relation filtering', ()
   chatPage.filterKg({ currentTarget: { dataset: { msgid: 'answer', entity: '' } } });
   assert.equal(chatPage.data.currentChat.messages[0].kgEdges.length, 2);
 });
+
+test('background settings sync cannot reset a profile field while editing', () => {
+  const app = appMock();
+  app.globalData.settings = { nickname: '网页刚更新的昵称' };
+  app.globalData.syncStatus = { state: 'synced', error: '' };
+  const settings = page('pages/settings/settings.js', { normalizeSettings: value => value }, app);
+  settings.data.settings = { nickname: '正在输入的昵称' };
+  settings.onInputFocus(); settings.loadSettings();
+  assert.equal(settings.data.settings.nickname, '正在输入的昵称');
+});

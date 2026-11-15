@@ -37,6 +37,7 @@ Page({
   onUnload() { if (this.unsubscribeSync) this.unsubscribeSync(); },
 
   loadSettings() {
+    if (this.isEditing) return;
     const settings = api.normalizeSettings(app.globalData.settings);
     const nickname = settings.nickname || 'Captain Park';
     const avatarText = nickname.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
@@ -65,6 +66,7 @@ Page({
   },
 
   onInputBlur(e) {
+    this.isEditing = false;
     const key = e.currentTarget.dataset.key;
     const value = e.detail.value;
     
@@ -74,6 +76,7 @@ Page({
     app.setSettings(settings);
     this.saveSettings({ [key]: value });
   },
+  onInputFocus() { this.isEditing = true; },
 
   async saveSettings(settings) {
     this.settingsRevision = (this.settingsRevision || 0) + 1;

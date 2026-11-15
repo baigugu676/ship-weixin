@@ -100,7 +100,7 @@
       <input 
         class="setting-input" 
         value="{{settings.nickname}}" 
-        bindblur="onInputBlur" 
+        bindfocus="onInputFocus" bindblur="onInputBlur" 
         data-key="nickname"
         placeholder="请输入昵称"
         placeholder-class="input-placeholder"
@@ -112,7 +112,7 @@
       <input 
         class="setting-input" 
         value="{{settings.imo}}" 
-        bindblur="onInputBlur" 
+        bindfocus="onInputFocus" bindblur="onInputBlur" 
         data-key="imo"
         placeholder="请输入IMO编号"
         placeholder-class="input-placeholder"
@@ -124,7 +124,7 @@
       <input 
         class="setting-input" 
         value="{{settings.email}}" 
-        bindblur="onInputBlur" 
+        bindfocus="onInputFocus" bindblur="onInputBlur" 
         data-key="email"
         placeholder="请输入邮箱"
         placeholder-class="input-placeholder"
@@ -136,7 +136,7 @@
       <input 
         class="setting-input" 
         value="{{settings.emergency}}" 
-        bindblur="onInputBlur" 
+        bindfocus="onInputFocus" bindblur="onInputBlur" 
         data-key="emergency"
         placeholder="请输入紧急联系电话"
         placeholder-class="input-placeholder"
