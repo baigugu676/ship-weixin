@@ -23,7 +23,7 @@ const REQUIRED = {
 Page({
   data: {
     appearance: 'dark', fontSize: 16, loading: false, busy: false, error: '', notice: '', overview: null,
-    counters: [], devices: [], datasets: DATASETS, datasetIndex: 0, fields: [], recordCards: [],
+    counters: [], devices: [], sampleQuestions: [], datasets: DATASETS, datasetIndex: 0, fields: [], recordCards: [],
     canEdit: false, password: '', showForm: false, recordsLoading: false, recordsError: '',
   },
   schema: {},
@@ -44,7 +44,7 @@ Page({
       const maxAlarm = Math.max(1, ...(overview.devices || []).map(d => d.alarm_count));
       const maxFault = Math.max(1, ...(overview.devices || []).map(d => d.fault_count));
       this.setData({
-        overview, counters: DATASETS.map(d => ({ title: d.title, count: overview.counts?.[d.key] || 0 })),
+        overview, sampleQuestions: overview.sample_questions || overview.demo_questions || [], counters: DATASETS.map(d => ({ title: d.title, count: overview.counts?.[d.key] || 0 })),
         devices: (overview.devices || []).map(d => ({ ...d, alarmWidth: d.alarm_count / maxAlarm * 100, faultWidth: d.fault_count / maxFault * 100 })),
       });
       this.buildFields();

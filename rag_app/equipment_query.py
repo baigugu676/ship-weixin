@@ -202,14 +202,21 @@ def query_equipment(question: str, *, use_llm: bool = True, store: EquipmentStor
         plan = fallback_plan(question, store, now)
         result = store.execute_readonly(plan["sql"], plan["parameters"])
     status = store.status()
+    basis = store.provenance_basis(result.get('queried_tables', []), result['rows'])
+    if basis:
+        result['query_basis'] = basis
+        if result.get('period') and set(result.get('queried_tables', [])) & {'alarm_events','fault_events','maintenance_records'}:
+            result['period'] = {**result['period'], 'time_basis':'源报告日历日期（日精度）', 'timezone':'source_report_calendar_date'}
     result.update(plan)
     result.update(source="设备业务数据库", executed_at=now.isoformat(sep=" ", timespec="seconds"), timezone="Asia/Shanghai", data_kind=status["data_kind"])
     if fallback_reason:
         result["notice"] = fallback_reason
     prefix = "【演示数据，非真实运维记录】\n\n" if status["data_kind"] == "demo" else ""
+    if basis:
+        prefix = '【公开参考数据】' + basis['notice'] + '\n\n'
     if result.get("period"):
         period = result["period"]
-        prefix += f"统计范围：{period['label']}，{period['start']} 至 {period['end_exclusive']}（结束时间不含，上海时间）。\n\n"
+        prefix += f"统计范围：{period['label']}，{period['start']} 至 {period['end_exclusive']}（结束时间不含，{period.get('time_basis', '上海时间')}）。\n\n"
     if not result["rows"]:
         answer = "数据库中没有符合条件的记录。请检查设备编号、时间范围和数据导入情况；没有记录不代表设备未发生过报警或故障。"
     else:

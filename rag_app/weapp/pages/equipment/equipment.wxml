@@ -6,10 +6,11 @@
   <view class="muted" wx:if="{{loading}}">正在加载设备数据…</view>
   <block wx:if="{{overview}}">
     <view class="demo-label" wx:if="{{overview.data_kind === 'demo'}}">演示数据 · 模拟记录，不用于真实船舶运行判断</view>
+    <view class="notice" wx:if="{{overview.dataset}}">{{overview.dataset.title}}：{{overview.dataset.notice}}</view>
     <view class="counter-grid"><view class="counter" wx:for="{{counters}}" wx:key="title"><text class="counter-value">{{item.count}}</text><text class="muted">{{item.title}}</text></view></view>
-    <view class="card" wx:if="{{overview.demo_questions.length}}">
-      <text class="section-title">一键演示提问</text>
-      <view class="demo-question" wx:for="{{overview.demo_questions}}" wx:key="*this" bindtap="askDemo" data-question="{{item}}">{{item}} ›</view>
+    <view class="card" wx:if="{{sampleQuestions.length}}">
+      <text class="section-title">来源数据查询示例</text>
+      <view class="demo-question" wx:for="{{sampleQuestions}}" wx:key="*this" bindtap="askDemo" data-question="{{item}}">{{item}} ›</view>
     </view>
     <view class="card">
       <text class="section-title">最近 30 天设备概况</text>

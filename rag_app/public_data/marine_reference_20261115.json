@@ -1,0 +1,980 @@
+{
+  "dataset_id": "public-marine-reference-20261115-v1",
+  "retrieved_at": "2026-11-15T16:42:43+08:00",
+  "data_kind": "public_reference",
+  "title": "公开船舶机组参数与海事调查案例",
+  "notice": "这是厂家机型目录和公开事故案例样本，不是某船完整运维台账。次数仅指本库收录记录数，零条不等于实际未发生；案例原始日期为2017—2021年，没有改成最近30天。机型目录与船载机位不作型号/序列号关联推断。缺少可靠检修工单和下次计划，检修表留空。事件仅按原报告日历日期存储，00:00:00为日精度占位，非真实发生时刻。",
+  "sample_questions": [
+    "CAT-W20-6L-1000额定功率是多少",
+    "PUB-WIGHTSKY-ME2故障记录",
+    "2017-01-01至2021-12-31各设备故障次数",
+    "PUB-WINDCAT8-PORT报警记录"
+  ],
+  "sources": [
+    {
+      "id": "WARTSILA-W20",
+      "title": "Wärtsilä marine gensets — W20 technical data and rated power",
+      "publisher": "Wärtsilä",
+      "url": "https://www.wartsila.com/marine/products/engines-and-generating-sets/generating-sets/wartsila-gensets",
+      "locator": "W20 / Genset 20, Rated power / 50 Hz / 1000 rpm; Cylinder bore; Piston stroke",
+      "kind": "manufacturer_specification",
+      "retrieved_at": "2026-11-15T16:42:43+08:00",
+      "sha256": "61ac437fdace0f45b71522c2a4d3132869a2178913d4a992fbe8f7f0cc1447e8",
+      "snapshot_file": "WARTSILA-W20.html"
+    },
+    {
+      "id": "MAIB-4-2022",
+      "title": "MAIB Report 4/2022: Wight Sky",
+      "publisher": "UK Marine Accident Investigation Branch",
+      "url": "https://www.gov.uk/maib-reports/two-catastrophic-engine-failures-one-resulting-in-a-fire-on-board-ro-ro-passenger-ferry-wight-sky",
+      "document_url": "https://assets.publishing.service.gov.uk/media/6267cc85e90e071690c1b679/2022-4-WightSky-Report.pdf",
+      "locator": "Table 4, printed page 13 / PDF page 23, Events 1–5",
+      "kind": "accident_investigation",
+      "retrieved_at": "2026-11-15T16:42:43+08:00",
+      "sha256": "1ea5814cdb834151eaf4cc2d0b7af373903b6ad9fa4e729c3fca249996cbb4bc",
+      "snapshot_file": "MAIB-4-2022.pdf"
+    },
+    {
+      "id": "MAIB-1-2018",
+      "title": "MAIB Report 1/2018: Windcat 8",
+      "publisher": "UK Marine Accident Investigation Branch",
+      "url": "https://www.gov.uk/maib-reports/catastrophic-engine-failure-resulting-in-a-fire-on-crew-transfer-vessel-windcat-8",
+      "locator": "Date of occurrence; Summary; Safety lessons (port engine and initial high oil temperature alarm)",
+      "kind": "accident_investigation",
+      "retrieved_at": "2026-11-15T16:42:43+08:00",
+      "sha256": "13295b42e94bf3c9f7d7442cc788006620c09202384bc8157e2f9da36062a1ae",
+      "snapshot_file": "MAIB-1-2018.html"
+    },
+    {
+      "id": "MAIB-2-2021",
+      "title": "MAIB Report 2/2021: Finlandia Seaways",
+      "publisher": "UK Marine Accident Investigation Branch",
+      "url": "https://www.gov.uk/maib-reports/engine-failure-and-subsequent-fire-on-ro-ro-cargo-vessel-finlandia-seaways-with-1-person-injured",
+      "locator": "Date of occurrence; Summary; Safety Issues",
+      "kind": "accident_investigation",
+      "retrieved_at": "2026-11-15T16:42:43+08:00",
+      "sha256": "010aad08a9b746ed55d4e60f6902a0190f2fe2ae20946c243557a0ab36baadab",
+      "snapshot_file": "MAIB-2-2021.html"
+    },
+    {
+      "id": "MAIB-13-2025",
+      "title": "MAIB Report 13/2025: Finnmaster",
+      "publisher": "UK Marine Accident Investigation Branch",
+      "url": "https://www.gov.uk/maib-reports/auxiliary-engine-room-fire-on-board-the-ro-ro-cargo-ship-finnmaster",
+      "locator": "Date of occurrence; Safety issues (auxiliary engine, emergency circuit breaker, CO2 system)",
+      "kind": "accident_investigation",
+      "retrieved_at": "2026-11-15T16:42:43+08:00",
+      "sha256": "3c15bc61c0827a753ec9d00cc187e331cfbfd9bbed19128f072783f34c79e450",
+      "snapshot_file": "MAIB-13-2025.html"
+    },
+    {
+      "id": "MAIB-SB1-2022",
+      "title": "MAIB Safety Bulletin 1/2022: Finnmaster CO2 pilot hoses",
+      "publisher": "UK Marine Accident Investigation Branch",
+      "url": "https://www.gov.uk/maib-reports/safety-warning-issued-after-discovery-of-blocked-fixed-co2-fire-extinquishing-system-pilot-hoses",
+      "locator": "Summary: only half the CO2 cylinders opened; blocked pilot hose",
+      "kind": "safety_bulletin",
+      "retrieved_at": "2026-11-15T16:42:43+08:00",
+      "sha256": "5ab2e9b855bdf78ef5f577e2ff1adc805f0588cafce0155d2535c5ded0929a56",
+      "snapshot_file": "MAIB-SB1-2022.html"
+    }
+  ],
+  "records": {
+    "equipment": [
+      {
+        "code": "CAT-W20-4L-1000",
+        "name": "Wärtsilä 4L20 机型目录",
+        "category": "公开机型目录",
+        "model": "4L20",
+        "manufacturer": "Wärtsilä",
+        "location": "未指定装船位置",
+        "notes": "厂家W20/50Hz/1000rpm配置；非某船实物台账；参数更新时间是网页采集时间，非测量时间。来源：https://www.wartsila.com/marine/products/engines-and-generating-sets/generating-sets/wartsila-gensets"
+      },
+      {
+        "code": "CAT-W20-6L-1000",
+        "name": "Wärtsilä 6L20 机型目录",
+        "category": "公开机型目录",
+        "model": "6L20",
+        "manufacturer": "Wärtsilä",
+        "location": "未指定装船位置",
+        "notes": "厂家W20/50Hz/1000rpm配置；非某船实物台账；参数更新时间是网页采集时间，非测量时间。来源：https://www.wartsila.com/marine/products/engines-and-generating-sets/generating-sets/wartsila-gensets"
+      },
+      {
+        "code": "CAT-W20-8L-1000",
+        "name": "Wärtsilä 8L20 机型目录",
+        "category": "公开机型目录",
+        "model": "8L20",
+        "manufacturer": "Wärtsilä",
+        "location": "未指定装船位置",
+        "notes": "厂家W20/50Hz/1000rpm配置；非某船实物台账；参数更新时间是网页采集时间，非测量时间。来源：https://www.wartsila.com/marine/products/engines-and-generating-sets/generating-sets/wartsila-gensets"
+      },
+      {
+        "code": "CAT-W20-9L-1000",
+        "name": "Wärtsilä 9L20 机型目录",
+        "category": "公开机型目录",
+        "model": "9L20",
+        "manufacturer": "Wärtsilä",
+        "location": "未指定装船位置",
+        "notes": "厂家W20/50Hz/1000rpm配置；非某船实物台账；参数更新时间是网页采集时间，非测量时间。来源：https://www.wartsila.com/marine/products/engines-and-generating-sets/generating-sets/wartsila-gensets"
+      },
+      {
+        "code": "PUB-WIGHTSKY-ME2",
+        "name": "Wight Sky 二号主机机位",
+        "category": "公开事故案例机位",
+        "model": "D16 MH",
+        "manufacturer": "Volvo Penta",
+        "location": "Wight Sky / ME2",
+        "notes": "仅收录公开调查中识别的设备/机位，机位更换后的发动机不视为同一序列号实物；未公布的型号、投用日期和维修计划留空。来源：https://www.gov.uk/maib-reports/two-catastrophic-engine-failures-one-resulting-in-a-fire-on-board-ro-ro-passenger-ferry-wight-sky"
+      },
+      {
+        "code": "PUB-WIGHTSKY-ME4",
+        "name": "Wight Sky 四号主机机位",
+        "category": "公开事故案例机位",
+        "model": "D16 MH",
+        "manufacturer": "Volvo Penta",
+        "location": "Wight Sky / ME4",
+        "notes": "仅收录公开调查中识别的设备/机位，机位更换后的发动机不视为同一序列号实物；未公布的型号、投用日期和维修计划留空。来源：https://www.gov.uk/maib-reports/two-catastrophic-engine-failures-one-resulting-in-a-fire-on-board-ro-ro-passenger-ferry-wight-sky"
+      },
+      {
+        "code": "PUB-WIGHTLIGHT-ME1",
+        "name": "Wight Light 一号主机机位",
+        "category": "公开事故案例机位",
+        "model": "D16 MH",
+        "manufacturer": "Volvo Penta",
+        "location": "Wight Light / ME1",
+        "notes": "仅收录公开调查中识别的设备/机位，机位更换后的发动机不视为同一序列号实物；未公布的型号、投用日期和维修计划留空。来源：https://www.gov.uk/maib-reports/two-catastrophic-engine-failures-one-resulting-in-a-fire-on-board-ro-ro-passenger-ferry-wight-sky"
+      },
+      {
+        "code": "PUB-WIGHTLIGHT-ME2",
+        "name": "Wight Light 二号主机机位",
+        "category": "公开事故案例机位",
+        "model": "D16 MH",
+        "manufacturer": "Volvo Penta",
+        "location": "Wight Light / ME2",
+        "notes": "仅收录公开调查中识别的设备/机位，机位更换后的发动机不视为同一序列号实物；未公布的型号、投用日期和维修计划留空。来源：https://www.gov.uk/maib-reports/two-catastrophic-engine-failures-one-resulting-in-a-fire-on-board-ro-ro-passenger-ferry-wight-sky"
+      },
+      {
+        "code": "PUB-WINDCAT8-PORT",
+        "name": "Windcat 8 左舷主机",
+        "category": "公开事故案例机位",
+        "model": "",
+        "manufacturer": "",
+        "location": "Windcat 8 / port engine",
+        "notes": "仅收录公开调查中识别的设备/机位，机位更换后的发动机不视为同一序列号实物；未公布的型号、投用日期和维修计划留空。来源：https://www.gov.uk/maib-reports/catastrophic-engine-failure-resulting-in-a-fire-on-crew-transfer-vessel-windcat-8"
+      },
+      {
+        "code": "PUB-FINLANDIA-MAIN",
+        "name": "Finlandia Seaways 主机",
+        "category": "公开事故案例机位",
+        "model": "",
+        "manufacturer": "",
+        "location": "Finlandia Seaways / main engine",
+        "notes": "仅收录公开调查中识别的设备/机位，机位更换后的发动机不视为同一序列号实物；未公布的型号、投用日期和维修计划留空。来源：https://www.gov.uk/maib-reports/engine-failure-and-subsequent-fire-on-ro-ro-cargo-vessel-finlandia-seaways-with-1-person-injured"
+      },
+      {
+        "code": "PUB-FINNMASTER-AUX",
+        "name": "Finnmaster 事故辅机",
+        "category": "公开事故案例机位",
+        "model": "",
+        "manufacturer": "",
+        "location": "Finnmaster / auxiliary engine room",
+        "notes": "仅收录公开调查中识别的设备/机位，机位更换后的发动机不视为同一序列号实物；未公布的型号、投用日期和维修计划留空。来源：https://www.gov.uk/maib-reports/auxiliary-engine-room-fire-on-board-the-ro-ro-cargo-ship-finnmaster"
+      },
+      {
+        "code": "PUB-FINNMASTER-CB",
+        "name": "Finnmaster 应急发电机断路器",
+        "category": "公开事故案例机位",
+        "model": "",
+        "manufacturer": "",
+        "location": "Finnmaster / emergency generator",
+        "notes": "仅收录公开调查中识别的设备/机位，机位更换后的发动机不视为同一序列号实物；未公布的型号、投用日期和维修计划留空。来源：https://www.gov.uk/maib-reports/auxiliary-engine-room-fire-on-board-the-ro-ro-cargo-ship-finnmaster"
+      },
+      {
+        "code": "PUB-FINNMASTER-CO2",
+        "name": "Finnmaster 固定二氧化碳灭火系统",
+        "category": "公开事故案例机位",
+        "model": "",
+        "manufacturer": "",
+        "location": "Finnmaster / fixed CO2 system",
+        "notes": "仅收录公开调查中识别的设备/机位，机位更换后的发动机不视为同一序列号实物；未公布的型号、投用日期和维修计划留空。来源：https://www.gov.uk/maib-reports/auxiliary-engine-room-fire-on-board-the-ro-ro-cargo-ship-finnmaster; https://www.gov.uk/maib-reports/safety-warning-issued-after-discovery-of-blocked-fixed-co2-fire-extinquishing-system-pilot-hoses"
+      }
+    ],
+    "equipment_parameters": [
+      {
+        "equipment_code": "CAT-W20-4L-1000",
+        "name": "发动机额定功率",
+        "value": "800",
+        "unit": "kW",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      },
+      {
+        "equipment_code": "CAT-W20-4L-1000",
+        "name": "发电机额定功率",
+        "value": "760",
+        "unit": "kW",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      },
+      {
+        "equipment_code": "CAT-W20-4L-1000",
+        "name": "额定转速",
+        "value": "1000",
+        "unit": "rpm",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      },
+      {
+        "equipment_code": "CAT-W20-4L-1000",
+        "name": "气缸数量",
+        "value": "4",
+        "unit": "缸",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      },
+      {
+        "equipment_code": "CAT-W20-4L-1000",
+        "name": "缸径",
+        "value": "200",
+        "unit": "mm",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      },
+      {
+        "equipment_code": "CAT-W20-4L-1000",
+        "name": "活塞行程",
+        "value": "280",
+        "unit": "mm",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      },
+      {
+        "equipment_code": "CAT-W20-6L-1000",
+        "name": "发动机额定功率",
+        "value": "1200",
+        "unit": "kW",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      },
+      {
+        "equipment_code": "CAT-W20-6L-1000",
+        "name": "发电机额定功率",
+        "value": "1140",
+        "unit": "kW",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      },
+      {
+        "equipment_code": "CAT-W20-6L-1000",
+        "name": "额定转速",
+        "value": "1000",
+        "unit": "rpm",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      },
+      {
+        "equipment_code": "CAT-W20-6L-1000",
+        "name": "气缸数量",
+        "value": "6",
+        "unit": "缸",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      },
+      {
+        "equipment_code": "CAT-W20-6L-1000",
+        "name": "缸径",
+        "value": "200",
+        "unit": "mm",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      },
+      {
+        "equipment_code": "CAT-W20-6L-1000",
+        "name": "活塞行程",
+        "value": "280",
+        "unit": "mm",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      },
+      {
+        "equipment_code": "CAT-W20-8L-1000",
+        "name": "发动机额定功率",
+        "value": "1600",
+        "unit": "kW",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      },
+      {
+        "equipment_code": "CAT-W20-8L-1000",
+        "name": "发电机额定功率",
+        "value": "1520",
+        "unit": "kW",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      },
+      {
+        "equipment_code": "CAT-W20-8L-1000",
+        "name": "额定转速",
+        "value": "1000",
+        "unit": "rpm",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      },
+      {
+        "equipment_code": "CAT-W20-8L-1000",
+        "name": "气缸数量",
+        "value": "8",
+        "unit": "缸",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      },
+      {
+        "equipment_code": "CAT-W20-8L-1000",
+        "name": "缸径",
+        "value": "200",
+        "unit": "mm",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      },
+      {
+        "equipment_code": "CAT-W20-8L-1000",
+        "name": "活塞行程",
+        "value": "280",
+        "unit": "mm",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      },
+      {
+        "equipment_code": "CAT-W20-9L-1000",
+        "name": "发动机额定功率",
+        "value": "1800",
+        "unit": "kW",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      },
+      {
+        "equipment_code": "CAT-W20-9L-1000",
+        "name": "发电机额定功率",
+        "value": "1710",
+        "unit": "kW",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      },
+      {
+        "equipment_code": "CAT-W20-9L-1000",
+        "name": "额定转速",
+        "value": "1000",
+        "unit": "rpm",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      },
+      {
+        "equipment_code": "CAT-W20-9L-1000",
+        "name": "气缸数量",
+        "value": "9",
+        "unit": "缸",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      },
+      {
+        "equipment_code": "CAT-W20-9L-1000",
+        "name": "缸径",
+        "value": "200",
+        "unit": "mm",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      },
+      {
+        "equipment_code": "CAT-W20-9L-1000",
+        "name": "活塞行程",
+        "value": "280",
+        "unit": "mm",
+        "updated_at": "2026-11-15T16:42:43+08:00"
+      }
+    ],
+    "alarm_events": [
+      {
+        "record_id": "MAIB1-2018-HIGH-OIL-TEMP",
+        "equipment_code": "PUB-WINDCAT8-PORT",
+        "occurred_at": "2017-09-07",
+        "alarm_code": "HIGH-OIL-TEMPERATURE",
+        "severity": "warning",
+        "description": "调查安全教训明确记载主机失效前出现高油温报警；只收录这一次被提及的报警，并非完整报警日志。severity为本系统将alarm映射为warning的分类，不是报告给出的严重程度。 时间精度为日：occurred_at仅以原报告日历日期及00:00:00占位；不代表真实发生时刻，也未做跨时区时刻推断。 来源：MAIB-1-2018"
+      }
+    ],
+    "fault_events": [
+      {
+        "record_id": "MAIB4-2022-E1",
+        "equipment_code": "PUB-WIGHTSKY-ME2",
+        "occurred_at": "2017-09-12",
+        "fault_code": "CATASTROPHIC-ENGINE-FAILURE",
+        "description": "二号主机发生灾难性故障。 时间精度为日：occurred_at仅以原报告日历日期及00:00:00占位；不代表真实发生时刻，也未做跨时区时刻推断。 来源：MAIB-4-2022"
+      },
+      {
+        "record_id": "MAIB4-2022-E2",
+        "equipment_code": "PUB-WIGHTLIGHT-ME1",
+        "occurred_at": "2018-02-02",
+        "fault_code": "MAIN-BEARING-SEIZURE",
+        "description": "一号主机主轴承卡死。 时间精度为日：occurred_at仅以原报告日历日期及00:00:00占位；不代表真实发生时刻，也未做跨时区时刻推断。 来源：MAIB-4-2022"
+      },
+      {
+        "record_id": "MAIB4-2022-E3",
+        "equipment_code": "PUB-WIGHTLIGHT-ME2",
+        "occurred_at": "2018-08-03",
+        "fault_code": "PISTON-MELT-PARTIAL-SEIZURE",
+        "description": "二号主机活塞熔损并局部卡死。 时间精度为日：occurred_at仅以原报告日历日期及00:00:00占位；不代表真实发生时刻，也未做跨时区时刻推断。 来源：MAIB-4-2022"
+      },
+      {
+        "record_id": "MAIB4-2022-E4",
+        "equipment_code": "PUB-WIGHTSKY-ME2",
+        "occurred_at": "2018-08-26",
+        "fault_code": "CATASTROPHIC-ENGINE-FAILURE",
+        "description": "二号主机发生灾难性故障；调查中为先前故障主机的更换机。 时间精度为日：occurred_at仅以原报告日历日期及00:00:00占位；不代表真实发生时刻，也未做跨时区时刻推断。 来源：MAIB-4-2022"
+      },
+      {
+        "record_id": "MAIB4-2022-E5",
+        "equipment_code": "PUB-WIGHTSKY-ME4",
+        "occurred_at": "2018-12-14",
+        "fault_code": "CATASTROPHIC-ENGINE-FAILURE",
+        "description": "四号主机发生灾难性故障。 时间精度为日：occurred_at仅以原报告日历日期及00:00:00占位；不代表真实发生时刻，也未做跨时区时刻推断。 来源：MAIB-4-2022"
+      },
+      {
+        "record_id": "MAIB1-2018-ENGINE",
+        "equipment_code": "PUB-WINDCAT8-PORT",
+        "occurred_at": "2017-09-07",
+        "fault_code": "BIG-END-BEARING-FAILURE",
+        "description": "左舷主机连杆大端轴瓦失效并导致后续火灾。 时间精度为日：occurred_at仅以原报告日历日期及00:00:00占位；不代表真实发生时刻，也未做跨时区时刻推断。 来源：MAIB-1-2018"
+      },
+      {
+        "record_id": "MAIB2-2021-ENGINE",
+        "equipment_code": "PUB-FINLANDIA-MAIN",
+        "occurred_at": "2018-04-16",
+        "fault_code": "MAIN-ENGINE-FAILURE",
+        "description": "主机发生灾难性故障并引发机舱火灾，调查指出连杆维护问题。 时间精度为日：occurred_at仅以原报告日历日期及00:00:00占位；不代表真实发生时刻，也未做跨时区时刻推断。 来源：MAIB-2-2021"
+      },
+      {
+        "record_id": "MAIB13-2025-AUX",
+        "equipment_code": "PUB-FINNMASTER-AUX",
+        "occurred_at": "2021-09-19",
+        "fault_code": "AUX-ENGINE-FUEL-LEAK-FIRE",
+        "description": "辅机机械故障伴随燃油泄漏并起火。 时间精度为日：occurred_at仅以原报告日历日期及00:00:00占位；不代表真实发生时刻，也未做跨时区时刻推断。 来源：MAIB-13-2025"
+      },
+      {
+        "record_id": "MAIB13-2025-CB",
+        "equipment_code": "PUB-FINNMASTER-CB",
+        "occurred_at": "2021-09-19",
+        "fault_code": "EMERGENCY-CB-FAULT",
+        "description": "应急发电机断路器故障，未能向应急系统供电。 时间精度为日：occurred_at仅以原报告日历日期及00:00:00占位；不代表真实发生时刻，也未做跨时区时刻推断。 来源：MAIB-13-2025"
+      },
+      {
+        "record_id": "MAIB13-2025-CO2",
+        "equipment_code": "PUB-FINNMASTER-CO2",
+        "occurred_at": "2021-09-19",
+        "fault_code": "CO2-PARTIAL-ACTIVATION",
+        "description": "固定CO2系统未完全动作；安全通报记录只有一半气瓶开启及先导软管堵塞。 时间精度为日：occurred_at仅以原报告日历日期及00:00:00占位；不代表真实发生时刻，也未做跨时区时刻推断。 来源：MAIB-13-2025,MAIB-SB1-2022"
+      }
+    ],
+    "maintenance_records": []
+  },
+  "provenance": [
+    {
+      "table": "equipment",
+      "record_key": "CAT-W20-4L-1000",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "Source equipment/model identification; no inferred serial number or commissioning date",
+      "equipment_code": "CAT-W20-4L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-4L-1000|发动机额定功率",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "800",
+      "source_unit": "kW",
+      "equipment_code": "CAT-W20-4L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-4L-1000|发电机额定功率",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "760",
+      "source_unit": "kW",
+      "equipment_code": "CAT-W20-4L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-4L-1000|额定转速",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "1000",
+      "source_unit": "rpm",
+      "equipment_code": "CAT-W20-4L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-4L-1000|气缸数量",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "4",
+      "source_unit": "缸",
+      "equipment_code": "CAT-W20-4L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-4L-1000|缸径",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "200",
+      "source_unit": "mm",
+      "equipment_code": "CAT-W20-4L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-4L-1000|活塞行程",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "280",
+      "source_unit": "mm",
+      "equipment_code": "CAT-W20-4L-1000"
+    },
+    {
+      "table": "equipment",
+      "record_key": "CAT-W20-6L-1000",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "Source equipment/model identification; no inferred serial number or commissioning date",
+      "equipment_code": "CAT-W20-6L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-6L-1000|发动机额定功率",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "1200",
+      "source_unit": "kW",
+      "equipment_code": "CAT-W20-6L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-6L-1000|发电机额定功率",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "1140",
+      "source_unit": "kW",
+      "equipment_code": "CAT-W20-6L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-6L-1000|额定转速",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "1000",
+      "source_unit": "rpm",
+      "equipment_code": "CAT-W20-6L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-6L-1000|气缸数量",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "6",
+      "source_unit": "缸",
+      "equipment_code": "CAT-W20-6L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-6L-1000|缸径",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "200",
+      "source_unit": "mm",
+      "equipment_code": "CAT-W20-6L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-6L-1000|活塞行程",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "280",
+      "source_unit": "mm",
+      "equipment_code": "CAT-W20-6L-1000"
+    },
+    {
+      "table": "equipment",
+      "record_key": "CAT-W20-8L-1000",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "Source equipment/model identification; no inferred serial number or commissioning date",
+      "equipment_code": "CAT-W20-8L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-8L-1000|发动机额定功率",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "1600",
+      "source_unit": "kW",
+      "equipment_code": "CAT-W20-8L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-8L-1000|发电机额定功率",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "1520",
+      "source_unit": "kW",
+      "equipment_code": "CAT-W20-8L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-8L-1000|额定转速",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "1000",
+      "source_unit": "rpm",
+      "equipment_code": "CAT-W20-8L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-8L-1000|气缸数量",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "8",
+      "source_unit": "缸",
+      "equipment_code": "CAT-W20-8L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-8L-1000|缸径",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "200",
+      "source_unit": "mm",
+      "equipment_code": "CAT-W20-8L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-8L-1000|活塞行程",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "280",
+      "source_unit": "mm",
+      "equipment_code": "CAT-W20-8L-1000"
+    },
+    {
+      "table": "equipment",
+      "record_key": "CAT-W20-9L-1000",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "Source equipment/model identification; no inferred serial number or commissioning date",
+      "equipment_code": "CAT-W20-9L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-9L-1000|发动机额定功率",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "1800",
+      "source_unit": "kW",
+      "equipment_code": "CAT-W20-9L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-9L-1000|发电机额定功率",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "1710",
+      "source_unit": "kW",
+      "equipment_code": "CAT-W20-9L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-9L-1000|额定转速",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "1000",
+      "source_unit": "rpm",
+      "equipment_code": "CAT-W20-9L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-9L-1000|气缸数量",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "9",
+      "source_unit": "缸",
+      "equipment_code": "CAT-W20-9L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-9L-1000|缸径",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "200",
+      "source_unit": "mm",
+      "equipment_code": "CAT-W20-9L-1000"
+    },
+    {
+      "table": "equipment_parameters",
+      "record_key": "CAT-W20-9L-1000|活塞行程",
+      "source_ids": [
+        "WARTSILA-W20"
+      ],
+      "locator": "W20, 50 Hz / 1000 rpm column; shared bore/stroke; cylinder count encoded by model name",
+      "source_value": "280",
+      "source_unit": "mm",
+      "equipment_code": "CAT-W20-9L-1000"
+    },
+    {
+      "table": "equipment",
+      "record_key": "PUB-WIGHTSKY-ME2",
+      "source_ids": [
+        "MAIB-4-2022"
+      ],
+      "locator": "Source equipment/model identification; no inferred serial number or commissioning date",
+      "equipment_code": "PUB-WIGHTSKY-ME2"
+    },
+    {
+      "table": "equipment",
+      "record_key": "PUB-WIGHTSKY-ME4",
+      "source_ids": [
+        "MAIB-4-2022"
+      ],
+      "locator": "Source equipment/model identification; no inferred serial number or commissioning date",
+      "equipment_code": "PUB-WIGHTSKY-ME4"
+    },
+    {
+      "table": "equipment",
+      "record_key": "PUB-WIGHTLIGHT-ME1",
+      "source_ids": [
+        "MAIB-4-2022"
+      ],
+      "locator": "Source equipment/model identification; no inferred serial number or commissioning date",
+      "equipment_code": "PUB-WIGHTLIGHT-ME1"
+    },
+    {
+      "table": "equipment",
+      "record_key": "PUB-WIGHTLIGHT-ME2",
+      "source_ids": [
+        "MAIB-4-2022"
+      ],
+      "locator": "Source equipment/model identification; no inferred serial number or commissioning date",
+      "equipment_code": "PUB-WIGHTLIGHT-ME2"
+    },
+    {
+      "table": "equipment",
+      "record_key": "PUB-WINDCAT8-PORT",
+      "source_ids": [
+        "MAIB-1-2018"
+      ],
+      "locator": "Source equipment/model identification; no inferred serial number or commissioning date",
+      "equipment_code": "PUB-WINDCAT8-PORT"
+    },
+    {
+      "table": "equipment",
+      "record_key": "PUB-FINLANDIA-MAIN",
+      "source_ids": [
+        "MAIB-2-2021"
+      ],
+      "locator": "Source equipment/model identification; no inferred serial number or commissioning date",
+      "equipment_code": "PUB-FINLANDIA-MAIN"
+    },
+    {
+      "table": "equipment",
+      "record_key": "PUB-FINNMASTER-AUX",
+      "source_ids": [
+        "MAIB-13-2025"
+      ],
+      "locator": "Source equipment/model identification; no inferred serial number or commissioning date",
+      "equipment_code": "PUB-FINNMASTER-AUX"
+    },
+    {
+      "table": "equipment",
+      "record_key": "PUB-FINNMASTER-CB",
+      "source_ids": [
+        "MAIB-13-2025"
+      ],
+      "locator": "Source equipment/model identification; no inferred serial number or commissioning date",
+      "equipment_code": "PUB-FINNMASTER-CB"
+    },
+    {
+      "table": "equipment",
+      "record_key": "PUB-FINNMASTER-CO2",
+      "source_ids": [
+        "MAIB-13-2025",
+        "MAIB-SB1-2022"
+      ],
+      "locator": "Source equipment/model identification; no inferred serial number or commissioning date",
+      "equipment_code": "PUB-FINNMASTER-CO2"
+    },
+    {
+      "table": "fault_events",
+      "record_key": "MAIB4-2022-E1",
+      "source_ids": [
+        "MAIB-4-2022"
+      ],
+      "locator": "Table 4, Event 1",
+      "source_date": "2017-09-12",
+      "date_precision": "day",
+      "timezone_interpretation": "original reported calendar date, not an exact Shanghai timestamp",
+      "equipment_code": "PUB-WIGHTSKY-ME2"
+    },
+    {
+      "table": "fault_events",
+      "record_key": "MAIB4-2022-E2",
+      "source_ids": [
+        "MAIB-4-2022"
+      ],
+      "locator": "Table 4, Event 2",
+      "source_date": "2018-02-02",
+      "date_precision": "day",
+      "timezone_interpretation": "original reported calendar date, not an exact Shanghai timestamp",
+      "equipment_code": "PUB-WIGHTLIGHT-ME1"
+    },
+    {
+      "table": "fault_events",
+      "record_key": "MAIB4-2022-E3",
+      "source_ids": [
+        "MAIB-4-2022"
+      ],
+      "locator": "Table 4, Event 3",
+      "source_date": "2018-08-03",
+      "date_precision": "day",
+      "timezone_interpretation": "original reported calendar date, not an exact Shanghai timestamp",
+      "equipment_code": "PUB-WIGHTLIGHT-ME2"
+    },
+    {
+      "table": "fault_events",
+      "record_key": "MAIB4-2022-E4",
+      "source_ids": [
+        "MAIB-4-2022"
+      ],
+      "locator": "Table 4, Event 4; Summary",
+      "source_date": "2018-08-26",
+      "date_precision": "day",
+      "timezone_interpretation": "original reported calendar date, not an exact Shanghai timestamp",
+      "equipment_code": "PUB-WIGHTSKY-ME2"
+    },
+    {
+      "table": "fault_events",
+      "record_key": "MAIB4-2022-E5",
+      "source_ids": [
+        "MAIB-4-2022"
+      ],
+      "locator": "Table 4, Event 5",
+      "source_date": "2018-12-14",
+      "date_precision": "day",
+      "timezone_interpretation": "original reported calendar date, not an exact Shanghai timestamp",
+      "equipment_code": "PUB-WIGHTSKY-ME4"
+    },
+    {
+      "table": "fault_events",
+      "record_key": "MAIB1-2018-ENGINE",
+      "source_ids": [
+        "MAIB-1-2018"
+      ],
+      "locator": "Date of occurrence; Safety lessons",
+      "source_date": "2017-09-07",
+      "date_precision": "day",
+      "timezone_interpretation": "original reported calendar date, not an exact Shanghai timestamp",
+      "equipment_code": "PUB-WINDCAT8-PORT"
+    },
+    {
+      "table": "fault_events",
+      "record_key": "MAIB2-2021-ENGINE",
+      "source_ids": [
+        "MAIB-2-2021"
+      ],
+      "locator": "Date of occurrence; Summary; Safety Issues",
+      "source_date": "2018-04-16",
+      "date_precision": "day",
+      "timezone_interpretation": "original reported calendar date, not an exact Shanghai timestamp",
+      "equipment_code": "PUB-FINLANDIA-MAIN"
+    },
+    {
+      "table": "fault_events",
+      "record_key": "MAIB13-2025-AUX",
+      "source_ids": [
+        "MAIB-13-2025"
+      ],
+      "locator": "Date of occurrence; Safety issues",
+      "source_date": "2021-09-19",
+      "date_precision": "day",
+      "timezone_interpretation": "original reported calendar date, not an exact Shanghai timestamp",
+      "equipment_code": "PUB-FINNMASTER-AUX"
+    },
+    {
+      "table": "fault_events",
+      "record_key": "MAIB13-2025-CB",
+      "source_ids": [
+        "MAIB-13-2025"
+      ],
+      "locator": "Safety issues; date is casualty association date, not defect onset",
+      "source_date": "2021-09-19",
+      "date_precision": "day",
+      "timezone_interpretation": "original reported calendar date, not an exact Shanghai timestamp",
+      "equipment_code": "PUB-FINNMASTER-CB"
+    },
+    {
+      "table": "fault_events",
+      "record_key": "MAIB13-2025-CO2",
+      "source_ids": [
+        "MAIB-13-2025",
+        "MAIB-SB1-2022"
+      ],
+      "locator": "Safety issues / Safety bulletin Summary; same defect is counted once",
+      "source_date": "2021-09-19",
+      "date_precision": "day",
+      "timezone_interpretation": "original reported calendar date, not an exact Shanghai timestamp",
+      "equipment_code": "PUB-FINNMASTER-CO2"
+    },
+    {
+      "table": "alarm_events",
+      "record_key": "MAIB1-2018-HIGH-OIL-TEMP",
+      "source_ids": [
+        "MAIB-1-2018"
+      ],
+      "locator": "Safety lessons: initial high oil temperature alarm prior to failure",
+      "source_date": "2017-09-07",
+      "date_precision": "day",
+      "severity_mapping": "alarm -> warning; normalized local classification",
+      "equipment_code": "PUB-WINDCAT8-PORT"
+    }
+  ],
+  "counts": {
+    "equipment": 13,
+    "equipment_parameters": 24,
+    "alarm_events": 1,
+    "fault_events": 10,
+    "maintenance_records": 0
+  }
+}

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 import io
+import json
 import os
 import sqlite3
 import time
@@ -134,7 +135,26 @@ class EquipmentStore:
             from equipment_demo import DEMO_QUESTIONS
 
             status.update(seeded_at=metadata.get("seeded_at"), demo_questions=DEMO_QUESTIONS)
+        if metadata.get('public_dataset'):
+            status['dataset'] = json.loads(metadata['public_dataset'])
+            status['sample_questions'] = status['dataset'].get('sample_questions', [])
         return status
+
+    def provenance_basis(self, tables: list[str], rows: list[dict]) -> dict | None:
+        with closing(self._connect()) as db:
+            metadata = dict(db.execute("SELECT key,value FROM equipment_metadata WHERE key IN ('public_dataset','public_provenance')"))
+        if not metadata.get('public_dataset'): return None
+        dataset = json.loads(metadata['public_dataset'])
+        codes = {str(row[key]) for row in rows for key in ('设备编号','equipment_code','code') if row.get(key)}
+        records = [record for record in json.loads(metadata.get('public_provenance','[]')) if record['table'] in tables]
+        if codes:
+            records = [record for record in records if record.get('equipment_code',record['record_key'].split('|')[0]) in codes]
+        source_ids = {source for record in records for source in record['source_ids']}
+        return {'dataset_id':dataset['dataset_id'],'notice':dataset['notice'],'queried_tables':tables,
+                'normalization_notes':'record_id及fault_code/alarm_code为本系统分配的归一化标识，不是船舶原始工单编号或原厂诊断故障码。',
+                'source_match':'table_and_equipment' if codes else 'table_level',
+                'sources':[source for source in dataset['sources'] if source['id'] in source_ids],
+                'records':records,'event_date_precision':'day','retrieved_at':dataset['retrieved_at']}
 
     def schema(self) -> str:
         # Do not disclose account/chat schema, sample values or internal metadata to the model.
@@ -273,7 +293,7 @@ class EquipmentStore:
                 rows = cursor.fetchmany(max_rows + 1)
                 if any(isinstance(value, bytes) for row in rows for value in row):
                     raise ValueError("查询只支持文本和数值结果")
-                return {"columns": columns, "rows": [dict(zip(columns, row)) for row in rows[:max_rows]], "row_count": min(len(rows), max_rows), "truncated": len(rows) > max_rows}
+                return {"columns": columns, "rows": [dict(zip(columns, row)) for row in rows[:max_rows]], "row_count": min(len(rows), max_rows), "truncated": len(rows) > max_rows, "queried_tables": sorted(read_tables)}
             except (sqlite3.Error, sqlite3.Warning) as exc:
                 if denied:
                     raise ValueError("仅允许查询设备业务表，禁止写入、系统表及未授权函数") from exc

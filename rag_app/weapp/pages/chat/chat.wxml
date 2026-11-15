@@ -28,8 +28,8 @@
 请告诉我您想了解的船舶设备问题</text>
     
     <view class="demo-card" wx:if="{{demoQuestions.length}}">
-      <text class="demo-title">设备数据演示</text>
-      <text class="demo-note">使用模拟记录，可查看参数、报警、故障和检修日期</text>
+      <text class="demo-title">{{dataKind === 'public_reference' ? '公开资料 · 真实来源查询' : '设备数据演示'}}</text>
+      <text class="demo-note">{{dataNotice || '使用模拟记录，可查看参数、报警、故障和检修日期'}}</text>
       <view class="demo-question" wx:for="{{demoQuestions}}" wx:key="*this" bindtap="onDemoQuestion" data-question="{{item}}">{{item}} ›</view>
     </view>
     <view class="quick-cards">
@@ -298,6 +298,19 @@
           <text class="query-details-note">SQL 来源：{{record.generatedBy}}{{record.result.data_kind === 'demo' ? ' · 演示数据' : ''}}</text>
           <text class="query-details-note" wx:if="{{record.result.notice}}">{{record.result.notice}}</text>
           <text class="query-details-note" wx:if="{{record.result.period}}">统计区间：{{record.result.period.start}} 至 {{record.result.period.end_exclusive}}（不含结束时间）</text>
+          <view wx:if="{{record.result.query_basis}}">
+            <text class="query-record-label">数据来源与查询口径</text>
+            <text class="query-details-note">{{record.result.query_basis.notice}}</text>
+            <text class="query-details-note">{{record.result.query_basis.normalization_notes}}</text>
+            <text class="query-details-note">实际读取表：{{record.result.query_basis.queried_tables}}</text>
+            <text class="query-details-note" wx:if="{{record.result.query_basis.source_match === 'table_level'}}">以下为相关表的候选来源，不代表逐行精确溯源。</text>
+            <view wx:for="{{record.result.query_basis.sources}}" wx:for-item="source" wx:key="id">
+              <text class="query-details-note">{{source.title}} · {{source.publisher}}</text>
+              <text class="query-details-note" selectable>{{source.url}}</text>
+              <text class="query-details-note">依据位置：{{source.locator}}</text>
+              <button size="mini" bindtap="copySourceURL" data-url="{{source.document_url || source.url}}">复制原始来源链接</button>
+            </view>
+          </view>
           <text class="query-record-label">实际执行的 SQL</text>
           <text class="sql-code" selectable>{{record.result.sql || '未记录查询语句'}}</text>
           <text class="query-record-label">绑定参数</text>

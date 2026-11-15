@@ -22,6 +22,21 @@ export function DatabaseResult({ result, expanded = false }) {
   const content = <>
       <p className="my-2 text-gray-400">上海时间 · {result.executed_at} · 返回 {result.row_count} 条{result.truncated ? "（已截断，请缩小范围）" : ""}</p>
       <p className="my-2 text-gray-400">SQL 来源：{result.generated_by === 'llm' ? '模型生成' : ['template', 'rule'].includes(result.generated_by) ? '内置规则' : result.generated_by || '未记录'}{result.data_kind === 'demo' ? ' · 演示数据' : ''}</p>
+      {result.query_basis && <section className="my-3 rounded border border-amber-400/25 p-3">
+        <h4 className="font-medium text-amber-400">数据来源与查询口径</h4>
+        <p className="my-2 text-gray-400">{result.query_basis.notice}</p>
+        <p className="my-2 text-gray-400">{result.query_basis.normalization_notes}</p>
+        <p className="my-2">实际读取表：{result.query_basis.queried_tables.join('、')}</p>
+        <p className="my-2 text-gray-400">{result.query_basis.source_match === 'table_and_equipment' ? '来源按实际读取表和结果设备编号关联。' : '此聚合结果未返回设备编号，以下为相关表的候选来源，不代表逐行精确溯源。'}</p>
+        <ul className="space-y-2">{result.query_basis.sources.map(source => <li key={source.id}>
+          <a href={source.url} target="_blank" rel="noreferrer" className="text-sky-400 underline">{source.title}</a>
+          {source.document_url && <a href={source.document_url} target="_blank" rel="noreferrer" className="ml-2 text-sky-400 underline">原报告 PDF</a>}
+          <p className="text-gray-400">{source.publisher} · {source.locator}</p>
+        </li>)}</ul>
+        <details className="mt-2"><summary className="cursor-pointer">记录溯源（{result.query_basis.records.length} 条）</summary>
+          <ul>{result.query_basis.records.map(record => <li className="mt-2 break-all text-gray-400" key={`${record.table}:${record.record_key}`}>{record.table} / {record.record_key} · {record.source_ids.join(', ')} · {record.locator}{record.source_date ? ` · 源日期 ${record.source_date}（日精度）` : ''}</li>)}</ul>
+        </details>
+      </section>}
       {result.notice && <p className="my-2 text-amber-400">{result.notice}</p>}
       {result.period && <p className="my-2 text-gray-400">统计区间：{result.period.start} 至 {result.period.end_exclusive}（不含结束时间）</p>}
       <p className="mt-3 mb-1 font-medium">实际执行的 SQL</p>
@@ -60,11 +75,13 @@ export function EquipmentDemoCard({ baseURL, onQuestion, disabled }) {
       .catch(() => {});
     return () => controller.abort();
   }, [baseURL]);
-  if (overview?.data_kind !== "demo") return null;
+  if (!['demo', 'public_reference'].includes(overview?.data_kind)) return null;
+  const publicData = overview.data_kind === 'public_reference';
   return <section className="mt-5 w-full max-w-3xl mx-auto rounded-xl border border-teal-400/25 bg-teal-500/5 p-4 text-left">
-    <div className="flex flex-wrap items-center justify-between gap-2 mb-2"><h3 className="text-sm font-semibold text-teal-200">设备数据 · 演示体验</h3><span className="text-xs text-amber-300">模拟记录</span></div>
-    <p className="text-xs text-gray-400 mb-3">{overview.counts.equipment} 台设备 · {overview.counts.alarm_events} 条报警 · {overview.counts.fault_events} 条故障 · {overview.counts.maintenance_records} 条检修。点击问题直接查看本地查询结果，无需等待在线模型。</p>
-    <DemoQuestions questions={overview.demo_questions || []} onQuestion={onQuestion} disabled={disabled} />
+    <div className="flex flex-wrap items-center justify-between gap-2 mb-2"><h3 className="text-sm font-semibold text-teal-200">{publicData ? '公开资料 · 真实来源查询' : '设备数据 · 演示体验'}</h3><span className="text-xs text-amber-300">{publicData ? '机型目录与事故案例样本' : '模拟记录'}</span></div>
+    <p className="text-xs text-gray-400 mb-3">{overview.counts.equipment} 条设备/机型台账 · {overview.counts.alarm_events} 条报警 · {overview.counts.fault_events} 条故障 · {overview.counts.maintenance_records} 条检修。点击问题直接查看数据库返回结果。</p>
+    {publicData && <p className="text-xs text-amber-300 mb-3">{overview.dataset.notice}</p>}
+    <DemoQuestions questions={overview.sample_questions || overview.demo_questions || []} onQuestion={onQuestion} disabled={disabled} />
   </section>;
 }
 
@@ -148,6 +165,7 @@ export default function EquipmentPanel({ baseURL, userId, userRole, onClose, onQ
         <div className="flex items-center justify-between mb-4"><h2 className="text-lg font-semibold">设备数据</h2><button type="button" onClick={onClose} className="px-3 py-1 border border-white/20 rounded-lg">关闭</button></div>
         <p className="text-sm text-gray-400 mb-4">先导入设备台账，再导入参数、报警、故障和检修 CSV。完成后可直接提问“最近一个月哪个设备报警最多？”。</p>
         {status?.data_kind === "demo" && <div className="mb-4 rounded-lg border border-amber-400/20 bg-amber-500/5 p-3"><p className="text-sm text-amber-300 mb-1">当前为演示数据，非真实运维记录。</p><p className="text-xs text-gray-400 mb-3">生成时间：{status.seeded_at || "未记录"}（上海时间）。示例问题直接使用本地数据查询。</p><DemoQuestions questions={status.demo_questions || []} onQuestion={onQuestion} disabled={isAnswering} /></div>}
+        {status?.dataset && <div className="mb-4 rounded-lg border border-amber-400/20 p-3"><h3 className="text-sm text-amber-300">{status.dataset.title} · {status.dataset.catalog_count} 个机型配置 / {status.dataset.case_equipment_count} 个案例机位</h3><p className="text-xs text-gray-400 my-2">{status.dataset.notice}</p><DemoQuestions questions={status.sample_questions || []} onQuestion={onQuestion} disabled={isAnswering} /></div>}
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-5">{Object.entries(DATASETS).map(([key, label]) => <button type="button" key={key} disabled={busy} onClick={() => setDataset(key)} className={`rounded-lg border p-3 text-sm ${dataset === key ? "border-teal-400 bg-teal-500/15" : "border-white/10"}`}>{label}<span className="block text-lg mt-1">{status?.counts?.[key] ?? "—"}</span></button>)}</div>
         <EquipmentOverview overview={overview} />
         <div className="flex items-center gap-3 flex-wrap mb-4">

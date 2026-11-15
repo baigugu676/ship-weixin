@@ -20,6 +20,7 @@ Page({
     queryModes: ['自动识别', '设备数据库', '知识库'],
     queryModeIndex: 0,
     demoQuestions: [],
+    dataKind: '', dataNotice: '',
     syncError: '',
     statusBarHeight: 44,
     userId: '',
@@ -79,7 +80,7 @@ Page({
     this.syncFromServer();
     if (this.unsubscribeSync) this.unsubscribeSync();
     this.unsubscribeSync = app.subscribeSync(() => this.applyCloudState());
-    api.getEquipmentOverview().then(data => this.setData({ demoQuestions: data.demo_questions || [] })).catch(() => {});
+    api.getEquipmentOverview().then(data => this.setData({ demoQuestions: data.sample_questions || data.demo_questions || [], dataKind: data.data_kind, dataNotice: data.dataset?.notice || '' })).catch(() => {});
     if (app.globalData.pendingQuestion && !this.data.isAnswering) {
       const question = app.globalData.pendingQuestion;
       app.globalData.pendingQuestion = null;
@@ -167,6 +168,7 @@ Page({
     const record = this.data.queryRecords.find(record => record.id === e.currentTarget.dataset.id);
     if (record) wx.setClipboardData({ data: `${record.result.sql || ''}\n\n绑定参数：\n${record.parametersText}` });
   },
+  copySourceURL(e) { wx.setClipboardData({ data: e.currentTarget.dataset.url }); },
   toggleMessageFlag(id, key) {
     const chats = this.data.chats.map(c => c.id !== this.data.currentChatId ? c : {
       ...c, messages: c.messages.map(m => m.id !== id ? m : { ...m, [key]: !m[key] }),
