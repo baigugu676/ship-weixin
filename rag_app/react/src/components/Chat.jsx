@@ -1,5 +1,6 @@
 import { API_BASE_URL } from "../api";
-import { mergeChats, uniqueId } from "../chatSync";
+import { uniqueId } from "../chatSync";
+import { useAccountSync } from "../useAccountSync";
 import { useState, useRef, useEffect, useCallback } from "react";
 import * as echarts from "echarts";
 import Setting from "./setting";
@@ -514,6 +515,10 @@ export default function Chat({ user }) {
   // 修改：连接用户设置的默认状态
   const [graphEnabled, setGraphEnabled] = useState(userSettings?.graphOn ?? true);
   const [offlineMode, setOfflineMode] = useState(userSettings?.offlineOn ?? false); // 离线模式
+  useEffect(() => {
+    setGraphEnabled(userSettings.graphOn ?? true);
+    setOfflineMode(userSettings.offlineOn ?? false);
+  }, [userSettings.graphOn, userSettings.offlineOn]);
   const [isAnswering, setIsAnswering] = useState(false); // 新增：是否正在回答
   const [showEquipment, setShowEquipment] = useState(false);
   const [queryMode, setQueryMode] = useState("auto");
@@ -565,6 +570,17 @@ export default function Chat({ user }) {
 
   const chatPersistReadyRef = useRef(false);
   const deletedChatIdsRef = useRef(new Set(user?.deleted_chat_ids || []));
+  const streamingRefs = useRef(new Map());
+  const applyDeletions = useCallback((ids) => {
+    for (const [msgId, session] of streamingRefs.current) {
+      if (ids.includes(session.chatId)) {
+        session.abortReason = 'deleted'; session.finished = true;
+        session.controller.abort(); clearInterval(session.typeTimerId); clearTimeout(session.timeoutId);
+        streamingRefs.current.delete(msgId); setIsAnswering(false);
+      }
+    }
+    setCurrentChatId(id => ids.includes(id) ? null : id);
+  }, []);
 
   useEffect(() => {
     setUserSettings(normalizeSettings(user?.settings || {}));
@@ -575,6 +591,11 @@ export default function Chat({ user }) {
     chatPersistReadyRef.current = false;
   }, [user]);
 
+  const { status: syncStatus, queueChats, saveSettings: saveSettingsPatch, syncNow } = useAccountSync({
+    baseURL: API_CONFIG.baseURL, userId, setChats, setSettings: setUserSettings,
+    deletedIds: deletedChatIdsRef, onDeleted: applyDeletions,
+  });
+
   useEffect(() => {
     if (!userId) return undefined;
     if (!chatPersistReadyRef.current) {
@@ -582,46 +603,12 @@ export default function Chat({ user }) {
       return undefined;
     }
     if (!userSettings.autoSave) return undefined;
+    queueChats(chats);
     const timer = setTimeout(async () => {
-      try {
-        const response = await fetch(`${API_CONFIG.baseURL}/users/${encodeURIComponent(userId)}/chats`, {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ chats }),
-        });
-        if (!response.ok) {
-          const text = await response.text().catch(() => "");
-          console.warn("chat save failed", response.status, text);
-        }
-      } catch (error) {
-        console.warn("chat save request failed", error?.message || error);
-      }
+      await syncNow();
     }, 600);
     return () => clearTimeout(timer);
-  }, [chats, userId, userSettings.autoSave]);
-
-  useEffect(() => {
-    let disposed = false;
-    const refresh = async () => {
-      if (document.hidden) return;
-      try {
-        const response = await fetch(`${API_CONFIG.baseURL}/users/${encodeURIComponent(userId)}/chats`);
-        if (!response.ok || disposed) return;
-        const data = await response.json();
-        if (disposed) return;
-        for (const id of data.deleted_chat_ids || []) deletedChatIdsRef.current.add(id);
-        setChats(prev => {
-          const merged = mergeChats(prev, data.chats || [], [...deletedChatIdsRef.current]);
-          return JSON.stringify(merged) === JSON.stringify(prev) ? prev : merged;
-        });
-        setCurrentChatId(id => deletedChatIdsRef.current.has(id) ? null : id);
-      } catch (error) { console.warn('chat sync failed', error.message); }
-    };
-    refresh();
-    const timer = setInterval(refresh, 15000);
-    window.addEventListener('focus', refresh);
-    return () => { disposed = true; clearInterval(timer); window.removeEventListener('focus', refresh); };
-  }, [userId]);
+  }, [chats, userId, userSettings.autoSave, queueChats, syncNow]);
 
   const removeChats = async (id) => {
     const response = await fetch(`${API_CONFIG.baseURL}/users/${encodeURIComponent(userId)}/chats${id ? `/${encodeURIComponent(id)}` : ''}`, { method: 'DELETE', headers: { 'Content-Type': 'application/json' }, ...(id ? {} : { body: JSON.stringify({ chat_ids: chats.map(chat => chat.id) }) }) });
@@ -629,12 +616,12 @@ export default function Chat({ user }) {
     const result = await response.json();
     const removed = [...(id ? [id] : chats.map(chat => chat.id)), ...(result.deleted_chat_ids || [])];
     for (const key of removed) deletedChatIdsRef.current.add(key);
+    applyDeletions(removed);
     setChats(prev => prev.filter(chat => !deletedChatIdsRef.current.has(chat.id)));
     setCurrentChatId(current => deletedChatIdsRef.current.has(current) ? null : current);
   };
 
   // 流式会话管理
-  const streamingRefs = useRef(new Map());
 
   const chatViewRef = useRef(null);
   const fileInputRef = useRef(null);
@@ -707,6 +694,7 @@ export default function Chat({ user }) {
   const startStreaming = useCallback(async (chatId, msgId, originalText, sessionUserId, options = {}) => {
     const isOnlineMode = options.useLlm ?? !offlineMode; // 离线关闭 => 在线
     const streamSession = {
+      chatId,
       controller: new AbortController(),
       timeoutId: null,
       typeTimerId: null,
@@ -820,6 +808,7 @@ export default function Chat({ user }) {
           top_k: 5,
           use_kg: graphEnabled,
           use_llm: isOnlineMode,
+          ...(!isOnlineMode ? { enable_decompose: false } : {}),
           use_history: true,
           enable_retrieval_optimization: true,
           neo4j_uri: String(userSettings?.neo4jUri || "").trim(),
@@ -1819,10 +1808,14 @@ export default function Chat({ user }) {
       chats={chats}
       userId={userId}
       userRole={userRole}
+      syncStatus={syncStatus}
+      onSyncNow={syncNow}
       initialSettings={userSettings}
       onClearChats={() => removeChats()}
       onSettingsChange={(next) => {
         const normalized = normalizeSettings(next || {});
+        const patch = Object.fromEntries(Object.entries(normalized).filter(([key, value]) => value !== userSettings[key]));
+        if (Object.keys(patch).length) saveSettingsPatch(patch);
         setUserSettings(normalized);
         if (!currentChatId) {
           setGraphEnabled(normalized.graphOn ?? true);
@@ -1860,6 +1853,7 @@ export default function Chat({ user }) {
             <i className="ph ph-plus-circle text-lg"></i>
             新建会话
           </button>
+          <button type="button" onClick={syncNow} className="w-full mt-3 text-xs text-teal-400" title="与微信小程序同步，点击重试" aria-live="polite">{syncStatus}</button>
         </div>
 
         <div className="flex-1 overflow-y-auto px-3 pb-3 flex flex-col custom-scrollbar">

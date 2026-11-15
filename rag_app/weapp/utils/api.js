@@ -80,7 +80,7 @@ function login(userId, password) {
 function getUserSettings(userId) {
   return request({
     url: `/users/${encodeURIComponent(userId)}/settings`,
-    method: 'GET'
+    method: 'GET', timeout: 20000,
   });
 }
 
@@ -89,7 +89,7 @@ function saveUserSettings(userId, settings, changedBy) {
   return request({
     url: `/users/${encodeURIComponent(userId)}/settings`,
     method: 'PUT',
-    data: { settings, changed_by: changedBy || userId }
+    data: { settings, changed_by: changedBy || userId }, timeout: 20000,
   });
 }
 
@@ -97,7 +97,7 @@ function saveUserSettings(userId, settings, changedBy) {
 function getUserChats(userId) {
   return request({
     url: `/users/${encodeURIComponent(userId)}/chats`,
-    method: 'GET'
+    method: 'GET', timeout: 20000,
   });
 }
 
@@ -106,7 +106,7 @@ function saveUserChats(userId, chats) {
   return request({
     url: `/users/${encodeURIComponent(userId)}/chats`,
     method: 'PUT',
-    data: { chats }
+    data: { chats }, timeout: 20000,
   });
 }
 
@@ -383,7 +383,7 @@ function deleteUserChat(userId, chatId) {
 function clearUserChats(userId, chatIds = []) {
   return request({ url: `/users/${encodeURIComponent(userId)}/chats`, method: 'DELETE', data: { chat_ids: chatIds } });
 }
-function getEquipmentOverview() { return request({ url: '/equipment/overview' }); }
+function getEquipmentOverview(timeout = 30000) { return request({ url: '/equipment/overview', timeout }); }
 function getEquipmentSchema() { return request({ url: '/equipment/schema' }); }
 function getEquipmentRecords(dataset) { return request({ url: `/equipment/records/${dataset}?limit=100` }); }
 function getEquipmentTemplate(dataset) { return request({ url: `/equipment/templates/${dataset}`, dataType: 'text' }); }

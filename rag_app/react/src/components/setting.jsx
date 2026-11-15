@@ -198,6 +198,8 @@ export default function Setting({
     userRole = 0,
     initialSettings,
     onSettingsChange,
+    syncStatus,
+    onSyncNow,
 }) {
     const [activeTab, setActiveTab] = useState("personal");
     const isAdmin = Number(userRole) === 1;
@@ -300,11 +302,9 @@ export default function Setting({
     }, [settings]);
 
     const updateSetting = (key, value) => {
-        setSettings(prev => {
-            const next = { ...prev, [key]: value };
-            if (onSettingsChange) onSettingsChange(next);
-            return next;
-        });
+        const next = { ...settings, [key]: value };
+        setSettings(next);
+        if (onSettingsChange) onSettingsChange(next);
     };
 
     const handleAvatarChange = (e) => {
@@ -1176,6 +1176,7 @@ export default function Setting({
                     borderRight: isLightUi ? "1px solid rgba(148, 163, 184, 0.28)" : "1px solid rgba(255, 255, 255, 0.05)"
                 }}>
                 <div className="p-5">
+                    <button type="button" onClick={onSyncNow} className="mb-3 text-xs text-teal-400" aria-live="polite">{syncStatus}</button>
                     <div className="flex items-center gap-3 mb-6">
                         <div className="w-10 h-10 rounded-xl flex items-center justify-center"
                             style={{ background: "#0a2530", border: "1px solid rgba(45,212,191,0.3)" }}>

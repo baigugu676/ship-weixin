@@ -159,7 +159,14 @@
               <text class="kg-arrow {{item.kgOpen ? 'open' : ''}}">▼</text>
             </view>
             <view class="kg-body" wx:if="{{item.kgOpen}}">
-              <text class="kg-triplet" wx:for="{{item.kgTriplets}}" wx:for-item="t" wx:key="index">{{index + 1}}. {{t.head}} --{{t.rel || t.relation || '关联'}}--> {{t.tail}}</text>
+              <input class="kg-search" value="{{item.kgFilter}}" placeholder="搜索实体或关系，点击节点查看关联" bindinput="filterKg" data-msgid="{{item.id}}" />
+              <view class="kg-filter-clear" wx:if="{{item.kgFilter}}" bindtap="filterKg" data-msgid="{{item.id}}" data-entity="">清除筛选 · 显示全部关系</view>
+              <view class="kg-edge" wx:for="{{item.kgEdges || item.kgTriplets}}" wx:for-item="t" wx:key="index">
+                <text class="kg-node" bindtap="filterKg" data-msgid="{{item.id}}" data-entity="{{t.head}}">{{t.head}}</text>
+                <text class="kg-relation">{{t.rel || t.relation || '关联'}} →</text>
+                <text class="kg-node" bindtap="filterKg" data-msgid="{{item.id}}" data-entity="{{t.tail}}">{{t.tail}}</text>
+              </view>
+              <text class="trace-step" wx:if="{{item.kgEdges.length === 0}}">没有匹配的关系</text>
             </view>
           </view>
         </view>

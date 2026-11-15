@@ -75,8 +75,8 @@ Page({
       this.setData({ currentChatId: id, currentChat: this.data.chats.find(c => c.id === id) || null });
     }
     this.syncFromServer();
-    clearInterval(this.syncTimer);
-    this.syncTimer = setInterval(() => this.syncFromServer(), 15000);
+    if (this.unsubscribeSync) this.unsubscribeSync();
+    this.unsubscribeSync = app.subscribeSync(() => this.applyCloudState());
     api.getEquipmentOverview().then(data => this.setData({ demoQuestions: data.demo_questions || [] })).catch(() => {});
     if (app.globalData.pendingQuestion && !this.data.isAnswering) {
       const question = app.globalData.pendingQuestion;
@@ -88,24 +88,31 @@ Page({
   },
 
   onHide() {
-    clearInterval(this.syncTimer);
+    if (this.unsubscribeSync) this.unsubscribeSync();
     if (app.globalData.userInfo) app.setChats(this.snapshotChats(this.data.chats));
   },
 
   async retrySync() { await this.saveChatsToServer(this.data.chats); await this.syncFromServer(); },
+
+  applyCloudState() {
+    if (app.globalData.userInfo?.user_id !== this.data.userId) return;
+    if ((app.globalData.deletedChatIds || []).includes(this.data.currentChatId)) this.stopStreams();
+    this.initUserData();
+    this.setData({ ...app.appearance(), syncError: app.globalData.syncStatus.error || '' });
+  },
 
   async syncFromServer() {
     const userId = this.data.userId;
     if (!userId || this.syncBusy) return;
     this.syncBusy = true;
     try {
-      const data = await api.getUserChats(userId);
+      await app.syncNow();
       if (app.globalData.userInfo?.user_id !== userId) return;
-      app.setDeletedChatIds(data.deleted_chat_ids || []);
-      const chats = this.mergeChats(this.data.chats, data.chats || []);
+      const chats = this.mergeChats(this.data.chats, app.globalData.chats || []);
       const currentChat = chats.find(c => c.id === this.data.currentChatId) || null;
       if (!currentChat && this.data.currentChatId) this.stopStreams();
       this.setData({ chats, currentChat, currentChatId: currentChat ? currentChat.id : null, syncError: '' });
+      this.initUserData();
       app.setChats(this.snapshotChats(chats));
     } catch (err) { this.setData({ syncError: '同步失败，记录已保存在本机。点此重试' }); }
     finally { this.syncBusy = false; }
@@ -373,6 +380,7 @@ Page({
         top_k: 5,
         use_kg: this.data.graphEnabled,
         use_llm: options.useLlm ?? !this.data.offlineMode,
+        ...(!(options.useLlm ?? !this.data.offlineMode) ? { enable_decompose: false } : {}),
         query_mode: this.data.queryMode,
         use_history: true,
         enable_retrieval_optimization: true,
@@ -620,9 +628,23 @@ Page({
       const msg = chat.messages.find(m => m.id === msgId);
       if (msg) {
         msg.kgOpen = !msg.kgOpen;
+        msg.kgEdges = msg.kgTriplets || [];
+        msg.kgFilter = '';
         this.setData({ chats, currentChat: chat });
       }
     }
+  },
+
+  filterKg(e) {
+    const msgId = e.currentTarget.dataset.msgid;
+    const term = String(e.currentTarget.dataset.entity ?? e.detail?.value ?? '').trim();
+    const chats = this.data.chats.map(chat => chat.id !== this.data.currentChatId ? chat : {
+      ...chat, messages: chat.messages.map(msg => msg.id !== msgId ? msg : {
+        ...msg, kgFilter: term,
+        kgEdges: (msg.kgTriplets || []).filter(edge => [edge.head, edge.tail, edge.rel || edge.relation].some(value => String(value || '').toLowerCase().includes(term.toLowerCase()))),
+      }),
+    });
+    this.setData({ chats, currentChat: chats.find(chat => chat.id === this.data.currentChatId) });
   },
 
   // 新建会话
@@ -836,10 +858,9 @@ Page({
     }
 
     try {
-      const data = await api.saveUserChats(userId, snapshot);
+      await app.persistChats(snapshot);
       if (app.globalData.userInfo?.user_id !== userId) return;
-      app.setDeletedChatIds(data.deleted_chat_ids || []);
-      const merged = this.mergeChats(this.data.chats, data.chats || []);
+      const merged = this.mergeChats(this.data.chats, app.globalData.chats || []);
       app.setChats(this.snapshotChats(merged));
       const currentChat = merged.find(c => c.id === this.data.currentChatId) || null;
       this.setData({ chats: merged, currentChat, currentChatId: currentChat?.id || null, syncError: '' });
@@ -868,6 +889,7 @@ Page({
     this.setData({ isAnswering: false, activeStreamingPaused: false, activeStreamingMsgId: null });
   },
   onUnload() {
+    if (this.unsubscribeSync) this.unsubscribeSync();
     clearInterval(this.syncTimer);
     this.stopStreams();
   },

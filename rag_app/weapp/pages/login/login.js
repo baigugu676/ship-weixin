@@ -57,11 +57,7 @@ Page({
       
       if (data.ok && data.user) {
         // 保存用户数据
-        app.clearUserData();
-        app.setUserInfo(data.user);
-        app.setSettings(api.normalizeSettings(data.settings));
-        app.setChats(data.chats || []);
-        app.setDeletedChatIds(data.deleted_chat_ids || []);
+        app.restoreAccount({ ...data, settings: api.normalizeSettings(data.settings) });
 
         wx.showToast({
           title: '登录成功',

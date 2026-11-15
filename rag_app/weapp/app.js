@@ -7,6 +7,7 @@ App({
     deletedChatIds: [],
     selectedChatId: null,
     pendingQuestion: null,
+    syncStatus: { state: 'idle', error: '', lastSyncedAt: null },
     apiBaseURL: 'http://127.0.0.1:8000', // 本地开发；真机或云端地址可在登录页配置
   },
 
@@ -26,6 +27,72 @@ App({
     }
     
     console.log('智能船舶问答小程序已启动');
+    this.syncListeners = new Set();
+    if (wx.onNetworkStatusChange) wx.onNetworkStatusChange(({ isConnected }) => {
+      if (isConnected && this.globalData.userInfo) this.syncNow().catch(() => {});
+    });
+  },
+
+  onShow() {
+    clearInterval(this.syncTimer);
+    this.syncTimer = setInterval(() => { if (this.globalData.userInfo) this.syncNow().catch(() => {}); }, 15000);
+    if (this.globalData.userInfo) this.syncNow().catch(() => {});
+  },
+  onHide() { clearInterval(this.syncTimer); },
+
+  subscribeSync(listener) {
+    if (!this.syncListeners) this.syncListeners = new Set();
+    this.syncListeners.add(listener);
+    return () => this.syncListeners.delete(listener);
+  },
+  notifySync() { for (const listener of this.syncListeners || []) listener(this.globalData); },
+  cacheKey() { return `ship-state:${this.globalData.apiBaseURL}:${this.globalData.userInfo?.user_id || ''}`; },
+  cacheAccount() {
+    if (this.globalData.userInfo) wx.setStorageSync(this.cacheKey(), {
+      chats: this.globalData.chats, settings: this.globalData.settings, deletedChatIds: this.globalData.deletedChatIds,
+    });
+  },
+  getCloudSync() {
+    if (!this.globalData.userInfo) return null;
+    const key = this.cacheKey();
+    if (this.cloudSyncKey === key && this.cloudSync) return this.cloudSync;
+    const api = require('./utils/api');
+    const { createCloudSync } = require('./utils/cloud-sync');
+    this.cloudSyncKey = key;
+    const generation = this.cloudSyncGeneration = (this.cloudSyncGeneration || 0) + 1;
+    this.cloudSync = createCloudSync({
+      api, userId: this.globalData.userInfo.user_id,
+      active: () => this.cloudSyncGeneration === generation && this.cloudSyncKey === key && this.cacheKey() === key,
+      read: () => this.globalData,
+      load: () => wx.getStorageSync(`${key}:pending`),
+      save: pending => wx.setStorageSync(`${key}:pending`, pending),
+      write: ({ chats, settings, deletedChatIds }) => {
+        this.setChats(chats); this.setSettings(settings); this.setDeletedChatIds(deletedChatIds); this.notifySync();
+      },
+      status: patch => { this.globalData.syncStatus = { ...this.globalData.syncStatus, ...patch }; this.notifySync(); },
+    });
+    return this.cloudSync;
+  },
+  syncNow() { return this.getCloudSync()?.sync() || Promise.resolve(); },
+  persistChats(chats) {
+    this.setChats(chats);
+    return this.globalData.settings?.autoSave === false ? Promise.resolve() : this.getCloudSync()?.chats(chats) || Promise.resolve();
+  },
+  persistSettings(patch) {
+    this.setSettings({ ...this.globalData.settings, ...patch });
+    const manager = this.getCloudSync();
+    const result = manager?.settings(patch) || Promise.resolve();
+    if (patch.autoSave === true) manager.chats(this.globalData.chats).catch(() => {});
+    return result;
+  },
+  restoreAccount(data) {
+    this.clearUserData(); this.setUserInfo(data.user);
+    const cached = wx.getStorageSync(this.cacheKey()) || {};
+    const { mergeChats } = require('./utils/chat-sync');
+    const deleted = [...new Set([...(cached.deletedChatIds || []), ...(data.deleted_chat_ids || [])])];
+    this.setSettings({ ...data.settings, ...((wx.getStorageSync(`${this.cacheKey()}:pending`) || {}).settings || {}) });
+    this.setChats(mergeChats(cached.chats || [], data.chats || [], deleted));
+    this.setDeletedChatIds(deleted);
   },
 
   setAPIBaseURL(value) {
@@ -43,11 +110,13 @@ App({
   setSettings(settings) {
     this.globalData.settings = settings;
     wx.setStorageSync('settings', settings);
+    this.cacheAccount();
   },
 
   setChats(chats) {
-    this.globalData.chats = chats;
-    wx.setStorageSync('chats', chats);
+    this.globalData.chats = (chats || []).filter(chat => !(this.globalData.deletedChatIds || []).includes(chat.id));
+    wx.setStorageSync('chats', this.globalData.chats);
+    this.cacheAccount();
   },
 
   setDeletedChatIds(ids) {
@@ -64,12 +133,17 @@ App({
   },
 
   clearUserData() {
+    this.cacheAccount();
+    this.cloudSyncKey = null;
+    this.cloudSyncGeneration = (this.cloudSyncGeneration || 0) + 1;
+    this.cloudSync = null;
     this.globalData.userInfo = null;
     this.globalData.settings = null;
     this.globalData.chats = [];
     this.globalData.deletedChatIds = [];
     this.globalData.selectedChatId = null;
     this.globalData.pendingQuestion = null;
+    this.globalData.syncStatus = { state: 'idle', error: '', lastSyncedAt: null };
     wx.removeStorageSync('deletedChatIds');
     wx.removeStorageSync('userInfo');
     wx.removeStorageSync('settings');

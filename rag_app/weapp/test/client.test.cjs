@@ -68,6 +68,17 @@ test('CSV export handles quotes, newlines and spreadsheet formulas', () => {
   assert.ok(csv.startsWith('\ufeff')); assert.match(csv, /a,""b/); assert.ok(csv.includes("'=1+2")); assert.ok(csv.includes('"0"'));
 });
 function page(relative, api, app, wxExtra = {}) {
+  if (!app.syncNow) app.syncNow = async () => {
+    if (!api.getUserChats) return;
+    const data = await api.getUserChats(app.globalData.userInfo.user_id);
+    app.setDeletedChatIds(data.deleted_chat_ids || []);
+    app.setChats(sync.mergeChats(app.globalData.chats, data.chats || [], app.globalData.deletedChatIds));
+  };
+  if (!app.persistChats) app.persistChats = async chats => {
+    const data = await api.saveUserChats(app.globalData.userInfo.user_id, chats);
+    app.setDeletedChatIds(data.deleted_chat_ids || []); app.setChats(data.chats || chats);
+  };
+  if (!app.subscribeSync) app.subscribeSync = () => () => {};
   let instance;
   const context = { Page(value) { instance = value; }, getApp: () => app,
     require(name) { if (name.includes('api.js')) return api; if (name.includes('chat-sync')) return sync; if (name.includes('markdown')) return markdown; if (name.includes('export')) return exporter; throw Error(name); },
@@ -144,4 +155,17 @@ test('local server address is persisted and rejects non-HTTP schemes', () => {
   app.setAPIBaseURL(' http://192.168.1.100:8000/ ');
   assert.equal(storage.get('apiBaseURL'), 'http://192.168.1.100:8000');
   assert.throws(() => app.setAPIBaseURL('javascript:alert(1)'));
+});
+
+test('mini knowledge graph supports entity selection and relation filtering', () => {
+  const app = appMock();
+  const chatPage = page('pages/chat/chat.js', {}, app);
+  const message = { id: 'answer', kgTriplets: [{ head: '液压泵', rel: '可能出现', tail: '泄漏' }, { head: '电机', rel: '可能出现', tail: '发热' }] };
+  chatPage.data.chats = [{ id: 'chat', messages: [message] }]; chatPage.data.currentChatId = 'chat';
+  chatPage.toggleKg({ currentTarget: { dataset: { msgid: 'answer' } } });
+  chatPage.filterKg({ currentTarget: { dataset: { msgid: 'answer', entity: '液压泵' } } });
+  assert.equal(chatPage.data.currentChat.messages[0].kgEdges.length, 1);
+  assert.equal(chatPage.data.currentChat.messages[0].kgEdges[0].tail, '泄漏');
+  chatPage.filterKg({ currentTarget: { dataset: { msgid: 'answer', entity: '' } } });
+  assert.equal(chatPage.data.currentChat.messages[0].kgEdges.length, 2);
 });

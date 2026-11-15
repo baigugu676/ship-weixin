@@ -7,8 +7,15 @@ Page({
   onShow() {
     if (!app.globalData.userInfo) { wx.reLaunch({ url: '/pages/login/login' }); return; }
     this.setData(app.appearance());
+    if (this.unsubscribeSync) this.unsubscribeSync();
+    this.unsubscribeSync = app.subscribeSync(() => {
+      this.setData(app.appearance());
+      this.renderChats(app.globalData.chats || []);
+    });
     this.loadChats();
   },
+  onHide() { if (this.unsubscribeSync) this.unsubscribeSync(); },
+  onUnload() { if (this.unsubscribeSync) this.unsubscribeSync(); },
   async onPullDownRefresh() { await this.loadChats(); wx.stopPullDownRefresh(); },
   async loadChats() {
     if (this.data.loading) return;
@@ -17,10 +24,9 @@ Page({
     if (!userId) return;
     this.setData({ loading: true, error: '' });
     try {
-      const data = await api.getUserChats(userId);
+      await app.syncNow();
       if (app.globalData.userInfo?.user_id !== userId) return;
-      app.setDeletedChatIds(data.deleted_chat_ids || []);
-      const chats = sync.mergeChats(app.globalData.chats, data.chats || [], app.globalData.deletedChatIds);
+      const chats = sync.mergeChats(app.globalData.chats, [], app.globalData.deletedChatIds);
       app.setChats(chats);
       this.renderChats(chats);
     } catch (err) { this.setData({ error: '同步失败，正在显示本机记录。点击重试' }); }

@@ -1,8 +1,16 @@
 <!--pages/settings/settings.wxml-->
 <view class="settings-container {{appearance}}" style="font-size: {{fontSize}}px;">
   <text class="settings-error" wx:if="{{error}}">{{error}}</text>
+  <view class="settings-group">
+    <view class="group-title">网页与小程序协作</view>
+    <view class="setting-item"><text>{{syncText}}</text><button size="mini" bindtap="syncNow">立即同步</button></view>
+    <view class="setting-desc">两端使用同一后端地址和同一账号，可同时提问；记录按会话合并。断网修改会在重新联网后补传。</view>
+    <view class="setting-item"><text class="info-value api-url" selectable>{{apiBaseURL}}</text><button size="mini" bindtap="copyServerURL">复制地址</button></view>
+    <view class="setting-item"><text>{{connectionStatus || '请确保网页与小程序连接同一服务器'}}</text><button size="mini" loading="{{testingConnection}}" bindtap="testConnection">检测连接</button></view>
+  </view>
   <view class="setting-item" bindtap="goToEquipment"><text class="setting-name">设备数据中心</text><text>›</text></view>
   <view class="setting-item" bindtap="goToHistory"><text class="setting-name">历史记录 · 导出 · 删除</text><text>›</text></view>
+  <view class="setting-item" bindtap="exportPersonalData"><text class="setting-name">导出个人设置与聊天备份</text><text>›</text></view>
   <!-- 用户信息卡片 -->
   <view class="user-card">
     <view class="user-avatar">

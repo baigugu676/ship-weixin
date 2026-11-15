@@ -8,7 +8,7 @@
 |---|---|---|
 | POST | `/auth/login` | 验证账号并返回用户、设置、聊天 |
 | GET / PUT | `/users/{user_id}/settings` | 读取 / 保存设置 |
-| GET / PUT | `/users/{user_id}/chats` | 读取 / 全量替换聊天 |
+| GET / PUT / DELETE | `/users/{user_id}/chats` | 读取 / 合并 / 显式清空聊天 |
 | POST | `/rag/query` | 普通问答，直接接收 `QueryRequest` |
 | POST | `/rag/query/stream` | 业务 SSE 问答，以 `user_id` 映射生成会话 |
 | POST | `/rag/incremental/upload` | 文档上传并同步增量索引 |
@@ -33,10 +33,10 @@
 成功返回 `{"ok":true,"user":{...},"settings":{...},"chats":[...]}`。`user` 包含 `user_id`、`role`、`name`、`avatar`。缺少账号或密码返回 400，验证失败返回 401。初始化演示账号为 `admin`、`captain_park`，默认密码均为 `123456`；这些是开发默认值。
 
 - `GET /users/{user_id}/settings` 返回 `{"ok":true,"settings":{...}}`。
-- `PUT /users/{user_id}/settings` 接收 `{"settings":{...},"changed_by":"..."}`，`settings` 必须为对象。服务端合并默认值再保存，未传字段可能恢复默认，客户端应提交完整设置；响应同上。`changed_by` 可选，默认取路径中的用户 ID。
+- `PUT /users/{user_id}/settings` 接收 `{"settings":{...},"changed_by":"..."}`，`settings` 必须为对象。服务端只合并所传字段，未传字段保留原值；两端应仅提交本次修改的字段，避免覆盖另一端的设置。`changed_by` 可选，默认取路径中的用户 ID。
 - 设置包括 `nickname/avatar/imo/email/emergency/theme/fontSize/notify/autoSave/graphOn/offlineOn/streamSpeed/dbPath/model/retention`。客户端还会维护 Neo4j 连接字段，但当前设置持久化服务不保存这些连接字段。
-- `GET /users/{user_id}/chats` 返回 `{"ok":true,"chats":[...]}`。
-- `PUT /users/{user_id}/chats` 接收 `{"chats":[...]}`，会全量替换该账号的历史会话，不能按增量追加理解；返回保存后的聊天列表。
+- `GET /users/{user_id}/chats` 返回 `{"ok":true,"chats":[...],"deleted_chat_ids":[...]}`。
+- `PUT /users/{user_id}/chats` 接收 `{"chats":[...]}`，按会话和消息ID合并，遗漏的会话保留；返回合并后的聊天列表及删除标记。删除必须使用显式DELETE接口，不能用PUT空列表实现。
 
 ## 问答参数
 

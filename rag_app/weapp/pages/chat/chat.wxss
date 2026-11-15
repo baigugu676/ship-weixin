@@ -846,6 +846,11 @@
 .demo-question { padding: 10rpx 0; font-size: 24rpx; color: #5eead4; }
 .mode-picker { padding: 10rpx 0; color: #2dd4bf; font-size: 24rpx; }
 .sync-hint { padding: 12rpx; color: #fbbf24; font-size: 24rpx; }
+.kg-search { border: 1rpx solid #94a3b855; border-radius: 12rpx; padding: 16rpx; font-size: 24rpx; color: inherit; }
+.kg-edge { display: flex; align-items: center; gap: 10rpx; padding: 12rpx 0; }
+.kg-node { flex: 1; padding: 12rpx; border-radius: 12rpx; background: #14b8a61a; color: #14b8a6; font-size: 24rpx; word-break: break-all; }
+.kg-relation { width: 140rpx; text-align: center; font-size: 22rpx; color: #94a3b8; }
+.kg-filter-clear { padding: 12rpx 0; color: #14b8a6; font-size: 24rpx; }
 .sql-code { display: block; white-space: pre-wrap; font-family: monospace; background: #0003; padding: 16rpx; font-size: 22rpx; word-break: break-all; }
 .sql-table-scroll { width: 100%; margin: 12rpx 0; }
 .sql-table { display: inline-block; min-width: 100%; }

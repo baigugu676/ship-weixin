@@ -1,6 +1,6 @@
 # 智能船舶问答系统 · 微信小程序
 
-原生微信小程序，与 React 网页端共用 `api_server.py` 提供的 API。本文依据 2026-11-04 的实现。
+原生微信小程序，与 React 网页端共用 `api_server.py` 提供的 API。本文更新至 2026-11-15 的双端协作版本。
 
 ## 页面与功能
 
@@ -45,7 +45,7 @@ apiBaseURL: 'http://localhost:8000'
 共用的接口包括 `/auth/login`、`/users/{user_id}/settings`、`/users/{user_id}/chats`、`/rag/query/stream`、`/rag/query`、`/rag/incremental/upload`、`/vision/describe` 以及 `/weather/*`。完整字段和 SSE 事件见 [接口文档](../react/frontend_api.md)。
 
 - 流式问答使用 `wx.request` 分块接收，运行基础库需支持 `enableChunked` 和 `onChunkReceived`；事件解析需处理跨传输块的文本。
-- “离线模式”发送 `use_llm=false`，使用抽取式回答，不会自动调用 Ollama；默认问题分解仍可能访问在线模型，需同时核对后端配置。
+- “离线模式”发送 `use_llm=false` 和 `enable_decompose=false`，使用抽取式回答并关闭在线问题分解；仍需连接后端，不会自动调用 Ollama。
 - 文件上传支持 TXT、Markdown、PDF，进入共享知识索引，不是私有用户知识库。服务端文档接口目前没有显式大小上限。
 - 图片先调用 `/vision/describe`，最大 10 MiB，再将用户确认后的描述提交问答。
 - 位置功能在 `app.json` 已声明 `scope.userLocation` 和 `requiredPrivateInfos: ["getLocation"]`；是否可用还取决于用户授权及平台配置。
@@ -73,6 +73,10 @@ apiBaseURL: 'http://localhost:8000'
 
 两端共用一个后端和关系型数据库，可用同一账号同时登录。不同会话用独立标识，模型调用不再持有全局查询锁。问答历史 JSON 使用按会话加锁的原子写入；聊天存档使用按账号合并，不再用整份列表替换。浏览页面时每 15 秒拉取远端记录，网页重新获得焦点或小程序重新进入问答页时也会同步；未上传成功的记录保存在本机，问答页显示重试入口。关闭自动保存时，新增会话只保存到本机。
 
+小程序同步由应用统一管理，在聊天、历史、设置、设备及天气页面期间均可运行。回到前台或网络恢复时自动重试；待补传记录和设置按后端地址及账号分开保存，退出后重新登录同一账号仍可补传。一次保存期间继续编辑时，较旧的响应不会清除新修改。网页也提供按账号保存的补传队列和同步状态；设置仅上传本次修改的字段。
+
+设置页新增“网页与小程序协作”：查看同步状态、手动重试、复制后端地址、检测连接，以及导出不含图谱密码的个人设置和聊天JSON备份。问答图谱可搜索实体或关系，并点击节点筛选关联。微信切到后台后，请求和定时器可能被系统暂停；重新进入前台会恢复同步，不能保证后台持续流式输出。
+
 删除使用显式 DELETE 接口，服务端保留删除标记，另一端上传旧快照不能恢复已删除会话。清空会同步到两端。后端和两端代码应一起升级；旧客户端用 PUT 空列表清空的方式已停用。
 
 切换标签页时流式回答会继续；新建会话会中断当前请求，并把尚未显示的文本一起保存。暂停按钮只暂停显示，再点击继续显示，不会另发一个问题。分块接收和整包兜底互斥，防止回答重复；缺少结束事件时会提示连接提前结束。
@@ -83,7 +87,7 @@ apiBaseURL: 'http://localhost:8000'
 
 ```bash
 python -m unittest discover -s rag_app/test -p 'test_*.py' -v
-node --test rag_app/weapp/test/client.test.cjs
+node --test rag_app/weapp/test/*.test.cjs rag_app/react/src/accountSync.test.cjs
 ```
 
 测试覆盖设备 SQL、导入校验、双端存档合并、删除防恢复、历史并发写入、慢网页查询与小程序流式请求同时执行，以及小程序 SSE、暂停/恢复、SQL 结果和页面状态。WXML/WXSS 已通过本机微信官方编译器；真机登录、文件分享、定位和平台域名配置仍须在微信环境联调。工具编译不等于已上传体验版。
